@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\Web</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="1.html">
+      <publishTime>06/20/2019 23:33:52</publishTime>
+    </File>
+    <File Include="bin/1.html">
+      <publishTime>06/20/2019 23:33:52</publishTime>
+    </File>
+    <File Include="bin/commodity.html">
+      <publishTime>07/06/2019 23:48:57</publishTime>
+    </File>
+    <File Include="bin/Framework.Common.dll">
+      <publishTime>07/02/2019 22:46:00</publishTime>
+    </File>
+    <File Include="bin/Google.Protobuf.dll">
+      <publishTime>08/10/2018 18:51:54</publishTime>
+    </File>
+    <File Include="bin/Images/Adv/city--1-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/Adv/city--2-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/Adv/city--3-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/Adv/city--4-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/Adv/city--5-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/bodybg.jpg">
+      <publishTime>06/11/2019 21:55:20</publishTime>
+    </File>
+    <File Include="bin/Images/city--1-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/city--2-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/city--3-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/city--4-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/city--5-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="bin/Images/commodity/bsf5004.jpg">
+      <publishTime>06/20/2019 00:11:28</publishTime>
+    </File>
+    <File Include="bin/Images/ico/df1.png">
+      <publishTime>06/13/2019 22:12:49</publishTime>
+    </File>
+    <File Include="bin/Images/ico/df2.png">
+      <publishTime>06/13/2019 22:12:49</publishTime>
+    </File>
+    <File Include="bin/Images/ico/gp1.png">
+      <publishTime>06/13/2019 22:20:18</publishTime>
+    </File>
+    <File Include="bin/Images/ico/gp2.png">
+      <publishTime>06/13/2019 22:20:18</publishTime>
+    </File>
+    <File Include="bin/Images/ico/my1.png">
+      <publishTime>06/13/2019 22:22:04</publishTime>
+    </File>
+    <File Include="bin/Images/ico/my2.png">
+      <publishTime>06/13/2019 22:22:06</publishTime>
+    </File>
+    <File Include="bin/Images/ico/pp1.png">
+      <publishTime>06/14/2019 21:16:15</publishTime>
+    </File>
+    <File Include="bin/Images/ico/pp2.png">
+      <publishTime>06/14/2019 21:16:15</publishTime>
+    </File>
+    <File Include="bin/Images/ico/sh.png">
+      <publishTime>06/13/2019 21:36:57</publishTime>
+    </File>
+    <File Include="bin/Images/ico/sp1.png">
+      <publishTime>06/13/2019 22:22:06</publishTime>
+    </File>
+    <File Include="bin/Images/ico/sp2.png">
+      <publishTime>06/13/2019 22:22:04</publishTime>
+    </File>
+    <File Include="bin/Images/inputBg.png">
+      <publishTime>06/13/2019 21:25:26</publishTime>
+    </File>
+    <File Include="bin/Images/logo/BASF.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/dg.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/DIC.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/drjh.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/hl.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/kle.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/klf.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/ls.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/Images/logo/p1.png">
+      <publishTime>06/15/2019 01:01:53</publishTime>
+    </File>
+    <File Include="bin/Images/logo/p2.png">
+      <publishTime>06/15/2019 01:01:52</publishTime>
+    </File>
+    <File Include="bin/Images/logo/rbwy.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="bin/js/bottomClick.js">
+      <publishTime>07/04/2019 21:34:37</publishTime>
+    </File>
+    <File Include="bin/js/brand.js">
+      <publishTime>07/03/2019 21:40:05</publishTime>
+    </File>
+    <File Include="bin/js/commodity.js">
+      <publishTime>07/06/2019 23:49:36</publishTime>
+    </File>
+    <File Include="bin/js/iscroll.js">
+      <publishTime>06/22/2019 16:34:58</publishTime>
+    </File>
+    <File Include="bin/js/jquery-1.11.0.min.js">
+      <publishTime>06/12/2019 20:47:14</publishTime>
+    </File>
+    <File Include="bin/js/login.js">
+      <publishTime>07/04/2019 21:36:09</publishTime>
+    </File>
+    <File Include="bin/js/main.js">
+      <publishTime>06/15/2019 13:52:41</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>01/28/2019 07:41:58</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/27/2018 18:07:34</publishTime>
+    </File>
+    <File Include="bin/QSW.Common.dll">
+      <publishTime>07/04/2019 21:42:58</publishTime>
+    </File>
+    <File Include="bin/Qsw.Services.dll">
+      <publishTime>07/04/2019 21:42:58</publishTime>
+    </File>
+    <File Include="bin/QSW.Web.Controllers.dll">
+      <publishTime>07/04/2019 21:42:59</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/28/2018 12:59:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2018 13:00:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/Web.dll">
+      <publishTime>07/04/2019 21:42:59</publishTime>
+    </File>
+    <File Include="commodity.html">
+      <publishTime>07/06/2019 23:48:57</publishTime>
+    </File>
+    <File Include="css/carousel.css">
+      <publishTime>06/22/2019 16:16:51</publishTime>
+    </File>
+    <File Include="css/com.css">
+      <publishTime>07/04/2019 22:40:46</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>06/23/2019 17:52:56</publishTime>
+    </File>
+    <File Include="css/zzsc.css">
+      <publishTime>06/13/2019 20:41:45</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>06/15/2019 12:35:26</publishTime>
+    </File>
+    <File Include="GroupCommodity.html">
+      <publishTime>07/06/2019 23:20:01</publishTime>
+    </File>
+    <File Include="Images/Adv/city--1-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/Adv/city--2-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/Adv/city--3-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/Adv/city--4-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/Adv/city--5-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/bodybg.jpg">
+      <publishTime>06/11/2019 21:55:20</publishTime>
+    </File>
+    <File Include="Images/city--1-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/city--2-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/city--3-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/city--4-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/city--5-min-min.jpg">
+      <publishTime>06/13/2019 19:13:40</publishTime>
+    </File>
+    <File Include="Images/commodity/50012N.jpg">
+      <publishTime>06/20/2019 21:47:44</publishTime>
+    </File>
+    <File Include="Images/commodity/bsf5004.jpg">
+      <publishTime>06/20/2019 00:11:28</publishTime>
+    </File>
+    <File Include="Images/ico/df1.png">
+      <publishTime>06/13/2019 22:12:49</publishTime>
+    </File>
+    <File Include="Images/ico/df2.png">
+      <publishTime>06/13/2019 22:12:49</publishTime>
+    </File>
+    <File Include="Images/ico/gp1.png">
+      <publishTime>06/13/2019 22:20:18</publishTime>
+    </File>
+    <File Include="Images/ico/gp2.png">
+      <publishTime>06/13/2019 22:20:18</publishTime>
+    </File>
+    <File Include="Images/ico/gwc.png">
+      <publishTime>06/24/2019 00:06:48</publishTime>
+    </File>
+    <File Include="Images/ico/my1.png">
+      <publishTime>06/13/2019 22:22:04</publishTime>
+    </File>
+    <File Include="Images/ico/my2.png">
+      <publishTime>06/13/2019 22:22:06</publishTime>
+    </File>
+    <File Include="Images/ico/ok.png">
+      <publishTime>07/03/2019 22:08:56</publishTime>
+    </File>
+    <File Include="Images/ico/pp1.png">
+      <publishTime>06/14/2019 21:16:15</publishTime>
+    </File>
+    <File Include="Images/ico/pp2.png">
+      <publishTime>06/14/2019 21:16:15</publishTime>
+    </File>
+    <File Include="Images/ico/rt.png">
+      <publishTime>06/22/2019 15:53:28</publishTime>
+    </File>
+    <File Include="Images/ico/sh.png">
+      <publishTime>06/13/2019 21:36:57</publishTime>
+    </File>
+    <File Include="Images/ico/sp1.png">
+      <publishTime>06/13/2019 22:22:06</publishTime>
+    </File>
+    <File Include="Images/ico/sp2.png">
+      <publishTime>06/13/2019 22:22:04</publishTime>
+    </File>
+    <File Include="Images/inputBg.png">
+      <publishTime>06/13/2019 21:25:26</publishTime>
+    </File>
+    <File Include="Images/logo/BASF.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/dg.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/DIC.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/drjh.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/hl.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/kle.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/klf.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/ls.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/logo/p1.png">
+      <publishTime>06/15/2019 01:01:53</publishTime>
+    </File>
+    <File Include="Images/logo/p2.png">
+      <publishTime>06/15/2019 01:01:52</publishTime>
+    </File>
+    <File Include="Images/logo/rbwy.png">
+      <publishTime>06/14/2019 23:03:17</publishTime>
+    </File>
+    <File Include="Images/logo/WY.png">
+      <publishTime>06/15/2019 11:43:45</publishTime>
+    </File>
+    <File Include="Images/messge.png">
+      <publishTime>06/11/2019 22:50:20</publishTime>
+    </File>
+    <File Include="Images/sh.png">
+      <publishTime>06/13/2019 21:36:57</publishTime>
+    </File>
+    <File Include="Images/topBg.jpg">
+      <publishTime>06/12/2019 00:09:13</publishTime>
+    </File>
+    <File Include="Images/topBg.png">
+      <publishTime>06/11/2019 23:14:11</publishTime>
+    </File>
+    <File Include="Index.html">
+      <publishTime>07/04/2019 20:44:49</publishTime>
+    </File>
+    <File Include="js/bottomClick.js">
+      <publishTime>07/04/2019 21:34:37</publishTime>
+    </File>
+    <File Include="js/brand.js">
+      <publishTime>07/03/2019 21:40:05</publishTime>
+    </File>
+    <File Include="js/commodity.js">
+      <publishTime>07/06/2019 23:49:36</publishTime>
+    </File>
+    <File Include="js/groupjs.js">
+      <publishTime>07/06/2019 23:40:37</publishTime>
+    </File>
+    <File Include="js/huadong.js">
+      <publishTime>06/23/2019 02:33:42</publishTime>
+    </File>
+    <File Include="js/iscroll.js">
+      <publishTime>06/22/2019 16:34:58</publishTime>
+    </File>
+    <File Include="js/jquery-1.11.0.min.js">
+      <publishTime>06/12/2019 20:47:14</publishTime>
+    </File>
+    <File Include="js/login.js">
+      <publishTime>07/04/2019 21:36:09</publishTime>
+    </File>
+    <File Include="js/main.js">
+      <publishTime>06/15/2019 13:52:41</publishTime>
+    </File>
+    <File Include="js/topTitle.js">
+      <publishTime>06/22/2019 17:51:55</publishTime>
+    </File>
+    <File Include="js/urlconfig.js">
+      <publishTime>06/19/2019 00:33:13</publishTime>
+    </File>
+    <File Include="login.html">
+      <publishTime>07/01/2019 22:45:56</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/15/2019 12:37:02</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/02/2019 22:46:09</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
