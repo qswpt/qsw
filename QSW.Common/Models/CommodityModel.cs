@@ -24,5 +24,9 @@ namespace QSW.Common.Models
         public string UnitIdName { get; set; }
         public string TypeName { get; set; }
         public int SpCount { get; set; }
+        public string CommodityRH { get; set; }
+        public string CommodityRM { get; set; }
+        public string CommodityFL { get; set; }
+        public string CommodityRemark { get; set; }
     }
 }

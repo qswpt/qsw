@@ -205,6 +205,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Common\Framework.Common.csproj">
+      <Project>{797ddcd5-0910-4331-a0cf-0c5d32f1213e}</Project>
+      <Name>Framework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QSW.Common\QSW.Common.csproj">
+      <Project>{18ad48bf-0faf-41a4-bd26-e6785a705035}</Project>
+      <Name>QSW.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QSW.Web.Controllers\QSW.Web.Controllers.csproj">
+      <Project>{b2175429-4e26-461b-9981-b4d1c0dfff97}</Project>
+      <Name>QSW.Web.Controllers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

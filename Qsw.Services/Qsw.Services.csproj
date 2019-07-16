@@ -55,7 +55,7 @@
       <Name>Framework.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\QSW.Common\QSW.Common.csproj">
-      <Project>{18AD48BF-0FAF-41A4-BD26-E6785A705035}</Project>
+      <Project>{18ad48bf-0faf-41a4-bd26-e6785a705035}</Project>
       <Name>QSW.Common</Name>
     </ProjectReference>
   </ItemGroup>
