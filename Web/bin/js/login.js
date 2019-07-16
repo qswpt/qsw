@@ -89,7 +89,15 @@ function isShop(cid) {
             }
         });
     }
+    stopBubble(event);
 }
+function stopBubble(e) {
+    if (e && e.stopPropagation)
+        e.stopPropagation();
+    else
+        window.event.cancelBubble = true;
+}
+
 function pageback() {
     window.history.back(-1);
 }

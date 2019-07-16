@@ -78,5 +78,6 @@ E:\MyCode\qsw1\Framework.Common\bin\Debug\System.Web.Razor.xml
 E:\MyCode\qsw1\Framework.Common\bin\Debug\System.Web.WebPages.xml
 E:\MyCode\qsw1\Framework.Common\bin\Debug\System.Web.WebPages.Deployment.xml
 E:\MyCode\qsw1\Framework.Common\bin\Debug\System.Web.WebPages.Razor.xml
+E:\MyCode\qsw1\Framework.Common\obj\Debug\Framework.Common.csprojResolveAssemblyReference.cache
 E:\MyCode\qsw1\Framework.Common\obj\Debug\Framework.Common.dll
 E:\MyCode\qsw1\Framework.Common\obj\Debug\Framework.Common.pdb

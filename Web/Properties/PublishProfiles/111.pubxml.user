@@ -16,10 +16,10 @@
       <publishTime>06/20/2019 23:33:52</publishTime>
     </File>
     <File Include="bin/commodity.html">
-      <publishTime>07/06/2019 23:48:57</publishTime>
+      <publishTime>07/16/2019 23:04:39</publishTime>
     </File>
     <File Include="bin/Framework.Common.dll">
-      <publishTime>07/02/2019 22:46:00</publishTime>
+      <publishTime>07/16/2019 23:10:51</publishTime>
     </File>
     <File Include="bin/Google.Protobuf.dll">
       <publishTime>08/10/2018 18:51:54</publishTime>
@@ -133,10 +133,10 @@
       <publishTime>07/04/2019 21:34:37</publishTime>
     </File>
     <File Include="bin/js/brand.js">
-      <publishTime>07/03/2019 21:40:05</publishTime>
+      <publishTime>07/16/2019 21:42:37</publishTime>
     </File>
     <File Include="bin/js/commodity.js">
-      <publishTime>07/06/2019 23:49:36</publishTime>
+      <publishTime>07/16/2019 23:06:18</publishTime>
     </File>
     <File Include="bin/js/iscroll.js">
       <publishTime>06/22/2019 16:34:58</publishTime>
@@ -145,7 +145,7 @@
       <publishTime>06/12/2019 20:47:14</publishTime>
     </File>
     <File Include="bin/js/login.js">
-      <publishTime>07/04/2019 21:36:09</publishTime>
+      <publishTime>07/16/2019 23:18:23</publishTime>
     </File>
     <File Include="bin/js/main.js">
       <publishTime>06/15/2019 13:52:41</publishTime>
@@ -163,13 +163,13 @@
       <publishTime>11/27/2018 18:07:34</publishTime>
     </File>
     <File Include="bin/QSW.Common.dll">
-      <publishTime>07/04/2019 21:42:58</publishTime>
+      <publishTime>07/16/2019 23:10:51</publishTime>
     </File>
     <File Include="bin/Qsw.Services.dll">
-      <publishTime>07/04/2019 21:42:58</publishTime>
+      <publishTime>07/16/2019 23:10:51</publishTime>
     </File>
     <File Include="bin/QSW.Web.Controllers.dll">
-      <publishTime>07/04/2019 21:42:59</publishTime>
+      <publishTime>07/16/2019 23:10:52</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
@@ -190,10 +190,13 @@
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/Web.dll">
-      <publishTime>07/04/2019 21:42:59</publishTime>
+      <publishTime>07/16/2019 23:10:52</publishTime>
     </File>
     <File Include="commodity.html">
-      <publishTime>07/06/2019 23:48:57</publishTime>
+      <publishTime>07/16/2019 23:04:39</publishTime>
+    </File>
+    <File Include="CommodityInfo.html">
+      <publishTime>07/16/2019 21:47:25</publishTime>
     </File>
     <File Include="css/carousel.css">
       <publishTime>06/22/2019 16:16:51</publishTime>
@@ -352,13 +355,16 @@
       <publishTime>07/04/2019 21:34:37</publishTime>
     </File>
     <File Include="js/brand.js">
-      <publishTime>07/03/2019 21:40:05</publishTime>
+      <publishTime>07/16/2019 21:42:37</publishTime>
+    </File>
+    <File Include="js/commoditInfo.js">
+      <publishTime>07/16/2019 21:47:17</publishTime>
     </File>
     <File Include="js/commodity.js">
-      <publishTime>07/06/2019 23:49:36</publishTime>
+      <publishTime>07/16/2019 23:06:18</publishTime>
     </File>
     <File Include="js/groupjs.js">
-      <publishTime>07/06/2019 23:40:37</publishTime>
+      <publishTime>07/16/2019 21:42:57</publishTime>
     </File>
     <File Include="js/huadong.js">
       <publishTime>06/23/2019 02:33:42</publishTime>
@@ -370,7 +376,7 @@
       <publishTime>06/12/2019 20:47:14</publishTime>
     </File>
     <File Include="js/login.js">
-      <publishTime>07/04/2019 21:36:09</publishTime>
+      <publishTime>07/16/2019 23:18:23</publishTime>
     </File>
     <File Include="js/main.js">
       <publishTime>06/15/2019 13:52:41</publishTime>
@@ -388,7 +394,7 @@
       <publishTime>06/15/2019 12:37:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/02/2019 22:46:09</publishTime>
+      <publishTime>07/16/2019 23:10:53</publishTime>
     </File>
   </ItemGroup>
 </Project>
