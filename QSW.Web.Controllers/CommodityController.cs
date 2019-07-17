@@ -47,5 +47,11 @@ namespace QSW.Web.Controllers
             var data = CommodityService.Instance.GetCommodityInfo(id);
             return OK(data);
         }
+        [HttpGet]
+        public ActionResult GetShoppingList(string token)
+        {
+            var data = CommodityService.Instance.GetShoppingList(token);
+            return OK(data);
+        }
     }
 }

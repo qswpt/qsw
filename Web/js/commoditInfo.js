@@ -17,4 +17,10 @@ $(document).ready(function () {
         $('#comFL').html('耐光：' + data.Data.CommodityFL);
         $('#comRemark').html(data.Data.CommodityRemark);
     });
+    getShopCount();
 });
+
+function setShopingCart() {
+    var id = getRequestParam('id');
+    isShop(id);
+}

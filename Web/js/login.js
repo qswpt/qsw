@@ -91,6 +91,14 @@ function isShop(cid) {
     }
     stopBubble(event);
 }
+function isCkLogin() {
+    var token = getCok();
+    if (token == null || token == '') {
+        return false;
+    } else {
+        return true;
+    }
+}
 function stopBubble(e) {
     if (e && e.stopPropagation)
         e.stopPropagation();

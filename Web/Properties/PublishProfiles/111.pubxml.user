@@ -16,7 +16,7 @@
       <publishTime>06/20/2019 23:33:52</publishTime>
     </File>
     <File Include="bin/commodity.html">
-      <publishTime>07/16/2019 23:04:39</publishTime>
+      <publishTime>07/17/2019 21:56:02</publishTime>
     </File>
     <File Include="bin/Framework.Common.dll">
       <publishTime>07/16/2019 23:10:51</publishTime>
@@ -60,6 +60,12 @@
     <File Include="bin/Images/commodity/bsf5004.jpg">
       <publishTime>06/20/2019 00:11:28</publishTime>
     </File>
+    <File Include="bin/Images/ico/checked.png">
+      <publishTime>07/17/2019 22:14:02</publishTime>
+    </File>
+    <File Include="bin/Images/ico/ckY.png">
+      <publishTime>07/17/2019 22:17:41</publishTime>
+    </File>
     <File Include="bin/Images/ico/df1.png">
       <publishTime>06/13/2019 22:12:49</publishTime>
     </File>
@@ -71,6 +77,9 @@
     </File>
     <File Include="bin/Images/ico/gp2.png">
       <publishTime>06/13/2019 22:20:18</publishTime>
+    </File>
+    <File Include="bin/Images/ico/jian.png">
+      <publishTime>07/17/2019 22:44:24</publishTime>
     </File>
     <File Include="bin/Images/ico/my1.png">
       <publishTime>06/13/2019 22:22:04</publishTime>
@@ -130,13 +139,13 @@
       <publishTime>06/14/2019 23:03:17</publishTime>
     </File>
     <File Include="bin/js/bottomClick.js">
-      <publishTime>07/04/2019 21:34:37</publishTime>
+      <publishTime>07/18/2019 00:33:21</publishTime>
     </File>
     <File Include="bin/js/brand.js">
       <publishTime>07/16/2019 21:42:37</publishTime>
     </File>
     <File Include="bin/js/commodity.js">
-      <publishTime>07/16/2019 23:06:18</publishTime>
+      <publishTime>07/17/2019 21:55:50</publishTime>
     </File>
     <File Include="bin/js/iscroll.js">
       <publishTime>06/22/2019 16:34:58</publishTime>
@@ -145,7 +154,7 @@
       <publishTime>06/12/2019 20:47:14</publishTime>
     </File>
     <File Include="bin/js/login.js">
-      <publishTime>07/16/2019 23:18:23</publishTime>
+      <publishTime>07/17/2019 21:09:36</publishTime>
     </File>
     <File Include="bin/js/main.js">
       <publishTime>06/15/2019 13:52:41</publishTime>
@@ -166,10 +175,10 @@
       <publishTime>07/16/2019 23:10:51</publishTime>
     </File>
     <File Include="bin/Qsw.Services.dll">
-      <publishTime>07/16/2019 23:10:51</publishTime>
+      <publishTime>07/17/2019 20:39:17</publishTime>
     </File>
     <File Include="bin/QSW.Web.Controllers.dll">
-      <publishTime>07/16/2019 23:10:52</publishTime>
+      <publishTime>07/17/2019 20:39:17</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
@@ -190,13 +199,13 @@
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/Web.dll">
-      <publishTime>07/16/2019 23:10:52</publishTime>
+      <publishTime>07/17/2019 22:47:14</publishTime>
     </File>
     <File Include="commodity.html">
-      <publishTime>07/16/2019 23:04:39</publishTime>
+      <publishTime>07/17/2019 21:56:02</publishTime>
     </File>
     <File Include="CommodityInfo.html">
-      <publishTime>07/16/2019 21:47:25</publishTime>
+      <publishTime>07/17/2019 20:56:20</publishTime>
     </File>
     <File Include="css/carousel.css">
       <publishTime>06/22/2019 16:16:51</publishTime>
@@ -214,7 +223,7 @@
       <publishTime>06/15/2019 12:35:26</publishTime>
     </File>
     <File Include="GroupCommodity.html">
-      <publishTime>07/06/2019 23:20:01</publishTime>
+      <publishTime>07/17/2019 20:57:03</publishTime>
     </File>
     <File Include="Images/Adv/city--1-min-min.jpg">
       <publishTime>06/13/2019 19:13:40</publishTime>
@@ -255,6 +264,12 @@
     <File Include="Images/commodity/bsf5004.jpg">
       <publishTime>06/20/2019 00:11:28</publishTime>
     </File>
+    <File Include="Images/ico/checked.png">
+      <publishTime>07/17/2019 22:14:02</publishTime>
+    </File>
+    <File Include="Images/ico/ckY.png">
+      <publishTime>07/17/2019 22:17:41</publishTime>
+    </File>
     <File Include="Images/ico/df1.png">
       <publishTime>06/13/2019 22:12:49</publishTime>
     </File>
@@ -269,6 +284,12 @@
     </File>
     <File Include="Images/ico/gwc.png">
       <publishTime>06/24/2019 00:06:48</publishTime>
+    </File>
+    <File Include="Images/ico/jia.png">
+      <publishTime>07/17/2019 22:45:52</publishTime>
+    </File>
+    <File Include="Images/ico/jian.png">
+      <publishTime>07/17/2019 22:44:24</publishTime>
     </File>
     <File Include="Images/ico/my1.png">
       <publishTime>06/13/2019 22:22:04</publishTime>
@@ -349,19 +370,19 @@
       <publishTime>06/11/2019 23:14:11</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>07/04/2019 20:44:49</publishTime>
+      <publishTime>07/17/2019 20:57:18</publishTime>
     </File>
     <File Include="js/bottomClick.js">
-      <publishTime>07/04/2019 21:34:37</publishTime>
+      <publishTime>07/18/2019 00:33:21</publishTime>
     </File>
     <File Include="js/brand.js">
       <publishTime>07/16/2019 21:42:37</publishTime>
     </File>
     <File Include="js/commoditInfo.js">
-      <publishTime>07/16/2019 21:47:17</publishTime>
+      <publishTime>07/17/2019 20:12:02</publishTime>
     </File>
     <File Include="js/commodity.js">
-      <publishTime>07/16/2019 23:06:18</publishTime>
+      <publishTime>07/17/2019 21:55:50</publishTime>
     </File>
     <File Include="js/groupjs.js">
       <publishTime>07/16/2019 21:42:57</publishTime>
@@ -376,7 +397,7 @@
       <publishTime>06/12/2019 20:47:14</publishTime>
     </File>
     <File Include="js/login.js">
-      <publishTime>07/16/2019 23:18:23</publishTime>
+      <publishTime>07/17/2019 21:09:36</publishTime>
     </File>
     <File Include="js/main.js">
       <publishTime>06/15/2019 13:52:41</publishTime>
@@ -392,6 +413,9 @@
     </File>
     <File Include="packages.config">
       <publishTime>06/15/2019 12:37:02</publishTime>
+    </File>
+    <File Include="ShoppingCart.html">
+      <publishTime>07/18/2019 00:29:08</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>07/16/2019 23:10:53</publishTime>

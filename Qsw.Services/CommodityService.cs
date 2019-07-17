@@ -75,21 +75,23 @@ namespace Qsw.Services
         }
         private string GetCommodityByInfoSql(int id)
         {
+            var data = GetComInfo(id);
+            return JsonUtil.Serialize(data);
+        }
+        private CommodityModel GetComInfo(int id)
+        {
             string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +
-                        $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE " +
-                        $"a.CommodityId=?commodityId";
+                       $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE " +
+                       $"a.CommodityId=?commodityId";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["commodityId"] = id;
             var data = DbUtil.Master.Query<CommodityModel>(sql, p);
-            return JsonUtil.Serialize(data);
+            return data;
         }
         #endregion
         #region
         public string SetShopping(string token, int shpId)
         {
-            CommodityModel cm = new CommodityModel();
-            cm.CommodityId = shpId;
-            cm.SpCount++;
             string key = string.Concat(token, "SetShopping");
             var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
             if (uComList == null)
@@ -98,7 +100,14 @@ namespace Qsw.Services
             }
             var um = uComList.Find(o => o.CommodityId == shpId);
             if (um == null)
-                uComList.Add(cm);
+            {
+                CommodityModel cm = GetComInfo(shpId);
+                if (cm != null)
+                {
+                    cm.SpCount++;
+                    uComList.Add(cm);
+                }
+            }
             else
                 um.SpCount++;
             var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
