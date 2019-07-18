@@ -48,9 +48,16 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
 
+        [HttpGet]
         public ActionResult DeleteCommodityById(int id)
         {
             var data = CommodityService.Instance.DeleteCommodityById(id);
+        }
+
+        [HttpGet]
+        public ActionResult GetShoppingList(string token)
+        {
+            var data = CommodityService.Instance.GetShoppingList(token);
             return OK(data);
         }
     }
