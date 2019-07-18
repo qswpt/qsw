@@ -53,6 +53,28 @@ function ckeClick(id) {
         $('#' + id + '1').html(0);
     }
 }
+function cheAllClick() {
+    var idSp = $('#spIdList').html();
+    var ckS = $('#01').html();
+    ckeClick(0);
+    if (idSp != null) {
+        var idArr = idSp.split(',');
+        for (var i = 0; i < idArr.length; i++) {
+            ckeSelect(idArr[i], ckS);
+        }
+    }
+}
+function ckeSelect(id, st) {
+    $('#' + id + '1').html(st);
+    if (st == 0) {
+        $('#' + id + '').css("background-image", "url(Images/ico/checked.png)");
+        $('#' + id + '1').html(1);
+    } else {
+        $('#' + id + '').css("background-image", "url(Images/ico/ckY.png)");
+        $('#' + id + '1').html(0);
+    }
+}
+
 function btnjia(id) {
     var st = $('#' + id + '11').html();
     var sts = st - 1 + 2;
