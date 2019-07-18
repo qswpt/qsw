@@ -12,5 +12,10 @@ namespace KJW.Web.Controllers
             var data = BrandService.Instance.GetBrandHome(size);
             return OK(data);
         }
+
+        public ActionResult DeleteBrand(int id)
+        {
+            return OK();
+        }
     }
 }

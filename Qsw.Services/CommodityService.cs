@@ -129,5 +129,21 @@ namespace Qsw.Services
             return JsonUtil.Serialize(re);
         }
         #endregion
+
+        public bool DeleteCommodityById(int id)
+        {
+            string sql = $"DELETE FROM Commodity WHERE CommodityId = ?id";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["id"] = id;
+            int res = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (res > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

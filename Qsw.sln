@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C232C91D-0337-45ED-A203-0AABF2E5508B}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSW.Common", "QSW.Common\QSW.Common.csproj", "{18AD48BF-0FAF-41A4-BD26-E6785A705035}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSW.Web.Controllers", "QSW.Web.Controllers\QSW.Web.Controllers.csproj", "{B2175429-4E26-461B-9981-B4D1C0DFFF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSWMaintain", "QSWMaintain\QSWMaintain.csproj", "{498F83E0-301A-4E42-B9F2-5A104823C202}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{B2175429-4E26-461B-9981-B4D1C0DFFF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2175429-4E26-461B-9981-B4D1C0DFFF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2175429-4E26-461B-9981-B4D1C0DFFF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{498F83E0-301A-4E42-B9F2-5A104823C202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498F83E0-301A-4E42-B9F2-5A104823C202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498F83E0-301A-4E42-B9F2-5A104823C202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{498F83E0-301A-4E42-B9F2-5A104823C202}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {910DE001-BF11-41F8-82EE-3E7EDFB43DCB}
 	EndGlobalSection
 EndGlobal
