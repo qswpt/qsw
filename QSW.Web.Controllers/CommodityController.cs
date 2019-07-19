@@ -36,6 +36,12 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
         [HttpGet]
+        public ActionResult SetShoppingCount(string token, int spId, int spCount)
+        {
+            var data = CommodityService.Instance.SetShoppingCount(token, spId, spCount);
+            return OK(data);
+        }
+        [HttpGet]
         public ActionResult GetShoppingCount(string token)
         {
             var data = CommodityService.Instance.GetShoppingCount(token);

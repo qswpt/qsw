@@ -151,7 +151,7 @@
       <publishTime>06/14/2019 23:03:17</publishTime>
     </File>
     <File Include="bin/js/bottomClick.js">
-      <publishTime>07/18/2019 00:33:21</publishTime>
+      <publishTime>07/19/2019 21:39:43</publishTime>
     </File>
     <File Include="bin/js/brand.js">
       <publishTime>07/16/2019 21:42:37</publishTime>
@@ -187,10 +187,10 @@
       <publishTime>07/18/2019 20:13:33</publishTime>
     </File>
     <File Include="bin/Qsw.Services.dll">
-      <publishTime>07/18/2019 20:13:33</publishTime>
+      <publishTime>07/19/2019 23:13:35</publishTime>
     </File>
     <File Include="bin/QSW.Web.Controllers.dll">
-      <publishTime>07/18/2019 20:13:34</publishTime>
+      <publishTime>07/19/2019 23:13:36</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
@@ -211,7 +211,7 @@
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/Web.dll">
-      <publishTime>07/18/2019 20:13:34</publishTime>
+      <publishTime>07/19/2019 23:13:36</publishTime>
     </File>
     <File Include="commodity.html">
       <publishTime>07/17/2019 21:56:02</publishTime>
@@ -385,7 +385,7 @@
       <publishTime>07/17/2019 20:57:18</publishTime>
     </File>
     <File Include="js/bottomClick.js">
-      <publishTime>07/18/2019 00:33:21</publishTime>
+      <publishTime>07/19/2019 21:39:43</publishTime>
     </File>
     <File Include="js/brand.js">
       <publishTime>07/16/2019 21:42:37</publishTime>
@@ -414,6 +414,9 @@
     <File Include="js/main.js">
       <publishTime>06/15/2019 13:52:41</publishTime>
     </File>
+    <File Include="js/shoppingCart.js">
+      <publishTime>07/19/2019 23:12:46</publishTime>
+    </File>
     <File Include="js/topTitle.js">
       <publishTime>06/22/2019 17:51:55</publishTime>
     </File>
@@ -427,7 +430,7 @@
       <publishTime>06/15/2019 12:37:02</publishTime>
     </File>
     <File Include="ShoppingCart.html">
-      <publishTime>07/18/2019 21:04:09</publishTime>
+      <publishTime>07/19/2019 23:11:56</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>07/18/2019 20:53:21</publishTime>

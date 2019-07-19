@@ -119,6 +119,35 @@ namespace Qsw.Services
             }
             return JsonUtil.Serialize(re);
         }
+        public string SetShoppingCount(string token, int shpId, int spCount)
+        {
+            string key = string.Concat(token, "SetShopping");
+            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+            if (uComList == null)
+            {
+                uComList = new List<CommodityModel>();
+            }
+            var um = uComList.Find(o => o.CommodityId == shpId);
+            if (um == null)
+            {
+                CommodityModel cm = GetComInfo(shpId);
+                if (cm != null)
+                {
+                    cm.SpCount = spCount;
+                    uComList.Add(cm);
+                }
+            }
+            else
+                um.SpCount = spCount;
+            var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+            ReturnModel re = new ReturnModel();
+            if (state)
+            {
+                re.state = true;
+                re.rcount = uComList.Count;
+            }
+            return JsonUtil.Serialize(re);
+        }
         public string GetShoppingList(string token)
         {
             string key = string.Concat(token, "SetShopping");

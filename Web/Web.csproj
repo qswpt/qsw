@@ -204,6 +204,7 @@
     <Content Include="js\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="js\shoppingCart.js" />
     <Content Include="login.html" />
     <Content Include="ShoppingCart.html" />
     <Content Include="Web.config" />
