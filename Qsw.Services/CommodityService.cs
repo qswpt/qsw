@@ -166,6 +166,34 @@ namespace Qsw.Services
             }
             return JsonUtil.Serialize(re);
         }
+        public string DeleteShopping(string idStr, string token)
+        {
+            string key = string.Concat(token, "SetShopping");
+            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+            if (!string.IsNullOrEmpty(idStr) && uComList != null && uComList.Count > 0)
+            {
+                List<int> idList = new List<int>(idStr.Split(',').Select(x => int.Parse(x)));
+                foreach (var id in idList)  //移除购物车商品
+                {
+                    var item = uComList.Find(o => o.CommodityId == id);
+                    if (item != null)
+                    {
+                        uComList.Remove(item);
+                    }
+                }
+                CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+            }
+            return JsonUtil.Serialize(uComList);
+        }
+        public string DeleteAllShopping(string token)
+        {
+            string key = string.Concat(token, "SetShopping");
+            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+            if (uComList != null && uComList.Count > 0)
+                uComList.Clear();
+            CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+            return JsonUtil.Serialize(uComList);
+        }
         #endregion
 
         public bool DeleteCommodityById(int id)
