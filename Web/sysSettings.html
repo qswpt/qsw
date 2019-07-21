@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/login.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/settings.js"></script>
+</head>
+<body>
+    <div id="myInfo" style="position:absolute; width:100%; left:0px; top:0px;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#494961; z-index:100;">
+            <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="openIndex();"></div>
+            <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">设置</span>
+        </div>
+        <div style="position:absolute; width:100%; height:6rem; left:0px; top:2.5rem; border-bottom:0.0625rem solid #eeeeee; background-color:#fff;" onclick="editUserInfo();">
+            <div id="uImg" style="position:absolute; width:5rem; height:5rem; background-size:100% 100%; left:0.5rem; top:0.5rem; border-radius: 0.5rem;"></div>
+            <span id="unickname" style="position:absolute; left:5.9rem; top:1.5rem; font-size:1rem;"></span>
+            <span id="uName1" style="position:absolute; left:5.9rem; bottom:1.5rem; color:#999999; font-size:0.875rem;"></span>
+            <div style="position:absolute; right:1rem; top:50%; margin-top:-0.5625rem; width:3.75rem; height:1.6875rem; color:red;  border:1px solid red; text-align:center; font-size:0.875rem; border-radius: 0.3rem;">
+                <span style="position:absolute; width:100%; left:0px; top:0.1875rem;">编辑</span>
+            </div>
+        </div>
+        <div style="position:absolute; top:8.5rem; height:2.5rem; width:100%; background-color:#fff;">
+            <span style="position:absolute; width:97%; left:0.5rem; top:0.5rem;">我的收货地址</span>
+            <div style="position:absolute; right:0.5rem; top:50%; margin-top:-0.75rem; width:1.5rem; height:1.5rem; background-image:url('Images/ico/rightGo.png'); background-size:100% 100%;"></div>
+        </div>
+        <div style="position:absolute; top:11.5rem; height:2.5rem; width:100%; background-color:#fff;">
+            <span style="position:absolute; width:97%; left:0.5rem; top:0.5rem;">我的订单</span>
+            <div style="position:absolute; right:0.5rem; top:50%; margin-top:-0.75rem; width:1.5rem; height:1.5rem; background-image:url('Images/ico/rightGo.png'); background-size:100% 100%;"></div>
+        </div>
+        <div style="position:absolute; top:14.5rem; height:2.5rem; width:100%; border-bottom:0.0625rem solid #eeeeee; background-color:#fff;">
+            <span style="position:absolute; width:97%; left:0.5rem; top:0.5rem;">账户与安全</span>
+            <div style="position:absolute; right:0.5rem; top:50%; margin-top:-0.75rem; width:1.5rem; height:1.5rem; background-image:url('Images/ico/rightGo.png'); background-size:100% 100%;"></div>
+        </div>
+        <div style="position:absolute; top:17.5rem; height:2.5rem; width:100%; border-bottom:0.0625rem solid #eeeeee; background-color:#fff; text-align:center;" onclick="outLogin(0);">
+            <span style="position:absolute; width:97%; left:0.5rem; top:0.5rem;">切换账号</span>
+        </div>
+        <div style="position:absolute; top:20.5rem; height:2.5rem; width:100%; border-bottom:0.0625rem solid #eeeeee; background-color:#fff; text-align:center;" onclick="outLogin(1);">
+            <span style="position:absolute; width:97%; left:0.5rem; top:0.5rem;">退出登录</span>
+        </div>
+    </div>
+    <div id="editInfo" style="position:absolute; width:100%; left:0px; top:0px; display:none;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#494961; z-index:100;">
+            <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="cancelEdit();"></div>
+            <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">编辑资料</span>
+            <span style="position:fixed; width:3.5rem; height:1.25rem; top:0.5rem; right:0.8rem; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:right;" onclick="initUpload();">完成</span>
+        </div>
+        <div style="position:absolute; width:100%; height:7.5rem; left:0px; top:2.5rem;">
+            <span id="phImgbk" style="display:none;"></span>
+            <div id="phImg" style="position:absolute; width:5rem; height:5rem; left:50%; margin-left:-2.5rem; background-size:100% 100%; top:0.5rem; border-radius: 0.5rem;" onclick="pothClick();"></div>
+            <span style="position:absolute; width:100%; color:red; top:5.8rem; font-size:1rem; text-align:center;" onclick="pothClick();">更改头像</span>
+            <input id="tuploadFiles" type="file" accept="image/*" onchange="getImgUrl();" style="display:none;" />
+        </div>
+        <div style="position:absolute; width:100%; height:10rem; left:0px; top:10rem; background-color:#fff;">
+            <div style="position:absolute; left:0px; top:0px; width:100%; height:3.3rem; border-bottom:0.0625rem solid #eeeeee;">
+                <span style="position:absolute; left:0.5rem; top:1rem; width:2rem;">昵称</span>
+                <input id="txtnickname" type="text" style="position:absolute; left:3.5rem; width:15rem; border:0px; outline:none; font-size:1rem; top:1.2rem;" value="hzy" />
+            </div>
+            <div style="position:absolute; left:0px; top:3.4rem; width:100%; height:3.3rem; border-bottom:0.0625rem solid #eeeeee;">
+                <span style="position:absolute; left:0.5rem; top:1rem; width:2rem;">账号</span>
+                <input id="uName" type="text" style="position:absolute; left:3.5rem; width:15rem; border:0px; outline:none; font-size:1rem; top:1.2rem; color:#999999;" value="111" readonly="readonly" />
+            </div>
+            <div style="position:absolute; left:0px; top:6.7rem; width:100%; height:3.3rem;">
+                <span style="position:absolute; left:0.5rem; top:1rem; width:2rem;">性别</span>
+                <input id="inSex" type="text" style="position:absolute; left:3.5rem; width:15rem; border:0px; outline:none; font-size:1rem; top:1rem;" onclick="showSexIn();" value="男" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+    <div id="sexBg" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:99; background-color:#000000; display:none; opacity:0.5;" onclick="getSexValue(0);">
+    </div>
+    <div id="sexIn" style="position:absolute; width:70%; height:6.8rem; z-index:100; top:50%; border:1px solid #dddddd; display:none; background-color:#fff; margin-top:-4.0625rem; left:15%; border-radius: 0.5rem;">
+        <span style="position:absolute; top:0.5rem; left:0.5rem; font-size:1rem; color:black;">修改性别</span>
+        <div style="position:absolute; width:100%; height:2rem; top:2.3125rem; display:block; border-top:0.0625rem solid #eeeeee;" onclick="getSexValue(1);">
+            <span style="position:absolute; width:50%; left:0.5rem; top:0.3125rem;">男</span>
+        </div>
+        <div style="position:absolute; width:100%; height:2rem; top:4.5rem; display:block; border-top:0.0625rem solid #eeeeee;" onclick="getSexValue(2);">
+            <span style="position:absolute; width:50%; left:0.5rem; top:0.3125rem;">女</span>
+        </div>
+    </div>
+</body>
+</html>

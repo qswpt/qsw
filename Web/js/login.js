@@ -78,7 +78,7 @@ function showShopd(count) {
 }
 function isShop(cid) {
     var token = getCok();
-    if (token == null || token == '') {
+    if (token == null || token == '' || token == "''") {
         window.location.href = '/login.html';
     } else {
         var url = '/Commodity/SetShopping?token=' + token + '&spId=' + cid + '';
@@ -93,7 +93,7 @@ function isShop(cid) {
 }
 function isCkLogin() {
     var token = getCok();
-    if (token == null || token == '') {
+    if (token == null || token == '' || token == "''") {
         return false;
     } else {
         return true;

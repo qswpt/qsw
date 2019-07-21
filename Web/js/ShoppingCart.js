@@ -1,7 +1,7 @@
 ﻿
 $(document).ready(function () {
     var token = getCok();
-    if (token == null || token == '') {
+    if (token == null || token == '' || token == "''") {
         window.location.href = '/login.html';
     } else {
         var url = '/Commodity/GetShoppingList?token=' + token;
@@ -164,7 +164,7 @@ function setCount(cmid, id, id2) {
 }
 function upComCount(cmid, cmCount) {
     var token = getCok();
-    if (token == null || token == '') {
+    if (token == null || token == '' || token == "''") {
         window.location.href = '/login.html';
     } else {
         var url = '/Commodity/SetShoppingCount?token=' + token + '&spId=' + cmid + '&spCount=' + cmCount;
@@ -198,7 +198,7 @@ function deleteCom() {
 }
 function deleByid(idStr) {
     var token = getCok();
-    if (token == null || token == '') {
+    if (token == null || token == '' || token == "''") {
         window.location.href = '/login.html';
     } else {
         var url = '/Commodity/DeleteShopping?idStr=' + idStr + '&token=' + token;
@@ -216,7 +216,7 @@ function deleByid(idStr) {
 }
 function deleAllCom() {
     var token = getCok();
-    if (token == null || token == '') {
+    if (token == null || token == '' || token == "''") {
         window.location.href = '/login.html';
     } else {
         var url = '/Commodity/DeleteAllShopping?token=' + token;

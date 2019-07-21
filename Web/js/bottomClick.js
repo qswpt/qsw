@@ -38,7 +38,7 @@
             window.location.href = '/ShoppingCart.html';
             break;
         case 4:
-            window.location.href = '#';
+            window.location.href = '/sysSettings.html';
             break;
     }
 }
