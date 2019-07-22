@@ -172,6 +172,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ico\rightGo.png" />
+    <Content Include="Images\ico\stClose.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ico\stOpen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\logo\BASF.png" />
     <Content Include="Images\logo\DG.png" />
     <Content Include="Images\logo\DIC.png" />

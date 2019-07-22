@@ -4,15 +4,16 @@ $(document).ready(function () {
 });
 function loadInfo() {
     var token = getCok();
+    var timestamp = Date.parse(new Date());
     if (token == null || token == '' || token == "''") {
         window.location.href = '/login.html';
     } else {
-        var url = '/User/GetUserInfo?token=' + token;
+        var url = '/User/GetUserInfo?token=' + token + '&t=' + timestamp;
         $.getJSON(url, function (data) {
-            if (data.Data != 'null') {
+            if (data.Data != 'null' && data.Data != '') {
                 if (data.Data.UserImg != null && data.Data.UserImg != 'null') {
-                    $('#phImg').css("background-image", "url(" + data.Data.UserImg + ")");
-                    $('#uImg').css("background-image", "url(" + data.Data.UserImg + ")");
+                    $('#phImg').css("background-image", "url(" + data.Data.UserImg + '?t=' + timestamp + ")");
+                    $('#uImg').css("background-image", "url(" + data.Data.UserImg + '?t=' + timestamp + ")");
                     $('#phImgbk').html(data.Data.UserImg);
                 }
                 else {
@@ -25,6 +26,8 @@ function loadInfo() {
                 $('#uName').val(data.Data.UserName);
                 $('#uName1').html('账号:' + data.Data.UserName);
                 $('#inSex').val(data.Data.Sex);
+            } else {
+                window.location.href = '/login.html';
             }
         });
     }
@@ -70,7 +73,7 @@ function initUpload() {
         //扩展名的文件名
         var pos = selectedFile.name.lastIndexOf(".");
         var aaa = selectedFile.name.substring(pos);
-        fileName = 'Images//UserImg//' + getCok() + aaa;
+        fileName = 'Images//UserImg//' + getCok() + '.jpg';
         for (var i = 0; i < Math.ceil(selectedFile.size / chunk) ; i++) {
             var end = start + chunk;
             chunks[i] = selectedFile.slice(start, end);
@@ -143,7 +146,6 @@ function updateUserInfo(imgName) {
     var sex = $('#inSex').val();
     var url = '/User/UpdateUserInfo?token=' + token + '&nickname=' + nickname + '&sex=' + sex + '&uImg=' + imgName;
     $.getJSON(url, function (data) {
-        //localStorage.clear();
         location.reload();
     });
 }
@@ -152,8 +154,78 @@ function editUserInfo() {
     $('#myInfo').css({ 'display': 'none' });
     $('#editInfo').css({ 'display': 'block' });
 }
+function editReAddress() {
+    $('#myInfo').css({ 'display': 'none' });
+    $('#reAddress').css({ 'display': 'block' });
+}
 function cancelEdit() {
     $('#myInfo').css({ 'display': 'block' });
     $('#editInfo').css({ 'display': 'none' });
+    $('#reAddress').css({ 'display': 'none' });
     loadInfo();
+}
+function editAdds(id) {
+    var adId = $('#adId' + id).html();
+    var adstate = $('#adstate' + id).html();
+    var adContacts = $('#adContacts' + id).html();
+    var ph = $('#ph' + id).html();
+    var add = $('#add' + id).html();
+    $('#reAddress').css({ 'display': 'none' });
+    $('#editAddressInfo').css({ 'display': 'block' });
+    $('#edId').html(adId);
+    $('#txadContacts').val(adContacts);
+    $('#txph').val(ph);
+    $('#txadd').val(add);
+    if (adstate == 0) {
+        $('#stbk').css("background-image", "url(Images/ico/stClose.png)");
+    } else {
+        $('#stbk').css("background-image", "url(Images/ico/stOpen.png)");
+    }
+    $('#stv').html(adstate);
+}
+function addAddres() {
+    $('#reAddress').css({ 'display': 'none' });
+    $('#editAddressInfo').css({ 'display': 'block' });
+    $('#edId').html(0);
+    $('#deAdd').css({ 'display': 'none' });
+    $('#txadContacts').val('收货人');
+    $('#txadContacts').css({ 'color': '#999999' });
+    $('#txph').val('手机号码');
+    $('#txph').css({ 'color': '#999999' });
+    $('#txadd').val('收货详细地址...');
+    $('#txadd').css({ 'color': '#999999' });
+}
+function addFoucs(ty) {
+    var id = $('#edId').html();
+    if (id == 0) {
+        var contacts = $('#txadContacts').val();
+        if (contacts == '收货人' && ty == 1) {
+            $('#txadContacts').val('');
+            $('#txadContacts').css({ 'color': 'black' });
+        }
+        var txph = $('#txph').val();
+        if (txph == '手机号码' && ty == 2) {
+            $('#txph').val('');
+            $('#txph').css({ 'color': 'black' });
+        }
+        var txadd = $('#txadd').val();
+        if (txadd == '收货详细地址...' && ty == 3) {
+            $('#txadd').val('');
+            $('#txadd').css({ 'color': 'black' });
+        }
+    }
+}
+function stState() {
+    var st = $('#stv').html();
+    if (st == 0) {
+        $('#stbk').css("background-image", "url(Images/ico/stOpen.png)");
+        $('#stv').html(1);
+    } else {
+        $('#stbk').css("background-image", "url(Images/ico/stClose.png)");
+        $('#stv').html(0);
+    }
+}
+function cancelEditAdds() {
+    $('#editAddressInfo').css({ 'display': 'none' });
+    $('#reAddress').css({ 'display': 'block' });
 }

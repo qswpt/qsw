@@ -58,7 +58,7 @@ namespace Qsw.Services
                     return JsonUtil.Serialize(userModel);
                 }
             }
-            return string.Empty;
+            return "";
         }
         public string UpdateUserInfo(string token, string nickname, string sex, string uImg)
         {
