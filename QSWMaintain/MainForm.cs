@@ -23,6 +23,8 @@ namespace QSWMaintain
 
         private MaintainCommodity maintainCommodity = new MaintainCommodity();
 
+        private MaintainCommodityType maintainCommodityType = new MaintainCommodityType();
+
         private void BtnMaintainADs_Click(object sender, EventArgs e)
         {
             this.panel1.Controls.Clear();
@@ -39,6 +41,12 @@ namespace QSWMaintain
         {
             this.panel1.Controls.Clear();
             this.panel1.Controls.Add(this.maintainCommodity);
+        }
+
+        private void BtnMaintainCommodityType_Click(object sender, EventArgs e)
+        {
+            this.panel1.Controls.Clear();
+            this.panel1.Controls.Add(this.maintainCommodityType);
         }
     }
 

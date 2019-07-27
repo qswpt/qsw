@@ -18,11 +18,44 @@ namespace QSWMaintain
 {
     public partial class MaintainCommodity : UserControl
     {
-        private CommodityController commodityController = new CommodityController();
+        private static CommodityController commodityController = new CommodityController();
+        private static CommodityTypeController commodityTypeController = new CommodityTypeController();
+        private static UnitController unitController = new UnitController();
+        private static BrandController brandController = new BrandController();
+        private static List<BrandModel> brandModelList;
+        private static List<CommodityTypeModel> commodityTypeModelList;
+        private static List<UnitModel> unitModelList;
         public MaintainCommodity()
         {
             InitializeComponent();
             InitControls();
+        }
+
+        public static List<BrandModel> BrandModelList
+        {
+            get
+            {
+                brandModelList = getBrandModelList();
+                return brandModelList;
+            }
+        }
+
+        public static List<CommodityTypeModel> CommodityTypeList
+        {
+            get
+            {
+                commodityTypeModelList = getCommodityTypeList();
+                return commodityTypeModelList;
+            }
+        }
+
+        public static List<UnitModel> UnitModelList
+        {
+            get
+            {
+                unitModelList = getUnitModelList();
+                return unitModelList;
+            }
         }
 
         private void InitControls()
@@ -50,6 +83,48 @@ namespace QSWMaintain
             }
         }
 
+        private static List<CommodityTypeModel> getCommodityTypeList()
+        {
+            var result = commodityTypeController.GetCommodityType();
+            if (result != null)
+            {
+                var contentResult = result as ContentResult;
+                var response = JsonUtil.Deserialize<QSWResponse<List<CommodityTypeModel>>>(contentResult.Content);
+                List<CommodityTypeModel> commodityModelList = response.Data;
+                return commodityModelList;
+            }
+
+            return null;
+        }
+
+        private static List<UnitModel> getUnitModelList()
+        {
+            var result = unitController.GetUnit();
+            if (result != null)
+            {
+                var contentResult = result as ContentResult;
+                var response = JsonUtil.Deserialize<QSWResponse<List<UnitModel>>>(contentResult.Content);
+                List<UnitModel> unitModelList = response.Data;
+                return unitModelList;
+            }
+
+            return null;
+        }
+
+        private static List<BrandModel> getBrandModelList()
+        {
+            var result = brandController.GetBrandHome();
+            if (result != null)
+            {
+                var contentResult = result as ContentResult;
+                var response = JsonUtil.Deserialize<QSWResponse<List<BrandModel>>>(contentResult.Content);
+                List<BrandModel> brandModelList = response.Data;
+                return brandModelList;
+            }
+
+            return null;
+        }
+
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count > 0)
@@ -73,7 +148,8 @@ namespace QSWMaintain
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            AddUpdateCommdityFrm NewCommodityFrm = new AddUpdateCommdityFrm(MaintainType.New,null);
+            CommodityModel newCommodityModel = new CommodityModel();
+            AddUpdateCommdityFrm NewCommodityFrm = new AddUpdateCommdityFrm(MaintainType.New, newCommodityModel);
             NewCommodityFrm.ShowDialog();
         }
     }

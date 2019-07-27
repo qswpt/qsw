@@ -1,4 +1,6 @@
-﻿using QSW.Common.Models;
+﻿using Framework.Common.Utils;
+using KJW.Web.Controllers;
+using QSW.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,18 +16,13 @@ namespace QSWMaintain
     public partial class AddUpdateBrandFrm : Form
     {
         private BrandModel brandModel;
-        public AddUpdateBrandFrm(MaintainType type,BrandModel model)
+        private BrandController brandController = new BrandController();
+        private MaintainType maintainType;
+        public AddUpdateBrandFrm(MaintainType type, BrandModel model)
         {
             InitializeComponent();
-            if (type == MaintainType.Update)
-            {
-                this.brandModel = model;
-            }
-            else
-            {
-                this.brandModel = new BrandModel();
-            }
-
+            this.brandModel = model;
+            this.maintainType = type;
             InitControls();
         }
 
@@ -50,7 +47,21 @@ namespace QSWMaintain
 
         private void Save()
         {
-
+            this.brandModel.BrandName = this.tbName.Text;
+            this.brandModel.BrandImg = this.tbImage.Text;
+            this.brandModel.BrandTypeId = 0;
+            this.brandModel.BrandState = 0;
+            this.brandModel.OderSart = int.Parse(this.tbOrder.Text);
+            if (this.maintainType == MaintainType.New)
+            {
+                this.brandController.AddBrand(JsonUtil.Serialize(this.brandModel));
+            }
+            else
+            {
+                this.brandController.UpdateBrand(this.brandModel.BrandId,JsonUtil.Serialize(this.brandModel));
+            }
+            //replace image
+            //...
         }
     }
 }

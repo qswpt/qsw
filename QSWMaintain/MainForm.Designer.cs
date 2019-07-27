@@ -32,22 +32,21 @@
             this.btnMaintainADs = new System.Windows.Forms.Button();
             this.btnMaintaindBrand = new System.Windows.Forms.Button();
             this.btnMaintainCommodity = new System.Windows.Forms.Button();
+            this.btnMaintainCommodityType = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(177, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(253, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 480);
+            this.panel1.Size = new System.Drawing.Size(1000, 800);
             this.panel1.TabIndex = 0;
             // 
             // btnMaintainADs
             // 
-            this.btnMaintainADs.Location = new System.Drawing.Point(17, 13);
-            this.btnMaintainADs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaintainADs.Location = new System.Drawing.Point(24, 22);
             this.btnMaintainADs.Name = "btnMaintainADs";
-            this.btnMaintainADs.Size = new System.Drawing.Size(132, 31);
+            this.btnMaintainADs.Size = new System.Drawing.Size(189, 52);
             this.btnMaintainADs.TabIndex = 1;
             this.btnMaintainADs.Text = "修改广告位";
             this.btnMaintainADs.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // 
             // btnMaintaindBrand
             // 
-            this.btnMaintaindBrand.Location = new System.Drawing.Point(17, 58);
-            this.btnMaintaindBrand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaintaindBrand.Location = new System.Drawing.Point(24, 97);
             this.btnMaintaindBrand.Name = "btnMaintaindBrand";
-            this.btnMaintaindBrand.Size = new System.Drawing.Size(132, 29);
+            this.btnMaintaindBrand.Size = new System.Drawing.Size(189, 48);
             this.btnMaintaindBrand.TabIndex = 2;
             this.btnMaintaindBrand.Text = "修改品牌";
             this.btnMaintaindBrand.UseVisualStyleBackColor = true;
@@ -66,25 +64,34 @@
             // 
             // btnMaintainCommodity
             // 
-            this.btnMaintainCommodity.Location = new System.Drawing.Point(17, 100);
-            this.btnMaintainCommodity.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMaintainCommodity.Location = new System.Drawing.Point(24, 167);
             this.btnMaintainCommodity.Name = "btnMaintainCommodity";
-            this.btnMaintainCommodity.Size = new System.Drawing.Size(132, 29);
+            this.btnMaintainCommodity.Size = new System.Drawing.Size(189, 48);
             this.btnMaintainCommodity.TabIndex = 2;
             this.btnMaintainCommodity.Text = "修改商品";
             this.btnMaintainCommodity.UseVisualStyleBackColor = true;
             this.btnMaintainCommodity.Click += new System.EventHandler(this.BtnMaintainCommodity_Click);
             // 
+            // btnMaintainCommodityType
+            // 
+            this.btnMaintainCommodityType.Location = new System.Drawing.Point(24, 238);
+            this.btnMaintainCommodityType.Name = "btnMaintainCommodityType";
+            this.btnMaintainCommodityType.Size = new System.Drawing.Size(189, 48);
+            this.btnMaintainCommodityType.TabIndex = 2;
+            this.btnMaintainCommodityType.Text = "修改商品类型";
+            this.btnMaintainCommodityType.UseVisualStyleBackColor = true;
+            this.btnMaintainCommodityType.Click += new System.EventHandler(this.BtnMaintainCommodityType_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1406, 935);
+            this.Controls.Add(this.btnMaintainCommodityType);
             this.Controls.Add(this.btnMaintainCommodity);
             this.Controls.Add(this.btnMaintaindBrand);
             this.Controls.Add(this.btnMaintainADs);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "七色网维护系统 ";
             this.ResumeLayout(false);
@@ -97,6 +104,7 @@
         private System.Windows.Forms.Button btnMaintainADs;
         private System.Windows.Forms.Button btnMaintaindBrand;
         private System.Windows.Forms.Button btnMaintainCommodity;
+        private System.Windows.Forms.Button btnMaintainCommodityType;
     }
 }
 

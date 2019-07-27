@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
+﻿using KJW.Web.Controllers;
+using System;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QSWMaintain
@@ -39,7 +35,7 @@ namespace QSWMaintain
                 int number = num - 48;
                 string dstAD = string.Format("city--{0}-min-min.jpg",number);
                 string filePath = fileDialog.FileName;
-                bool res = ModifyAD(dstAD, filePath);
+                bool res = ModifyAD(number, filePath);
                 if (!res)
                 {
                     MessageBox.Show("修改失败！");
@@ -47,9 +43,12 @@ namespace QSWMaintain
             }
         }
 
-        private bool ModifyAD(string dstAD, string filePath)
+        private bool ModifyAD(int index, string filePath)
         {
-            return false;
+            topController topCtrl = new topController();
+            byte[] fileBytes = File.ReadAllBytes(filePath);
+            var res = topCtrl.ReplaceAdsImg(index,Convert.ToBase64String(fileBytes));
+            return true;
         }
     }
 }

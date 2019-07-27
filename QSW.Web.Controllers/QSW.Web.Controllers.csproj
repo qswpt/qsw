@@ -70,6 +70,7 @@
     <Compile Include="CommodityTypeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="topController.cs" />
+    <Compile Include="UnitController.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>

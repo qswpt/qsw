@@ -17,6 +17,7 @@ namespace QSWMaintain
 {
     public partial class MaintainBrands : UserControl
     {
+        
         private BrandController brandController= new BrandController();
         public MaintainBrands()
         {
@@ -26,11 +27,10 @@ namespace QSWMaintain
 
         private void InitControls()
         {
-            var result = brandController.GetBrandHome();
+            var result = WebRequestUtil.GetBrandHome();
             if (result != null)
             {
-                var contentResult = result as ContentResult;
-                var response = JsonUtil.Deserialize<QSWResponse<List<BrandModel>>>(contentResult.Content);
+                var response = JsonUtil.Deserialize<QSWResponse<List<BrandModel>>>(result.Content);
                 List<BrandModel> brandModelList = response.Data;
                 foreach (var brand in brandModelList)
                 {
@@ -38,6 +38,8 @@ namespace QSWMaintain
                     this.dataGridView1.Rows[index].Cells[0].Value = brand.BrandName;
                     this.dataGridView1.Rows[index].Cells[1].Value = brand.BrandImg;
                     this.dataGridView1.Rows[index].Cells[2].Value = brand.OderSart;
+                    this.dataGridView1.Rows[index].Cells[3].Value = brand.BrandTypeId;
+                    this.dataGridView1.Rows[index].Cells[4].Value = brand.BrandState;
                     this.dataGridView1.Rows[index].Tag = brand;
                 }
             }
@@ -62,7 +64,8 @@ namespace QSWMaintain
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            AddUpdateBrandFrm newBrand = new AddUpdateBrandFrm(MaintainType.New, null);
+            BrandModel newBrandModel = new BrandModel();
+            AddUpdateBrandFrm newBrand = new AddUpdateBrandFrm(MaintainType.New, newBrandModel);
             newBrand.ShowDialog();
         }
     }

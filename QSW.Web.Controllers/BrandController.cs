@@ -13,9 +13,25 @@ namespace KJW.Web.Controllers
             return OK(data);
         }
 
+        [HttpPost]
         public ActionResult DeleteBrand(int id)
         {
-            return OK();
+            var res = BrandService.Instance.DeleteBrand(id);
+            return OK(res);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateBrand(int id, string brandModelStr)
+        {
+            var res = BrandService.Instance.UpdateBrand(id, brandModelStr);
+            return OK(res);
+        }
+
+        [HttpPost]
+        public ActionResult AddBrand(string brandModelStr)
+        {
+            var res = BrandService.Instance.InsertBrand(brandModelStr);
+            return OK(res);
         }
     }
 }
