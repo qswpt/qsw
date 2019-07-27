@@ -12,7 +12,7 @@ using System.Web.SessionState;
 using System.Xml;
 using System.Text.RegularExpressions;
 
-namespace KJW.Web
+namespace Web
 {
     public class Global : HttpApplication
     {

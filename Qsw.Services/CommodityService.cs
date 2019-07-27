@@ -1,4 +1,4 @@
-﻿using Framework.Common.Functions;
+using Framework.Common.Functions;
 using Framework.Common.Utils;
 using QSW.Common.Caches;
 using QSW.Common.Models;
@@ -120,6 +120,35 @@ namespace Qsw.Services
             }
             return JsonUtil.Serialize(re);
         }
+        public string SetShoppingCount(string token, int shpId, int spCount)
+        {
+            string key = string.Concat(token, "SetShopping");
+            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+            if (uComList == null)
+            {
+                uComList = new List<CommodityModel>();
+            }
+            var um = uComList.Find(o => o.CommodityId == shpId);
+            if (um == null)
+            {
+                CommodityModel cm = GetComInfo(shpId);
+                if (cm != null)
+                {
+                    cm.SpCount = spCount;
+                    uComList.Add(cm);
+                }
+            }
+            else
+                um.SpCount = spCount;
+            var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+            ReturnModel re = new ReturnModel();
+            if (state)
+            {
+                re.state = true;
+                re.rcount = uComList.Count;
+            }
+            return JsonUtil.Serialize(re);
+        }
         public string GetShoppingList(string token)
         {
             string key = string.Concat(token, "SetShopping");
@@ -137,6 +166,34 @@ namespace Qsw.Services
                 re.rcount = uComList.Count;
             }
             return JsonUtil.Serialize(re);
+        }
+        public string DeleteShopping(string idStr, string token)
+        {
+            string key = string.Concat(token, "SetShopping");
+            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+            if (!string.IsNullOrEmpty(idStr) && uComList != null && uComList.Count > 0)
+            {
+                List<int> idList = new List<int>(idStr.Split(',').Select(x => int.Parse(x)));
+                foreach (var id in idList)  //移除购物车商品
+                {
+                    var item = uComList.Find(o => o.CommodityId == id);
+                    if (item != null)
+                    {
+                        uComList.Remove(item);
+                    }
+                }
+                CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+            }
+            return JsonUtil.Serialize(uComList);
+        }
+        public string DeleteAllShopping(string token)
+        {
+            string key = string.Concat(token, "SetShopping");
+            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+            if (uComList != null && uComList.Count > 0)
+                uComList.Clear();
+            CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+            return JsonUtil.Serialize(uComList);
         }
         #endregion
 

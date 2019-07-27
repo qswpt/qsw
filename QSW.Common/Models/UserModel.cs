@@ -12,5 +12,8 @@ namespace QSW.Common.Models
         public string UserName { get; set; }
         public string Pwd { get; set; }
         public DateTime LastUpdateTime { get; set; }
+        public string Nickname { get; set; }
+        public string Sex { get; set; }
+        public string UserImg { get; set; }
     }
 }

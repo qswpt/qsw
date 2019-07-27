@@ -34,5 +34,60 @@ namespace Qsw.Services
             }
             return token;
         }
+        /// <summary>
+        /// 返回false时前端需要重新登录
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public bool GetUserLoginState(string token)
+        {
+            var userModel = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
+            if (userModel == null)
+            {
+                return false;
+            }
+            return true;
+        }
+        public string GetUserInfo(string token)
+        {
+            if (!string.IsNullOrEmpty(token))
+            {
+                var userModel = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
+                if (userModel != null)
+                {
+                    return JsonUtil.Serialize(userModel);
+                }
+            }
+            return "";
+        }
+        public string UpdateUserInfo(string token, string nickname, string sex, string uImg)
+        {
+            if (!string.IsNullOrEmpty(token))
+            {
+                var userModel = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
+                if (userModel != null)
+                {
+                    string sql = "UPDATE Users SET Nickname=?nickname,Sex=?sex,UserImg=?userImg where Uid=?uid";
+                    Dictionary<string, object> p = new Dictionary<string, object>();
+                    p["nickname"] = nickname;
+                    p["sex"] = sex;
+                    p["userImg"] = uImg;
+                    p["uid"] = userModel.Uid;
+                    int rowNum = DbUtil.Master.ExecuteNonQuery(sql, p);
+                    if (rowNum > 0)
+                    {
+                        userModel.Nickname = nickname;
+                        userModel.Sex = sex;
+                        userModel.UserImg = uImg;
+                        string key = string.Concat(token); //统一cache Key
+                        CacheHelp.Set(key, DateTimeOffset.Now.AddDays(7), userModel);
+                        ReturnModel re = new ReturnModel();
+                        re.state = true;
+                        return JsonUtil.Serialize(re);
+                    }
+                }
+            }
+            return string.Empty;
+        }
     }
 }

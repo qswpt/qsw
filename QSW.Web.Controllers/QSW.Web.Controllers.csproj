@@ -68,6 +68,7 @@
     <Compile Include="BrandController.cs" />
     <Compile Include="CommodityController.cs" />
     <Compile Include="CommodityTypeController.cs" />
+    <Compile Include="FileUploadController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="topController.cs" />
     <Compile Include="UnitController.cs" />

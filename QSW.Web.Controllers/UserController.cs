@@ -17,5 +17,17 @@ namespace QSW.Web.Controllers
             var data = UserService.Instance.Login(userName, pwd);
             return OK(data);
         }
+        [HttpGet]
+        public ActionResult GetUserInfo(string token)
+        {
+            var data = UserService.Instance.GetUserInfo(token);
+            return OK(data);
+        }
+        [HttpGet]
+        public ActionResult UpdateUserInfo(string token, string nickname, string sex, string uImg)
+        {
+            var data = UserService.Instance.UpdateUserInfo(token, nickname, sex, uImg);
+            return OK(data);
+        }
     }
 }

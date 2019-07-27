@@ -181,6 +181,13 @@
     <Content Include="Images\ico\jia.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ico\rightGo.png" />
+    <Content Include="Images\ico\stClose.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ico\stOpen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\logo\BASF.png" />
     <Content Include="Images\logo\DG.png" />
     <Content Include="Images\logo\DIC.png" />
@@ -190,6 +197,9 @@
     <Content Include="Images\logo\KLF.png" />
     <Content Include="Images\logo\LS.png" />
     <Content Include="Images\logo\WY.png" />
+    <Content Include="Images\UserImg\sysPh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Index.html" />
     <Content Include="js\bottomClick.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -214,8 +224,11 @@
     <Content Include="js\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="js\settings.js" />
+    <Content Include="js\shoppingCart.js" />
     <Content Include="login.html" />
     <Content Include="ShoppingCart.html" />
+    <Content Include="sysSettings.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +261,7 @@
       <Name>QSW.Web.Controllers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
