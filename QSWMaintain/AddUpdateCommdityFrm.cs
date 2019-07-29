@@ -1,21 +1,12 @@
 ﻿using Framework.Common.Utils;
 using QSW.Common.Models;
-using QSW.Web.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QSWMaintain
 {
     public partial class AddUpdateCommdityFrm : Form
     {
-        private CommodityController commodityController = new CommodityController();
         private CommodityModel commdodityModel;
         private MaintainType maintainType;
         public AddUpdateCommdityFrm(MaintainType type, CommodityModel commodity)
@@ -71,11 +62,11 @@ namespace QSWMaintain
             this.commdodityModel.CommodityRemark = this.rtbRemark.Text;
             if (this.maintainType == MaintainType.New)
             {
-                this.commodityController.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
+                WebRequestUtil.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
             }
             else
             {
-                this.commodityController.UpdateCommodity(this.commdodityModel.CommodityId,JsonUtil.Serialize(this.commdodityModel));
+                WebRequestUtil.UpdateCommodity(this.commdodityModel.CommodityId,JsonUtil.Serialize(this.commdodityModel));
             }
             //replace image
             //...

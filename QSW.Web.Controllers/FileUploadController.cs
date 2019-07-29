@@ -22,5 +22,16 @@ namespace QSW.Web.Controllers
             bp.Save(Server.MapPath("~//" + fileName));
             return OK(string.Empty);
         }
+
+        [HttpPost]
+        public ActionResult ReplaceAdsImg(int index, string imgContent)
+        {
+            byte[] imgBytes = Convert.FromBase64String(imgContent);
+            string filePath = string.Format(@"/Images/adv/city--{0}-min-min.jpg", index);
+            string path = Server.MapPath("~//" + filePath);
+            System.IO.File.Delete(path);
+            System.IO.File.WriteAllBytes(path, imgBytes);
+            return OK();
+        }
     }
 }

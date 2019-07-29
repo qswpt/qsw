@@ -1,14 +1,6 @@
 ﻿using Framework.Common.Utils;
-using KJW.Web.Controllers;
 using QSW.Common.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QSWMaintain
@@ -16,7 +8,6 @@ namespace QSWMaintain
     public partial class AddUpdateBrandFrm : Form
     {
         private BrandModel brandModel;
-        private BrandController brandController = new BrandController();
         private MaintainType maintainType;
         public AddUpdateBrandFrm(MaintainType type, BrandModel model)
         {
@@ -54,11 +45,11 @@ namespace QSWMaintain
             this.brandModel.OderSart = int.Parse(this.tbOrder.Text);
             if (this.maintainType == MaintainType.New)
             {
-                this.brandController.AddBrand(JsonUtil.Serialize(this.brandModel));
+                WebRequestUtil.AddBrand(JsonUtil.Serialize(this.brandModel));
             }
             else
             {
-                this.brandController.UpdateBrand(this.brandModel.BrandId,JsonUtil.Serialize(this.brandModel));
+                WebRequestUtil.UpdateBrand(this.brandModel.BrandId, JsonUtil.Serialize(this.brandModel));
             }
             //replace image
             //...

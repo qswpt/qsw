@@ -1,8 +1,10 @@
-﻿using KJW.Web.Controllers;
+﻿using Framework.Common.Utils;
+using KJW.Web.Controllers;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static QSWMaintain.Program;
 
 namespace QSWMaintain
 {
@@ -11,6 +13,7 @@ namespace QSWMaintain
         public MaintainADs()
         {
             InitializeComponent();
+            InitControls();
         }
 
         private void InitControls()
@@ -45,10 +48,17 @@ namespace QSWMaintain
 
         private bool ModifyAD(int index, string filePath)
         {
-            topController topCtrl = new topController();
             byte[] fileBytes = File.ReadAllBytes(filePath);
-            var res = topCtrl.ReplaceAdsImg(index,Convert.ToBase64String(fileBytes));
-            return true;
+            var response = WebRequestUtil.ReplaceAdsImg(index, Convert.ToBase64String(fileBytes));
+            if (response != null)
+            {
+                bool res = JsonUtil.Deserialize<QSWResponse<bool>>(response.Content).Data;
+                return res;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
