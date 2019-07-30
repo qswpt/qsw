@@ -4,6 +4,14 @@
     <UseIISExpress>true</UseIISExpress>
     <NameOfLastUsedPublishProfile>111</NameOfLastUsedPublishProfile>
     <ProjectView>ProjectFiles</ProjectView>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <ActiveDebugTarget />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

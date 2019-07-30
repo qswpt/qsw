@@ -19,11 +19,70 @@ namespace Qsw.Services
         }
         private string GetBrandHomeSal(int size)
         {
-            string sql = "SELECT * FROM Brand ORDER BY OderSart  LIMIT ?size";
+            string sql = $"SELECT * FROM Brand ORDER BY OderSart  LIMIT ?size";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["size"] = size;
             var data = DbUtil.Master.QueryList<BrandModel>(sql, p);
             return JsonUtil.Serialize(data);
+        }
+
+        public bool DeleteBrand(int brandId)
+        {
+            string sql = $"DELETE FROM Brand WHERE BrandId=?brandId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["brandId"] = brandId;
+            int num = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateBrand(int brandId, string brandModeStr)
+        {
+            var brandModel = JsonUtil.Deserialize<BrandModel>(brandModeStr);
+            string sql = $"UPDATE Brand set BrandName=?brandName,BrandTypeId=?brandTypeId,BrandImg=?brandImg,BrandState=?brandState,OderSart=?oderSart WHERE BrandId=?brandId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["brandId"] = brandId;
+            p["brandName"] = brandModel.BrandName;
+            p["brandImg"] = brandModel.BrandImg;
+            p["brandState"] = brandModel.BrandState;
+            p["oderSart"] = brandModel.OderSart;
+            p["brandTypeId"] = brandModel.BrandTypeId;
+            int num = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool InsertBrand(string brandModelStr)
+        {
+            var brandModel = JsonUtil.Deserialize<BrandModel>(brandModelStr);
+            string sql = $"INSERT INTO Brand VALUES(?brandName,?brandTypeId,?brandImg,?brandState,?oderSart)";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["brandName"] = brandModel.BrandName;
+            p["brandImg"] = brandModel.BrandImg;
+            p["brandState"] = brandModel.BrandState;
+            p["oderSart"] = brandModel.OderSart;
+            p["brandTypeId"] = brandModel.BrandTypeId;
+            int num = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -22,6 +22,7 @@
     <UseGlobalApplicationHostFile />
     <ApplicationInsightsResourceId />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="NewConnection1-部署" Order="1">
+          <Destination Path="" />
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
