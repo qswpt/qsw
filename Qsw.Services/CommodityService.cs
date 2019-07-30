@@ -20,7 +20,7 @@ namespace Qsw.Services
         }
         private string GetCommodityListSql(int index, int size)
         {
-            string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +                         $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 " +
+            string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +                         $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 AND a.CommoditySuper=1 " +
                          $"ORDER BY a.CommodityHOT ASC LIMIT ?index,?size";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["index"] = (index - 1) * size;

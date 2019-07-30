@@ -39,14 +39,10 @@ namespace Qsw.Services
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public bool GetUserLoginState(string token)
+        public static UserModel GetUserLoginState(string token)
         {
             var userModel = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
-            if (userModel == null)
-            {
-                return false;
-            }
-            return true;
+            return userModel;
         }
         public string GetUserInfo(string token)
         {
