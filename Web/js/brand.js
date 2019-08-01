@@ -19,7 +19,7 @@ $(document).ready(function () {
         }
         $('#advList').html(html);
     });
-    getCommodityDtil(1, 3);
+    getCommodityDtil(1, 5000);
     getShopCount();
 });
 
@@ -32,18 +32,23 @@ function getCommodityDtil(index, size) {
         var html = "";
         var topNum = 0;
         for (var i = 0; i < data.Data.length; i++) {
-            html += '<div style="width:100%; position:absolute; top:' + topNum + 'rem; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;" onclick="openInfo(' + data.Data[i].CommodityId + ')">' +
-                '<div style="position:inherit; width:6rem; height:6rem; top:0.625rem; left:0.625rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data[i].CommodityImg + '\');' +
-                ' background-size:100% 100%;"></div><div style="position:inherit; width:68%; height:6rem; left:0px; margin-left:7rem; top:0.325rem;"><span id="sName" style="position:inherit;' +
-                ' left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data[i].CommodityName + '</span><span id="general" style="position:inherit; left:0.25rem; top:1.8rem;' +
-                ' font-size:0.7rem; color:#999999;">' + data.Data[i].CommodityGeneral + '</span><span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">生产商: ' + data.Data[i].BrandName + '</span>' +
-                ' <span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data[i].CommoditySpec + data.Data[i].UnitIdName + '</span><span style="position:inherit; left:0.25rem; top:5.22rem;' +
-                ' font-size:0.7rem; color:#999999;">价格: ￥' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '元</span><span style="position:inherit; right:0.8rem; top:1.8rem; font-size:12px; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
-                '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:12px; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
-                '<div style="position:inherit; right:1.5rem; top:4.5rem;  width:2rem; height:2rem; background-size:100% 100%; background-image:url(\'Images/ico/gwc.png\')" onclick="isShop(' + data.Data[i].CommodityId + ')" >' +
-                 '</div></div></div>';
-            topNum = topNum + 8.25;
+            var leftNum = 2;
+            if (i % 2 == 1)
+                leftNum = 50.5;
+            html += '<div style="width:47.5%; position:absolute; top:' + topNum + 'rem; height:13rem; left:' + leftNum + '%; background-color:#fff; border-radius: 0.5rem;" onclick="openInfo(' + data.Data[i].CommodityId + ');">' +
+                '<div style="position:inherit; width:100%; height:9rem; top:0rem; left:0rem; border-radius: 0.5rem; background-size:100% 100%; background-image:url(\'Images/commodity/' + data.Data[i].CommodityImg + '\');"></div>' +
+                '<div style="position:inherit; width:100%; height:5rem; left:0px; top:9.1rem;">' +
+                '<span id="sName" style="position:inherit; width:98.8%; left:0.25rem; top:0.1rem; font-size:0.7rem; color:#666666;' +
+                '">' + data.Data[i].CommodityName + '</span>' +
+                '<span style="position:inherit;left:0.25rem; top:2.3rem; font-size:0.8rem; color:red;">￥' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '元' +
+                '<span style="font-size:0.12rem; color:red;">&nbsp;&nbsp;&nbsp;&nbsp;销量 2358&nbsp;</span></span>' +
+                 '<span style="position:inherit; right:0.3rem; top:2.3rem; font-size:0.8rem;">...</span>' +
+                '</div> </div>';
+            if (i > 0 && i % 2 == 1)
+                topNum = topNum + 13.6;
             if (i + 1 == data.Data.length) {
+                if (i % 2 == 0)
+                    topNum = topNum + 13.6;
                 html += ' <div style="position:absolute;width:100%; top:' + topNum + 'rem; height:3.125rem; background-color:#fff;"></div>';
             }
         }

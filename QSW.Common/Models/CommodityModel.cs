@@ -28,5 +28,6 @@ namespace QSW.Common.Models
         public string CommodityRM { get; set; }
         public string CommodityFL { get; set; }
         public string CommodityRemark { get; set; }
+        public int CommoditySuper { get; set; }
     }
 }
