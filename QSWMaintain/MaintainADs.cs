@@ -36,7 +36,7 @@ namespace QSWMaintain
             {
                 char num = btnName.First(p => char.IsDigit(p));
                 int number = num - 48;
-                string dstAD = string.Format("city--{0}-min-min.jpg",number);
+                string dstAD = string.Format("city--{0}-min-min.jpg", number);
                 string filePath = fileDialog.FileName;
                 bool res = ModifyAD(number, filePath);
                 if (!res)
@@ -52,8 +52,8 @@ namespace QSWMaintain
             var response = WebRequestUtil.ReplaceAdsImg(index, Convert.ToBase64String(fileBytes));
             if (response != null)
             {
-                bool res = JsonUtil.Deserialize<QSWResponse<bool>>(response.Content).Data;
-                return res;
+                int res = JsonUtil.Deserialize<QSWResponse<string>>(response.Content).Status;
+                return res == 1;
             }
             else
             {

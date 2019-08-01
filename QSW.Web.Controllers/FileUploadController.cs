@@ -29,9 +29,40 @@ namespace QSW.Web.Controllers
             byte[] imgBytes = Convert.FromBase64String(imgContent);
             string filePath = string.Format(@"/Images/adv/city--{0}-min-min.jpg", index);
             string path = Server.MapPath("~//" + filePath);
-            System.IO.File.Delete(path);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+
             System.IO.File.WriteAllBytes(path, imgBytes);
-            return OK();
+            return OK(string.Empty);
+        }
+
+        [HttpPost]
+        public ActionResult ReplaceBrandImg(string previousName,string imgName, string imgContent)
+        {
+            return ReplaceImge("logo",previousName,imgName,imgContent); 
+        }
+
+        [HttpPost]
+        public ActionResult ReplaceCommodityImg(string previousName, string imgName, string imgContent)
+        {
+            return ReplaceImge("commodity", previousName, imgName, imgContent);
+        }
+
+        private ActionResult ReplaceImge(string typeName, string previousName, string imgName, string imgContent)
+        {
+            string previousPath = Server.MapPath("~//" + string.Format(@"/Images/{0}/{1}", typeName, previousName));
+            if (System.IO.File.Exists(previousPath))
+            {
+                System.IO.File.Delete(previousPath);
+            }
+
+            byte[] imgBytes = Convert.FromBase64String(imgContent);
+            string filePath = string.Format(@"/Images/{0}/{1}",typeName,imgName);
+            string path = Server.MapPath("~//" + filePath);
+            System.IO.File.WriteAllBytes(path, imgBytes);
+            return OK(string.Empty);
         }
     }
 }

@@ -46,7 +46,7 @@
             // 
             this.btnMaintainADs.Location = new System.Drawing.Point(24, 22);
             this.btnMaintainADs.Name = "btnMaintainADs";
-            this.btnMaintainADs.Size = new System.Drawing.Size(189, 52);
+            this.btnMaintainADs.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainADs.TabIndex = 1;
             this.btnMaintainADs.Text = "修改广告位";
             this.btnMaintainADs.UseVisualStyleBackColor = true;
@@ -54,9 +54,9 @@
             // 
             // btnMaintaindBrand
             // 
-            this.btnMaintaindBrand.Location = new System.Drawing.Point(24, 97);
+            this.btnMaintaindBrand.Location = new System.Drawing.Point(25, 97);
             this.btnMaintaindBrand.Name = "btnMaintaindBrand";
-            this.btnMaintaindBrand.Size = new System.Drawing.Size(189, 48);
+            this.btnMaintaindBrand.Size = new System.Drawing.Size(190, 50);
             this.btnMaintaindBrand.TabIndex = 2;
             this.btnMaintaindBrand.Text = "修改品牌";
             this.btnMaintaindBrand.UseVisualStyleBackColor = true;
@@ -64,9 +64,9 @@
             // 
             // btnMaintainCommodity
             // 
-            this.btnMaintainCommodity.Location = new System.Drawing.Point(24, 167);
+            this.btnMaintainCommodity.Location = new System.Drawing.Point(24, 172);
             this.btnMaintainCommodity.Name = "btnMaintainCommodity";
-            this.btnMaintainCommodity.Size = new System.Drawing.Size(189, 48);
+            this.btnMaintainCommodity.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainCommodity.TabIndex = 2;
             this.btnMaintainCommodity.Text = "修改商品";
             this.btnMaintainCommodity.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@
             // 
             // btnMaintainCommodityType
             // 
-            this.btnMaintainCommodityType.Location = new System.Drawing.Point(24, 238);
+            this.btnMaintainCommodityType.Location = new System.Drawing.Point(24, 247);
             this.btnMaintainCommodityType.Name = "btnMaintainCommodityType";
-            this.btnMaintainCommodityType.Size = new System.Drawing.Size(189, 48);
+            this.btnMaintainCommodityType.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainCommodityType.TabIndex = 2;
             this.btnMaintainCommodityType.Text = "修改商品类型";
             this.btnMaintainCommodityType.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 935);
+            this.ClientSize = new System.Drawing.Size(1258, 816);
             this.Controls.Add(this.btnMaintainCommodityType);
             this.Controls.Add(this.btnMaintainCommodity);
             this.Controls.Add(this.btnMaintaindBrand);

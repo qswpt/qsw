@@ -1,6 +1,8 @@
 ﻿using Framework.Common.Utils;
 using QSW.Common.Models;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace QSWMaintain
@@ -9,11 +11,15 @@ namespace QSWMaintain
     {
         private CommodityModel commdodityModel;
         private MaintainType maintainType;
+        private List<int> hotList;
+        private string previousImg;
+        private string newImageGUID = "commodity_" + Guid.NewGuid().ToString();
         public AddUpdateCommdityFrm(MaintainType type, CommodityModel commodity)
         {
             InitializeComponent();
             this.commdodityModel = commodity;
             this.maintainType = type;
+            this.previousImg = this.commdodityModel.CommodityImg;
             InitControls();
         }
 
@@ -27,6 +33,14 @@ namespace QSWMaintain
 
             this.cmbCommodityType.DataSource = MaintainCommodity.CommodityTypeList;
             this.cmbCommodityType.DisplayMember = "TypeName";
+
+            hotList = new List<int>();
+            for (int i = 1; i <= 10; i++)
+            {
+                this.hotList.Add(i);
+            }
+
+            this.cmbHot.DataSource = hotList;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -45,7 +59,7 @@ namespace QSWMaintain
         private void save()
         {
             this.commdodityModel.CommodityName = this.tbName.Text;
-            this.commdodityModel.CommodityImg = this.tbImg.Text;
+            this.commdodityModel.CommodityImg = this.newImageGUID+Path.GetExtension(this.tbImg.Text);
             this.commdodityModel.CommodityGeneral = this.tbGeneral.Text;
             this.commdodityModel.CommodityPrice = double.Parse(this.tbPrice.Text);
             this.commdodityModel.UnitIdName = this.cmbUnit.SelectedText;
@@ -70,6 +84,28 @@ namespace QSWMaintain
             }
             //replace image
             //...
+            this.ReplaceImge();
+        }
+
+        private void BtnBrowseImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
+            fileDialog.Title = "请选择商品图片";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                string filePath = fileDialog.FileName;
+                this.tbImg.Text = filePath;
+            }
+        }
+
+        private void ReplaceImge()
+        {
+            string imgName = this.newImageGUID + Path.GetExtension(this.tbImg.Text);
+            var contentBytes = File.ReadAllBytes(this.tbImg.Text);
+            string imgContent = Convert.ToBase64String(contentBytes);
+            WebRequestUtil.ReplaceCommodityImg(this.previousImg, imgName, imgContent);
         }
     }
 }

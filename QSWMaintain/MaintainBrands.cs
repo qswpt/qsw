@@ -1,9 +1,7 @@
 ﻿using Framework.Common.Utils;
-using KJW.Web.Controllers;
 using QSW.Common.Models;
 using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
 using System.Windows.Forms;
 using static QSWMaintain.Program;
 
@@ -59,16 +57,28 @@ namespace QSWMaintain
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
                 var brand = this.dataGridView1.SelectedRows[0].Tag as BrandModel;
-                AddUpdateBrandFrm modify = new AddUpdateBrandFrm(MaintainType.Update, brand);
-                modify.ShowDialog();
+                using (AddUpdateBrandFrm modify = new AddUpdateBrandFrm(MaintainType.Update, brand))
+                {
+                    var dialogResult = modify.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        InitControls();
+                    }
+                }
             }
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
             BrandModel newBrandModel = new BrandModel();
-            AddUpdateBrandFrm newBrand = new AddUpdateBrandFrm(MaintainType.New, newBrandModel);
-            newBrand.ShowDialog();
+            using (AddUpdateBrandFrm newBrand = new AddUpdateBrandFrm(MaintainType.New, newBrandModel))
+            {
+                var dialogResult = newBrand.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    InitControls();
+                }
+            }
         }
     }
 }

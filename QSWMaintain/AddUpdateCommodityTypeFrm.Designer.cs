@@ -105,7 +105,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbCommodityTypeName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddUpdateCommodityTypeFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddUpdateCommodityTypeFrm";
             this.ResumeLayout(false);
             this.PerformLayout();

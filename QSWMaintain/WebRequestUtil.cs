@@ -140,6 +140,28 @@ namespace QSWMaintain
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
         }
+
+        public static IRestResponse ReplaceBrandImg(string previousName,string imgName, string imgContent)
+        {
+            string brandHome = "/FileUpload/ReplaceBrandImg";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("previousName", previousName);
+            request.AddParameter("imgName", imgName);
+            request.AddParameter("imgContent", imgContent);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse ReplaceCommodityImg(string previousName, string imgName, string imgContent)
+        {
+            string brandHome = "/FileUpload/ReplaceCommodityImg";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("previousName", previousName);
+            request.AddParameter("imgName", imgName);
+            request.AddParameter("imgContent", imgContent);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
         #endregion
 
         #region RestSharp Test

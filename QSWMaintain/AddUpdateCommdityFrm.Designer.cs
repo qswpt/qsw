@@ -62,6 +62,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnBrowseImage = new System.Windows.Forms.Button();
             this.rtbRemark = new System.Windows.Forms.RichTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -148,7 +151,7 @@
             // cmbUnit
             // 
             this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(435, 271);
+            this.cmbUnit.Location = new System.Drawing.Point(435, 270);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(92, 33);
             this.cmbUnit.TabIndex = 2;
@@ -331,12 +334,13 @@
             // 
             // btnBrowseImage
             // 
-            this.btnBrowseImage.Location = new System.Drawing.Point(435, 127);
+            this.btnBrowseImage.Location = new System.Drawing.Point(435, 121);
             this.btnBrowseImage.Name = "btnBrowseImage";
-            this.btnBrowseImage.Size = new System.Drawing.Size(92, 32);
+            this.btnBrowseImage.Size = new System.Drawing.Size(108, 42);
             this.btnBrowseImage.TabIndex = 6;
-            this.btnBrowseImage.Text = "button1";
+            this.btnBrowseImage.Text = "浏览...";
             this.btnBrowseImage.UseVisualStyleBackColor = true;
+            this.btnBrowseImage.Click += new System.EventHandler(this.BtnBrowseImage_Click);
             // 
             // rtbRemark
             // 
@@ -346,11 +350,41 @@
             this.rtbRemark.TabIndex = 7;
             this.rtbRemark.Text = "";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(418, 613);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(31, 25);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "度";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(418, 666);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(31, 25);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "级";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(419, 712);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 25);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "级";
+            // 
             // AddUpdateCommdityFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 1011);
+            this.ClientSize = new System.Drawing.Size(778, 1024);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.rtbRemark);
             this.Controls.Add(this.btnBrowseImage);
             this.Controls.Add(this.btnCancel);
@@ -386,7 +420,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddUpdateCommdityFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpdateCommdityFrm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -429,5 +466,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnBrowseImage;
         private System.Windows.Forms.RichTextBox rtbRemark;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

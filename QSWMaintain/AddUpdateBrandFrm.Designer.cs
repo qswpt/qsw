@@ -89,6 +89,7 @@
             this.btnBrowse.TabIndex = 2;
             this.btnBrowse.Text = "浏览...";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // label3
             // 
@@ -170,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 552);
+            this.ClientSize = new System.Drawing.Size(538, 544);
             this.Controls.Add(this.cmbState);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.tbOrder);
@@ -185,7 +186,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddUpdateBrandFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpdateBrandFrm";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -66,7 +66,6 @@ namespace Qsw.Services
             var commodityTypeModel = JsonUtil.Deserialize<CommodityTypeModel>(commodityTypeModelStr);
             string sql = $"INSERT INTO CommodityType VALUES(?TypeName,?OderSart)";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["TypeId"] = commodityTypeModel.TypeId;
             p["TypeName"] = commodityTypeModel.TypeName;
             p["OderSart"] = commodityTypeModel.OderSart;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);

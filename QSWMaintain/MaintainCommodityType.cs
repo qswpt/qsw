@@ -34,8 +34,10 @@ namespace QSWMaintain
         private void BtnNew_Click(object sender, EventArgs e)
         {
             CommodityTypeModel commodityTypeModel = new CommodityTypeModel();
-            AddUpdateCommodityTypeFrm addCommodityTypeFrm = new AddUpdateCommodityTypeFrm(MaintainType.New, commodityTypeModel);
-            addCommodityTypeFrm.ShowDialog();
+            using (AddUpdateCommodityTypeFrm addCommodityTypeFrm = new AddUpdateCommodityTypeFrm(MaintainType.New, commodityTypeModel))
+            {
+                addCommodityTypeFrm.ShowDialog();
+            }
         }
 
         private void BtnModify_Click(object sender, EventArgs e)
@@ -43,8 +45,14 @@ namespace QSWMaintain
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
                 var commodityTypeModel = this.dataGridView1.SelectedRows[0].Tag as CommodityTypeModel;
-                AddUpdateCommodityTypeFrm addCommodityTypeFrm = new AddUpdateCommodityTypeFrm(MaintainType.Update, commodityTypeModel);
-                addCommodityTypeFrm.ShowDialog();
+                using (AddUpdateCommodityTypeFrm addCommodityTypeFrm = new AddUpdateCommodityTypeFrm(MaintainType.Update, commodityTypeModel))
+                {
+                    var dialogResult = addCommodityTypeFrm.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        this.InitControls();
+                    }
+                }
             }
         }
 

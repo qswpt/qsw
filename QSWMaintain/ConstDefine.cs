@@ -14,7 +14,7 @@ namespace QSWMaintain
 
         private static string Server = "localhost";
 
-        private static int port = 80;
+        private static int port = 62830;
 
         public static string Host
         {

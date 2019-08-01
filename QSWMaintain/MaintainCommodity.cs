@@ -10,7 +10,6 @@ namespace QSWMaintain
 {
     public partial class MaintainCommodity : UserControl
     {
-        private static BrandController brandController = new BrandController();
         private static List<BrandModel> brandModelList;
         private static List<CommodityTypeModel> commodityTypeModelList;
         private static List<UnitModel> unitModelList;
@@ -132,16 +131,28 @@ namespace QSWMaintain
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
                 var commodity = this.dataGridView1.SelectedRows[0].Tag as CommodityModel;
-                AddUpdateCommdityFrm upadteCommodityFrm = new AddUpdateCommdityFrm(MaintainType.Update, commodity);
-                upadteCommodityFrm.ShowDialog();
+                using (AddUpdateCommdityFrm upadteCommodityFrm = new AddUpdateCommdityFrm(MaintainType.Update, commodity))
+                {
+                    var dialogResult = upadteCommodityFrm.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        this.InitControls();
+                    }
+                }
             }
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
             CommodityModel newCommodityModel = new CommodityModel();
-            AddUpdateCommdityFrm NewCommodityFrm = new AddUpdateCommdityFrm(MaintainType.New, newCommodityModel);
-            NewCommodityFrm.ShowDialog();
+            using (AddUpdateCommdityFrm NewCommodityFrm = new AddUpdateCommdityFrm(MaintainType.New, newCommodityModel))
+            {
+                var dialogResult = NewCommodityFrm.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    this.InitControls();
+                }
+            }
         }
     }
 }
