@@ -1,5 +1,4 @@
 ﻿using Framework.Common.Utils;
-using KJW.Web.Controllers;
 using QSW.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -56,15 +55,15 @@ namespace QSWMaintain
                 foreach (var commodity in commodityModelList)
                 {
                     int index = this.dataGridView1.Rows.Add();
-                    this.dataGridView1.Rows[index].Cells[0].Value = commodity.BrandName;
+                    this.dataGridView1.Rows[index].Cells[0].Value = commodity.CommodityName;
                     this.dataGridView1.Rows[index].Cells[1].Value = commodity.CommodityGeneral;
-                    this.dataGridView1.Rows[index].Cells[2].Value = commodity.CommodityFamilyId;
+                    this.dataGridView1.Rows[index].Cells[2].Value = commodity.BrandName;
                     this.dataGridView1.Rows[index].Cells[3].Value = commodity.CommodityCode;
                     this.dataGridView1.Rows[index].Cells[4].Value = commodity.CommoditySpec;
                     this.dataGridView1.Rows[index].Cells[5].Value = commodity.CommodityIndex;
-                    this.dataGridView1.Rows[index].Cells[6].Value = commodity.CommodityHOT;
-                    this.dataGridView1.Rows[index].Cells[7].Value = commodity.CommodityRM;
-                    this.dataGridView1.Rows[index].Cells[8].Value = commodity.CommodityFL;
+                    this.dataGridView1.Rows[index].Cells[6].Value = commodity.CommodityRH;
+                    this.dataGridView1.Rows[index].Cells[7].Value = commodity.CommodityFL;
+                    this.dataGridView1.Rows[index].Cells[8].Value = commodity.CommodityRM;
                     this.dataGridView1.Rows[index].Tag = commodity;
                 }
             }

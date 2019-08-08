@@ -211,5 +211,75 @@ namespace Qsw.Services
                 return false;
             }
         }
+
+        public bool UpdateCommodity(int commodityId, string commodityModeStr)
+        {
+            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModeStr);
+            string sql = $"UPDATE Commodity set CommoditydName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral," +
+                $"CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyId," +
+                $"CommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityState,CommodityHOT=?commodityHOT,CommoditySpec=?commoditySpec," +
+                $"CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommodityRemark=?commodityRemark WHERE CommodityId=?commodityId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["commodityId"] = commodityId;
+            p["commoditydName"] = commodityModel.CommodityName;
+            p["commodityImg"] = commodityModel.CommodityImg;
+            p["commodityGeneral"] = commodityModel.CommodityGeneral;
+            p["commodityPrice"] = commodityModel.CommodityPrice;
+            p["commodityUnitId"] = commodityModel.CommodityUnitId;
+            p["commodityBrandId"] = commodityModel.CommodityBrandId;
+            p["commodityFamilyId"] = commodityModel.CommodityFamilyId;
+            p["commodityIndex"] = commodityModel.CommodityIndex;
+            p["commodityCode"] = commodityModel.CommodityCode;
+            p["commodityState"] = 0;
+            p["commodityHOT"] = commodityModel.CommodityHOT;
+            p["commoditySpec"] = commodityModel.CommoditySpec;
+            p["commodityRH"] = commodityModel.CommodityRH;
+            p["commodityRM"] = commodityModel.CommodityRM;
+            p["commodityFL"] = commodityModel.CommodityFL;
+            p["commodityRemark"] = commodityModel.CommodityRemark;
+            int num = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool InsertCommodity(string commodityModeStr)
+        {
+            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModeStr);
+            string sql = $"INSERT INTO Commodity VALUES(?commodityName,?commodityImg,?commodityGeneral,?commodityPrice,?commodityUnitId," +
+                $"?commodityBrandId,?commodityFamilyId,?commodityIndex,?commodityCode,?commodityState,?commodityHOT,?commoditySpec," +
+                $"?commodityRH,?commodityRM,?commodityFL,?commodityRemark)";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["commoditydName"] = commodityModel.CommodityName;
+            p["commodityImg"] = commodityModel.CommodityImg;
+            p["commodityGeneral"] = commodityModel.CommodityGeneral;
+            p["commodityPrice"] = commodityModel.CommodityPrice;
+            p["commodityUnitId"] = commodityModel.CommodityUnitId;
+            p["commodityBrandId"] = commodityModel.CommodityBrandId;
+            p["commodityFamilyId"] = commodityModel.CommodityFamilyId;
+            p["commodityIndex"] = commodityModel.CommodityIndex;
+            p["commodityCode"] = commodityModel.CommodityCode;
+            p["commodityState"] = 0;
+            p["commodityHOT"] = commodityModel.CommodityHOT;
+            p["commoditySpec"] = commodityModel.CommoditySpec;
+            p["commodityRH"] = commodityModel.CommodityRH;
+            p["commodityRM"] = commodityModel.CommodityRM;
+            p["commodityFL"] = commodityModel.CommodityFL;
+            p["commodityRemark"] = commodityModel.CommodityRemark;
+            int num = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
