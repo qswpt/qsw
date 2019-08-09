@@ -358,6 +358,7 @@
             this.label16.Size = new System.Drawing.Size(31, 25);
             this.label16.TabIndex = 8;
             this.label16.Text = "度";
+            this.label16.Visible = false;
             // 
             // label17
             // 
@@ -367,6 +368,7 @@
             this.label17.Size = new System.Drawing.Size(31, 25);
             this.label17.TabIndex = 9;
             this.label17.Text = "级";
+            this.label17.Visible = false;
             // 
             // label18
             // 
@@ -376,6 +378,7 @@
             this.label18.Size = new System.Drawing.Size(31, 25);
             this.label18.TabIndex = 10;
             this.label18.Text = "级";
+            this.label18.Visible = false;
             // 
             // AddUpdateCommdityFrm
             // 

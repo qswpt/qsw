@@ -34,6 +34,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGeneral = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +53,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colGeneral,
+            this.colPrice,
             this.colManufacture,
             this.colCode,
             this.colSpec,
@@ -118,6 +120,14 @@
             this.colGeneral.Name = "colGeneral";
             this.colGeneral.ReadOnly = true;
             this.colGeneral.Width = 150;
+            // 
+            // colPrice
+            // 
+            this.colPrice.HeaderText = "单价";
+            this.colPrice.MinimumWidth = 8;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 150;
             // 
             // colManufacture
             // 
@@ -199,6 +209,7 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGeneral;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colManufacture;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSpec;

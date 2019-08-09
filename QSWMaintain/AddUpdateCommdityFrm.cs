@@ -41,6 +41,21 @@ namespace QSWMaintain
             }
 
             this.cmbHot.DataSource = hotList;
+            this.tbName.Text = this.commdodityModel.CommodityName;
+            this.tbImg.Text = this.commdodityModel.CommodityImg;
+            this.tbGeneral.Text = this.commdodityModel.CommodityGeneral;
+            this.tbPrice.Text = this.commdodityModel.CommodityPrice.ToString();
+            this.tbSpec.Text = this.commdodityModel.CommoditySpec.ToString();
+            this.cmbBrand.SelectedItem = MaintainCommodity.BrandModelList.Find(p=>p.BrandName== this.commdodityModel.BrandName);
+            this.cmbCommodityType.SelectedItem = MaintainCommodity.CommodityTypeList.Find(p=>p.TypeName== this.commdodityModel.TypeName);
+            this.tbIndex.Text = this.commdodityModel.CommodityIndex;
+            this.tbCode.Text = this.commdodityModel.CommodityCode;
+            this.cmbHot.SelectedItem = this.commdodityModel.CommodityHOT;
+            this.tbState.Text = "0";
+            this.tbRH.Text = this.commdodityModel.CommodityRH;
+            this.tbFL.Text = this.commdodityModel.CommodityFL;
+            this.tbRM.Text = this.commdodityModel.CommodityRM;
+            this.rtbRemark.Text = this.commdodityModel.CommodityRemark;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
