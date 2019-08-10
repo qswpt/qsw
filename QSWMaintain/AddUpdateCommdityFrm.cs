@@ -14,6 +14,7 @@ namespace QSWMaintain
         private List<int> hotList;
         private string previousImg;
         private string newImageGUID = "commodity_" + Guid.NewGuid().ToString();
+        private bool isReplaceImg = false;
         public AddUpdateCommdityFrm(MaintainType type, CommodityModel commodity)
         {
             InitializeComponent();
@@ -25,6 +26,14 @@ namespace QSWMaintain
 
         private void InitControls()
         {
+            if (this.maintainType == MaintainType.New)
+            {
+                this.Text = "新建商品";
+            }
+            else if (this.maintainType == MaintainType.Update)
+            {
+                this.Text = "更新商品";
+            }
             this.cmbBrand.DataSource = MaintainCommodity.BrandModelList;
             this.cmbBrand.DisplayMember = "BrandName";
 
@@ -82,24 +91,36 @@ namespace QSWMaintain
             this.commdodityModel.CommoditySpec = int.Parse(this.tbSpec.Text);
             this.commdodityModel.BrandName = this.cmbBrand.SelectedText;
             this.commdodityModel.CommodityBrandId = (this.cmbBrand.SelectedItem as BrandModel).BrandId;
+            this.commdodityModel.CommodityFamilyId = (this.cmbCommodityType.SelectedItem as CommodityTypeModel).TypeId;
             this.commdodityModel.CommodityIndex = this.tbIndex.Text;
             this.commdodityModel.CommodityCode = this.tbCode.Text;
-            this.commdodityModel.CommodityHOT = int.Parse(this.cmbHot.SelectedText);
+            this.commdodityModel.CommodityHOT = int.Parse(this.cmbHot.SelectedItem.ToString());
             this.commdodityModel.CommodityRH = this.tbRH.Text;
             this.commdodityModel.CommodityRM = this.tbRM.Text;
             this.commdodityModel.CommodityFL = this.tbFL.Text;
             this.commdodityModel.CommodityRemark = this.rtbRemark.Text;
             if (this.maintainType == MaintainType.New)
             {
-                WebRequestUtil.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
+                this.commdodityModel.CommoditySuper = 1;
+                var addResult =  WebRequestUtil.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
+                if (addResult == null || addResult.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("新建商品失败");
+                }
             }
             else
             {
-                WebRequestUtil.UpdateCommodity(this.commdodityModel.CommodityId,JsonUtil.Serialize(this.commdodityModel));
+                var updateResult = WebRequestUtil.UpdateCommodity(this.commdodityModel.CommodityId,JsonUtil.Serialize(this.commdodityModel));
+                if (updateResult == null || updateResult.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("更新商品失败");
+                }
             }
             //replace image
-            //...
-            this.ReplaceImge();
+            if (this.isReplaceImg)
+            {
+                this.ReplaceImge();
+            }
         }
 
         private void BtnBrowseImage_Click(object sender, EventArgs e)
@@ -112,6 +133,7 @@ namespace QSWMaintain
             {
                 string filePath = fileDialog.FileName;
                 this.tbImg.Text = filePath;
+                this.isReplaceImg = true;
             }
         }
 

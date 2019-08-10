@@ -28,9 +28,9 @@ namespace Qsw.Services
 
         public bool DeleteCommodityType(int typeId)
         {
-            string sql = "DELETE FROM CommodityType WHERE TypeId=?TypeId";
+            string sql = "DELETE FROM CommodityType WHERE TypeId=?typeId";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["TypeId"] = typeId;
+            p["typeId"] = typeId;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {
@@ -45,11 +45,11 @@ namespace Qsw.Services
         public bool UpdateCommodityType(int typeId, string commodityTypeModelStr)
         {
             var commodityTypeModel = JsonUtil.Deserialize<CommodityTypeModel>(commodityTypeModelStr);
-            string sql = $"UPDATE CommodityType set TypeName=?TypeName,OderSart=?OderSart WHERE TypeId=?TypeId";
+            string sql = $"UPDATE CommodityType set TypeName=?typeName,OderSart=?oderSart WHERE TypeId=?typeId";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["TypeId"] = typeId;
-            p["TypeName"] = commodityTypeModel.TypeName;
-            p["OderSart"] = commodityTypeModel.OderSart;
+            p["typeId"] = typeId;
+            p["typeName"] = commodityTypeModel.TypeName;
+            p["oderSart"] = commodityTypeModel.OderSart;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {
@@ -64,10 +64,10 @@ namespace Qsw.Services
         public bool InsertCommodityType(string commodityTypeModelStr)
         {
             var commodityTypeModel = JsonUtil.Deserialize<CommodityTypeModel>(commodityTypeModelStr);
-            string sql = $"INSERT INTO CommodityType VALUES(?TypeName,?OderSart)";
+            string sql = $"INSERT INTO CommodityType(TypeName,OderSart) VALUES(?typeName,?oderSart)";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["TypeName"] = commodityTypeModel.TypeName;
-            p["OderSart"] = commodityTypeModel.OderSart;
+            p["typeName"] = commodityTypeModel.TypeName;
+            p["oderSart"] = commodityTypeModel.OderSart;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {

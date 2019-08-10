@@ -47,6 +47,17 @@ namespace QSWMaintain
 
         private void InitControls()
         {
+            this.dataGridView1.Rows.Clear();
+            this.dataGridView1.Columns[0].Width = 250;
+            this.dataGridView1.Columns[1].Width = 150;
+            this.dataGridView1.Columns[2].Width = 80;
+            this.dataGridView1.Columns[3].Width = 80;
+            this.dataGridView1.Columns[4].Width = 80;
+            this.dataGridView1.Columns[5].Width = 80;
+            this.dataGridView1.Columns[6].Width = 80;
+            this.dataGridView1.Columns[7].Width = 80;
+            this.dataGridView1.Columns[8].Width = 80;
+            this.dataGridView1.Columns[9].Width = 80;
             var contentResult = WebRequestUtil.GetCommodityList();
             if (contentResult != null)
             {

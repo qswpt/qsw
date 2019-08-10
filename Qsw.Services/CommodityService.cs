@@ -20,7 +20,8 @@ namespace Qsw.Services
         }
         private string GetCommodityListSql(int index, int size)
         {
-            string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +                         $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 AND a.CommoditySuper=1 " +
+            string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +
+                         $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 AND a.CommoditySuper=1 " +
                          $"ORDER BY a.CommodityHOT ASC LIMIT ?index,?size";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["index"] = (index - 1) * size;
@@ -212,16 +213,16 @@ namespace Qsw.Services
             }
         }
 
-        public bool UpdateCommodity(int commodityId, string commodityModeStr)
+        public bool UpdateCommodity(int commodityId, string commodityModelStr)
         {
-            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModeStr);
-            string sql = $"UPDATE Commodity set CommoditydName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral," +
+            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModelStr);
+            string sql = $"UPDATE Commodity set CommodityName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral," +
                 $"CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyId," +
                 $"CommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityState,CommodityHOT=?commodityHOT,CommoditySpec=?commoditySpec," +
-                $"CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommodityRemark=?commodityRemark WHERE CommodityId=?commodityId";
+                $"CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommodityRemark=?commodityRemark,CommoditySuper=?commoditySuper WHERE CommodityId=?commodityId";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["commodityId"] = commodityId;
-            p["commoditydName"] = commodityModel.CommodityName;
+            p["commodityName"] = commodityModel.CommodityName;
             p["commodityImg"] = commodityModel.CommodityImg;
             p["commodityGeneral"] = commodityModel.CommodityGeneral;
             p["commodityPrice"] = commodityModel.CommodityPrice;
@@ -237,6 +238,7 @@ namespace Qsw.Services
             p["commodityRM"] = commodityModel.CommodityRM;
             p["commodityFL"] = commodityModel.CommodityFL;
             p["commodityRemark"] = commodityModel.CommodityRemark;
+            p["commoditySuper"] = commodityModel.CommoditySuper;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {
@@ -248,14 +250,17 @@ namespace Qsw.Services
             }
         }
 
-        public bool InsertCommodity(string commodityModeStr)
+        public bool InsertCommodity(string commodityModelStr)
         {
-            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModeStr);
-            string sql = $"INSERT INTO Commodity VALUES(?commodityName,?commodityImg,?commodityGeneral,?commodityPrice,?commodityUnitId," +
+            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModelStr);
+            string sql = $"INSERT INTO Commodity(CommodityName,CommodityImg,CommodityGeneral,CommodityPrice,CommodityUnitId," +
+                $"CommodityBrandId,CommodityFamilyId,CommodityIndex,CommodityCode,CommodityState,CommodityHOT,CommoditySpec," +
+                $"CommodityRH,CommodityRM,CommodityFL,CommodityRemark,CommoditySuper)" +
+                $" VALUES(?commodityName,?commodityImg,?commodityGeneral,?commodityPrice,?commodityUnitId," +
                 $"?commodityBrandId,?commodityFamilyId,?commodityIndex,?commodityCode,?commodityState,?commodityHOT,?commoditySpec," +
-                $"?commodityRH,?commodityRM,?commodityFL,?commodityRemark)";
+                $"?commodityRH,?commodityRM,?commodityFL,?commodityRemark,?commoditySuper)";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["commoditydName"] = commodityModel.CommodityName;
+            p["commodityName"] = commodityModel.CommodityName;
             p["commodityImg"] = commodityModel.CommodityImg;
             p["commodityGeneral"] = commodityModel.CommodityGeneral;
             p["commodityPrice"] = commodityModel.CommodityPrice;
@@ -271,6 +276,7 @@ namespace Qsw.Services
             p["commodityRM"] = commodityModel.CommodityRM;
             p["commodityFL"] = commodityModel.CommodityFL;
             p["commodityRemark"] = commodityModel.CommodityRemark;
+            p["commoditySuper"] = commodityModel.CommoditySuper;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {

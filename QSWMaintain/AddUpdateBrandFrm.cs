@@ -12,6 +12,8 @@ namespace QSWMaintain
         private MaintainType maintainType;
         private string previousImg;
         private string newImageGUID = "brand_" + Guid.NewGuid().ToString();
+        private bool isReplaceImg = false;
+
         public AddUpdateBrandFrm(MaintainType type, BrandModel model)
         {
             InitializeComponent();
@@ -23,6 +25,15 @@ namespace QSWMaintain
 
         private void InitControls()
         {
+            if (this.maintainType == MaintainType.New)
+            {
+                this.Text = "新建品牌";
+            }
+            else if (this.maintainType == MaintainType.Update)
+            {
+                this.Text = "更新品牌";
+            }
+
             this.tbName.Text = brandModel.BrandName;
             this.tbImage.Text = brandModel.BrandImg;
             this.tbOrder.Text = brandModel.OderSart.ToString();
@@ -36,7 +47,8 @@ namespace QSWMaintain
         private void BtnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.tbName.Text) ||
-               string.IsNullOrEmpty(this.tbImage.Text))
+               string.IsNullOrEmpty(this.tbImage.Text) ||
+               string.IsNullOrEmpty(this.tbOrder.Text))
             {
                 MessageBox.Show("请填写完整信息！");
                 return;
@@ -50,21 +62,34 @@ namespace QSWMaintain
         private void Save()
         {
             this.brandModel.BrandName = this.tbName.Text;
-            this.brandModel.BrandImg = this.newImageGUID+Path.GetExtension(this.tbImage.Text);
+            this.brandModel.BrandImg = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
             this.brandModel.BrandTypeId = 0;
             this.brandModel.BrandState = 0;
-            this.brandModel.OderSart = int.Parse(this.tbOrder.Text);
+            int order = 0;
+            int.TryParse(this.tbOrder.Text,out order);
+            this.brandModel.OderSart = order;
             if (this.maintainType == MaintainType.New)
             {
-                WebRequestUtil.AddBrand(JsonUtil.Serialize(this.brandModel));
+                var addResult = WebRequestUtil.AddBrand(JsonUtil.Serialize(this.brandModel));
+                if (addResult == null || addResult.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("新建品牌失败！");
+                }
             }
             else
             {
-                WebRequestUtil.UpdateBrand(this.brandModel.BrandId, JsonUtil.Serialize(this.brandModel));
+                var updateResult = WebRequestUtil.UpdateBrand(this.brandModel.BrandId, JsonUtil.Serialize(this.brandModel));
+                if (updateResult == null || updateResult.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("更新品牌失败！");
+                }
             }
+
             //replace image
-            //...
-            this.ReplaceImge();
+            if (this.isReplaceImg)
+            {
+                this.ReplaceImge();
+            }
         }
 
         private void BtnBrowse_Click(object sender, EventArgs e)
@@ -77,14 +102,15 @@ namespace QSWMaintain
             {
                 string filePath = fileDialog.FileName;
                 this.tbImage.Text = filePath;
+                this.isReplaceImg = true;
             }
         }
 
         private void ReplaceImge()
         {
             string imgName = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
-            var contentBytes= File.ReadAllBytes(this.tbImage.Text);
-           string imgContent = Convert.ToBase64String(contentBytes);
+            var contentBytes = File.ReadAllBytes(this.tbImage.Text);
+            string imgContent = Convert.ToBase64String(contentBytes);
             WebRequestUtil.ReplaceBrandImg(this.previousImg, imgName, imgContent);
         }
     }

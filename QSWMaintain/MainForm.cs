@@ -15,6 +15,7 @@ namespace QSWMaintain
         public MainForm()
         {
             InitializeComponent();
+            AddUserControl(this.maintainADPic);
         }
 
         private MaintainADs maintainADPic = new MaintainADs();
@@ -27,26 +28,29 @@ namespace QSWMaintain
 
         private void BtnMaintainADs_Click(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(this.maintainADPic);
+            AddUserControl(this.maintainADPic);
         }
 
         private void BtnMaintaindBrand_Click(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(this.maintainBrands);
+            AddUserControl(this.maintainBrands);
         }
 
         private void BtnMaintainCommodity_Click(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(this.maintainCommodity);
+            AddUserControl(this.maintainCommodity);
         }
 
         private void BtnMaintainCommodityType_Click(object sender, EventArgs e)
         {
+            AddUserControl(this.maintainCommodityType);
+        }
+
+        private void AddUserControl(UserControl control)
+        {
             this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(this.maintainCommodityType);
+            this.panel1.Controls.Add(control);
+            control.Dock = DockStyle.Fill;
         }
     }
 

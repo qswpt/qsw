@@ -17,6 +17,12 @@ namespace QSWMaintain
 
         private void InitControls()
         {
+            this.dataGridView1.Rows.Clear();
+            this.dataGridView1.Columns[0].Width = 250;
+            this.dataGridView1.Columns[1].Width = 100;
+            this.dataGridView1.Columns[2].Width = 80;
+            this.dataGridView1.Columns[3].Width = 80;
+            this.dataGridView1.Columns[4].Width = 80;
             var result = WebRequestUtil.GetBrandHome();
             if (result != null)
             {

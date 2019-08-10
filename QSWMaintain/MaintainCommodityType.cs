@@ -17,6 +17,7 @@ namespace QSWMaintain
 
         private void InitControls()
         {
+            this.dataGridView1.Rows.Clear();
             var result = WebRequestUtil.GetCommodityType();
             if (result != null)
             {
@@ -36,7 +37,11 @@ namespace QSWMaintain
             CommodityTypeModel commodityTypeModel = new CommodityTypeModel();
             using (AddUpdateCommodityTypeFrm addCommodityTypeFrm = new AddUpdateCommodityTypeFrm(MaintainType.New, commodityTypeModel))
             {
-                addCommodityTypeFrm.ShowDialog();
+                var dialogResult = addCommodityTypeFrm.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    this.InitControls();
+                }
             }
         }
 

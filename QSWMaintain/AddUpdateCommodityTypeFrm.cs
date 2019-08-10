@@ -20,6 +20,15 @@ namespace QSWMaintain
 
         private void InitControls()
         {
+            if (this.maintainType == MaintainType.New)
+            {
+                this.Text = "新建商品类型";
+            }
+            else if (this.maintainType == MaintainType.Update)
+            {
+                this.Text = "更新商品类型";
+
+            }
             this.tbCommodityTypeName.Text = this.commodityTypeModel.TypeName;
             this.tbOrder.Text = this.commodityTypeModel.OderSart.ToString();
         }
@@ -39,14 +48,24 @@ namespace QSWMaintain
         private void save()
         {
             this.commodityTypeModel.TypeName = this.tbCommodityTypeName.Text;
-            this.commodityTypeModel.OderSart = this.commodityTypeModel.OderSart;
+            int order = 0;
+            int.TryParse(this.tbOrder.Text, out order);
+            this.commodityTypeModel.OderSart = order;
             if (this.maintainType == MaintainType.New)
             {
-                WebRequestUtil.AddCommodityType(JsonUtil.Serialize(this.commodityTypeModel));
+                var addResult = WebRequestUtil.AddCommodityType(JsonUtil.Serialize(this.commodityTypeModel));
+                if (addResult == null || addResult.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("新建商品类型失败");
+                }
             }
             else
             {
-                WebRequestUtil.UpdateCommodityType(this.commodityTypeModel.TypeId, JsonUtil.Serialize(this.commodityTypeModel));
+                var updateResult = WebRequestUtil.UpdateCommodityType(this.commodityTypeModel.TypeId, JsonUtil.Serialize(this.commodityTypeModel));
+                if (updateResult == null || updateResult.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("更新商品类型失败");
+                }
             }
         }
     }

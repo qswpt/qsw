@@ -1,6 +1,7 @@
 ﻿using Framework.Common.Utils;
 using KJW.Web.Controllers;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace QSWMaintain
             this.textBox3.Text = "city--3-min-min.jpg";
             this.textBox4.Text = "city--4-min-min.jpg";
             this.textBox5.Text = "city--5-min-min.jpg";
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private void ButtonModify_Click(object sender, EventArgs e)
@@ -58,6 +60,42 @@ namespace QSWMaintain
             else
             {
                 return false;
+            }
+        }
+
+        private void BtnPreview_Click(object sender, EventArgs e)
+        {
+            var response = WebRequestUtil.GetAdsImg(this.comboBox1.SelectedIndex + 1);
+            if (response != null)
+            {
+                var data = JsonUtil.Deserialize<QSWResponse<string>>(response.Content);
+                if (!string.IsNullOrEmpty(data.Data))
+                {
+                    var imgBytes = Convert.FromBase64String(data.Data);
+                    string imageFile = SaveToCache(imgBytes);
+                    this.pictureBox1.Image = new Bitmap(imageFile);
+                }
+            }
+        }
+
+        private string SaveToCache(byte[] content)
+        {
+            try
+            {
+                string cacheDir = Path.Combine(Environment.CurrentDirectory, ".Cache");
+                if (!Directory.Exists(cacheDir))
+                {
+                    Directory.CreateDirectory(cacheDir);
+                }
+
+                string fileName = Guid.NewGuid().ToString();
+                string filePath = Path.Combine(cacheDir,fileName);
+                File.WriteAllBytes(filePath, content);
+                return filePath;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
             }
         }
     }

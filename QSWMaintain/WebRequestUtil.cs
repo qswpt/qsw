@@ -6,11 +6,13 @@ namespace QSWMaintain
 {
     public class WebRequestUtil
     {
+        private static int defaultSize = int.MaxValue;
         #region Brand
         public static IRestResponse GetBrandHome()
         {
             string brandHome = "/Brand/GetBrandHome";
             RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("size", defaultSize);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
         }
@@ -18,7 +20,7 @@ namespace QSWMaintain
         public static IRestResponse AddBrand(string brandModelStr)
         {
             string brandHome = "/Brand/AddBrand";
-            RestRequest request = new RestRequest(brandHome, Method.GET);
+            RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("brandModelStr", brandModelStr);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
@@ -27,7 +29,7 @@ namespace QSWMaintain
         public static IRestResponse UpdateBrand(int id,string brandModelStr)
         {
             string brandHome = "/Brand/UpdateBrand";
-            RestRequest request = new RestRequest(brandHome, Method.GET);
+            RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
             request.AddParameter("brandModelStr", brandModelStr);
             var result = ExecuteRequest(ConstDefine.Client,request);
@@ -36,7 +38,7 @@ namespace QSWMaintain
 
         public static IRestResponse DeleteBrand(int id)
         {
-            string brandHome = "/Brand/GetBrandHome";
+            string brandHome = "/Brand/DeleteBrand";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
             var result = ExecuteRequest(ConstDefine.Client,request);
@@ -49,6 +51,8 @@ namespace QSWMaintain
         {
             string brandHome = "/Commodity/GetCommodityList";
             RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("index", 1);
+            request.AddParameter("size", defaultSize);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
         }
@@ -75,7 +79,7 @@ namespace QSWMaintain
         {
             string brandHome = "/Commodity/UpdateCommodity";
             RestRequest request = new RestRequest(brandHome, Method.POST);
-            request.AddParameter("id", request.AddParameter("commodityModelStr", commodityModelStr));
+            request.AddParameter("id", id);
             request.AddParameter("commodityModelStr", commodityModelStr);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
@@ -87,6 +91,7 @@ namespace QSWMaintain
         {
             string brandHome = "/Unit/GetUnit";
             RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("size", defaultSize);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
         }
@@ -97,6 +102,7 @@ namespace QSWMaintain
         {
             string brandHome = "/CommodityType/GetCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("size", defaultSize);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
         }
@@ -112,7 +118,7 @@ namespace QSWMaintain
 
         public static IRestResponse UpdateCommodityType(int id,string commodityTypeModelStr)
         {
-            string brandHome = "/CommodityType/DeleteCommodityType";
+            string brandHome = "/CommodityType/UpdateCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
             request.AddParameter("commodityTypeModelStr", commodityTypeModelStr);
@@ -124,7 +130,7 @@ namespace QSWMaintain
         {
             string brandHome = "/CommodityType/DeleteCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.POST);
-            request.AddParameter("id", id);
+            request.AddParameter("typeId", id);
             var result = ExecuteRequest(ConstDefine.Client,request);
             return result;
         }
@@ -138,6 +144,15 @@ namespace QSWMaintain
             request.AddParameter("index", index);
             request.AddParameter("imgContent", imgContent);
             var result = ExecuteRequest(ConstDefine.Client,request);
+            return result;
+        }
+
+        public static IRestResponse GetAdsImg(int index)
+        {
+            string brandHome = "/FileUpload/GetAdsImg";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("index", index);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 

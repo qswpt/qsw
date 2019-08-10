@@ -67,7 +67,7 @@ namespace Qsw.Services
         public bool InsertBrand(string brandModelStr)
         {
             var brandModel = JsonUtil.Deserialize<BrandModel>(brandModelStr);
-            string sql = $"INSERT INTO Brand VALUES(?brandName,?brandTypeId,?brandImg,?brandState,?oderSart)";
+            string sql = $"INSERT INTO Brand(BrandName,BrandTypeId,BrandImg,BrandState,OderSart) VALUES(?brandName,?brandTypeId,?brandImg,?brandState,?oderSart)";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["brandName"] = brandModel.BrandName;
             p["brandImg"] = brandModel.BrandImg;

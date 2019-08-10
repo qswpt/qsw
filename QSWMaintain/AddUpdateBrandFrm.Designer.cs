@@ -41,6 +41,8 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbState = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,6 +57,7 @@
             // 
             // tbName
             // 
+            this.tbName.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tbName.Location = new System.Drawing.Point(134, 116);
             this.tbName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbName.Name = "tbName";
@@ -111,7 +114,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(268, 472);
+            this.btnSave.Location = new System.Drawing.Point(375, 521);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 38);
@@ -122,7 +125,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(397, 472);
+            this.btnCancel.Location = new System.Drawing.Point(504, 521);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 38);
@@ -143,6 +146,7 @@
             // 
             // cmbType
             // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(134, 296);
             this.cmbType.Name = "cmbType";
@@ -161,17 +165,28 @@
             // 
             // cmbState
             // 
+            this.cmbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbState.FormattingEnabled = true;
             this.cmbState.Location = new System.Drawing.Point(134, 352);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(233, 33);
             this.cmbState.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(515, 116);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(170, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddUpdateBrandFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 544);
+            this.ClientSize = new System.Drawing.Size(708, 615);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbState);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.tbOrder);
@@ -191,6 +206,7 @@
             this.Name = "AddUpdateBrandFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpdateBrandFrm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +227,6 @@
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbState;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

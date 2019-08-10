@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnMaintainADs = new System.Windows.Forms.Button();
             this.btnMaintaindBrand = new System.Windows.Forms.Button();
             this.btnMaintainCommodity = new System.Windows.Forms.Button();
             this.btnMaintainCommodityType = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(253, 7);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 800);
-            this.panel1.TabIndex = 0;
             // 
             // btnMaintainADs
             // 
-            this.btnMaintainADs.Location = new System.Drawing.Point(24, 22);
+            this.btnMaintainADs.Location = new System.Drawing.Point(19, 14);
             this.btnMaintainADs.Name = "btnMaintainADs";
             this.btnMaintainADs.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainADs.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // btnMaintaindBrand
             // 
-            this.btnMaintaindBrand.Location = new System.Drawing.Point(25, 97);
+            this.btnMaintaindBrand.Location = new System.Drawing.Point(19, 89);
             this.btnMaintaindBrand.Name = "btnMaintaindBrand";
             this.btnMaintaindBrand.Size = new System.Drawing.Size(190, 50);
             this.btnMaintaindBrand.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // btnMaintainCommodity
             // 
-            this.btnMaintainCommodity.Location = new System.Drawing.Point(24, 172);
+            this.btnMaintainCommodity.Location = new System.Drawing.Point(19, 163);
             this.btnMaintainCommodity.Name = "btnMaintainCommodity";
             this.btnMaintainCommodity.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainCommodity.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             // btnMaintainCommodityType
             // 
-            this.btnMaintainCommodityType.Location = new System.Drawing.Point(24, 247);
+            this.btnMaintainCommodityType.Location = new System.Drawing.Point(19, 240);
             this.btnMaintainCommodityType.Name = "btnMaintainCommodityType";
             this.btnMaintainCommodityType.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainCommodityType.TabIndex = 2;
@@ -82,29 +83,109 @@
             this.btnMaintainCommodityType.UseVisualStyleBackColor = true;
             this.btnMaintainCommodityType.Click += new System.EventHandler(this.BtnMaintainCommodityType_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1258, 816);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnMaintainCommodityType);
+            this.panel2.Controls.Add(this.btnMaintaindBrand);
+            this.panel2.Controls.Add(this.btnMaintainCommodity);
+            this.panel2.Controls.Add(this.btnMaintainADs);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(227, 780);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(233, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(3);
+            this.panel1.Size = new System.Drawing.Size(1025, 786);
+            this.panel1.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 786);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(233, 30);
+            this.panel3.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Ebrima", 8F);
+            this.label1.Location = new System.Drawing.Point(3, 1);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "准备就绪.";
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(233, 786);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1025, 30);
+            this.panel4.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 816);
-            this.Controls.Add(this.btnMaintainCommodityType);
-            this.Controls.Add(this.btnMaintainCommodity);
-            this.Controls.Add(this.btnMaintaindBrand);
-            this.Controls.Add(this.btnMaintainADs);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
-            this.Text = "七色网维护系统 ";
+            this.Text = "七色网后台维护系统 ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnMaintainADs;
         private System.Windows.Forms.Button btnMaintaindBrand;
         private System.Windows.Forms.Button btnMaintainCommodity;
         private System.Windows.Forms.Button btnMaintainCommodityType;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

@@ -38,6 +38,20 @@ namespace QSW.Web.Controllers
             return OK(string.Empty);
         }
 
+        [HttpGet]
+        public ActionResult GetAdsImg(int index)
+        {
+            string filePath = string.Format(@"/Images/adv/city--{0}-min-min.jpg", index);
+            string path = Server.MapPath("~//" + filePath);
+            if (!System.IO.File.Exists(path))
+            {
+                return OK(string.Empty);
+            }
+            byte[] contentArr = System.IO.File.ReadAllBytes(path);
+            string imgContent = Convert.ToBase64String(contentArr);
+            return OK(imgContent);
+        }
+
         [HttpPost]
         public ActionResult ReplaceBrandImg(string previousName,string imgName, string imgContent)
         {

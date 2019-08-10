@@ -56,6 +56,7 @@
             // 
             // tbCommodityTypeName
             // 
+            this.tbCommodityTypeName.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tbCommodityTypeName.Location = new System.Drawing.Point(149, 44);
             this.tbCommodityTypeName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbCommodityTypeName.Name = "tbCommodityTypeName";
