@@ -55,8 +55,8 @@ namespace QSWMaintain
             this.tbGeneral.Text = this.commdodityModel.CommodityGeneral;
             this.tbPrice.Text = this.commdodityModel.CommodityPrice.ToString();
             this.tbSpec.Text = this.commdodityModel.CommoditySpec.ToString();
-            this.cmbBrand.SelectedItem = MaintainCommodity.BrandModelList.Find(p=>p.BrandName== this.commdodityModel.BrandName);
-            this.cmbCommodityType.SelectedItem = MaintainCommodity.CommodityTypeList.Find(p=>p.TypeName== this.commdodityModel.TypeName);
+            this.cmbBrand.SelectedItem = MaintainCommodity.BrandModelList.Find(p => p.BrandName == this.commdodityModel.BrandName);
+            this.cmbCommodityType.SelectedItem = MaintainCommodity.CommodityTypeList.Find(p => p.TypeName == this.commdodityModel.TypeName);
             this.tbIndex.Text = this.commdodityModel.CommodityIndex;
             this.tbCode.Text = this.commdodityModel.CommodityCode;
             this.cmbHot.SelectedItem = this.commdodityModel.CommodityHOT;
@@ -83,7 +83,11 @@ namespace QSWMaintain
         private void save()
         {
             this.commdodityModel.CommodityName = this.tbName.Text;
-            this.commdodityModel.CommodityImg = this.newImageGUID+Path.GetExtension(this.tbImg.Text);
+            if (this.isReplaceImg)
+            {
+                this.commdodityModel.CommodityImg = this.newImageGUID + Path.GetExtension(this.tbImg.Text);
+            }
+
             this.commdodityModel.CommodityGeneral = this.tbGeneral.Text;
             this.commdodityModel.CommodityPrice = double.Parse(this.tbPrice.Text);
             this.commdodityModel.UnitIdName = this.cmbUnit.SelectedText;
@@ -102,7 +106,7 @@ namespace QSWMaintain
             if (this.maintainType == MaintainType.New)
             {
                 this.commdodityModel.CommoditySuper = 1;
-                var addResult =  WebRequestUtil.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
+                var addResult = WebRequestUtil.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
                 if (addResult == null || addResult.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show("新建商品失败");
@@ -110,7 +114,7 @@ namespace QSWMaintain
             }
             else
             {
-                var updateResult = WebRequestUtil.UpdateCommodity(this.commdodityModel.CommodityId,JsonUtil.Serialize(this.commdodityModel));
+                var updateResult = WebRequestUtil.UpdateCommodity(this.commdodityModel.CommodityId, JsonUtil.Serialize(this.commdodityModel));
                 if (updateResult == null || updateResult.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show("更新商品失败");

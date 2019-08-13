@@ -62,7 +62,11 @@ namespace QSWMaintain
         private void Save()
         {
             this.brandModel.BrandName = this.tbName.Text;
-            this.brandModel.BrandImg = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
+            if (this.isReplaceImg)
+            {
+                this.brandModel.BrandImg = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
+            }
+
             this.brandModel.BrandTypeId = 0;
             this.brandModel.BrandState = 0;
             int order = 0;

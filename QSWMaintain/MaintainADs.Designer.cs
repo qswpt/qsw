@@ -62,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(149, 36);
+            this.label1.Location = new System.Drawing.Point(149, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 25);
             this.label1.TabIndex = 0;
@@ -71,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(149, 95);
+            this.label2.Location = new System.Drawing.Point(149, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 25);
             this.label2.TabIndex = 0;
@@ -80,7 +80,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(149, 156);
+            this.label3.Location = new System.Drawing.Point(149, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 25);
             this.label3.TabIndex = 0;
@@ -89,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(149, 218);
+            this.label4.Location = new System.Drawing.Point(149, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 25);
             this.label4.TabIndex = 0;
@@ -98,7 +98,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(149, 282);
+            this.label5.Location = new System.Drawing.Point(149, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 25);
             this.label5.TabIndex = 0;
@@ -146,9 +146,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(715, 27);
+            this.button1.Location = new System.Drawing.Point(718, 29);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 42);
+            this.button1.Size = new System.Drawing.Size(117, 43);
             this.button1.TabIndex = 3;
             this.button1.Text = "浏览...";
             this.button1.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(715, 86);
+            this.button2.Location = new System.Drawing.Point(718, 88);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 43);
             this.button2.TabIndex = 3;
@@ -166,9 +166,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(715, 146);
+            this.button3.Location = new System.Drawing.Point(718, 149);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 45);
+            this.button3.Size = new System.Drawing.Size(117, 43);
             this.button3.TabIndex = 3;
             this.button3.Text = "浏览...";
             this.button3.UseVisualStyleBackColor = true;
@@ -176,7 +176,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(715, 209);
+            this.button4.Location = new System.Drawing.Point(718, 211);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(117, 43);
             this.button4.TabIndex = 3;
@@ -186,9 +186,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(715, 272);
+            this.button5.Location = new System.Drawing.Point(718, 275);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 42);
+            this.button5.Size = new System.Drawing.Size(117, 43);
             this.button5.TabIndex = 3;
             this.button5.Text = "浏览...";
             this.button5.UseVisualStyleBackColor = true;
@@ -259,9 +259,9 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(712, 6);
+            this.btnPreview.Location = new System.Drawing.Point(715, 8);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(120, 40);
+            this.btnPreview.Size = new System.Drawing.Size(117, 43);
             this.btnPreview.TabIndex = 1;
             this.btnPreview.Text = "预览";
             this.btnPreview.UseVisualStyleBackColor = true;
