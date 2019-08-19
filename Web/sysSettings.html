@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="myInfo" style="position:absolute; width:100%; left:0px; top:0px;">
-        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#494961; z-index:100;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
             <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="openIndex();"></div>
             <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">设置</span>
         </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div id="editInfo" style="position:absolute; width:100%; left:0px; top:0px; display:none;">
-        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#494961; z-index:100;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
             <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="cancelEdit();"></div>
             <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">编辑资料</span>
             <span style="position:fixed; width:3.5rem; height:1.25rem; top:0.5rem; right:0.8rem; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:right;" onclick="initUpload();">完成</span>
@@ -82,7 +82,7 @@
         </div>
     </div>
     <div id="reAddress" style="position:absolute; width:100%; left:0px; top:0px; display:none;">
-        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#494961; z-index:100;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
             <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="cancelManagerAddres();"></div>
             <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">我的收货地址</span>
             <span style="position:fixed; width:4.5rem; height:1.25rem; top:0.6rem; right:0.8rem; margin-left:-6.25rem; font-size:0.875rem; color:#fff; text-align:right;" onclick="addAddres();">添加新地址</span>
@@ -92,7 +92,7 @@
     </div>
     <div id="editAddressInfo" style="position:absolute; width:100%; left:0px; top:0px; display:none; background-color:#eeeeee; height:100%;">
         <span id="edId" style="display:none;"></span>
-        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#494961; z-index:100;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
             <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="cancelEditAdds();"></div>
             <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">编辑收货地址</span>
             <span style="position:fixed; width:4.5rem; height:1.25rem; top:0.6rem; right:0.8rem; margin-left:-6.25rem; font-size:0.875rem; color:#fff; text-align:right;" onclick="saveAddres();">保存</span>
@@ -103,16 +103,18 @@
         <div style="position:absolute; left:0px; top:5.725rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
             <input id="txph" type="text" style="position:absolute; left:0.5rem; width:15rem; height:2.5rem; border:0px; outline:none; font-size:1rem; top:0.3125rem;" onfocus="addFoucs(2);" />
         </div>
-        <div style="position:absolute; left:0px; top:8.85rem; height:5rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
-            <span style="position:absolute; left:0.5rem; top:0.3125rem; font-size:0.875rem; color:#999999;">详细地址</span>
-            <textarea id="txadd" style="position:absolute; left:0.5rem; width:90%; height:3rem; border:0px; outline:none; font-size:0.875rem; font-weight:600; top:1.8125rem;" onfocus="addFoucs(3);"></textarea>
+        <div style="position:absolute; left:0px; top:8.85rem; height:6rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
+            <span style="position:absolute; left:0.5rem; top:0.7rem; font-size:0.75rem; color:#999999;">地区</span>
+            <select style="position:absolute; left:2.7rem; top:0.6rem; width:6.25rem; height:20px; font-size:0.75rem;" id="cityList"></select>
+            <span style="position:absolute; left:0.5rem; top:2.2125rem; font-size:0.75rem; color:#999999;">详细地址</span>
+            <textarea id="txadd" style="position:absolute; left:0.5rem; width:90%; height:2.5rem; border:0px; outline:none; font-size:0.875rem; font-weight:600; top:3.4125rem;" onfocus="addFoucs(3);"></textarea>
         </div>
-        <div style="position:absolute; left:0px; top:13.85rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff;  width:100%;">
-            <span style="position:absolute; left:0.5rem; top:50%; margin-top:-0.6875rem; height:1.375rem; color:#999999;">设为默认地址</span>
+        <div style="position:absolute; left:0px; top:14.85rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff;  width:100%;">
+            <span style="position:absolute; left:0.5rem; top:50%; margin-top:-0.6875rem; height:1.375rem; font-size:0.75rem; color:#999999;">设为默认地址</span>
             <span id="stv" style="display:none;">0</span>
             <div id="stbk" style="position:absolute; height:2.5rem; width:2.5rem; top:50%; margin-top:-1.25rem; right:1.25rem; background-image:url('Images/ico/stClose.png'); background-size:100% 100%;" onclick="stState();"></div>
         </div>
-        <div id="deAdd" style="position:absolute; left:0px; top:18rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
+        <div id="deAdd" style="position:absolute; left:0px; top:19rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
             <span style="position:absolute; left:0.5rem; top:50%; width:96%; text-align:center; margin-top:-0.6875rem; height:1.375rem; color:red;" onclick="deleteAddres();">删除收货地址</span>
         </div>
     </div>
