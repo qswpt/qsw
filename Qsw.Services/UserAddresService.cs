@@ -37,7 +37,7 @@ namespace Qsw.Services
                 {
                     updateDefaultAddress(user.Uid);
                 }
-                string sql = "UPDATE UserAddress SET Address=?address,Telephone=?telephone,Contacts=?contacts, DefaultAddress=?defaultAddress,City=?city WHERE Uid=?uid AND id=?id";
+                string sql = "UPDATE UserAddress SET Address=?address,Telephone=?telephone,Contacts=?contacts, DefaultAddress=?defaultAddress,CityId=?city WHERE Uid=?uid AND id=?id";
                 Dictionary<string, object> p = new Dictionary<string, object>();
                 p["id"] = id;
                 p["address"] = Address;
@@ -65,7 +65,7 @@ namespace Qsw.Services
                 {
                     updateDefaultAddress(user.Uid);
                 }
-                string sql = "INSERT INTO UserAddress (Uid,Address,Telephone,Contacts,DefaultAddress,City) value (?uid,?address,?telephone,?contacts,?defaultAddress,?city)";
+                string sql = "INSERT INTO UserAddress (Uid,Address,Telephone,Contacts,DefaultAddress,CityId) value (?uid,?address,?telephone,?contacts,?defaultAddress,?city)";
                 Dictionary<string, object> p = new Dictionary<string, object>();
                 p["uid"] = user.Uid;
                 p["address"] = Address;

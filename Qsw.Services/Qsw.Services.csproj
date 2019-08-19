@@ -48,6 +48,7 @@
     <Compile Include="CommodityTypeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitService.cs" />
+    <Compile Include="UserAddresService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>

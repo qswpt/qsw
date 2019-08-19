@@ -72,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="topController.cs" />
     <Compile Include="UnitController.cs" />
+    <Compile Include="UserAddresController.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -81,16 +81,16 @@ namespace QSW.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCommodity(string commodityModelStr)
+        public ActionResult AddCommodity(string commodityeModelStr)
         {
-            var data = CommodityService.Instance.InsertCommodity(commodityModelStr);
+            var data = CommodityService.Instance.InsertCommodity(commodityeModelStr);
             return OK(data);
         }
 
         [HttpPost]
-        public ActionResult UpdateCommodity(int id,string commodityModelStr)
+        public ActionResult UpdateCommodity(int id,string commodityeModelStr)
         {
-            var data = CommodityService.Instance.UpdateCommodity(id,commodityModelStr);
+            var data = CommodityService.Instance.UpdateCommodity(id,commodityeModelStr);
             return OK(data);
         }
     }
