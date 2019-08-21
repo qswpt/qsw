@@ -14,5 +14,6 @@ namespace QSW.Common.Models
         public string Telephone { get; set; }
         public string Contacts { get; set; }
         public int DefaultAddress { get; set; }
+        public int CityId { get; set; }
     }
 }
