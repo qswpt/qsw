@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Framework.Common.Utils;
+using QSWMaintain.Utils;
+using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace QSWMaintain
@@ -14,8 +10,11 @@ namespace QSWMaintain
     {
         public MainForm()
         {
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             InitializeComponent();
             AddUserControl(this.maintainADPic);
+            int i = 0;
+            int t = 100 / i;
         }
 
         private MaintainADs maintainADPic = new MaintainADs();
@@ -52,6 +51,20 @@ namespace QSWMaintain
             this.panel1.Controls.Add(control);
             control.Dock = DockStyle.Fill;
         }
+
+        #region Exception Handle
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = e.ExceptionObject as Exception;
+            LogUtil.Error(ex.Message);
+            LogUtil.Error(ex.StackTrace);
+            string dateStr = DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            var option = MiniDump.Option.WithFullMemory | MiniDump.Option.WithHandleData |
+                MiniDump.Option.WithUnloadedModules | MiniDump.Option.WithProcessThreadData |
+                MiniDump.Option.WithThreadInfo;
+            MiniDump.TryDump(string.Format("log\\QSWMaintain_{0}.dmp", dateStr), option);
+        }
+        #endregion
     }
 
     public enum MaintainType

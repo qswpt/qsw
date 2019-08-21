@@ -92,7 +92,7 @@ namespace QSWMaintain
             //replace image
             if (this.isReplaceImg)
             {
-                this.ReplaceImge();
+                this.ReplaceImage();
             }
         }
 
@@ -110,12 +110,20 @@ namespace QSWMaintain
             }
         }
 
-        private void ReplaceImge()
+        private void ReplaceImage()
         {
             string imgName = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
             var contentBytes = File.ReadAllBytes(this.tbImage.Text);
             string imgContent = Convert.ToBase64String(contentBytes);
-            WebRequestUtil.ReplaceBrandImg(this.previousImg, imgName, imgContent);
+            var replaceRes = WebRequestUtil.ReplaceBrandImg(this.previousImg, imgName, imgContent);
+            if (replaceRes != null)
+            {
+                LogUtil.Info("AddUpdateBrandFrm.ReplaceImage successfully!");
+            }
+            else
+            {
+                LogUtil.Error("AddUpdateBrandFrm.ReplaceImage failed!replaceRes is null!");
+            }
         }
     }
 }

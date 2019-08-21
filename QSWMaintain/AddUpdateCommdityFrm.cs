@@ -146,7 +146,15 @@ namespace QSWMaintain
             string imgName = this.newImageGUID + Path.GetExtension(this.tbImg.Text);
             var contentBytes = File.ReadAllBytes(this.tbImg.Text);
             string imgContent = Convert.ToBase64String(contentBytes);
-            WebRequestUtil.ReplaceCommodityImg(this.previousImg, imgName, imgContent);
+            var replaceRes = WebRequestUtil.ReplaceCommodityImg(this.previousImg, imgName, imgContent);
+            if (replaceRes != null)
+            {
+                LogUtil.Info("AddUpdateCommodityFrm.ReplaceImage successfully!");
+            }
+            else
+            {
+                LogUtil.Error("AddUpdateCommodityFrm.ReplaceImage failed!replaceRes is null!");
+            }
         }
     }
 }

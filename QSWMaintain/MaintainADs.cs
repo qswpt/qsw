@@ -95,6 +95,8 @@ namespace QSWMaintain
             }
             catch (Exception ex)
             {
+                LogUtil.Error(ex.Message);
+                LogUtil.Error(ex.StackTrace);
                 return string.Empty;
             }
         }
