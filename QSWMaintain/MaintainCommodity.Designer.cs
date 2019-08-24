@@ -30,7 +30,7 @@ namespace QSWMaintain
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new KryptonDataGridView();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGeneral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +55,7 @@ namespace QSWMaintain
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
@@ -232,7 +233,7 @@ namespace QSWMaintain
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private KryptonDataGridView dataGridView1;
         private KryptonButton btnDelete;
         private KryptonButton btnModify;
         private KryptonButton btnNew;

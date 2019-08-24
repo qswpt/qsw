@@ -33,7 +33,7 @@ namespace QSWMaintain
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnModify = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new KryptonDataGridView();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSequence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -77,6 +77,7 @@ namespace QSWMaintain
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
@@ -154,7 +155,7 @@ namespace QSWMaintain
         private KryptonButton btnDelete;
         private KryptonButton btnModify;
         private KryptonButton btnNew;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private KryptonDataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSequence;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
