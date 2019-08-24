@@ -42,7 +42,7 @@ function loadDataList(data) {
                    ' border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data[i].CommodityId + ')"></div></div></div></div>';
         dtop = dtop + 7.75;
         if (i + 1 == data.Data.length) {
-            html += ' <div style="position:absolute;width:100%; top:' + dtop + 'rem; height:3.125rem; background-color:#f0f0f0;"></div>';
+            html += ' <div style="position:absolute;width:100%; top:' + dtop + 'rem; height:3.125rem; background-color:#fff;"></div>';
         }
     }
     if (data.Data.length > 0) {
