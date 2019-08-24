@@ -212,11 +212,13 @@
     <Content Include="js\login.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="js\PlaceOrder.js" />
     <Content Include="js\script.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\shoppingCart.js" />
     <Content Include="js\wowslider.js" />
     <Content Include="login.html" />
+    <Content Include="PlaceOrder.html" />
     <Content Include="ShoppingCart.html" />
     <Content Include="sysSettings.html" />
     <Content Include="Web.config" />
