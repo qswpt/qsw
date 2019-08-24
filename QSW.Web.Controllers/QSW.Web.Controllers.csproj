@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvController.cs" />
     <Compile Include="BrandController.cs" />
     <Compile Include="CityController.cs" />
     <Compile Include="CommodityController.cs" />
