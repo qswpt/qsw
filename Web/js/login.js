@@ -125,6 +125,9 @@ function openIndex() {
 function openInfo(id) {
     window.location.href = '/CommodityInfo.html?id=' + id;
 }
+function BuyImmediately(id, spd, isource) {
+    window.location.href = '/PlaceOrder.html?cmId=' + id + '&sampleId=' + spd + '&isource=' + isource;
+}
 //获取路径中传参值
 function getRequestParam(param) {
     var requestString = location.search;

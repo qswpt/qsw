@@ -19,7 +19,14 @@ $(document).ready(function () {
     });
     getShopCount();
 });
-
+function spBuyImmediately() {
+    var id = getRequestParam('id');
+    BuyImmediately(id, 0, 1);
+}
+function spBuyImmediatelySample() {
+    var id = getRequestParam('id');
+    BuyImmediately(id, 1, 1);
+}
 function setShopingCart() {
     var id = getRequestParam('id');
     isShop(id);

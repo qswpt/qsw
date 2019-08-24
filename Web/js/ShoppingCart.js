@@ -279,3 +279,23 @@ function showClerInfo() {
         $('#deCler').css({ 'display': 'none' });
     }
 }
+function SettlementCar() {
+    var idSp = $('#spIdList').html();
+    if (idSp != null) {
+        var idArr = idSp.split(',');
+        var ick = '';
+        for (var i = 0; i < idArr.length; i++) {
+            var ckstate = $('#' + idArr[i] + '1').html();
+            if (ckstate == 1) {
+                if (ick == '') {
+                    ick = idArr[i];
+                } else {
+                    ick = ick + ',' + idArr[i];
+                }
+            }
+        }
+        if (ick != '') {
+            BuyImmediately(ick, 0, 2);
+        }
+    }
+}
