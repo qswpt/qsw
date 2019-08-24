@@ -20,6 +20,7 @@ $(document).ready(function () {
         $('#advList').html(html);
     });
     getCommodityDtil(1, 5000);
+    loadAdvList();
     getShopCount();
 });
 

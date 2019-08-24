@@ -86,6 +86,7 @@
     <Compile Include="Caches\CacheHelp.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Models\AdvModel.cs" />
     <Compile Include="Models\BrandModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CommodityModel.cs" />
