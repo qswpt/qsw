@@ -1,4 +1,6 @@
-﻿namespace QSWMaintain
+﻿using ComponentFactory.Krypton.Toolkit;
+
+namespace QSWMaintain
 {
     partial class MainForm
     {
@@ -28,15 +30,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMaintainADs = new System.Windows.Forms.Button();
-            this.btnMaintaindBrand = new System.Windows.Forms.Button();
-            this.btnMaintainCommodity = new System.Windows.Forms.Button();
-            this.btnMaintainCommodityType = new System.Windows.Forms.Button();
+            this.btnMaintainADs = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.btnMaintaindBrand = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.btnMaintainCommodity = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.btnMaintainCommodityType = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -45,12 +47,13 @@
             // 
             // btnMaintainADs
             // 
+            this.btnMaintainADs.Checked = true;
             this.btnMaintainADs.Location = new System.Drawing.Point(19, 14);
             this.btnMaintainADs.Name = "btnMaintainADs";
             this.btnMaintainADs.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainADs.TabIndex = 1;
-            this.btnMaintainADs.Text = "修改广告位";
-            this.btnMaintainADs.UseVisualStyleBackColor = true;
+            this.btnMaintainADs.Values.Text = "修改广告位";
+            this.btnMaintainADs.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
             this.btnMaintainADs.Click += new System.EventHandler(this.BtnMaintainADs_Click);
             // 
             // btnMaintaindBrand
@@ -59,8 +62,8 @@
             this.btnMaintaindBrand.Name = "btnMaintaindBrand";
             this.btnMaintaindBrand.Size = new System.Drawing.Size(190, 50);
             this.btnMaintaindBrand.TabIndex = 2;
-            this.btnMaintaindBrand.Text = "修改品牌";
-            this.btnMaintaindBrand.UseVisualStyleBackColor = true;
+            this.btnMaintaindBrand.Values.Text = "修改品牌";
+            this.btnMaintaindBrand.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
             this.btnMaintaindBrand.Click += new System.EventHandler(this.BtnMaintaindBrand_Click);
             // 
             // btnMaintainCommodity
@@ -69,8 +72,8 @@
             this.btnMaintainCommodity.Name = "btnMaintainCommodity";
             this.btnMaintainCommodity.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainCommodity.TabIndex = 2;
-            this.btnMaintainCommodity.Text = "修改商品";
-            this.btnMaintainCommodity.UseVisualStyleBackColor = true;
+            this.btnMaintainCommodity.Values.Text = "修改商品";
+            this.btnMaintainCommodity.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
             this.btnMaintainCommodity.Click += new System.EventHandler(this.BtnMaintainCommodity_Click);
             // 
             // btnMaintainCommodityType
@@ -79,8 +82,8 @@
             this.btnMaintainCommodityType.Name = "btnMaintainCommodityType";
             this.btnMaintainCommodityType.Size = new System.Drawing.Size(190, 50);
             this.btnMaintainCommodityType.TabIndex = 2;
-            this.btnMaintainCommodityType.Text = "修改商品类型";
-            this.btnMaintainCommodityType.UseVisualStyleBackColor = true;
+            this.btnMaintainCommodityType.Values.Text = "修改商品类型";
+            this.btnMaintainCommodityType.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
             this.btnMaintainCommodityType.Click += new System.EventHandler(this.BtnMaintainCommodityType_Click);
             // 
             // tableLayoutPanel1
@@ -140,14 +143,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Ebrima", 8F);
             this.label1.Location = new System.Drawing.Point(3, 1);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(94, 29);
             this.label1.TabIndex = 5;
-            this.label1.Text = "准备就绪.";
+            this.label1.Values.Text = "准备就绪.";
             // 
             // panel4
             // 
@@ -176,14 +178,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnMaintainADs;
-        private System.Windows.Forms.Button btnMaintaindBrand;
-        private System.Windows.Forms.Button btnMaintainCommodity;
-        private System.Windows.Forms.Button btnMaintainCommodityType;
+        private KryptonCheckButton btnMaintainADs;
+        private KryptonCheckButton btnMaintaindBrand;
+        private KryptonCheckButton btnMaintainCommodity;
+        private KryptonCheckButton btnMaintainCommodityType;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private KryptonLabel label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
     }

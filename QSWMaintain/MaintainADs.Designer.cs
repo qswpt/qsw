@@ -1,4 +1,6 @@
-﻿namespace QSWMaintain
+﻿using ComponentFactory.Krypton.Toolkit;
+
+namespace QSWMaintain
 {
     partial class MaintainADs
     {
@@ -28,27 +30,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new KryptonLabel();
+            this.label2 = new KryptonLabel();
+            this.label3 = new KryptonLabel();
+            this.label4 = new KryptonLabel();
+            this.label5 = new KryptonLabel();
+            this.textBox1 = new KryptonTextBox();
+            this.textBox2 = new KryptonTextBox();
+            this.textBox3 = new KryptonTextBox();
+            this.textBox4 = new KryptonTextBox();
+            this.textBox5 = new KryptonTextBox();
+            this.button1 = new KryptonButton();
+            this.button2 = new KryptonButton();
+            this.button3 = new KryptonButton();
+            this.button4 = new KryptonButton();
+            this.button5 = new KryptonButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnPreview = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnPreview = new KryptonButton();
+            this.comboBox1 = new KryptonComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -151,7 +153,6 @@
             this.button1.Size = new System.Drawing.Size(117, 43);
             this.button1.TabIndex = 3;
             this.button1.Text = "浏览...";
-            this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ButtonModify_Click);
             // 
             // button2
@@ -161,7 +162,6 @@
             this.button2.Size = new System.Drawing.Size(117, 43);
             this.button2.TabIndex = 3;
             this.button2.Text = "浏览...";
-            this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ButtonModify_Click);
             // 
             // button3
@@ -171,7 +171,6 @@
             this.button3.Size = new System.Drawing.Size(117, 43);
             this.button3.TabIndex = 3;
             this.button3.Text = "浏览...";
-            this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.ButtonModify_Click);
             // 
             // button4
@@ -181,7 +180,6 @@
             this.button4.Size = new System.Drawing.Size(117, 43);
             this.button4.TabIndex = 3;
             this.button4.Text = "浏览...";
-            this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.ButtonModify_Click);
             // 
             // button5
@@ -191,7 +189,6 @@
             this.button5.Size = new System.Drawing.Size(117, 43);
             this.button5.TabIndex = 3;
             this.button5.Text = "浏览...";
-            this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.ButtonModify_Click);
             // 
             // tableLayoutPanel1
@@ -264,7 +261,6 @@
             this.btnPreview.Size = new System.Drawing.Size(117, 43);
             this.btnPreview.TabIndex = 1;
             this.btnPreview.Text = "预览";
-            this.btnPreview.UseVisualStyleBackColor = true;
             this.btnPreview.Click += new System.EventHandler(this.BtnPreview_Click);
             // 
             // comboBox1
@@ -327,27 +323,27 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private KryptonLabel label1;
+        private KryptonLabel label2;
+        private KryptonLabel label3;
+        private KryptonLabel label4;
+        private KryptonLabel label5;
+        private KryptonTextBox textBox1;
+        private KryptonTextBox textBox2;
+        private KryptonTextBox textBox3;
+        private KryptonTextBox textBox4;
+        private KryptonTextBox textBox5;
+        private KryptonButton button1;
+        private KryptonButton button2;
+        private KryptonButton button3;
+        private KryptonButton button4;
+        private KryptonButton button5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnPreview;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private KryptonButton btnPreview;
+        private KryptonComboBox comboBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

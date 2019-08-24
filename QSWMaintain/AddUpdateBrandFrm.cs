@@ -1,4 +1,5 @@
-﻿using Framework.Common.Utils;
+﻿using ComponentFactory.Krypton.Toolkit;
+using Framework.Common.Utils;
 using QSW.Common.Models;
 using System;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Windows.Forms;
 
 namespace QSWMaintain
 {
-    public partial class AddUpdateBrandFrm : Form
+    public partial class AddUpdateBrandFrm : KryptonForm
     {
         private BrandModel brandModel;
         private MaintainType maintainType;

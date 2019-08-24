@@ -1,4 +1,5 @@
-﻿using Framework.Common.Utils;
+﻿using ComponentFactory.Krypton.Toolkit;
+using Framework.Common.Utils;
 using QSWMaintain.Utils;
 using System;
 using System.Threading;
@@ -6,15 +7,14 @@ using System.Windows.Forms;
 
 namespace QSWMaintain
 {
-    public partial class MainForm : Form
+    public partial class MainForm : KryptonForm
     {
         public MainForm()
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             InitializeComponent();
             AddUserControl(this.maintainADPic);
-            int i = 0;
-            int t = 100 / i;
+            this.btnMaintainADs.Checked = true;
         }
 
         private MaintainADs maintainADPic = new MaintainADs();
@@ -27,21 +27,25 @@ namespace QSWMaintain
 
         private void BtnMaintainADs_Click(object sender, EventArgs e)
         {
+            ((KryptonCheckButton)sender).Checked = true;
             AddUserControl(this.maintainADPic);
         }
 
         private void BtnMaintaindBrand_Click(object sender, EventArgs e)
         {
+            ((KryptonCheckButton)sender).Checked = true;
             AddUserControl(this.maintainBrands);
         }
 
         private void BtnMaintainCommodity_Click(object sender, EventArgs e)
         {
+            ((KryptonCheckButton)sender).Checked = true;
             AddUserControl(this.maintainCommodity);
         }
 
         private void BtnMaintainCommodityType_Click(object sender, EventArgs e)
         {
+            ((KryptonCheckButton)sender).Checked = true;
             AddUserControl(this.maintainCommodityType);
         }
 
@@ -65,6 +69,22 @@ namespace QSWMaintain
             MiniDump.TryDump(string.Format("log\\QSWMaintain_{0}.dmp", dateStr), option);
         }
         #endregion
+
+        private void Btn_CheckedChanged(object sender, EventArgs e)
+        {
+            KryptonCheckButton btn = sender as KryptonCheckButton;
+            if (btn.Checked)
+            {
+                foreach (Control ctr in this.panel2.Controls)
+                {
+                    if (ctr is KryptonCheckButton && ctr != btn)
+                    {
+                        var checkBtn = ctr as KryptonCheckButton;
+                        checkBtn.Checked = false;
+                    }
+                }
+            }
+        }
     }
 
     public enum MaintainType

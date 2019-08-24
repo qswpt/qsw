@@ -1,4 +1,6 @@
-﻿namespace QSWMaintain
+﻿using ComponentFactory.Krypton.Toolkit;
+
+namespace QSWMaintain
 {
     partial class MaintainCommodityType
     {
@@ -28,9 +30,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnModify = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSequence = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +48,9 @@
             this.btnDelete.Location = new System.Drawing.Point(297, 26);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 38);
+            this.btnDelete.Size = new System.Drawing.Size(108, 40);
             this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "删除";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Values.Text = "删除";
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnModify
@@ -57,10 +58,9 @@
             this.btnModify.Location = new System.Drawing.Point(165, 26);
             this.btnModify.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(107, 38);
+            this.btnModify.Size = new System.Drawing.Size(108, 40);
             this.btnModify.TabIndex = 5;
-            this.btnModify.Text = "修改";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Values.Text = "修改";
             this.btnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // btnNew
@@ -68,10 +68,9 @@
             this.btnNew.Location = new System.Drawing.Point(34, 26);
             this.btnNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(107, 38);
+            this.btnNew.Size = new System.Drawing.Size(108, 40);
             this.btnNew.TabIndex = 6;
-            this.btnNew.Text = "新建";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Values.Text = "新建";
             this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // dataGridView1
@@ -152,9 +151,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.Button btnNew;
+        private KryptonButton btnDelete;
+        private KryptonButton btnModify;
+        private KryptonButton btnNew;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSequence;

@@ -1,4 +1,6 @@
-﻿namespace QSWMaintain
+﻿using ComponentFactory.Krypton.Toolkit;
+
+namespace QSWMaintain
 {
     partial class AddUpdateBrandFrm
     {
@@ -28,32 +30,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbImage = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbOrder = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbState = new System.Windows.Forms.ComboBox();
+            this.label1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.tbName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.label2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.tbImage = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnBrowse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.label3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.tbOrder = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.label4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cmbType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.label5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cmbState = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(60, 119);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 25);
+            this.label1.Size = new System.Drawing.Size(90, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "品牌名：";
+            this.label1.Values.Text = "品牌名：";
             // 
             // tbName
             // 
@@ -61,18 +64,17 @@
             this.tbName.Location = new System.Drawing.Point(134, 116);
             this.tbName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(233, 32);
+            this.tbName.Size = new System.Drawing.Size(233, 31);
             this.tbName.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(41, 180);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 25);
+            this.label2.Size = new System.Drawing.Size(110, 29);
             this.label2.TabIndex = 0;
-            this.label2.Text = "品牌图片：";
+            this.label2.Values.Text = "品牌图片：";
             // 
             // tbImage
             // 
@@ -80,7 +82,7 @@
             this.tbImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbImage.Name = "tbImage";
             this.tbImage.ReadOnly = true;
-            this.tbImage.Size = new System.Drawing.Size(233, 32);
+            this.tbImage.Size = new System.Drawing.Size(233, 31);
             this.tbImage.TabIndex = 1;
             // 
             // btnBrowse
@@ -88,28 +90,26 @@
             this.btnBrowse.Location = new System.Drawing.Point(375, 173);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(107, 38);
+            this.btnBrowse.Size = new System.Drawing.Size(108, 40);
             this.btnBrowse.TabIndex = 2;
-            this.btnBrowse.Text = "浏览...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Values.Text = "浏览...";
             this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(79, 239);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 25);
+            this.label3.Size = new System.Drawing.Size(71, 29);
             this.label3.TabIndex = 3;
-            this.label3.Text = "顺序：";
+            this.label3.Values.Text = "顺序：";
             // 
             // tbOrder
             // 
             this.tbOrder.Location = new System.Drawing.Point(134, 236);
             this.tbOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbOrder.Name = "tbOrder";
-            this.tbOrder.Size = new System.Drawing.Size(233, 32);
+            this.tbOrder.Size = new System.Drawing.Size(233, 31);
             this.tbOrder.TabIndex = 1;
             // 
             // btnSave
@@ -117,10 +117,9 @@
             this.btnSave.Location = new System.Drawing.Point(375, 521);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 38);
+            this.btnSave.Size = new System.Drawing.Size(108, 40);
             this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Values.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnCancel
@@ -128,48 +127,45 @@
             this.btnCancel.Location = new System.Drawing.Point(504, 521);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 38);
+            this.btnCancel.Size = new System.Drawing.Size(108, 40);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Values.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(41, 299);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 25);
+            this.label4.Size = new System.Drawing.Size(110, 29);
             this.label4.TabIndex = 3;
-            this.label4.Text = "品牌类型：";
+            this.label4.Values.Text = "品牌类型：";
             // 
             // cmbType
             // 
-            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.DropDownWidth = 233;
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(134, 296);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(233, 33);
+            this.cmbType.Size = new System.Drawing.Size(233, 29);
             this.cmbType.TabIndex = 5;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(79, 355);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 25);
+            this.label5.Size = new System.Drawing.Size(71, 29);
             this.label5.TabIndex = 3;
-            this.label5.Text = "状态：";
+            this.label5.Values.Text = "状态：";
             // 
             // cmbState
             // 
-            this.cmbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbState.DropDownWidth = 233;
             this.cmbState.FormattingEnabled = true;
             this.cmbState.Location = new System.Drawing.Point(134, 352);
             this.cmbState.Name = "cmbState";
-            this.cmbState.Size = new System.Drawing.Size(233, 33);
+            this.cmbState.Size = new System.Drawing.Size(233, 29);
             this.cmbState.TabIndex = 5;
             // 
             // pictureBox1
@@ -200,12 +196,16 @@
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddUpdateBrandFrm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpdateBrandFrm";
+            ((System.ComponentModel.ISupportInitialize)(this.cmbType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,19 +214,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbImage;
-        private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbOrder;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbType;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbState;
+        private KryptonLabel label1;
+        private KryptonTextBox tbName;
+        private KryptonLabel label2;
+        private KryptonTextBox tbImage;
+        private KryptonButton btnBrowse;
+        private KryptonLabel label3;
+        private KryptonTextBox tbOrder;
+        private KryptonButton btnSave;
+        private KryptonButton btnCancel;
+        private KryptonLabel label4;
+        private KryptonComboBox cmbType;
+        private KryptonLabel label5;
+        private KryptonComboBox cmbState;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

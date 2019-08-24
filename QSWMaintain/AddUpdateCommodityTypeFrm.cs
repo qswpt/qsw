@@ -1,11 +1,12 @@
-﻿using Framework.Common.Utils;
+﻿using ComponentFactory.Krypton.Toolkit;
+using Framework.Common.Utils;
 using QSW.Common.Models;
 using System;
 using System.Windows.Forms;
 
 namespace QSWMaintain
 {
-    public partial class AddUpdateCommodityTypeFrm : Form
+    public partial class AddUpdateCommodityTypeFrm : KryptonForm
     {
         private CommodityTypeModel commodityTypeModel;
         private MaintainType maintainType;
