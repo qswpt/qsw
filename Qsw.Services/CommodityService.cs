@@ -89,7 +89,7 @@ namespace Qsw.Services
             return data;
         }
         #endregion
-        #region
+        #region 购物车缓存
         public string SetShopping(string token, int shpId)
         {
             string key = string.Concat(token, "SetShopping");
@@ -193,6 +193,34 @@ namespace Qsw.Services
                 uComList.Clear();
             CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
             return JsonUtil.Serialize(uComList);
+        }
+        /// <summary>
+        /// 获取指定购物车商品
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="spId"></param>
+        /// <returns></returns>
+        public string GetShoppingInId(string token, string spId)
+        {
+            List<CommodityModel> tmpList = new List<CommodityModel>();
+            if (!string.IsNullOrEmpty(spId))
+            {
+                var idList = new List<int>(spId.Split(',').Select(x => int.Parse(x)));
+                string key = string.Concat(token, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                if (uComList.Count > 0)
+                {
+                    foreach (var id in idList)
+                    {
+                        var tmpdata = uComList.Find(o => o.CommodityId == id);
+                        if (tmpdata != null)
+                        {
+                            tmpList.Add(tmpdata);
+                        }
+                    }
+                }
+            }
+            return JsonUtil.Serialize(tmpList);
         }
         #endregion
 

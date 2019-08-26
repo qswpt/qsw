@@ -129,6 +129,7 @@
     <Content Include="Images\ico\gp2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ico\mr.png" />
     <Content Include="Images\ico\my1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

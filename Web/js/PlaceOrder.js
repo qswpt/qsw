@@ -14,29 +14,35 @@ function loadInfo() {
         //如果是购物车那么要把cache中的数量等信息获取出来
         //如果是购物车过来的那么数量就是1
         //用户可以调整当前的数量 
-        //LoadAddresList();
-        //loadCityList();
+        GetPayList();
+        LoadAddresList();
+        loadCityList();
     }
 }
 function showAddres() {
     $('#reAddress').css({ 'display': 'block' });
+    $('#orderDiv').css({ 'display': 'none' });
 }
-
 function LoadAddresList() {
     var token = getCok();
     var timestamp = Date.parse(new Date());
     var uaddresurl = '/UserAddres/GetUserAddresList?token=' + token + '&t=' + timestamp;
     $.getJSON(uaddresurl, function (data) {
-        var html = '';
+        var html = ''; var cityId = 0; var cuadd = ''; var shr = '';
         if (data.Data != 'null' && data.Data != '') {
             var topNum = 0;
             for (var i = 0; i < data.Data.length; i++) {
+                if (i == 0 || data.Data[i].DefaultAddress == 1) {
+                    cityId = data.Data[i].CityId;
+                    cuadd = data.Data[i].Address;
+                    shr = data.Data[i].Contacts + '&nbsp;&nbsp;' + data.Data[i].Telephone;
+                }
                 html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
                               '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
                               '<span id="adContacts' + data.Data[i].id + '" style="display:none;">' + data.Data[i].Contacts + '</span><span id="City' + data.Data[i].id + '"  style="display:none;">' + data.Data[i].CityId + '</span>' +
                               '<div style="position:absolute; width:2.5rem; height:2.5rem; top:50%; margin-top:-1.25rem; background-color:#aaaaaa; left:0.125rem; border-radius: 50%; text-align:center;">' +
                               '<span style="position:absolute; width:100%; font-size:1rem; height:1.375rem; top:50%; margin-top:-0.6875rem; left:0px; color:#fff;">' + data.Data[i].Contacts.substring(0, 1) + '</span>' +
-                              '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;">' +
+                              '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;" onclick="seleAddres(' + data.Data[i].id + ');">' +
                               '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:1rem; width:3.75rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
                               '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:4.25rem; top:0.5rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
                               '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.75rem; font-size:0.875rem;">' + data.Data[i].Address + '</span>' +
@@ -45,6 +51,9 @@ function LoadAddresList() {
                 topNum = topNum + 4.375;
             }
         }
+        $('#cityId').html(cityId);
+        $('#SpAddres').html(cuadd);
+        $('#shr').html(shr);
         $('#addressList').html(html);
     });
 }
@@ -60,21 +69,17 @@ function loadCityList() {
         $('#cityList').html(html);
     });
 }
-
 function editReAddress() {
-    $('#myInfo').css({ 'display': 'none' });
     $('#reAddress').css({ 'display': 'block' });
 }
 function cancelEdit() {
-    $('#myInfo').css({ 'display': 'block' });
-    $('#editInfo').css({ 'display': 'none' });
     $('#reAddress').css({ 'display': 'none' });
     loadInfo();
 }
 function cancelManagerAddres() {
-    $('#myInfo').css({ 'display': 'block' });
-    $('#editInfo').css({ 'display': 'none' });
+    $('#orderDiv').css({ 'display': 'block' });
     $('#reAddress').css({ 'display': 'none' });
+
 }
 function editAdds(id) {
     var adId = $('#adId' + id).html();
@@ -150,7 +155,6 @@ function cancelEditAdds() {
     $('#editAddressInfo').css({ 'display': 'none' });
     $('#reAddress').css({ 'display': 'block' });
 }
-
 function saveAddres() {
     var token = getCok();
     var adId = $('#edId').html();
@@ -180,7 +184,6 @@ function saveAddres() {
         });
     }
 }
-
 function deleteAddres() {
     var token = getCok();
     var adId = $('#edId').html();
@@ -195,4 +198,116 @@ function deleteAddres() {
             }
         }
     });
+}
+function seleAddres(id) {
+    var adId = $('#adId' + id).html();
+    var adContacts = $('#adContacts' + id).html();
+    var add = $('#add' + id).html();
+    var ph = $('#ph' + id).html();
+    $('#cityId').html(adId);
+    $('#SpAddres').html(add);
+    $('#shr').html(adContacts + '&nbsp;&nbsp;' + ph);
+    $('#reAddress').css({ 'display': 'none' });
+    $('#orderDiv').css({ 'display': 'block' });
+}
+function sePay(id) {
+    var payId = $('#payid' + id).html();
+    var payname = $('#payName' + id).html();
+    $('#payspId').html(payId);
+    $('#payspName').html(payname);
+    $('#paydivBk').css({ 'display': 'none' });
+    $('#paytypeDiv').css({ 'display': 'none' });
+}
+function showPay() {
+    $('#paydivBk').css({ 'display': 'block' });
+    $('#paytypeDiv').css({ 'display': 'block' });
+}
+function hidPay() {
+    $('#paydivBk').css({ 'display': 'none' });
+    $('#paytypeDiv').css({ 'display': 'none' });
+}
+
+function GetPayList() {
+    var uaddresurl = '/Payment/GetPayList';
+    $.getJSON(uaddresurl, function (data) {
+        var html = '';
+        if (data.Data != 'null' && data.Data != '') {
+            var leftNum = 0.5; var topNum = 0.5; var payid = 0; var payName = '';
+            for (var i = 0; i < data.Data.length; i++) {
+                if (i == 0) {
+                    payid = data.Data[i].PaymentId;
+                    payName = data.Data[i].PaymentName;
+                }
+                html = html + '<div style="position:absolute; width:5rem; height:1.875rem; left:' + leftNum + 'rem; top:' + topNum + 'rem; border-radius: 0.5rem; background-color:#c3c3c3;" onclick="sePay(' + data.Data[i].PaymentId + ')">' +
+                '<span style="display:none;" id="payid' + data.Data[i].PaymentId + '">' + data.Data[i].PaymentId + '</span><span id="payName' + data.Data[i].PaymentId + '" style="font-size:0.875rem; position:absolute; width:100%; text-align:center; left:0px; top:0.25rem;">' + data.Data[i].PaymentName + '</span>' +
+                '</div>';
+                if ((i + 1) % 3 == 0) {
+                    topNum = topNum + 2.375;
+                    leftNum = 0.5;
+                } else {
+                    leftNum = leftNum + 5.5;
+                }
+            }
+            $('#payspId').html(payid);
+            $('#payspName').html(payName);
+        }
+        $('#paytypeDiv').html(html);
+    });
+}
+
+function stState() {
+    var st = $('#invs').html();
+    if (st == 0) {
+        $('#invSt').css("background-image", "url(Images/ico/stOpen.png)");
+        $('#invs').html(1);
+        $('#invInfoMation').css({ 'display': 'block' });
+        ivnt(1);
+    } else {
+        $('#invSt').css("background-image", "url(Images/ico/stClose.png)");
+        $('#invs').html(0);
+        $('#invInfoMation').css({ 'display': 'none' });
+        $('#ivnInfos').css({ 'height': '2.5rem' });
+    }
+}
+function ivnt(id) {
+    if (id == 1) {
+        $('#pSp').css({ 'color': 'red' });
+        $('#perDiv').css({ 'background-color': '#f8b8b8' });
+        $('#cpSp').css({ 'color': '#666666' });
+        $('#compDiv').css({ 'background-color': '#eeeeee' });
+        perInfo();
+    } else {
+        $('#cpSp').css({ 'color': 'red' });
+        $('#compDiv').css({ 'background-color': '#f8b8b8' });
+        $('#pSp').css({ 'color': '#666666' });
+        $('#perDiv').css({ 'background-color': '#eeeeee' });
+        compInfo();
+    }
+    $('#invTId').html(id);
+}
+function ivTy(id) {
+    if (id == 1) {
+        $('#centDtlSp').css({ 'color': 'red' });
+        $('#centDtl').css({ 'background-color': '#f8b8b8' });
+        $('#centTypeSp').css({ 'color': '#666666' });
+        $('#centType').css({ 'background-color': '#eeeeee' });
+    } else {
+        $('#centTypeSp').css({ 'color': 'red' });
+        $('#centType').css({ 'background-color': '#f8b8b8' });
+        $('#centDtlSp').css({ 'color': '#666666' });
+        $('#centDtl').css({ 'background-color': '#eeeeee' });
+    }
+    $('#invCtId').html(id);
+}
+function compInfo() {
+    $('#ivnInfos').css({ 'height': '20rem' });
+    $('#dwInfo').css({ 'display': 'block' });
+    $('#lxrinfo').css({ 'top': '8.125rem' });
+    $('#ivnContent').css({ 'top': '13.75rem' });
+}
+function perInfo() {
+    $('#ivnInfos').css({ 'height': '16.25rem' });
+    $('#dwInfo').css({ 'display': 'none' });
+    $('#lxrinfo').css({ 'top': '4rem' });
+    $('#ivnContent').css({ 'top': '10rem' });
 }

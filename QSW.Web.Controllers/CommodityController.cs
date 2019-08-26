@@ -60,6 +60,12 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
         [HttpGet]
+        public ActionResult GetShoppingInId(string token, string idlist)
+        {
+            var data = CommodityService.Instance.GetShoppingInId(token, idlist);
+            return OK(data);
+        }
+        [HttpGet]
         public ActionResult GetCommodityId(int id)
         {
             var data = CommodityService.Instance.GetCommodityInfo(id);
@@ -88,9 +94,9 @@ namespace QSW.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateCommodity(int id,string commodityeModelStr)
+        public ActionResult UpdateCommodity(int id, string commodityeModelStr)
         {
-            var data = CommodityService.Instance.UpdateCommodity(id,commodityeModelStr);
+            var data = CommodityService.Instance.UpdateCommodity(id, commodityeModelStr);
             return OK(data);
         }
     }
