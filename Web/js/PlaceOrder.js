@@ -15,6 +15,7 @@ function loadInfo() {
         //如果是购物车过来的那么数量就是1
         //用户可以调整当前的数量 
         GetPayList();
+        GetExList();
         LoadAddresList();
         loadCityList();
     }
@@ -28,7 +29,7 @@ function LoadAddresList() {
     var timestamp = Date.parse(new Date());
     var uaddresurl = '/UserAddres/GetUserAddresList?token=' + token + '&t=' + timestamp;
     $.getJSON(uaddresurl, function (data) {
-        var html = ''; var cityId = 0; var cuadd = ''; var shr = '';
+        var html = ''; var cityId = 0; var cuadd = ''; var shr = ''; var xm = ''; var dh = '';
         if (data.Data != 'null' && data.Data != '') {
             var topNum = 0;
             for (var i = 0; i < data.Data.length; i++) {
@@ -36,6 +37,8 @@ function LoadAddresList() {
                     cityId = data.Data[i].CityId;
                     cuadd = data.Data[i].Address;
                     shr = data.Data[i].Contacts + '&nbsp;&nbsp;' + data.Data[i].Telephone;
+                    xm = data.Data[i].Contacts;
+                    dh = data.Data[i].Telephone;
                 }
                 html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
                               '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
@@ -54,6 +57,8 @@ function LoadAddresList() {
         $('#cityId').html(cityId);
         $('#SpAddres').html(cuadd);
         $('#shr').html(shr);
+        $('#shrxm').html(xm);
+        $('#shrdh').html(dh);
         $('#addressList').html(html);
     });
 }
@@ -207,6 +212,8 @@ function seleAddres(id) {
     $('#cityId').html(adId);
     $('#SpAddres').html(add);
     $('#shr').html(adContacts + '&nbsp;&nbsp;' + ph);
+    $('#shrxm').html(adContacts);
+    $('#shrdh').html(ph);
     $('#reAddress').css({ 'display': 'none' });
     $('#orderDiv').css({ 'display': 'block' });
 }
@@ -310,4 +317,78 @@ function perInfo() {
     $('#dwInfo').css({ 'display': 'none' });
     $('#lxrinfo').css({ 'top': '4rem' });
     $('#ivnContent').css({ 'top': '10rem' });
+}
+function seEx(id) {
+    var exId = $('#exId' + id).html();
+    var exName = $('#ExName' + id).html();
+    $('#exId').html(exId);
+    $('#seExName').html(exName);
+    $('#exDivBk').css({ 'display': 'none' });
+    $('#exListDiv').css({ 'display': 'none' });
+}
+function showExS() {
+    $('#exDivBk').css({ 'display': 'block' });
+    $('#exListDiv').css({ 'display': 'block' });
+}
+function hideExS() {
+    $('#exDivBk').css({ 'display': 'none' });
+    $('#exListDiv').css({ 'display': 'none' });
+}
+function GetExList() {
+    var uaddresurl = '/ExLogistic/GetExLogisticList';
+    $.getJSON(uaddresurl, function (data) {
+        var html = '';
+        if (data.Data != 'null' && data.Data != '') {
+            var leftNum = 0.5; var topNum = 0.5;
+            for (var i = 0; i < data.Data.length; i++) {
+                html = html + '<div style="position:absolute; width:5rem; height:1.875rem; left:' + leftNum + 'rem; top:' + topNum + 'rem; border-radius: 0.5rem; background-color:#c3c3c3;" onclick="seEx(' + data.Data[i].ExId + ')">' +
+                '<span style="display:none;" id="exId' + data.Data[i].ExId + '">' + data.Data[i].ExId + '</span><span id="ExName' + data.Data[i].ExId + '" style="font-size:0.875rem; position:absolute; width:100%; text-align:center; left:0px; top:0.25rem;">' + data.Data[i].ExName + '</span>' +
+                '</div>';
+                if ((i + 1) % 3 == 0) {
+                    topNum = topNum + 2.375;
+                    leftNum = 0.5;
+                } else {
+                    leftNum = leftNum + 5.5;
+                }
+            }
+        }
+        $('#exListDiv').html(html);
+    });
+}
+
+function btnjia(id) {
+    var st = $('#' + id + '11').html();
+    var sts = st - 1 + 2;
+    $('#' + id + '11').html(sts);
+}
+function btnjian(id) {
+    var st = $('#' + id + '11').html();
+    st = st - 1;
+    if (st == 0) {
+        st = 1;
+    }
+    $('#' + id + '11').html(st);
+}
+function canceInput(id, id2) {
+    $('#' + id).css({ 'display': 'none' });
+    $('#' + id2).css({ 'display': 'none' });
+}
+function btnInput(id, id2) {
+    var num = $('#txtSpCount').val();
+    if (num == 0) {
+        alert('数量必须大于0');
+    } else {
+        var cmid = $('#cmId').html();
+        $('#' + cmid + '11').html(num);
+        $('#' + id).css({ 'display': 'none' });
+        $('#' + id2).css({ 'display': 'none' });
+    }
+}
+function setCount(cmid, id, id2) {
+    $('#' + id).css({ 'display': 'block' });
+    $('#' + id2).css({ 'display': 'block' });
+    var num1 = $('#' + cmid + '11').html();
+    $('#txtSpCount').val(num1);
+    $('#cmId').html(cmid);
+    $('#txtSpCount').focus();
 }
