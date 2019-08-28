@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AdvService.cs" />
     <Compile Include="BrandService.cs" />
+    <Compile Include="CityExLogisticsAmountService.cs" />
     <Compile Include="CityService.cs" />
     <Compile Include="CommodityService.cs" />
     <Compile Include="CommodityTypeService.cs" />

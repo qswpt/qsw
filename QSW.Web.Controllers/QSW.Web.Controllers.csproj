@@ -68,6 +68,7 @@
     <Compile Include="AdvController.cs" />
     <Compile Include="BrandController.cs" />
     <Compile Include="CityController.cs" />
+    <Compile Include="CityExLogisticsAmountController.cs" />
     <Compile Include="CommodityController.cs" />
     <Compile Include="CommodityTypeController.cs" />
     <Compile Include="ExLogisticController.cs" />

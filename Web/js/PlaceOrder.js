@@ -11,9 +11,11 @@ function loadInfo() {
         var cmId = getRequestParam('cmId'); //分割逗号，根据ID加载商品
         var sampleId = getRequestParam('sampleId'); //0正常购买,1样品
         var isource = getRequestParam('isource'); //来源，立即还是购物车
-        //如果是购物车那么要把cache中的数量等信息获取出来
-        //如果是购物车过来的那么数量就是1
-        //用户可以调整当前的数量 
+        if (isource == 1) {
+            loadCompat(cmId);
+        } else {
+            loadCmList(cmId, token);
+        }
         GetPayList();
         GetExList();
         LoadAddresList();
@@ -216,6 +218,7 @@ function seleAddres(id) {
     $('#shrdh').html(ph);
     $('#reAddress').css({ 'display': 'none' });
     $('#orderDiv').css({ 'display': 'block' });
+    loadExAmount();
 }
 function sePay(id) {
     var payId = $('#payid' + id).html();
@@ -325,6 +328,7 @@ function seEx(id) {
     $('#seExName').html(exName);
     $('#exDivBk').css({ 'display': 'none' });
     $('#exListDiv').css({ 'display': 'none' });
+    loadExAmount();
 }
 function showExS() {
     $('#exDivBk').css({ 'display': 'block' });
@@ -360,6 +364,7 @@ function btnjia(id) {
     var st = $('#' + id + '11').html();
     var sts = st - 1 + 2;
     $('#' + id + '11').html(sts);
+    getAmout();
 }
 function btnjian(id) {
     var st = $('#' + id + '11').html();
@@ -368,6 +373,7 @@ function btnjian(id) {
         st = 1;
     }
     $('#' + id + '11').html(st);
+    getAmout();
 }
 function canceInput(id, id2) {
     $('#' + id).css({ 'display': 'none' });
@@ -382,6 +388,7 @@ function btnInput(id, id2) {
         $('#' + cmid + '11').html(num);
         $('#' + id).css({ 'display': 'none' });
         $('#' + id2).css({ 'display': 'none' });
+        getAmout();
     }
 }
 function setCount(cmid, id, id2) {
@@ -391,4 +398,94 @@ function setCount(cmid, id, id2) {
     $('#txtSpCount').val(num1);
     $('#cmId').html(cmid);
     $('#txtSpCount').focus();
+}
+
+function loadCompat(cmid) {
+    var timestamp = Date.parse(new Date());
+    var uaddresurl = '/Commodity/GetCommodityId?id=' + cmid + '&t=' + timestamp;
+    $.getJSON(uaddresurl, function (data) {
+        var html = ''; var allAmout = 0;
+        if (data.Data != 'null' && data.Data != '') {
+            html = '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
+            '<div style="position:relative; width:100%; left:0px; top:0px;">' +
+               '<div style="position:absolute; width:5.5rem; height:5.5rem; top:0.89rem; left:0.5rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data.CommodityImg + '\'); background-size:100% 100%;"></div>' +
+                '<div style="position:absolute; width:74%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
+                    '<span style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data.CommodityName + '</span>' +
+                    '<span style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">' + data.Data.CommodityGeneral + '</span>' +
+                    '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">生产商: ' + data.Data.BrandName + '</span>' +
+                    '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data.CommoditySpec + data.Data.UnitIdName + '</span>' +
+                    '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data.CommodityId + '111" style="color:red;">' + (data.Data.CommoditySpec * data.Data.CommodityPrice).toFixed(2) + '</span>元</span>' +
+                    '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data.CommodityIndex + '</span>' +
+                    '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data.CommodityCode + '</span>' +
+                    '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
+                    '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;" onclick="btnjian(' + data.Data.CommodityId + ');"></div>' +
+                    '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data.CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data.CommodityId + ', \'inCount\', \'inBg\')">1</span></div>' +
+                    '<div style="position:inherit; left:70%; width:30%; height:100%; border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data.CommodityId + ');"></div>' +
+                    '</div></div></div></div>';
+            allAmout = allAmout + (data.Data.CommoditySpec * data.Data.CommodityPrice) * 1;
+        }
+        $('#selAmount').html(allAmout.toFixed(2));
+        $('#shopList').html(html);
+    });
+}
+function loadCmList(cmid, token) {
+    var timestamp = Date.parse(new Date());
+    var uaddresurl = '/Commodity/GetShoppingInId?token=' + token + '&idlist=' + cmid + '&t=' + timestamp;
+    $.getJSON(uaddresurl, function (data) {
+        var html = ''; var allAmout = 0;
+        if (data.Data != 'null' && data.Data != '') {
+            for (var i = 0; i < data.Data.length; i++) {
+                html = html + '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
+                '<div style="position:relative; width:100%; left:0px; top:0px;">' +
+                   '<div style="position:absolute; width:5.5rem; height:5.5rem; top:0.89rem; left:0.5rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data[i].CommodityImg + '\'); background-size:100% 100%;"></div>' +
+                    '<div style="position:absolute; width:74%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
+                        '<span style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data[i].CommodityName + '</span>' +
+                        '<span style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">' + data.Data[i].CommodityGeneral + '</span>' +
+                        '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">生产商: ' + data.Data[i].BrandName + '</span>' +
+                        '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data[i].CommoditySpec + data.Data[i].UnitIdName + '</span>' +
+                        '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data[i].CommodityId + '111" style="color:red;">' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '</span>元</span>' +
+                        '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
+                        '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
+                        '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
+                        '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;" onclick="btnjian(' + data.Data[i].CommodityId + ');"></div>' +
+                        '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data[i].CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data[i].CommodityId + ', \'inCount\', \'inBg\')">' + data.Data[i].SpCount + '</span></div>' +
+                        '<div style="position:inherit; left:70%; width:30%; height:100%; border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data[i].CommodityId + ');"></div>' +
+                        '</div></div></div></div> <div style="width:100%; height:6px;"></div>';
+                allAmout = allAmout + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice) * data.Data[i].SpCount;
+            }
+        }
+        $('#selAmount').html(allAmout.toFixed(2));
+        $('#shopList').html(html);
+    });
+}
+function loadExAmount() {
+    var cityId = $('#cityId').html();
+    var exId = $('#exId').html();
+    var timestamp = Date.parse(new Date());
+    if (cityId > 0 && exId > 0) {
+        var uaddresurl = '/CityExLogisticsAmount/GetCityExLogisticsAmount?cityId=' + cityId + '&exId=' + exId + '&t=' + timestamp;
+        $.getJSON(uaddresurl, function (data) {
+            if (data.Data != 'null' && data.Data != '') {
+                $('#exAmount').html('￥' + data.Data.Amount);
+                $('#hideExAmout').html(data.Data.Amount);
+            } else {
+                $('#exAmount').html('￥0');
+                $('#hideExAmout').html(0);
+            }
+            getAmout();
+        });
+    }  
+}
+function getAmout() {
+    var cmId = getRequestParam('cmId');
+    var idlist = cmId.split(',');
+    var allAmount = 0;
+    var exAmount = $('#hideExAmout').html() - 1 + 1;
+    for (var i = 0; i < idlist.length; i++) {
+        var rAmout = $('#' + idlist[i] + '111').html();
+        var rCount = $('#' + idlist[i] + '11').html();
+        allAmount = allAmount + rCount * rAmout;
+    }
+    allAmount = allAmount + exAmount;
+    $('#selAmount').html(allAmount);
 }

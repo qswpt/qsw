@@ -88,6 +88,7 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Models\AdvModel.cs" />
     <Compile Include="Models\BrandModel.cs" />
+    <Compile Include="Models\CityExLogisticsAmountModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CommodityModel.cs" />
     <Compile Include="Models\CommodityTypeModel.cs" />
