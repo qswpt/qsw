@@ -87,6 +87,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Models\AdvModel.cs" />
+    <Compile Include="Models\AdvTypeModel.cs" />
     <Compile Include="Models\BrandModel.cs" />
     <Compile Include="Models\CityExLogisticsAmountModel.cs" />
     <Compile Include="Models\CityModel.cs" />

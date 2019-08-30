@@ -137,6 +137,50 @@ namespace QSWMaintain
         #endregion
 
         #region Ads
+        public static IRestResponse GetAdvType()
+        {
+            string requestUrl = "/Adv/GetAdvType";
+            RestRequest request = new RestRequest(requestUrl, Method.GET);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse GetAdvList()
+        {
+            string brandHome = "/Adv/GetAdvList";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse DeleteAdv(int advId)
+        {
+            string requestUrl = "/Adv/DeleteAdv";
+            RestRequest request = new RestRequest(requestUrl, Method.POST);
+            request.AddParameter("advId", advId);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse AddAdv(string advModelStr)
+        {
+            string requestUrl = "/Adv/AddAdv";
+            RestRequest request = new RestRequest(requestUrl, Method.POST);
+            request.AddParameter("advModelStr", advModelStr);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse UpdateAdv(int advId,string advModelStr)
+        {
+            string requestUrl = "/Adv/UpdateAdv";
+            RestRequest request = new RestRequest(requestUrl, Method.POST);
+            request.AddParameter("advId", advId);
+            request.AddParameter("advModelStr", advModelStr);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
         public static IRestResponse ReplaceAdsImg(int index, string imgContent)
         {
             string brandHome = "/FileUpload/ReplaceAdsImg";
@@ -152,6 +196,15 @@ namespace QSWMaintain
             string brandHome = "/FileUpload/GetAdsImg";
             RestRequest request = new RestRequest(brandHome, Method.GET);
             request.AddParameter("index", index);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse GetAdsImage(string adImageName)
+        {
+            string brandHome = "/FileUpload/GetAdsImage";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("adImageName", adImageName);
             var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
@@ -174,6 +227,131 @@ namespace QSWMaintain
             request.AddParameter("previousName", previousName);
             request.AddParameter("imgName", imgName);
             request.AddParameter("imgContent", imgContent);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+        #endregion
+
+        #region City
+        public static IRestResponse GetCityList()
+        {
+            string brandHome = "/City/GetCityList";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            //request.AddParameter("size", defaultSize);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse AddCity(string cityName)
+        {
+            string brandHome = "/City/AddCity";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("cityName", cityName);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse UpdateCity(int cityId, string cityName)
+        {
+            string brandHome = "/City/UpdateCity";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("cityId", cityId);
+            request.AddParameter("cityName", cityName);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse DeleteCity(int cityId)
+        {
+            string brandHome = "/City/DeleteCity";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("cityId", cityId);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+        #endregion
+
+        #region ExLogistic
+        public static IRestResponse GetExLogisticList()
+        {
+            string brandHome = "/ExLogistic/GetExLogisticList";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            //request.AddParameter("size", defaultSize);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse AddExLogistic(string exName)
+        {
+            string brandHome = "/ExLogistic/AddExLogistic";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("exName", exName);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse UpdateExLogistic(int exId, string exName)
+        {
+            string brandHome = "/ExLogistic/UpdateExLogistic";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("exId", exId);
+            request.AddParameter("exName", exName);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse DeleteExLogistic(int exId)
+        {
+            string brandHome = "/ExLogistic/DeleteExLogistic";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("exId", exId);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+        #endregion
+
+        #region CityExLogisticsAmount
+        public static IRestResponse GetCityExLogisticsAmountList()
+        {
+            string brandHome = "/CityExLogisticsAmount/GetCityExLogisticsAmountList";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+        public static IRestResponse GetCityExLogisticsAmount(int cityId, int exId)
+        {
+            string brandHome = "/CityExLogisticsAmount/GetCityExLogisticsAmount";
+            RestRequest request = new RestRequest(brandHome, Method.GET);
+            request.AddParameter("cityId", cityId);
+            request.AddParameter("exId", exId);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse AddCityExLogisticsAmount(string cityExLogisticsAmountModelStr)
+        {
+            string brandHome = "/CityExLogisticsAmount/AddCityExLogisticsAmount";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("cityExLogisticsAmountModelStr", cityExLogisticsAmountModelStr);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse UpdateCityExLogisticsAmount(int id, string cityExLogisticsAmountModelStr)
+        {
+            string brandHome = "/CityExLogisticsAmount/UpdateCityExLogisticsAmount";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("id", id);
+            request.AddParameter("cityExLogisticsAmountModelStr", cityExLogisticsAmountModelStr);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse DeleteCityExLogisticsAmount(int id)
+        {
+            string brandHome = "/CityExLogisticsAmount/DeleteCityExLogisticsAmount";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("id", id);
             var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }

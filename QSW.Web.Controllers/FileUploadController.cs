@@ -52,6 +52,20 @@ namespace QSW.Web.Controllers
             return OK(imgContent);
         }
 
+        [HttpGet]
+        public ActionResult GetAdsImage(string adImageName)
+        {
+            string filePath = string.Format(@"/Images/adv/{0}", adImageName);
+            string path = Server.MapPath("~//" + filePath);
+            if (!System.IO.File.Exists(path))
+            {
+                return OK(string.Empty);
+            }
+            byte[] contentArr = System.IO.File.ReadAllBytes(path);
+            string imgContent = Convert.ToBase64String(contentArr);
+            return OK(imgContent);
+        }
+
         [HttpPost]
         public ActionResult ReplaceBrandImg(string previousName,string imgName, string imgContent)
         {

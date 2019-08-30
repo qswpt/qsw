@@ -88,11 +88,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUpdateADFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUpdateADFrm.Designer.cs">
+      <DependentUpon>AddUpdateADFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUpdateBrandFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddUpdateBrandFrm.Designer.cs">
       <DependentUpon>AddUpdateBrandFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUpdateCityExLogisticsAmountFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUpdateCityExLogisticsAmountFrm.Designer.cs">
+      <DependentUpon>AddUpdateCityExLogisticsAmountFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUpdateCityFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUpdateCityFrm.Designer.cs">
+      <DependentUpon>AddUpdateCityFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddUpdateCommdityFrm.cs">
       <SubType>Form</SubType>
@@ -105,6 +123,12 @@
     </Compile>
     <Compile Include="AddUpdateCommodityTypeFrm.Designer.cs">
       <DependentUpon>AddUpdateCommodityTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUpdateExFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUpdateExFrm.Designer.cs">
+      <DependentUpon>AddUpdateExFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConstDefine.cs" />
     <Compile Include="MainForm.cs">
@@ -125,6 +149,18 @@
     <Compile Include="MaintainBrands.Designer.cs">
       <DependentUpon>MaintainBrands.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaintainCity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaintainCity.Designer.cs">
+      <DependentUpon>MaintainCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainCityExAmount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaintainCityExAmount.Designer.cs">
+      <DependentUpon>MaintainCityExAmount.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaintainCommodity.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,18 +173,36 @@
     <Compile Include="MaintainCommodityType.Designer.cs">
       <DependentUpon>MaintainCommodityType.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaintainEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaintainEx.Designer.cs">
+      <DependentUpon>MaintainEx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\MiniDump.cs" />
     <Compile Include="WebRequestUtil.cs" />
+    <EmbeddedResource Include="AddUpdateADFrm.resx">
+      <DependentUpon>AddUpdateADFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUpdateBrandFrm.resx">
       <DependentUpon>AddUpdateBrandFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUpdateCityExLogisticsAmountFrm.resx">
+      <DependentUpon>AddUpdateCityExLogisticsAmountFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUpdateCityFrm.resx">
+      <DependentUpon>AddUpdateCityFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUpdateCommdityFrm.resx">
       <DependentUpon>AddUpdateCommdityFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUpdateCommodityTypeFrm.resx">
       <DependentUpon>AddUpdateCommodityTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUpdateExFrm.resx">
+      <DependentUpon>AddUpdateExFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -159,11 +213,20 @@
     <EmbeddedResource Include="MaintainBrands.resx">
       <DependentUpon>MaintainBrands.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MaintainCity.resx">
+      <DependentUpon>MaintainCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainCityExAmount.resx">
+      <DependentUpon>MaintainCityExAmount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaintainCommodity.resx">
       <DependentUpon>MaintainCommodity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaintainCommodityType.resx">
       <DependentUpon>MaintainCommodityType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainEx.resx">
+      <DependentUpon>MaintainEx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

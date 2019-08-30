@@ -1,10 +1,5 @@
 ﻿using Qsw.Services;
 using QSW.Common.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace QSW.Web.Controllers
@@ -16,6 +11,27 @@ namespace QSW.Web.Controllers
         {
             var data = CityService.Instance.GetCityList();
             return OK(data); 
+        }
+
+        [HttpPost]
+        public ActionResult AddCity(string cityName)
+        {
+            var data = CityService.Instance.InsertCity(cityName);
+            return OK(data);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCity(int cityId, string cityName)
+        {
+            var data = CityService.Instance.UpdateCity(cityId, cityName);
+            return OK(data);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCity(int cityId)
+        {
+            var data = CityService.Instance.DeleteCity(cityId);
+            return OK(data);
         }
     }
 }

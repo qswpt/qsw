@@ -13,40 +13,45 @@ namespace QSWMaintain
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             InitializeComponent();
-            AddUserControl(this.maintainADPic);
+            AddUserControl(this.maintainADPic.Value);
             this.btnMaintainADs.Checked = true;
         }
 
-        private MaintainADs maintainADPic = new MaintainADs();
+        private Lazy<MaintainADs> maintainADPic = new Lazy<MaintainADs>();
 
-        private MaintainBrands maintainBrands = new MaintainBrands();
+        private Lazy<MaintainBrands> maintainBrands = new Lazy<MaintainBrands>();
 
-        private MaintainCommodity maintainCommodity = new MaintainCommodity();
+        private Lazy<MaintainCommodity> maintainCommodity = new Lazy<MaintainCommodity>();
 
-        private MaintainCommodityType maintainCommodityType = new MaintainCommodityType();
+        private Lazy<MaintainCommodityType> maintainCommodityType = new Lazy<MaintainCommodityType>();
 
+        private Lazy<MaintainCity> maintainCity = new Lazy<MaintainCity>();
+
+        private Lazy<MaintainEx> maintainEx = new Lazy<MaintainEx>();
+
+        private Lazy<MaintainCityExAmount> maintainCityExAmount = new Lazy<MaintainCityExAmount>();
         private void BtnMaintainADs_Click(object sender, EventArgs e)
         {
             ((KryptonCheckButton)sender).Checked = true;
-            AddUserControl(this.maintainADPic);
+            AddUserControl(this.maintainADPic.Value);
         }
 
         private void BtnMaintaindBrand_Click(object sender, EventArgs e)
         {
             ((KryptonCheckButton)sender).Checked = true;
-            AddUserControl(this.maintainBrands);
+            AddUserControl(this.maintainBrands.Value);
         }
 
         private void BtnMaintainCommodity_Click(object sender, EventArgs e)
         {
             ((KryptonCheckButton)sender).Checked = true;
-            AddUserControl(this.maintainCommodity);
+            AddUserControl(this.maintainCommodity.Value);
         }
 
         private void BtnMaintainCommodityType_Click(object sender, EventArgs e)
         {
             ((KryptonCheckButton)sender).Checked = true;
-            AddUserControl(this.maintainCommodityType);
+            AddUserControl(this.maintainCommodityType.Value);
         }
 
         private void AddUserControl(UserControl control)
@@ -84,6 +89,24 @@ namespace QSWMaintain
                     }
                 }
             }
+        }
+
+        private void BtnMaintainEx_Click(object sender, EventArgs e)
+        {
+            ((KryptonCheckButton)sender).Checked = true;
+            AddUserControl(this.maintainEx.Value);
+        }
+
+        private void BtnMaintainCity_Click(object sender, EventArgs e)
+        {
+            ((KryptonCheckButton)sender).Checked = true;
+            AddUserControl(this.maintainCity.Value);
+        }
+
+        private void KryptonCheckButton1_Click(object sender, EventArgs e)
+        {
+            ((KryptonCheckButton)sender).Checked = true;
+            AddUserControl(this.maintainCityExAmount.Value);
         }
     }
 

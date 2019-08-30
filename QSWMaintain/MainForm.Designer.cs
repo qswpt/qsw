@@ -40,6 +40,9 @@ namespace QSWMaintain
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnMaintainCity = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.btnMaintainEx = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.kryptonCheckButton1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -106,6 +109,9 @@ namespace QSWMaintain
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.kryptonCheckButton1);
+            this.panel2.Controls.Add(this.btnMaintainEx);
+            this.panel2.Controls.Add(this.btnMaintainCity);
             this.panel2.Controls.Add(this.btnMaintainCommodityType);
             this.panel2.Controls.Add(this.btnMaintaindBrand);
             this.panel2.Controls.Add(this.btnMaintainCommodity);
@@ -160,6 +166,36 @@ namespace QSWMaintain
             this.panel4.Size = new System.Drawing.Size(1025, 30);
             this.panel4.TabIndex = 6;
             // 
+            // btnMaintainCity
+            // 
+            this.btnMaintainCity.Location = new System.Drawing.Point(19, 316);
+            this.btnMaintainCity.Name = "btnMaintainCity";
+            this.btnMaintainCity.Size = new System.Drawing.Size(190, 50);
+            this.btnMaintainCity.TabIndex = 3;
+            this.btnMaintainCity.Values.Text = "修改地区";
+            this.btnMaintainCity.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
+            this.btnMaintainCity.Click += new System.EventHandler(this.BtnMaintainCity_Click);
+            // 
+            // btnMaintainEx
+            // 
+            this.btnMaintainEx.Location = new System.Drawing.Point(19, 395);
+            this.btnMaintainEx.Name = "btnMaintainEx";
+            this.btnMaintainEx.Size = new System.Drawing.Size(190, 50);
+            this.btnMaintainEx.TabIndex = 4;
+            this.btnMaintainEx.Values.Text = "修改快递";
+            this.btnMaintainEx.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
+            this.btnMaintainEx.Click += new System.EventHandler(this.BtnMaintainEx_Click);
+            // 
+            // kryptonCheckButton1
+            // 
+            this.kryptonCheckButton1.Location = new System.Drawing.Point(19, 477);
+            this.kryptonCheckButton1.Name = "kryptonCheckButton1";
+            this.kryptonCheckButton1.Size = new System.Drawing.Size(190, 50);
+            this.kryptonCheckButton1.TabIndex = 5;
+            this.kryptonCheckButton1.Values.Text = "邮费管理";
+            this.kryptonCheckButton1.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
+            this.kryptonCheckButton1.Click += new System.EventHandler(this.KryptonCheckButton1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -188,6 +224,9 @@ namespace QSWMaintain
         private KryptonLabel label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private KryptonCheckButton btnMaintainEx;
+        private KryptonCheckButton btnMaintainCity;
+        private KryptonCheckButton kryptonCheckButton1;
     }
 }
 
