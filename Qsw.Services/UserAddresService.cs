@@ -13,12 +13,15 @@ namespace Qsw.Services
     {
         public string GetUserAddresList(string token)
         {
-            var user = UserService.GetUserLoginState(token);
+            var user = UserService.CkToken(token);
             if (user != null)
             {
                 return userAddresList(user.Uid);
             }
-            return string.Empty;
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         private string userAddresList(int uid)
         {
@@ -30,7 +33,7 @@ namespace Qsw.Services
         }
         public string UpdateUserAddres(string token, int id, string Address, string telephone, string contacts, int defaultAddress, int city)
         {
-            var user = UserService.GetUserLoginState(token);
+            var user = UserService.CkToken(token);
             if (user != null)
             {
                 if (defaultAddress > 0)
@@ -54,11 +57,14 @@ namespace Qsw.Services
                 }
                 return JsonUtil.Serialize(re);
             }
-            return string.Empty;
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         public string InserUserAddres(string token, string Address, string telephone, string contacts, int defaultAddress, int city)
         {
-            var user = UserService.GetUserLoginState(token);
+            var user = UserService.CkToken(token);
             if (user != null)
             {
                 if (defaultAddress > 0)
@@ -81,11 +87,14 @@ namespace Qsw.Services
                 }
                 return JsonUtil.Serialize(re);
             }
-            return string.Empty;
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         public string DeleteUserAddres(string token, int adId)
         {
-            var user = UserService.GetUserLoginState(token);
+            var user = UserService.CkToken(token);
             if (user != null)
             {
                 string sql = "delete from UserAddress where id=?id and Uid=?uid";
@@ -100,7 +109,10 @@ namespace Qsw.Services
                 }
                 return JsonUtil.Serialize(re);
             }
-            return string.Empty;
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         private void updateDefaultAddress(int uid)
         {

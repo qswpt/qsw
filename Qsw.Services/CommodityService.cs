@@ -92,107 +92,155 @@ namespace Qsw.Services
         #region 购物车缓存
         public string SetShopping(string token, int shpId)
         {
-            string key = string.Concat(token, "SetShopping");
-            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-            if (uComList == null)
+            var user = UserService.CkToken(token);
+            if (user != null)
             {
-                uComList = new List<CommodityModel>();
-            }
-            var um = uComList.Find(o => o.CommodityId == shpId);
-            if (um == null)
-            {
-                CommodityModel cm = GetComInfo(shpId);
-                if (cm != null)
+                string key = string.Concat(user.UserName, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                if (uComList == null)
                 {
-                    cm.SpCount++;
-                    uComList.Add(cm);
+                    uComList = new List<CommodityModel>();
                 }
+                var um = uComList.Find(o => o.CommodityId == shpId);
+                if (um == null)
+                {
+                    CommodityModel cm = GetComInfo(shpId);
+                    if (cm != null)
+                    {
+                        cm.SpCount++;
+                        uComList.Add(cm);
+                    }
+                }
+                else
+                    um.SpCount++;
+                var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+                ReturnModel re = new ReturnModel();
+                if (state)
+                {
+                    re.state = true;
+                    re.rcount = uComList.Count;
+                }
+                return JsonUtil.Serialize(re);
             }
             else
-                um.SpCount++;
-            var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
-            ReturnModel re = new ReturnModel();
-            if (state)
             {
-                re.state = true;
-                re.rcount = uComList.Count;
+                return UserService.ckTokenState();
             }
-            return JsonUtil.Serialize(re);
         }
         public string SetShoppingCount(string token, int shpId, int spCount)
         {
-            string key = string.Concat(token, "SetShopping");
-            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-            if (uComList == null)
+            var user = UserService.CkToken(token);
+            if (user != null)
             {
-                uComList = new List<CommodityModel>();
-            }
-            var um = uComList.Find(o => o.CommodityId == shpId);
-            if (um == null)
-            {
-                CommodityModel cm = GetComInfo(shpId);
-                if (cm != null)
+                string key = string.Concat(user.UserName, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                if (uComList == null)
                 {
-                    cm.SpCount = spCount;
-                    uComList.Add(cm);
+                    uComList = new List<CommodityModel>();
                 }
+                var um = uComList.Find(o => o.CommodityId == shpId);
+                if (um == null)
+                {
+                    CommodityModel cm = GetComInfo(shpId);
+                    if (cm != null)
+                    {
+                        cm.SpCount = spCount;
+                        uComList.Add(cm);
+                    }
+                }
+                else
+                    um.SpCount = spCount;
+                var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+                ReturnModel re = new ReturnModel();
+                if (state)
+                {
+                    re.state = true;
+                    re.rcount = uComList.Count;
+                }
+                return JsonUtil.Serialize(re);
             }
             else
-                um.SpCount = spCount;
-            var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
-            ReturnModel re = new ReturnModel();
-            if (state)
             {
-                re.state = true;
-                re.rcount = uComList.Count;
+                return UserService.ckTokenState();
             }
-            return JsonUtil.Serialize(re);
         }
         public string GetShoppingList(string token)
         {
-            string key = string.Concat(token, "SetShopping");
-            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-            return JsonUtil.Serialize(uComList);
+            var user = UserService.CkToken(token);
+            if (user != null)
+            {
+                string key = string.Concat(user.UserName, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                return JsonUtil.Serialize(uComList);
+            }
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         public string GetShoppingCount(string token)
         {
-            string key = string.Concat(token, "SetShopping");
-            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-            ReturnModel re = new ReturnModel();
-            re.state = true;
-            if (uComList != null)
+            var user = UserService.CkToken(token);
+            if (user != null)
             {
-                re.rcount = uComList.Count;
+                string key = string.Concat(user.UserName, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                ReturnModel re = new ReturnModel();
+                re.state = true;
+                if (uComList != null)
+                {
+                    re.rcount = uComList.Count;
+                }
+                return JsonUtil.Serialize(re);
             }
-            return JsonUtil.Serialize(re);
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         public string DeleteShopping(string idStr, string token)
         {
-            string key = string.Concat(token, "SetShopping");
-            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-            if (!string.IsNullOrEmpty(idStr) && uComList != null && uComList.Count > 0)
+            var user = UserService.CkToken(token);
+            if (user != null)
             {
-                List<int> idList = new List<int>(idStr.Split(',').Select(x => int.Parse(x)));
-                foreach (var id in idList)  //移除购物车商品
+                string key = string.Concat(user.UserName, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                if (!string.IsNullOrEmpty(idStr) && uComList != null && uComList.Count > 0)
                 {
-                    var item = uComList.Find(o => o.CommodityId == id);
-                    if (item != null)
+                    List<int> idList = new List<int>(idStr.Split(',').Select(x => int.Parse(x)));
+                    foreach (var id in idList)  //移除购物车商品
                     {
-                        uComList.Remove(item);
+                        var item = uComList.Find(o => o.CommodityId == id);
+                        if (item != null)
+                        {
+                            uComList.Remove(item);
+                        }
                     }
+                    CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
                 }
-                CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+                return JsonUtil.Serialize(uComList);
             }
-            return JsonUtil.Serialize(uComList);
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         public string DeleteAllShopping(string token)
         {
-            string key = string.Concat(token, "SetShopping");
-            var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-            if (uComList != null && uComList.Count > 0)
-                uComList.Clear();
-            CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
-            return JsonUtil.Serialize(uComList);
+            var user = UserService.CkToken(token);
+            if (user != null)
+            {
+                string key = string.Concat(user.UserName, "SetShopping");
+                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                if (uComList != null && uComList.Count > 0)
+                    uComList.Clear();
+                CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
+                return JsonUtil.Serialize(uComList);
+            }
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         /// <summary>
         /// 获取指定购物车商品
@@ -202,25 +250,33 @@ namespace Qsw.Services
         /// <returns></returns>
         public string GetShoppingInId(string token, string spId)
         {
-            List<CommodityModel> tmpList = new List<CommodityModel>();
-            if (!string.IsNullOrEmpty(spId))
+            var user = UserService.CkToken(token);
+            if (user != null)
             {
-                var idList = new List<int>(spId.Split(',').Select(x => int.Parse(x)));
-                string key = string.Concat(token, "SetShopping");
-                var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
-                if (uComList.Count > 0)
+                List<CommodityModel> tmpList = new List<CommodityModel>();
+                if (!string.IsNullOrEmpty(spId))
                 {
-                    foreach (var id in idList)
+                    var idList = new List<int>(spId.Split(',').Select(x => int.Parse(x)));
+                    string key = string.Concat(user.UserName, "SetShopping");
+                    var uComList = CacheHelp.Get<List<CommodityModel>>(key, DateTimeOffset.Now.AddMonths(3), () => null);
+                    if (uComList.Count > 0)
                     {
-                        var tmpdata = uComList.Find(o => o.CommodityId == id);
-                        if (tmpdata != null)
+                        foreach (var id in idList)
                         {
-                            tmpList.Add(tmpdata);
+                            var tmpdata = uComList.Find(o => o.CommodityId == id);
+                            if (tmpdata != null)
+                            {
+                                tmpList.Add(tmpdata);
+                            }
                         }
                     }
                 }
+                return JsonUtil.Serialize(tmpList);
             }
-            return JsonUtil.Serialize(tmpList);
+            else
+            {
+                return UserService.ckTokenState();
+            }
         }
         #endregion
 

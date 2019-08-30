@@ -5,9 +5,7 @@ $(document).ready(function () {
 function loadInfo() {
     var token = getCok();
     var timestamp = Date.parse(new Date());
-    if (token == null || token == '' || token == "''") {
-        window.location.href = '/login.html';
-    } else {
+    if (token != null) {
         var cmId = getRequestParam('cmId'); //分割逗号，根据ID加载商品
         var sampleId = getRequestParam('sampleId'); //0正常购买,1样品
         var isource = getRequestParam('isource'); //来源，立即还是购物车
@@ -31,37 +29,39 @@ function LoadAddresList() {
     var timestamp = Date.parse(new Date());
     var uaddresurl = '/UserAddres/GetUserAddresList?token=' + token + '&t=' + timestamp;
     $.getJSON(uaddresurl, function (data) {
-        var html = ''; var cityId = 0; var cuadd = ''; var shr = ''; var xm = ''; var dh = '';
-        if (data.Data != 'null' && data.Data != '') {
-            var topNum = 0;
-            for (var i = 0; i < data.Data.length; i++) {
-                if (i == 0 || data.Data[i].DefaultAddress == 1) {
-                    cityId = data.Data[i].CityId;
-                    cuadd = data.Data[i].Address;
-                    shr = data.Data[i].Contacts + '&nbsp;&nbsp;' + data.Data[i].Telephone;
-                    xm = data.Data[i].Contacts;
-                    dh = data.Data[i].Telephone;
+        if (!isPasLogin(data)) {
+            var html = ''; var cityId = 0; var cuadd = ''; var shr = ''; var xm = ''; var dh = '';
+            if (data.Data != 'null' && data.Data != '') {
+                var topNum = 0;
+                for (var i = 0; i < data.Data.length; i++) {
+                    if (i == 0 || data.Data[i].DefaultAddress == 1) {
+                        cityId = data.Data[i].CityId;
+                        cuadd = data.Data[i].Address;
+                        shr = data.Data[i].Contacts + '&nbsp;&nbsp;' + data.Data[i].Telephone;
+                        xm = data.Data[i].Contacts;
+                        dh = data.Data[i].Telephone;
+                    }
+                    html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
+                                  '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
+                                  '<span id="adContacts' + data.Data[i].id + '" style="display:none;">' + data.Data[i].Contacts + '</span><span id="City' + data.Data[i].id + '"  style="display:none;">' + data.Data[i].CityId + '</span>' +
+                                  '<div style="position:absolute; width:2.5rem; height:2.5rem; top:50%; margin-top:-1.25rem; background-color:#aaaaaa; left:0.125rem; border-radius: 50%; text-align:center;">' +
+                                  '<span style="position:absolute; width:100%; font-size:1rem; height:1.375rem; top:50%; margin-top:-0.6875rem; left:0px; color:#fff;">' + data.Data[i].Contacts.substring(0, 1) + '</span>' +
+                                  '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;" onclick="seleAddres(' + data.Data[i].id + ');">' +
+                                  '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:1rem; width:3.75rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
+                                  '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:4.25rem; top:0.5rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
+                                  '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.75rem; font-size:0.875rem;">' + data.Data[i].Address + '</span>' +
+                                  '</div><div style="position:absolute; width:2.6875rem; height:1.5rem; top:50%; margin-top:-0.75rem; right:0px; text-align:center; border-left:1px solid #dddddd;">' +
+                                  '<span style="color:#999999; width:100%;" onclick="editAdds(' + data.Data[i].id + ');">编辑</span></div></div>';
+                    topNum = topNum + 4.375;
                 }
-                html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
-                              '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
-                              '<span id="adContacts' + data.Data[i].id + '" style="display:none;">' + data.Data[i].Contacts + '</span><span id="City' + data.Data[i].id + '"  style="display:none;">' + data.Data[i].CityId + '</span>' +
-                              '<div style="position:absolute; width:2.5rem; height:2.5rem; top:50%; margin-top:-1.25rem; background-color:#aaaaaa; left:0.125rem; border-radius: 50%; text-align:center;">' +
-                              '<span style="position:absolute; width:100%; font-size:1rem; height:1.375rem; top:50%; margin-top:-0.6875rem; left:0px; color:#fff;">' + data.Data[i].Contacts.substring(0, 1) + '</span>' +
-                              '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;" onclick="seleAddres(' + data.Data[i].id + ');">' +
-                              '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:1rem; width:3.75rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
-                              '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:4.25rem; top:0.5rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
-                              '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.75rem; font-size:0.875rem;">' + data.Data[i].Address + '</span>' +
-                              '</div><div style="position:absolute; width:2.6875rem; height:1.5rem; top:50%; margin-top:-0.75rem; right:0px; text-align:center; border-left:1px solid #dddddd;">' +
-                              '<span style="color:#999999; width:100%;" onclick="editAdds(' + data.Data[i].id + ');">编辑</span></div></div>';
-                topNum = topNum + 4.375;
             }
+            $('#cityId').html(cityId);
+            $('#SpAddres').html(cuadd);
+            $('#shr').html(shr);
+            $('#shrxm').html(xm);
+            $('#shrdh').html(dh);
+            $('#addressList').html(html);
         }
-        $('#cityId').html(cityId);
-        $('#SpAddres').html(cuadd);
-        $('#shr').html(shr);
-        $('#shrxm').html(xm);
-        $('#shrdh').html(dh);
-        $('#addressList').html(html);
     });
 }
 function loadCityList() {
@@ -180,12 +180,14 @@ function saveAddres() {
             url = '/UserAddres/InserUserAddres?token=' + token + '&adId=' + adId + '&Address=' + add + '&telephone=' + ph + '&contacts=' + adContacts + '&defaultAddress=' + adstate + '&city=' + city;
         }
         $.getJSON(url, function (data) {
-            if (data.Data != null && data.Data != '') {
-                if (data.Data.state) {
-                    LoadAddresList();
-                    cancelEditAdds();
-                } else {
-                    alert('保存失败');
+            if (!isPasLogin(data)) {
+                if (data.Data != null && data.Data != '') {
+                    if (data.Data.state) {
+                        LoadAddresList();
+                        cancelEditAdds();
+                    } else {
+                        alert('保存失败');
+                    }
                 }
             }
         });
@@ -196,12 +198,14 @@ function deleteAddres() {
     var adId = $('#edId').html();
     var url = '/UserAddres/DeleteUserAddres?token=' + token + '&adId=' + adId;
     $.getJSON(url, function (data) {
-        if (data.Data != null && data.Data != '') {
-            if (data.Data.state) {
-                LoadAddresList();
-                cancelEditAdds();
-            } else {
-                alert('删除失败');
+        if (!isPasLogin(data)) {
+            if (data.Data != null && data.Data != '') {
+                if (data.Data.state) {
+                    LoadAddresList();
+                    cancelEditAdds();
+                } else {
+                    alert('删除失败');
+                }
             }
         }
     });
@@ -432,30 +436,32 @@ function loadCmList(cmid, token) {
     var timestamp = Date.parse(new Date());
     var uaddresurl = '/Commodity/GetShoppingInId?token=' + token + '&idlist=' + cmid + '&t=' + timestamp;
     $.getJSON(uaddresurl, function (data) {
-        var html = ''; var allAmout = 0;
-        if (data.Data != 'null' && data.Data != '') {
-            for (var i = 0; i < data.Data.length; i++) {
-                html = html + '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
-                '<div style="position:relative; width:100%; left:0px; top:0px;">' +
-                   '<div style="position:absolute; width:5.5rem; height:5.5rem; top:0.89rem; left:0.5rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data[i].CommodityImg + '\'); background-size:100% 100%;"></div>' +
-                    '<div style="position:absolute; width:74%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
-                        '<span style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data[i].CommodityName + '</span>' +
-                        '<span style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">' + data.Data[i].CommodityGeneral + '</span>' +
-                        '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">生产商: ' + data.Data[i].BrandName + '</span>' +
-                        '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data[i].CommoditySpec + data.Data[i].UnitIdName + '</span>' +
-                        '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data[i].CommodityId + '111" style="color:red;">' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '</span>元</span>' +
-                        '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
-                        '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
-                        '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
-                        '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;" onclick="btnjian(' + data.Data[i].CommodityId + ');"></div>' +
-                        '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data[i].CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data[i].CommodityId + ', \'inCount\', \'inBg\')">' + data.Data[i].SpCount + '</span></div>' +
-                        '<div style="position:inherit; left:70%; width:30%; height:100%; border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data[i].CommodityId + ');"></div>' +
-                        '</div></div></div></div> <div style="width:100%; height:6px;"></div>';
-                allAmout = allAmout + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice) * data.Data[i].SpCount;
+        if (!isPasLogin(data)) {
+            var html = ''; var allAmout = 0;
+            if (data.Data != 'null' && data.Data != '') {
+                for (var i = 0; i < data.Data.length; i++) {
+                    html = html + '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
+                    '<div style="position:relative; width:100%; left:0px; top:0px;">' +
+                       '<div style="position:absolute; width:5.5rem; height:5.5rem; top:0.89rem; left:0.5rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data[i].CommodityImg + '\'); background-size:100% 100%;"></div>' +
+                        '<div style="position:absolute; width:74%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
+                            '<span style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data[i].CommodityName + '</span>' +
+                            '<span style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">' + data.Data[i].CommodityGeneral + '</span>' +
+                            '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">生产商: ' + data.Data[i].BrandName + '</span>' +
+                            '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data[i].CommoditySpec + data.Data[i].UnitIdName + '</span>' +
+                            '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data[i].CommodityId + '111" style="color:red;">' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '</span>元</span>' +
+                            '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
+                            '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
+                            '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
+                            '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;" onclick="btnjian(' + data.Data[i].CommodityId + ');"></div>' +
+                            '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data[i].CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data[i].CommodityId + ', \'inCount\', \'inBg\')">' + data.Data[i].SpCount + '</span></div>' +
+                            '<div style="position:inherit; left:70%; width:30%; height:100%; border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data[i].CommodityId + ');"></div>' +
+                            '</div></div></div></div> <div style="width:100%; height:6px;"></div>';
+                    allAmout = allAmout + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice) * data.Data[i].SpCount;
+                }
             }
+            $('#selAmount').html(allAmout.toFixed(2));
+            $('#shopList').html(html);
         }
-        $('#selAmount').html(allAmout.toFixed(2));
-        $('#shopList').html(html);
     });
 }
 function loadExAmount() {
@@ -474,7 +480,7 @@ function loadExAmount() {
             }
             getAmout();
         });
-    }  
+    }
 }
 function getAmout() {
     var cmId = getRequestParam('cmId');

@@ -5,29 +5,29 @@ $(document).ready(function () {
 function loadInfo() {
     var token = getCok();
     var timestamp = Date.parse(new Date());
-    if (token == null || token == '' || token == "''") {
-        window.location.href = '/login.html';
-    } else {
+    if (token != null) {
         var url = '/User/GetUserInfo?token=' + token + '&t=' + timestamp;
         $.getJSON(url, function (data) {
-            if (data.Data != 'null' && data.Data != '') {
-                if (data.Data.UserImg != null && data.Data.UserImg != 'null') {
-                    $('#phImg').css("background-image", "url(" + data.Data.UserImg + '?t=' + timestamp + ")");
-                    $('#uImg').css("background-image", "url(" + data.Data.UserImg + '?t=' + timestamp + ")");
-                    $('#phImgbk').html(data.Data.UserImg);
+            if (!isPasLogin(data)) {
+                if (data.Data != 'null' && data.Data != '') {
+                    if (data.Data.UserImg != null && data.Data.UserImg != 'null') {
+                        $('#phImg').css("background-image", "url(" + data.Data.UserImg + '?t=' + timestamp + ")");
+                        $('#uImg').css("background-image", "url(" + data.Data.UserImg + '?t=' + timestamp + ")");
+                        $('#phImgbk').html(data.Data.UserImg);
+                    }
+                    else {
+                        $('#phImg').css("background-image", "url('Images/UserImg/sysPh.png')");
+                        $('#uImg').css("background-image", "url('Images/UserImg/sysPh.png')");
+                        $('#phImgbk').html('Images/UserImg/sysPh.png');
+                    }
+                    $('#unickname').html(data.Data.Nickname);
+                    $('#txtnickname').val(data.Data.Nickname);
+                    $('#uName').val(data.Data.UserName);
+                    $('#uName1').html('账号:' + data.Data.UserName);
+                    $('#inSex').val(data.Data.Sex);
+                } else {
+                    window.location.href = '/login.html';
                 }
-                else {
-                    $('#phImg').css("background-image", "url('Images/UserImg/sysPh.png')");
-                    $('#uImg').css("background-image", "url('Images/UserImg/sysPh.png')");
-                    $('#phImgbk').html('Images/UserImg/sysPh.png');
-                }
-                $('#unickname').html(data.Data.Nickname);
-                $('#txtnickname').val(data.Data.Nickname);
-                $('#uName').val(data.Data.UserName);
-                $('#uName1').html('账号:' + data.Data.UserName);
-                $('#inSex').val(data.Data.Sex);
-            } else {
-                window.location.href = '/login.html';
             }
         });
         LoadAddresList();
@@ -39,25 +39,27 @@ function LoadAddresList() {
     var timestamp = Date.parse(new Date());
     var uaddresurl = '/UserAddres/GetUserAddresList?token=' + token + '&t=' + timestamp;
     $.getJSON(uaddresurl, function (data) {
-        var html = '';
-        if (data.Data != 'null' && data.Data != '') {
-            var topNum = 0;
-            for (var i = 0; i < data.Data.length; i++) {
-                html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
-                              '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
-                              '<span id="adContacts' + data.Data[i].id + '" style="display:none;">' + data.Data[i].Contacts + '</span><span id="City' + data.Data[i].id + '"  style="display:none;">' + data.Data[i].CityId + '</span>' +
-                              '<div style="position:absolute; width:2.5rem; height:2.5rem; top:50%; margin-top:-1.25rem; background-color:#aaaaaa; left:0.125rem; border-radius: 50%; text-align:center;">' +
-                              '<span style="position:absolute; width:100%; font-size:1rem; height:1.375rem; top:50%; margin-top:-0.6875rem; left:0px; color:#fff;">' + data.Data[i].Contacts.substring(0, 1) + '</span>' +
-                              '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;">' +
-                              '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:1rem; width:3.75rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
-                              '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:4.25rem; top:0.5rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
-                              '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.75rem; font-size:0.875rem;">' + data.Data[i].Address + '</span>' +
-                              '</div><div style="position:absolute; width:2.6875rem; height:1.5rem; top:50%; margin-top:-0.75rem; right:0px; text-align:center; border-left:1px solid #dddddd;">' +
-                              '<span style="color:#999999; width:100%;" onclick="editAdds(' + data.Data[i].id + ');">编辑</span></div></div>';
-                topNum = topNum + 4.375;
+        if (!isPasLogin(data)) {
+            var html = '';
+            if (data.Data != 'null' && data.Data != '') {
+                var topNum = 0;
+                for (var i = 0; i < data.Data.length; i++) {
+                    html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
+                                  '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
+                                  '<span id="adContacts' + data.Data[i].id + '" style="display:none;">' + data.Data[i].Contacts + '</span><span id="City' + data.Data[i].id + '"  style="display:none;">' + data.Data[i].CityId + '</span>' +
+                                  '<div style="position:absolute; width:2.5rem; height:2.5rem; top:50%; margin-top:-1.25rem; background-color:#aaaaaa; left:0.125rem; border-radius: 50%; text-align:center;">' +
+                                  '<span style="position:absolute; width:100%; font-size:1rem; height:1.375rem; top:50%; margin-top:-0.6875rem; left:0px; color:#fff;">' + data.Data[i].Contacts.substring(0, 1) + '</span>' +
+                                  '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;">' +
+                                  '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:1rem; width:3.75rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
+                                  '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:4.25rem; top:0.5rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
+                                  '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.75rem; font-size:0.875rem;">' + data.Data[i].Address + '</span>' +
+                                  '</div><div style="position:absolute; width:2.6875rem; height:1.5rem; top:50%; margin-top:-0.75rem; right:0px; text-align:center; border-left:1px solid #dddddd;">' +
+                                  '<span style="color:#999999; width:100%;" onclick="editAdds(' + data.Data[i].id + ');">编辑</span></div></div>';
+                    topNum = topNum + 4.375;
+                }
             }
+            $('#addressList').html(html);
         }
-        $('#addressList').html(html);
     });
 }
 function loadCityList() {
@@ -185,7 +187,9 @@ function updateUserInfo(imgName) {
     var sex = $('#inSex').val();
     var url = '/User/UpdateUserInfo?token=' + token + '&nickname=' + nickname + '&sex=' + sex + '&uImg=' + imgName;
     $.getJSON(url, function (data) {
-        location.reload();
+        if (!isPasLogin(data)) {
+            location.reload();
+        }
     });
 }
 
@@ -301,12 +305,14 @@ function saveAddres() {
             url = '/UserAddres/InserUserAddres?token=' + token + '&adId=' + adId + '&Address=' + add + '&telephone=' + ph + '&contacts=' + adContacts + '&defaultAddress=' + adstate + '&city=' + city;
         }
         $.getJSON(url, function (data) {
-            if (data.Data != null && data.Data != '') {
-                if (data.Data.state) {
-                    LoadAddresList();
-                    cancelEditAdds();
-                } else {
-                    alert('保存失败');
+            if (!isPasLogin(data)) {
+                if (data.Data != null && data.Data != '') {
+                    if (data.Data.state) {
+                        LoadAddresList();
+                        cancelEditAdds();
+                    } else {
+                        alert('保存失败');
+                    }
                 }
             }
         });
@@ -318,12 +324,14 @@ function deleteAddres() {
     var adId = $('#edId').html();
     var url = '/UserAddres/DeleteUserAddres?token=' + token + '&adId=' + adId;
     $.getJSON(url, function (data) {
-        if (data.Data != null && data.Data != '') {
-            if (data.Data.state) {
-                LoadAddresList();
-                cancelEditAdds();
-            } else {
-                alert('删除失败');
+        if (!isPasLogin(data)) {
+            if (data.Data != null && data.Data != '') {
+                if (data.Data.state) {
+                    LoadAddresList();
+                    cancelEditAdds();
+                } else {
+                    alert('删除失败');
+                }
             }
         }
     });

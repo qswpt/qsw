@@ -48,16 +48,32 @@ function ulogin() {
         }
     });
 }
+function isPasLogin(reData) {
+    if (reData.Data.hasOwnProperty("msg")) {
+        window.location.href = '/login.html';
+        return true;
+    } else {
+        return false;
+    }
+}
 function getCok() {
+    var token = getck();
+    if (token == null || token == '' || token == "''" || token == 'null' || token == 'undefined') {
+        window.location.href = '/login.html';
+    }
+    return token;
+}
+function getck() {
     var arr, reg = new RegExp("(^| )name=([^;]*)(;|$)");
     if (arr = document.cookie.match(reg)) {
-        return unescape(arr[2]);
-    }
-    else
+        var token = unescape(arr[2]);
+        return token;
+    } else {
         return null;
+    }
 }
 function getShopCount() {
-    var token = getCok();
+    var token = getck();
     if (token != null) {
         var url = '/Commodity/GetShoppingCount?token=' + token + '';
         $.getJSON(url, function (data) {
@@ -90,14 +106,6 @@ function isShop(cid) {
         });
     }
     stopBubble(event);
-}
-function isCkLogin() {
-    var token = getCok();
-    if (token == null || token == '' || token == "''") {
-        return false;
-    } else {
-        return true;
-    }
 }
 function stopBubble(e) {
     if (e && e.stopPropagation)

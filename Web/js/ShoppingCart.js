@@ -1,13 +1,13 @@
 ﻿
 $(document).ready(function () {
     var token = getCok();
-    if (token == null || token == '' || token == "''") {
-        window.location.href = '/login.html';
-    } else {
+    if (token != null) {
         var url = '/Commodity/GetShoppingList?token=' + token;
         $.getJSON(url, function (data) {
-            if (data.Data != 'null') {
-                loadDataList(data);
+            if (!isPasLogin(data)) {
+                if (data.Data != 'null' && data.Data.length > 0) {
+                    loadDataList(data);
+                }
             }
         });
     }
@@ -164,12 +164,10 @@ function setCount(cmid, id, id2) {
 }
 function upComCount(cmid, cmCount) {
     var token = getCok();
-    if (token == null || token == '' || token == "''") {
-        window.location.href = '/login.html';
-    } else {
+    if (token != null) {
         var url = '/Commodity/SetShoppingCount?token=' + token + '&spId=' + cmid + '&spCount=' + cmCount;
         $.getJSON(url, function (data) {
-            if (data.Data.state) {
+            if (!isPasLogin(data)) {
 
             }
         });
@@ -198,33 +196,34 @@ function deleteCom() {
 }
 function deleByid(idStr) {
     var token = getCok();
-    if (token == null || token == '' || token == "''") {
-        window.location.href = '/login.html';
-    } else {
+    if (token != null) {
         var url = '/Commodity/DeleteShopping?idStr=' + idStr + '&token=' + token;
         $.getJSON(url, function (data) {
-            if (data.Data != 'null') {
-                loadDataList(data);
-            } else {
-                $('#spCount').html('购物车');
-                $('#spListInfo').html('');
-                $('#spIdList').html('');
+            if (!isPasLogin(data)) {
+                if (data.Data != 'null') {
+                    loadDataList(data);
+                } else {
+                    $('#spCount').html('购物车');
+                    $('#spListInfo').html('');
+                    $('#spIdList').html('');
+                }
+                getCkAmout();
             }
-            getCkAmout();
         });
+
     }
 }
 function deleAllCom() {
     var token = getCok();
-    if (token == null || token == '' || token == "''") {
-        window.location.href = '/login.html';
-    } else {
+    if (token != null) {
         var url = '/Commodity/DeleteAllShopping?token=' + token;
         $.getJSON(url, function (data) {
-            $('#spCount').html('购物车');
-            $('#spListInfo').html('');
-            $('#spIdList').html('');
-            getCkAmout();
+            if (!isPasLogin(data)) {
+                $('#spCount').html('购物车');
+                $('#spListInfo').html('');
+                $('#spIdList').html('');
+                getCkAmout();
+            }
         });
     }
     showClerInfo();

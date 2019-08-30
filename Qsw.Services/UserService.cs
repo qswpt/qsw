@@ -13,9 +13,9 @@ namespace Qsw.Services
 {
     public class UserService : Singleton<UserService>
     {
+        private static string uKey = "qsw2019";
         public string Login(string userName, string pwd)
         {
-            string token = string.Empty;
             string sql = "select * from Users where UserName=?userName and Pwd=?pwd and State=0 ";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["userName"] = userName;
@@ -23,38 +23,30 @@ namespace Qsw.Services
             UserModel user = DbUtil.Master.Query<UserModel>(sql, p);
             if (user != null)
             {
-                string key = string.Concat(user.UserName, user.Uid); //统一cache Key
-                CacheHelp.Set(key, DateTimeOffset.Now.AddDays(7), user);
+                string key = CryptoUtil.GetRandomAesKey();
+                user.key = key;
+                user.Pwd = string.Empty;
+                string Token = CryptoUtil.AesEncryptHex(user.UserName + uKey, key);
+                string uloginKey = user.UserName + uKey;
+                var oldToken = CacheHelp.Get<string>(uloginKey, DateTimeOffset.Now.AddDays(7), () => null);
+                if (!string.IsNullOrEmpty(oldToken))
+                {
+                    CacheHelp.Set(oldToken, DateTimeOffset.Now.AddDays(7), null);
+                }
+                CacheHelp.Set(uloginKey, DateTimeOffset.Now.AddDays(7), Token);
+                CacheHelp.Set(Token, DateTimeOffset.Now.AddDays(7), user);
                 List<object> u = new List<object>();
                 u.Add(new
                 {
-                    token = key,
+                    token = Token,
                 });
-                token = JsonUtil.Serialize(u);
+                return JsonUtil.Serialize(u);
             }
-            return token;
-        }
-        /// <summary>
-        /// 返回false时前端需要重新登录
-        /// </summary>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public static UserModel GetUserLoginState(string token)
-        {
-            var userModel = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
-            return userModel;
+            return string.Empty;
         }
         public string GetUserInfo(string token)
         {
-            if (!string.IsNullOrEmpty(token))
-            {
-                var userModel = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
-                if (userModel != null)
-                {
-                    return JsonUtil.Serialize(userModel);
-                }
-            }
-            return "";
+            return JsonUtil.Serialize(CkToken(token));
         }
         public string UpdateUserInfo(string token, string nickname, string sex, string uImg)
         {
@@ -84,6 +76,36 @@ namespace Qsw.Services
                 }
             }
             return string.Empty;
+        }
+        /// <summary>
+        /// 检查token是否有效
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="uName"></param>
+        /// <returns></returns>
+        public static UserModel CkToken(string token)
+        {
+            var user = CacheHelp.Get<UserModel>(token, DateTimeOffset.Now.AddDays(7), () => null);
+            if (user != null)
+            {
+                string tmpUName = CryptoUtil.AesDecryptHex(token, user.key);
+                if (!string.IsNullOrEmpty(tmpUName) && tmpUName.Equals(user.UserName + uKey))
+                {
+                    return user;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return null;
+        }
+        public static string ckTokenState()
+        {
+            //List<object> objList = new List<object>();
+            //objList.Add(new { msg = "pastLogin" });
+            object obj = new { msg= "pastLogin" };
+            return JsonUtil.Serialize(obj);
         }
     }
 }
