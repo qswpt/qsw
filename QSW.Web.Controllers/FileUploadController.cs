@@ -23,17 +23,34 @@ namespace QSW.Web.Controllers
             return OK(string.Empty);
         }
 
+        //[HttpPost]
+        //public ActionResult ReplaceAdsImg(int index, string imgContent)
+        //{
+        //    byte[] imgBytes = Convert.FromBase64String(imgContent);
+        //    string filePath = string.Format(@"/Images/adv/city--{0}-min-min.jpg", index);
+        //    string path = Server.MapPath("~//" + filePath);
+        //    if (System.IO.File.Exists(path))
+        //    {
+        //        System.IO.File.Delete(path);
+        //    }
+
+        //    System.IO.File.WriteAllBytes(path, imgBytes);
+        //    return OK(string.Empty);
+        //}
+
         [HttpPost]
-        public ActionResult ReplaceAdsImg(int index, string imgContent)
+        public ActionResult ReplaceAdsImg(string previousName,string imgName,string imgContent)
         {
             byte[] imgBytes = Convert.FromBase64String(imgContent);
-            string filePath = string.Format(@"/Images/adv/city--{0}-min-min.jpg", index);
-            string path = Server.MapPath("~//" + filePath);
+            string filePath = string.Format(@"/Images/adv/{0}", imgName);
+            string previousFilePath = string.Format(@"/Images/adv/{0}", previousName);
+            string path = Server.MapPath("~//" + previousFilePath);
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);
             }
 
+            path = Server.MapPath("~//" + filePath);
             System.IO.File.WriteAllBytes(path, imgBytes);
             return OK(string.Empty);
         }

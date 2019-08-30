@@ -98,7 +98,14 @@ namespace QSWMaintain
 
         private void Save()
         {
-            this.advModel.AdvImage = this.tbAdvImage.Text;
+            if (this.isReplaceImg)
+            {
+                this.advModel.AdvImage = this.newImageGUID + Path.GetExtension(imagePath);
+            }
+            else
+            {
+                this.advModel.AdvImage = this.tbAdvImage.Text;
+            }
             this.advModel.AdvTypeId = (this.cmbAdvType.SelectedItem as AdvTypeModel).AdvTypeId;
             if (this.advModel.AdvTypeId == 1)
             {
@@ -157,10 +164,10 @@ namespace QSWMaintain
 
         private void ReplaceImage()
         {
-            string imgName = this.newImageGUID + Path.GetExtension(this.tbAdvImage.Text);
-            var contentBytes = File.ReadAllBytes(this.tbAdvImage.Text);
+            string imgName = this.newImageGUID + Path.GetExtension(imagePath);
+            var contentBytes = File.ReadAllBytes(imagePath);
             string imgContent = Convert.ToBase64String(contentBytes);
-            var replaceRes = WebRequestUtil.ReplaceBrandImg(this.previousImg, imgName, imgContent);
+            var replaceRes = WebRequestUtil.ReplaceAdsImg(this.previousImg, imgName, imgContent);
             if (replaceRes != null)
             {
                 LogUtil.Info("AddUpdateADFrm.ReplaceImage successfully!");

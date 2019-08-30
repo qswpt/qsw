@@ -28,7 +28,7 @@ namespace Qsw.Services
         public bool InsertAdv(string advModelStr)
         {
             AdvModel model = JsonUtil.Deserialize<AdvModel>(advModelStr);
-            string sql = $"INSERT INTO Advertisement(AdvTypeId,AdvInnerId,AdvSart,AdvImage) VALUES(?advTypeId,?advInnerId,?advSart,?advSart)";
+            string sql = $"INSERT INTO Advertisement(AdvTypeId,AdvInnerId,AdvSart,AdvImage) VALUES(?advTypeId,?advInnerId,?advSart,?advImage)";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["advImage"] = model.AdvImage;
             p["advTypeId"] = model.AdvTypeId;

@@ -78,42 +78,7 @@ namespace QSWMaintain
 
             return string.Empty;
         }
-        private void ButtonModify_Click(object sender, EventArgs e)
-        {
-            string btnName = (sender as Button).Name;
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
-            fileDialog.Title = "请选择广告位图片";
-            var dialogResult = fileDialog.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                char num = btnName.First(p => char.IsDigit(p));
-                int number = num - 48;
-                string dstAD = string.Format("city--{0}-min-min.jpg", number);
-                string filePath = fileDialog.FileName;
-                bool res = ModifyAD(number, filePath);
-                if (!res)
-                {
-                    MessageBox.Show("修改失败！");
-                }
-            }
-        }
-
-        private bool ModifyAD(int index, string filePath)
-        {
-            byte[] fileBytes = File.ReadAllBytes(filePath);
-            var response = WebRequestUtil.ReplaceAdsImg(index, Convert.ToBase64String(fileBytes));
-            if (response != null)
-            {
-                int res = JsonUtil.Deserialize<QSWResponse<string>>(response.Content).Status;
-                return res == 1;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+   
         private void PreviewPic(string adsImageName)
         {
             var response = WebRequestUtil.GetAdsImage(adsImageName);

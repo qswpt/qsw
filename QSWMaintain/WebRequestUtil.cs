@@ -191,6 +191,17 @@ namespace QSWMaintain
             return result;
         }
 
+        public static IRestResponse ReplaceAdsImg(string previousName, string imgName, string imgContent)
+        {
+            string brandHome = "/FileUpload/ReplaceAdsImg";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("previousName", previousName);
+            request.AddParameter("imgName", imgName);
+            request.AddParameter("imgContent", imgContent);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
         public static IRestResponse GetAdsImg(int index)
         {
             string brandHome = "/FileUpload/GetAdsImg";
