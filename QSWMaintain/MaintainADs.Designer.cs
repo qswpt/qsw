@@ -183,6 +183,7 @@ namespace QSWMaintain
             this.kryptonDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.kryptonDataGridView1.Size = new System.Drawing.Size(988, 394);
             this.kryptonDataGridView1.TabIndex = 2;
+            //this.kryptonDataGridView1.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.KryptonDataGridView1_CellStateChanged);
             this.kryptonDataGridView1.SelectionChanged += new System.EventHandler(this.KryptonDataGridView1_SelectionChanged);
             // 
             // ColAdvType

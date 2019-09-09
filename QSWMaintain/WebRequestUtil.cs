@@ -220,6 +220,15 @@ namespace QSWMaintain
             return result;
         }
 
+        public static IRestResponse DeleteAdsImage(string imageName)
+        {
+            string brandHome = "/FileUpload/DeleteAdsImage";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("imageName", imageName);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
         public static IRestResponse ReplaceBrandImg(string previousName,string imgName, string imgContent)
         {
             string brandHome = "/FileUpload/ReplaceBrandImg";
@@ -231,6 +240,15 @@ namespace QSWMaintain
             return result;
         }
 
+        public static IRestResponse DeleteBrandImage(string imageName)
+        {
+            string brandHome = "/FileUpload/DeleteBrandImage";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("imageName", imageName);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
         public static IRestResponse ReplaceCommodityImg(string previousName, string imgName, string imgContent)
         {
             string brandHome = "/FileUpload/ReplaceCommodityImg";
@@ -238,6 +256,15 @@ namespace QSWMaintain
             request.AddParameter("previousName", previousName);
             request.AddParameter("imgName", imgName);
             request.AddParameter("imgContent", imgContent);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+
+        public static IRestResponse DeleteCommodityImage(string imageName)
+        {
+            string brandHome = "/FileUpload/DeleteCommodityImage";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("imageName", imageName);
             var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }

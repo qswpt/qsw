@@ -40,6 +40,12 @@ namespace QSWMaintain
                     this.kryptonDataGridView1.Rows[index].Cells[3].Value = adv.AdvImage;
                     this.kryptonDataGridView1.Rows[index].Tag = adv;
                 }
+
+                if (res.Data.Count > 0)
+                {
+                    this.kryptonDataGridView1.Rows[0].Selected = false;
+                    this.kryptonDataGridView1.Rows[0].Selected = true;
+                }
             }
         }
 
@@ -91,6 +97,14 @@ namespace QSWMaintain
                     string imageFile = SaveToCache(imgBytes);
                     this.pictureBox1.Image = new Bitmap(imageFile);
                 }
+                else
+                {
+                    this.pictureBox1.Image = null;
+                }
+            }
+            else
+            {
+                this.pictureBox1.Image = null;
             }
         }
 
@@ -150,16 +164,17 @@ namespace QSWMaintain
         {
             if (this.kryptonDataGridView1.SelectedRows.Count > 0)
             {
-                var brand = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
-                if (brand == null)
+                var adv = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
+                if (adv == null)
                     return;
-                var deleteResponse = WebRequestUtil.DeleteAdv(brand.AdvId);
+                var deleteResponse = WebRequestUtil.DeleteAdv(adv.AdvId);
                 if (deleteResponse != null)
                 {
                     bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
                     if (res)
                     {
                         this.kryptonDataGridView1.Rows.Remove(this.kryptonDataGridView1.SelectedRows[0]);
+                        WebRequestUtil.DeleteAdsImage(adv.AdvImage);
                     }
                 }
             }
@@ -217,6 +232,16 @@ namespace QSWMaintain
         }
 
         private void KryptonDataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.kryptonDataGridView1.SelectedRows.Count > 0)
+            {
+                var brand = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
+                if (brand != null)
+                    PreviewPic(brand.AdvImage);
+            }
+        }
+
+        private void KryptonDataGridView1_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
         {
             if (this.kryptonDataGridView1.CurrentRow == null)
                 return;

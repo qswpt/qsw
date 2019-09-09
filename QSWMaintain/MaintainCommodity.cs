@@ -132,6 +132,7 @@ namespace QSWMaintain
                     if (res)
                     {
                         this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
+                        WebRequestUtil.DeleteCommodityImage(commodity.CommodityImg);
                     }
                 }
             }

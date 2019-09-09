@@ -39,7 +39,7 @@ namespace QSW.Web.Controllers
         //}
 
         [HttpPost]
-        public ActionResult ReplaceAdsImg(string previousName,string imgName,string imgContent)
+        public ActionResult ReplaceAdsImg(string previousName, string imgName, string imgContent)
         {
             byte[] imgBytes = Convert.FromBase64String(imgContent);
             string filePath = string.Format(@"/Images/adv/{0}", imgName);
@@ -84,18 +84,37 @@ namespace QSW.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ReplaceBrandImg(string previousName,string imgName, string imgContent)
+        public ActionResult DeleteAdsImage(string imageName)
         {
-            return ReplaceImge("logo",previousName,imgName,imgContent); 
+            return this.DeleteImage("adv", imageName);
+        }
+
+        [HttpPost]
+        public ActionResult ReplaceBrandImg(string previousName, string imgName, string imgContent)
+        {
+            return ReplaceImage("logo", previousName, imgName, imgContent);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteBrandImage(string imageName)
+        {
+            return DeleteImage("logo", imageName);
         }
 
         [HttpPost]
         public ActionResult ReplaceCommodityImg(string previousName, string imgName, string imgContent)
         {
-            return ReplaceImge("commodity", previousName, imgName, imgContent);
+            return ReplaceImage("commodity", previousName, imgName, imgContent);
         }
 
-        private ActionResult ReplaceImge(string typeName, string previousName, string imgName, string imgContent)
+        [HttpPost]
+        public ActionResult DeleteCommodityImage(string imageName)
+        {
+            return DeleteImage("commodity", imageName);
+        }
+
+        #region Private Methods
+        private ActionResult ReplaceImage(string typeName, string previousName, string imgName, string imgContent)
         {
             string previousPath = Server.MapPath("~//" + string.Format(@"/Images/{0}/{1}", typeName, previousName));
             if (System.IO.File.Exists(previousPath))
@@ -104,10 +123,22 @@ namespace QSW.Web.Controllers
             }
 
             byte[] imgBytes = Convert.FromBase64String(imgContent);
-            string filePath = string.Format(@"/Images/{0}/{1}",typeName,imgName);
+            string filePath = string.Format(@"/Images/{0}/{1}", typeName, imgName);
             string path = Server.MapPath("~//" + filePath);
             System.IO.File.WriteAllBytes(path, imgBytes);
             return OK(string.Empty);
         }
+
+        private ActionResult DeleteImage(string typeName, string imgName)
+        {
+            string imagePath = Server.MapPath("~//" + string.Format(@"/Images/{0}/{1}", typeName, imgName));
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
+            }
+
+            return OK(string.Empty);
+        }
+        #endregion
     }
 }
