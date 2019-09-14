@@ -495,3 +495,114 @@ function getAmout() {
     allAmount = allAmount + exAmount;
     $('#selAmount').html(allAmount);
 }
+var xmlobj; //定义XMLHttpRequest对象
+function CreateXMLHttpRequest() {
+    if (window.ActiveXObject)
+        //如果当前浏览器支持Active Xobject，则创建ActiveXObject对象
+    {
+        //xmlobj = new ActiveXObject("Microsoft.XMLHTTP");
+        try {
+            xmlobj = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xmlobj = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (E) {
+                xmlobj = false;
+            }
+        }
+    }
+    else if (window.XMLHttpRequest)
+        //如果当前浏览器支持XMLHttp Request，则创建XMLHttpRequest对象
+    {
+        xmlobj = new XMLHttpRequest();
+    }
+}
+function submitorder() {
+    orderWapay(function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //接受返回信息
+            //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+        }
+    });
+}
+function orderWapay(StatHandler) {
+    var token = getCok();
+    if (token != null) {
+        var spId = '', spCount = '', isSC = 0, cityId = 0, exId = 0, exName = '', addres = '', consignee = '', phone = '', isInvoice = 0, payid = 0, payName = '', ramrk = '';
+        var invoicePayable = '', businessName = '', taxpayerNumber = '', billContactPhone = '', billContactEmail = '', billContent = '';
+        var cmId = getRequestParam('cmId');
+        spId = cmId; spCount = getSpXount(cmId);
+        var isource = getRequestParam('isource');
+        if (isource == 1) { isSC = 0; } else { isSC = 1; }
+        cityId = $('#cityId').html(); //        
+        exId = $('#exId').html(); //
+        exName = $('#seExName').html();
+        addres = $('#SpAddres').html();
+        consignee = $('#shrxm').html();
+        phone = $('#shrdh').html();
+        isInvoice = $('#invs').html();
+        payid = $('#payspId').html(); //
+        payName = $('#payspName').html();
+        var ttid = $('#invTId').html();
+        if (ttid == 1) { invoicePayable = '个人'; } else { invoicePayable = '单位'; }
+        businessName = $('#txtComName').val();
+        taxpayerNumber = $('#txtNas').val();
+        billContactPhone = $('#txtPhone').val();
+        billContactEmail = $('#txtMa').val();
+        var contType = $('#invCtId').html();
+        if (contType == 1) { billContent = '商品明细'; } else { billContent = '商品类别'; }
+        if (ckorder(cityId, exId, payid, isInvoice, ttid, businessName, taxpayerNumber, billContactPhone, billContactEmail)) {
+            CreateXMLHttpRequest(); //创建对象
+            var parm = "spId=" + spId + "&spCount=" + spCount + "&token=" + token + "&isSC=" + isSC + "&cityId=" + cityId + "&exId=" + exId + "&exName=" + exName + "&addres=" + addres
+             + "&consignee=" + consignee + "&phone=" + phone + "&isInvoice=" + isInvoice + "&payid=" + payid + "&payName=" + payName + "&ramrk=" + ramrk + "&invoicePayable=" + invoicePayable + "&businessName=" + businessName
+             + "&taxpayerNumber=" + taxpayerNumber + "&billContactPhone=" + billContactPhone + "&billContactEmail=" + billContactEmail + "&billContent=" + billContent;
+            xmlobj.open("POST", "/Order/WapPay", true);
+            xmlobj.setRequestHeader("cache-control", "no-cache");
+            xmlobj.setRequestHeader("contentType", "text/html;charset=uft-8");
+            xmlobj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+            xmlobj.onreadystatechange = StatHandler;
+            xmlobj.send(parm);
+        }
+    }
+}
+function ckorder(cityId, exId, payid, isInvoice, ttid, businessName, taxpayerNumber, billContactPhone, billContactEmail) {
+    if (cityId == 0) {
+        alert('请在收货地址中设置地区...');
+        return false;
+    }
+    if (exId == 0) {
+        alert('请选择运输方式...');
+        return false;
+    }
+    if (payid == 0) {
+        alert('请选择支付方式...');
+        return false;
+    }
+    if (isInvoice == 1) {
+        if (ttid == 1) {
+            if (billContactEmail == '' || billContactPhone == '') {
+                alert('开个人发票，请填写收票人信息...');
+                return false;
+            }
+        } else {
+            if (billContactEmail == '' || billContactPhone == '' || businessName == '' || taxpayerNumber == '') {
+                alert('请填写发票抬头信息...');
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function getSpXount(cmid) {
+    var idlist = cmid.split(',');
+    var reCount = '';
+    for (var i = 0; i < idlist.length; i++) {
+        var rCount = $('#' + idlist[i] + '11').html();
+        if (reCount == '') {
+            reCount = rCount;
+        } else {
+            reCount = reCount + "," + rCount;
+        }
+    }
+    return reCount;
+}

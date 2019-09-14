@@ -50,6 +50,9 @@
     <Compile Include="CommodityService.cs" />
     <Compile Include="CommodityTypeService.cs" />
     <Compile Include="ExLogisticService.cs" />
+    <Compile Include="OrderDtlService.cs" />
+    <Compile Include="OrderInvoiceService.cs" />
+    <Compile Include="OrderListService.cs" />
     <Compile Include="PaymentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitService.cs" />

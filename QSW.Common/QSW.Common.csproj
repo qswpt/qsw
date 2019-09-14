@@ -94,6 +94,9 @@
     <Compile Include="Models\CommodityModel.cs" />
     <Compile Include="Models\CommodityTypeModel.cs" />
     <Compile Include="Models\ExLogisticModel.cs" />
+    <Compile Include="Models\OrderDtlModel.cs" />
+    <Compile Include="Models\OrderInvoiceModel.cs" />
+    <Compile Include="Models\OrderListModel.cs" />
     <Compile Include="Models\PaymentModel.cs" />
     <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Models\UnitModel.cs" />

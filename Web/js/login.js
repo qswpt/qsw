@@ -99,9 +99,11 @@ function isShop(cid) {
     } else {
         var url = '/Commodity/SetShopping?token=' + token + '&spId=' + cid + '';
         $.getJSON(url, function (data) {
-            if (data.Data.state) {
-                showgwcDiv();
-                showShopd(data.Data.rcount);
+            if (!isPasLogin(data)) {
+                if (data.Data.state) {
+                    showgwcDiv();
+                    showShopd(data.Data.rcount);
+                }
             }
         });
     }
