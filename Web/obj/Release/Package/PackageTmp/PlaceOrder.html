@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/PlaceOrder.js"></script>
+</head>
+<body style="background-color:#eeeeee;">
+    <div id="orderDiv">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
+            <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="pageback();"></div>
+            <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">填写订单</span>
+        </div>
+        <div style="position:absolute; width:100%; height:66px; left:0px; top:2.55rem; background-color:#fff;" onclick="showAddres();">
+            <span id="cityId" style="display:none;">0</span>
+            <span style="position:absolute; left:8px; top:8px; font-size:14px; font-weight:600; color:#000000;" id="SpAddres"></span>
+            <span id="shrxm" style="display:none;"></span>
+            <span id="shrdh" style="display:none;"></span>
+            <span id="shr" style="position:absolute; left:8px; top:36px; font-size:12px; color:#666666;"></span>
+            <div style="position:absolute; bottom:5px; width:100%; height:3px; left:0px;">
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+            </div>
+            <div style="position:absolute; right:8px; width:20px; height:20px; top:50%; margin-top:-10px; background-image:url('Images/ico/rightGo.png');  background-size:100% 100%; "></div>
+        </div>
+        <div id="payType" style="position:absolute; width:100%; height:48px; top:7.3rem; left:0px; background-color:#fff;">
+            <span style="position:absolute; left:8px; top:14px; font-size:12px; color:#666666;">支付方式</span>
+            <span id="payspId" style="display:none;">0</span>
+            <span id="payspName" style="position:absolute; top:14px; right:24px; font-size:12px;" onclick="showPay();"></span>
+            <div style="position:absolute; width:15px; height:15px; right:8px; top:16px; background-image:url('Images/ico/mr.png'); background-size:100% 100%;" onclick="showPay();"></div>
+        </div>
+        <div style="position:absolute; width:100%; left:0px; top:10.9rem; height:100px;">
+            <div id="shopList" style="width:100%; border-radius: 0.5rem;">
+
+            </div>
+            <div style="width:100%; height:10px; opacity:0.5;"></div>
+            <div id="ivnInfos" style="width:100%; height:2.5rem; background-color:#fff; border-radius: 0.5rem;">
+                <div style="width:100%; position:relative; left:0px; top:0px;">
+                    <span style="position:absolute; left:8px; top:10px; font-size:12px; color:#666666;">发票</span>
+                    <span id="invs" style="display:none;">0</span>
+                    <div id="invSt" style="position:absolute; height:2.5rem; width:2.5rem; right:14px; top:0px; background-image:url('Images/ico/stClose.png'); background-size:100% 100%;" onclick="stState();"></div>
+                </div>
+                <div id="invInfoMation" style="position:relative; width:95%; left:8px; height:40px; top:40px; display:none;">
+                    <div style="position:absolute; left:0px; top:0px; width:100%;"><span style="font-size:14px; font-weight:600;">发票抬头</span></div>
+                    <span id="invTId" style="display:none;">1</span>
+                    <div id="perDiv" style="position:absolute; width:60px; height:25px; top:25px; background-color:#f8b8b8; border-radius: 0.8rem;" onclick="ivnt(1);">
+                        <span id="pSp" style="position:absolute; left:0px; top:2px; width:100%; text-align:center; font-size:14px; color:red;">个人</span>
+                    </div>
+                    <div id="compDiv" style="position:absolute; width:60px; height:25px; top:25px; left:68px; background-color:#eeeeee; border-radius: 0.8rem;" onclick="ivnt(2);">
+                        <span id="cpSp" style="position:absolute; left:0px; top:2px; width:100%; text-align:center; font-size:14px; color:#666666;">单位</span>
+                    </div>
+                    <div id="dwInfo" style="position:absolute; left:0px; top:50px; height:70px; width:100%; display:none">
+                        <div style="position:absolute; left:0px; top:8px; height:30px; width:100%; color:#666666;">
+                            <span style="position:absolute; left:0px; top:3px; font-size:14px;">单位名称：</span>
+                            <input id="txtComName" type="text" style="position:absolute; left:70px; top:5px; border:none; width:260px; outline:none; border-bottom:1px solid #808080;" />
+                        </div>
+                        <div style="position:absolute; left:0px; top:40px; height:30px; width:100%; color:#666666;">
+                            <span style="position:absolute; left:0px; top:3px; font-size:14px;">纳税人识别码：</span>
+                            <input id="txtNas" type="text" style="position:absolute; left:95px; top:5px; border:none; width:235px; outline:none; border-bottom:1px solid #808080;" />
+                        </div>
+                    </div>
+                    <div id="lxrinfo" style="position:absolute; left:0px; width:100%; top:64px; height:100px; border:none;">
+                        <span style="font-size:14px; font-weight:600;">收票人信息</span>
+                        <div style="width:100%; height:60px;">
+                            <div style="position:absolute; left:0px; top:26px; height:30px; width:100%; color:#666666;">
+                                <span style="position:absolute; left:0px; top:3px; font-size:14px;">收票人手机：</span>
+                                <input id="txtPhone" type="text" style="position:absolute; left:80px; top:5px; border:none; width:180px; outline:none; border-bottom:1px solid #808080;" />
+                            </div>
+                            <div style="position:absolute; left:0px; top:56px; height:30px; width:100%; color:#666666;">
+                                <span style="position:absolute; left:0px; top:3px; font-size:14px;">收票人邮箱：</span>
+                                <input id="txtMa" type="text" style="position:absolute; left:80px; top:5px; border:none; width:180px; outline:none; border-bottom:1px solid #808080;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ivnContent" style="position:absolute; left:0px; width:100%; height:20px; top:160px;">
+                        <span style="font-size:14px; font-weight:600;">发票内容</span>
+                        <span id="invCtId" style="display:none;">1</span>
+                        <div id="centDtl" style="position:absolute; width:78px; height:25px; top:25px; background-color:#f8b8b8; border-radius: 0.8rem;" onclick="ivTy(1);">
+                            <span id="centDtlSp" style="position:absolute; left:0px; top:2px; width:100%; text-align:center; font-size:14px; color:red;">商品明细</span>
+                        </div>
+                        <div id="centType" style="position:absolute; width:78px; height:25px; top:25px; left:86px; background-color:#eeeeee; border-radius: 0.8rem;" onclick="ivTy(2);">
+                            <span id="centTypeSp" style="position:absolute; left:0px; top:2px; width:100%; text-align:center; font-size:14px; color:#666666;">商品类别</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:100%; height:10px; opacity:0.5;"></div>
+            <div style="width:100%; height:60px; background-color:#fff;border-radius: 0.5rem;">
+                <div style="position:relative; left:0px; top:0px; width:100%; height:30px;">
+                    <span style="position:absolute; left:8px; top:8px; font-size:14px; color:#666666;">配送</span>
+                    <span id="exId" style="display:none;">0</span>
+                    <span id="seExName" style="position:absolute; top:8px; right:24px; font-size:14px; color:#666666;" onclick="showExS();">配送方式</span>
+                    <div style="position:absolute; width:15px; height:15px; right:8px; top:11px; background-image:url('Images/ico/mr.png'); background-size:100% 100%;" onclick="showExS();"></div>
+                </div>
+                <div style="position:relative; left:0px; top:0px; width:100%; height:30px;">
+                    <span style="position:absolute; left:8px; top:5px; font-size:14px; color:#666666;">运费</span>
+                    <span id="hideExAmout" style="display:none;">0</span>
+                    <span id="exAmount" style="position:absolute; top:5px; right:14px; font-size:14px; color:red;">￥0</span>
+                </div>
+            </div>
+            <div style="width:100%; height:3.5rem;"></div>
+        </div>
+        <div style="left: 0px; position: fixed; bottom:0; width: 100%; z-index: 100;height:3.125rem; background-color:#fff; font-size:0.75rem;">
+            <span style="position:absolute; left:8px; color:red; top:15px; font-size:1rem; font-weight:500;">￥</span>
+            <span id="selAmount" style="position:absolute; left:22px; top:8px; color:red; font-size:1.5rem; font-weight:600;">0</span>
+            <div style="width:7rem; height:96%; position:absolute; top:2px; right:0px; bottom:0; background-color:#e84815;">
+                <span style="position:absolute; width:100%; height:1.25rem; font-size:0.875rem; top:50%; margin-top:-0.625rem; text-align:center; color:#fff;" onclick="submitorder();">提交订单</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="paydivBk" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:99; display:none; background-color:#000000; opacity:0.5;" onclick="hidPay();">
+    </div>
+    <div id="paytypeDiv" style="position:absolute; top:50%; left:50%; width:274px; height:120px; margin-top:-60px; margin-left:-137px; background-color:#fff; z-index:100; border-radius: 0.5rem; display:none;">
+    </div>
+    <div id="exDivBk" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:99; display:none; background-color:#000000; opacity:0.5;" onclick="hideExS();">
+    </div>
+    <div id="exListDiv" style="position:absolute; top:50%; left:50%; width:274px; height:120px; margin-top:-60px; margin-left:-137px; background-color:#fff; z-index:100; border-radius: 0.5rem; display:none;">
+    </div>
+    <div id="inBg" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:99; background-color:#000000; display:none; opacity:0.5;" onclick="canceInput('inCount', 'inBg')">
+    </div>
+    <div id="inCount" style="position:absolute; width:80%; height:8.125rem; z-index:100; top:50%; border:1px solid #dddddd; display:none; background-color:#fff; margin-top:-4.0625rem; left:10%; border-radius: 0.5rem;">
+        <span style="position:absolute; top:0.8rem; left:1rem; font-size:1rem; color:black; font-weight:600;">请输入您的内容</span>
+        <div style="position:absolute; top:2.8rem; width:90%; height:1.875rem; left:5%; border-bottom:1px solid #e84815;">
+            <input id="txtSpCount" type="number" style="border:0px; outline:none; width:100%; height:100%; font-size:1rem;" value="0" />
+            <span id="cmId" style="display:none;"></span>
+        </div>
+        <div style="position:absolute; width:100%; left:0px; top:5.7rem; height:2.5rem; ">
+            <div style="position:absolute; width:3.125rem;  height:1.5rem; font-size:0.875rem; text-align:center; color:#e84815; right:4.5rem;" onclick="canceInput('inCount', 'inBg')">取消</div>
+            <div style="position:absolute; width:3.125rem;  height:1.5rem; font-size:0.875rem; text-align:center; color:#e84815; right:1rem;" onclick="btnInput('inCount', 'inBg')">确认</div>
+        </div>
+    </div>
+    <div id="reAddress" style="position:absolute; width:100%; left:0px; top:0px; display:none;">
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
+            <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="cancelManagerAddres();"></div>
+            <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">我的收货地址</span>
+            <span style="position:fixed; width:4.5rem; height:1.25rem; top:0.6rem; right:0.8rem; margin-left:-6.25rem; font-size:0.875rem; color:#fff; text-align:right;" onclick="addAddres();">添加新地址</span>
+        </div>
+        <div id="addressList" style="position:absolute; left:0px; top:2.6rem; width:100%;">
+        </div>
+    </div>
+    <div id="editAddressInfo" style="position:absolute; width:100%; left:0px; top:0px; display:none; background-color:#eeeeee; height:100%;">
+        <span id="edId" style="display:none;"></span>
+        <div style="position:fixed; height:2.5rem; width:100%; top:0px; left:0px; background-color:#0778f8; z-index:100;">
+            <div style="position:fixed; top:0.375rem; width:1.5rem; height:1.5rem; left:0.5rem; background-image:url('Images/ico/rt.png'); background-size:100% 100%;" onclick="cancelEditAdds();"></div>
+            <span style="position:fixed; width:12.5rem; height:1.25rem; top:0.37rem; left:50%; margin-left:-6.25rem; font-size:1.125rem; color:#fff; text-align:center;">编辑收货地址</span>
+            <span style="position:fixed; width:4.5rem; height:1.25rem; top:0.6rem; right:0.8rem; margin-left:-6.25rem; font-size:0.875rem; color:#fff; text-align:right;" onclick="saveAddres();">保存</span>
+        </div>
+        <div style="position:absolute; left:0px; top:2.6rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
+            <input id="txadContacts" type="text" style="position:absolute; left:0.5rem; width:15rem; height:2.5rem; border:0px; outline:none; font-size:1rem; top:0.3125rem;" onfocus="addFoucs(1);" />
+        </div>
+        <div style="position:absolute; left:0px; top:5.725rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
+            <input id="txph" type="text" style="position:absolute; left:0.5rem; width:15rem; height:2.5rem; border:0px; outline:none; font-size:1rem; top:0.3125rem;" onfocus="addFoucs(2);" />
+        </div>
+        <div style="position:absolute; left:0px; top:8.85rem; height:6rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
+            <span style="position:absolute; left:0.5rem; top:0.7rem; font-size:0.75rem; color:#999999;">地区</span>
+            <select style="position:absolute; left:2.7rem; top:0.6rem; width:6.25rem; height:20px; font-size:0.75rem;" id="cityList"></select>
+            <span style="position:absolute; left:0.5rem; top:2.2125rem; font-size:0.75rem; color:#999999;">详细地址</span>
+            <textarea id="txadd" style="position:absolute; left:0.5rem; width:90%; height:2.5rem; border:0px; outline:none; font-size:0.875rem; font-weight:600; top:3.4125rem;" onfocus="addFoucs(3);"></textarea>
+        </div>
+        <div style="position:absolute; left:0px; top:14.85rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff;  width:100%;">
+            <span style="position:absolute; left:0.5rem; top:50%; margin-top:-0.6875rem; height:1.375rem; font-size:0.75rem; color:#999999;">设为默认地址</span>
+            <span id="stv" style="display:none;">0</span>
+            <div id="stbk" style="position:absolute; height:2.5rem; width:2.5rem; top:50%; margin-top:-1.25rem; right:1.25rem; background-image:url('Images/ico/stClose.png'); background-size:100% 100%;" onclick="stState();"></div>
+        </div>
+        <div id="deAdd" style="position:absolute; left:0px; top:19rem; height:3.125rem; border-bottom:1px solid #dddddd; background-color:#fff; width:100%;">
+            <span style="position:absolute; left:0.5rem; top:50%; width:96%; text-align:center; margin-top:-0.6875rem; height:1.375rem; color:red;" onclick="deleteAddres();">删除收货地址</span>
+        </div>
+    </div>
+</body>
+</html>

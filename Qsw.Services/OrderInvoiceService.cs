@@ -28,5 +28,12 @@ namespace Qsw.Services
             p["userId"] = invoce.UserId;
             DbUtil.Master.ExecuteNonQuery(sql, p);
         }
+        public void DeleteInvoce(long orderId)
+        {
+            string sql = "DELETE FROM OrderInvoice WHERE OrderId=?orderId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["orderId"] = orderId;
+            DbUtil.Master.ExecuteNonQuery(sql, p);
+        }
     }
 }

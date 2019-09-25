@@ -10,7 +10,7 @@ namespace QSW.Common.Models
     {
         public long OrderId { get; set; }
         public double OrderPrice { get; set; }
-        public string OrderPNumber { get; set; }
+        public long OrderPNumber { get; set; }
         public int OrderState { get; set; }
         public string NameExpress { get; set; }
         public string ExpressCode { get; set; }

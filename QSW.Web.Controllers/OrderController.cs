@@ -21,5 +21,23 @@ namespace QSW.Web.Controllers
              invoicePayable, businessName, taxpayerNumber, billContactPhone, billContactEmail, billContent);
             return OK(data);
         }
+        [HttpGet]
+        public ActionResult GetOrderList(int orderType, string token)
+        {
+            var data = OrderListService.Instance.GetOrderList(orderType, token);
+            return OK(data);
+        }
+        [HttpGet]
+        public ActionResult CanceOrderList(string token, long orderId, int orderType)
+        {
+            var data = OrderListService.Instance.CanceOrderList(token, orderId, orderType);
+            return OK(data);
+        }
+        [HttpGet]
+        public ActionResult GetOrder(long orderId, string token, int orderType)
+        {
+            var data = OrderListService.Instance.GetOrder(orderId, token, orderType);
+            return OK(data);
+        }
     }
 }

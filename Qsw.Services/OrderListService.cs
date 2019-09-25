@@ -36,6 +36,13 @@ namespace Qsw.Services
             p["?userId"] = uid;
             DbUtil.Master.ExecuteScalar(sql, p);
         }
+        public static int UpdataState(long orderId)
+        {
+            string sql = "UPDATE OrderList SET OrderState=1 WHERE OrderId=?orderId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["?orderId"] = orderId;
+            return DbUtil.Master.ExecuteNonQuery(sql, p);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -111,6 +118,7 @@ namespace Qsw.Services
             var user = UserService.CkToken(token);
             if (user != null)
             {
+                List<object> body = new List<object>();
                 OrderListModel orderList = new OrderListModel();
                 long orderId = 0;
                 var idList = spId.Split(',').Select(x => int.Parse(x)).ToList();
@@ -146,6 +154,7 @@ namespace Qsw.Services
                     dtl.CommodityBrandId = cm.CommodityBrandId;
                     dtl.CommodityBrandName = cm.BrandName;
                     dtl.CommodityFamilyId = cm.CommodityFamilyId;
+                    dtl.CommodityImg = cm.CommodityImg;
                     dtl.CommodityIndex = cm.CommodityIndex;
                     dtl.CommodityCode = cm.CommodityCode;
                     dtl.CommodityRH = cm.CommodityRH;
@@ -193,16 +202,151 @@ namespace Qsw.Services
                         //删除购物车
                         CommodityService.Instance.DeleteShopping(spId, token);
                     }
-                    //提交支付---支付方法
-                    //支付成功修改支付状态
-                    //
+                    isok = wapPay(orderList, orderId);
                 }
-                return string.Empty;
+                body.Add(new
+                {
+                    status = isok,
+                });
+                return JsonUtil.Serialize(body);
             }
             else
             {
                 return UserService.ckTokenState();
             }
         }
+
+        #region 订单查询
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="orderType">0所有必须大于-1、1未支付、2支付未发货、3已发货</param>
+        /// <returns></returns>
+        public string GetOrderList(int orderType, string token)
+        {
+            var user = UserService.CkToken(token);
+            if (user != null)
+            {
+                string statusStr = string.Empty;
+                switch (orderType)
+                {
+                    case 0:
+                        statusStr = ">-1";
+                        break;
+                    case 1:
+                        statusStr = "=0";
+                        break;
+                    case 2:
+                        statusStr = "=1";
+                        break;
+                    case 3:
+                        statusStr = ">=2 AND OrderState<4";
+                        break;
+                }
+                string sql = "SELECT * FROM OrderList WHERE OrderState" + statusStr + " AND UserId=?userId ORDER BY CreateTime DESC";
+                Dictionary<string, object> p = new Dictionary<string, object>();
+                p["userId"] = user.Uid;
+                var data = DbUtil.Master.QueryList<OrderListModel>(sql, p);
+                string orderId = string.Empty;
+                foreach (var order in data)
+                {
+                    if (string.IsNullOrEmpty(orderId))
+                    {
+                        orderId = order.OrderId.ToString();
+                    }
+                    else
+                    {
+                        orderId = orderId + "," + order.OrderId.ToString();
+                    }
+                }
+                if (!string.IsNullOrEmpty(orderId))
+                {
+                    var orderDtl = OrderDtlService.Instance.Getdtl(orderId);
+                    foreach (var order in data)
+                    {
+                        var dtls = orderDtl.FindAll(o => o.OrderId == order.OrderId).ToList();
+                        order.OrdrList = dtls;
+                    }
+                }
+                return JsonUtil.Serialize(data);
+            }
+            else
+            {
+                return UserService.ckTokenState();
+            }
+        }
+        public string CanceOrderList(string token, long orderId, int orderType)
+        {
+            var user = UserService.CkToken(token);
+            if (user != null)
+            {
+                string sql = "SELECT * FROM OrderList WHERE OrderId=?orderId";
+                Dictionary<string, object> p = new Dictionary<string, object>();
+                p["orderId"] = orderId;
+                var data = DbUtil.Master.Query<OrderListModel>(sql, p);
+                if (data.OrderState == 0)
+                {
+                    try
+                    {
+                        DbUtil.Master.BeginTransaction();
+                        OrderDtlService.Instance.DeleteDtl(orderId);
+                        OrderInvoiceService.Instance.DeleteInvoce(orderId);
+                        DeleteOrder(orderId);
+                        DbUtil.Master.CommitTransaction();
+                    }
+                    catch (Exception ex)
+                    {
+                        DbUtil.Master.RollbackTransaction();
+                    }
+                }
+                return GetOrderList(orderType, token);
+            }
+            else
+            {
+                return UserService.ckTokenState();
+            }
+        }
+        private void DeleteOrder(long orderId)
+        {
+            string sql = "DELETE FROM OrderList WHERE OrderId=?orderId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["orderId"] = orderId;
+            DbUtil.Master.ExecuteNonQuery(sql, p);
+        }
+        public string GetOrder(long orderId, string token, int orderType)
+        {
+            var user = UserService.CkToken(token);
+            if (user != null)
+            {
+                string sql = "SELECT * FROM OrderList WHERE OrderId=?orderId";
+                Dictionary<string, object> p = new Dictionary<string, object>();
+                p["orderId"] = orderId;
+                var orderList = DbUtil.Master.Query<OrderListModel>(sql, p);
+                //调起支付
+                wapPay(orderList, orderId);
+                return GetOrderList(orderType, token);
+            }
+            else
+            {
+                return UserService.ckTokenState();
+            }
+        }
+        private bool wapPay(OrderListModel order, long orderId)
+        {
+            bool isok = true;
+            if (!wapService.ProcessRequest(order, orderId))
+            {
+                if (UpdataState(orderId) == 0)  //支付成功修改订单状态
+                {
+                    isok = false; //不成功
+                }
+            }
+            else
+            {
+                isok = false;  //支付出错
+            }
+            return isok;
+        }
+        #endregion
     }
 }

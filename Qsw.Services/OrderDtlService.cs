@@ -14,9 +14,9 @@ namespace Qsw.Services
         public static void InsertOrderDtl(OrderDtlModel order)
         {
             string sql = $"INSERT INTO OrderDtl (OrderId,CommodityId,CommodityName,CommodityGeneral,CommodityPrice,CommodityUnitName,CommoditySpec,CommodityBrandId," +
-                          "CommodityBrandName,CommodityFamilyId,CommodityIndex,CommodityCode,CommodityRH,CommodityRM,CommodityFL,OriginalTotalPrice,DiscountPrice,Discount,CommNumber,UserId)" +
+                          "CommodityBrandName,CommodityFamilyId,CommodityIndex,CommodityCode,CommodityRH,CommodityRM,CommodityFL,OriginalTotalPrice,DiscountPrice,Discount,CommNumber,UserId,CommodityImg)" +
                           " VALUES (?orderId,?commodityId,?commodityName,?commodityGeneral,?commodityPrice,?commodityUnitName,?commoditySpec,?commodityBrandId,?commodityBrandName,?commodityFamilyId,?commodityIndex," +
-                          "?commodityCode,?commodityRH,?commodityRM,?commodityFL,?originalTotalPrice,?discountPrice,?discount,?commNumber,?userId)";
+                          "?commodityCode,?commodityRH,?commodityRM,?commodityFL,?originalTotalPrice,?discountPrice,?discount,?commNumber,?userId,?commodityImg)";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["orderId"] = order.OrderId;
             p["commodityId"] = order.CommodityId;
@@ -38,6 +38,22 @@ namespace Qsw.Services
             p["discount"] = order.Discount;
             p["commNumber"] = order.CommNumber;
             p["userId"] = order.UserId;
+            p["commodityImg"] = order.CommodityImg;
+            DbUtil.Master.ExecuteNonQuery(sql, p);
+        }
+        public List<OrderDtlModel> Getdtl(string orderId)
+        {
+            string sql = "SELECT * FROM OrderDtl WHERE OrderId IN (" + orderId + ") ORDER BY OrderId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["orderId"] = orderId;
+            var data = DbUtil.Master.QueryList<OrderDtlModel>(sql);
+            return data;
+        }
+        public void DeleteDtl(long orderId)
+        {
+            string sql = "DELETE FROM OrderDtl WHERE OrderId=?orderId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["orderId"] = orderId;
             DbUtil.Master.ExecuteNonQuery(sql, p);
         }
     }

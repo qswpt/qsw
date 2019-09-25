@@ -117,6 +117,7 @@
     <Content Include="Images\commodity\bsf5004.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ico\dele.png" />
     <Content Include="Images\ico\df1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -129,7 +130,9 @@
     <Content Include="Images\ico\gp2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ico\logo.png" />
     <Content Include="Images\ico\mr.png" />
+    <Content Include="Images\ico\msg.png" />
     <Content Include="Images\ico\my1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -148,6 +151,7 @@
     <Content Include="Images\ico\sh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ico\sp.png" />
     <Content Include="Images\ico\sp1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -213,12 +217,14 @@
     <Content Include="js\login.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="js\myorder.js" />
     <Content Include="js\PlaceOrder.js" />
     <Content Include="js\script.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\shoppingCart.js" />
     <Content Include="js\wowslider.js" />
     <Content Include="login.html" />
+    <Content Include="MyOrder.html" />
     <Content Include="PlaceOrder.html" />
     <Content Include="ShoppingCart.html" />
     <Content Include="sysSettings.html" />

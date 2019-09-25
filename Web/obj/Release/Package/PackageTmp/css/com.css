@@ -1,0 +1,45 @@
+﻿body {
+}
+
+.tiltelLi {
+    float: left;
+    list-style: none;
+    height: 2.5rem;
+    line-height: 2.75rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.tiltelLiSe {
+    float: left;
+    list-style: none;
+    height: 2.5rem;
+    line-height: 2.75rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border-bottom: 0.125rem solid #DAA520;
+    color: #DAA520;
+}
+
+.groupLi {
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+    float: left;
+    list-style: none;
+    line-height: 3rem;
+    margin-left: 0px;
+    background-color: #F5F5F5;
+}
+
+.groupLiSe {
+    float: left;
+    list-style: none;
+    margin: 0.125rem 0.3125rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    width: 100%;
+    margin-left: 0px;
+    background-color: #fff;
+}

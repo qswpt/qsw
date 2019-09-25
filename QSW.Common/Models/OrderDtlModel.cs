@@ -28,5 +28,6 @@ namespace QSW.Common.Models
         public double Discount { get; set; }
         public int CommNumber { get; set; }
         public int UserId { get; set; }
+        public string CommodityImg { get; set; }
     }
 }
