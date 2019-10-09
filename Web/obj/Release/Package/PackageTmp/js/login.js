@@ -34,19 +34,23 @@ function txtOnchage() {
         $('#btnDiv').css({ 'background-color': '#f7cccc' });
     }
 }
-
+function opre() {
+    window.location.href = '/Register.html';
+}
 function ulogin() {
     var uName = $('#txtUserName').val();
     var pwd = $('#txtPassword').val();
-    var url = '/User/Login?userName=' + uName + '&pwd=' + pwd + '';
-    $.getJSON(url, function (data) {
-        if (data.Data == null || data.Data.length == 0) {
-            alert('用户名密码不存在！')
-        } else {
-            document.cookie = "name=" + data.Data[0].token;
-            pageback();
-        }
-    });
+    if (uName != '' && pwd != '' && uName != '用户名' && pwd != '请输入密码') {
+        var url = '/User/Login?userName=' + uName + '&pwd=' + pwd + '';
+        $.getJSON(url, function (data) {
+            if (data.Data == null || data.Data.length == 0) {
+                alert('用户名密码不存在！')
+            } else {
+                document.cookie = "name=" + data.Data[0].token;
+                pageback();
+            }
+        });
+    }
 }
 function isPasLogin(reData) {
     if (reData.Data.hasOwnProperty("msg")) {
@@ -147,4 +151,7 @@ function getRequestParam(param) {
     } else {
         return 0;
     }
+}
+function openSearch() {
+    window.location.href = '/Search.html';
 }

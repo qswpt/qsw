@@ -67,7 +67,7 @@ namespace Qsw.Services
                     //保存订单信息
                     string sql = $"UPDATE OrderList SET OrderPrice=?orderPrice,OrderPNumber=?orderPNumber,OrderState=?orderState,NameExpress=?nameExpress,ExpressCode=?expressCode,ExpressAmount=?expressAmount," +
                                   "OrderAmount=?orderAmount,ReceivingAddress=?receivingAddress,Consignee=?consignee,Telephone=?telephone,CreateTime=?createTime,IsInvoice=?isInvoice,PaymentMethod=?paymentMethod," +
-                                  "PaymentMethodName=?paymentMethodName,Remarks=?remarks WHERE OrderId=?orderId AND UserId=?userId ";
+                                  "PaymentMethodName=?paymentMethodName,Remarks=?remarks,IsSample=?isSample,Weight=?weight WHERE OrderId=?orderId AND UserId=?userId ";
                     Dictionary<string, object> p = new Dictionary<string, object>();
                     p["orderPrice"] = orderL.OrderPrice;
                     p["orderPNumber"] = orderId;
@@ -86,6 +86,8 @@ namespace Qsw.Services
                     p["remarks"] = orderL.Remarks;
                     p["orderId"] = orderId;
                     p["userId"] = uId;
+                    p["isSample"] = orderL.IsSample;
+                    p["weight"] = orderL.Weight;
                     DbUtil.Master.ExecuteNonQuery(sql, p);
                     invoice.OrderId = orderId;
                     invoice.OrderPNumber = orderId.ToString();
@@ -113,12 +115,11 @@ namespace Qsw.Services
         /// <returns></returns>
         public string WapPay(string spId, string spCount, string token, int isSC, int cityId, int exId, string exName,
             string addres, string consignee, string phone, int isInvoice, int payid, string payName, string ramrk,
-            string invoicePayable, string businessName, string taxpayerNumber, string billContactPhone, string billContactEmail, string billContent)
+            string invoicePayable, string businessName, string taxpayerNumber, string billContactPhone, string billContactEmail, string billContent, int IsSample)
         {
             var user = UserService.CkToken(token);
             if (user != null)
             {
-                List<object> body = new List<object>();
                 OrderListModel orderList = new OrderListModel();
                 long orderId = 0;
                 var idList = spId.Split(',').Select(x => int.Parse(x)).ToList();
@@ -141,6 +142,7 @@ namespace Qsw.Services
                 List<OrderDtlModel> oderDtl = new List<OrderDtlModel>();
                 double orderAmount = 0;
                 #region 订单明细
+                int weight = 0; //订单重量
                 foreach (var cm in comDtl)
                 {
                     int cIndex = idList.FindIndex(o => o == cm.CommodityId);
@@ -164,17 +166,28 @@ namespace Qsw.Services
                     dtl.CommNumber = spcList[cIndex];
                     dtl.OriginalTotalPrice = spcList[cIndex] * (cm.CommodityPrice * cm.CommoditySpec);
                     orderAmount = orderAmount + spcList[cIndex] * (cm.CommodityPrice * cm.CommoditySpec);
+                    weight = weight + cm.CommoditySpec * dtl.CommNumber;
                     oderDtl.Add(dtl);
                 }
                 #endregion
                 orderList.OrdrList = oderDtl;
                 orderList.OrderPrice = orderAmount;
+                orderList.IsSample = IsSample;
                 //计算运费
                 string cityStr = CityExLogisticsAmountService.Instance.GetCityExLogisticsAmount(cityId, exId);
                 var cityData = JsonUtil.Deserialize<CityExLogisticsAmountModel>(cityStr);
-                orderList.NameExpress = exName;
-                orderList.ExpressAmount = cityData.Amount;
-                orderList.OrderAmount = orderList.OrderPrice + orderList.ExpressAmount;
+                if (IsSample == 1)
+                {
+                    orderList.OrderAmount = 0;
+                    orderList.NameExpress = string.Empty;
+                }
+                else
+                {
+                    orderList.Weight = weight;
+                    orderList.ExpressAmount = cityData.Amount * weight;
+                    orderList.OrderAmount = orderList.OrderPrice + orderList.ExpressAmount;
+                    orderList.NameExpress = exName;
+                }
                 orderList.ReceivingAddress = addres;
                 orderList.Consignee = consignee;
                 orderList.Telephone = phone;
@@ -202,12 +215,9 @@ namespace Qsw.Services
                         //删除购物车
                         CommodityService.Instance.DeleteShopping(spId, token);
                     }
-                    isok = wapPay(orderList, orderId);
+                    isok = wapPay(orderList, orderId, IsSample);
                 }
-                body.Add(new
-                {
-                    status = isok,
-                });
+                object body = new { status = isok };
                 return JsonUtil.Serialize(body);
             }
             else
@@ -323,7 +333,7 @@ namespace Qsw.Services
                 p["orderId"] = orderId;
                 var orderList = DbUtil.Master.Query<OrderListModel>(sql, p);
                 //调起支付
-                wapPay(orderList, orderId);
+                wapPay(orderList, orderId, 0);
                 return GetOrderList(orderType, token);
             }
             else
@@ -331,19 +341,29 @@ namespace Qsw.Services
                 return UserService.ckTokenState();
             }
         }
-        private bool wapPay(OrderListModel order, long orderId)
+        private bool wapPay(OrderListModel order, long orderId, int IsSample)
         {
             bool isok = true;
-            if (!wapService.ProcessRequest(order, orderId))
+            if (IsSample == 0)
+            {
+                if (wapService.ProcessRequest(order, orderId))
+                {
+                    if (UpdataState(orderId) == 0)  //支付成功修改订单状态
+                    {
+                        isok = false; //不成功
+                    }
+                }
+                else
+                {
+                    isok = false;  //支付出错
+                }
+            }
+            else
             {
                 if (UpdataState(orderId) == 0)  //支付成功修改订单状态
                 {
                     isok = false; //不成功
                 }
-            }
-            else
-            {
-                isok = false;  //支付出错
             }
             return isok;
         }

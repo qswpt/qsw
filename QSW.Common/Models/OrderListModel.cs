@@ -29,5 +29,7 @@ namespace QSW.Common.Models
         public string Remarks { get; set; }
         public int UserId { get; set; }
         public List<OrderDtlModel> OrdrList { get; set; }
+        public int IsSample { get; set; }
+        public int Weight { get; set; }
     }
 }

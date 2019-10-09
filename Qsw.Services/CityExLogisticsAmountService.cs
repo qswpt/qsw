@@ -32,11 +32,11 @@ namespace Qsw.Services
         }
         public string GetCityExLogisticsAmountSql(int cityId, int exId)
         {
-            string sql = "SELECT * FROM CityExLogisticsAmount WHERE CityId=?cityId AND ExId=?exId";
+            string sql = "SELECT * FROM CityExLogisticsAmount WHERE CityId=?cityId AND ExId=?exId OR (CityId=0 AND ExId=?exId) ORDER BY CityId ASC ";
             Dictionary<string, object> p = new Dictionary<string, object>();
             p["cityId"] = cityId;
             p["exId"] = exId;
-            var data = DbUtil.Master.Query<CityExLogisticsAmountModel>(sql,p);
+            var data = DbUtil.Master.Query<CityExLogisticsAmountModel>(sql, p);
             return JsonUtil.Serialize(data);
         }
 
@@ -75,7 +75,7 @@ namespace Qsw.Services
             }
         }
 
-        public bool UpdateCityExLogisticAmount(int id,string cityExLogisticsAmountModelStr)
+        public bool UpdateCityExLogisticAmount(int id, string cityExLogisticsAmountModelStr)
         {
             CityExLogisticsAmountModel model = JsonUtil.Deserialize<CityExLogisticsAmountModel>(cityExLogisticsAmountModelStr);
             string sql = $"UPDATE CityExLogisticsAmount set CityId=?cityId,ExId=?exId,Amount=?amount WHERE Id=?id";

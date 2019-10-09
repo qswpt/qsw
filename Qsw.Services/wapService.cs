@@ -32,14 +32,14 @@ namespace Qsw.Services
             {
                 //因为是页面跳转类服务，使用pageExecute方法得到form表单后输出给前端跳转
                 response = client.pageExecute(request, null, "post");
-                if(response!=null)
+                if (response != null)
                 {
-                    return response.IsError;
+                    return response.IsError;  //-----------------------------
                 }
             }
             catch (Exception exp)
             {
-                throw exp;
+                return false;
             }
             return true;
         }

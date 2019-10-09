@@ -24,9 +24,21 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
         [HttpGet]
-        public ActionResult UpdateUserInfo(string token, string nickname, string sex, string uImg)
+        public ActionResult UpdateUserInfo(string token, string nickname, string sex, string uImg, string phone, string entPhone, string entName, string entaddres)
         {
-            var data = UserService.Instance.UpdateUserInfo(token, nickname, sex, uImg);
+            var data = UserService.Instance.UpdateUserInfo(token, nickname, sex, uImg, phone, entPhone, entName, entaddres);
+            return OK(data);
+        }
+        [HttpGet]
+        public ActionResult Register(string uName, string pwd, string sex, string nickname, string entName, string phones, string entPhone, string entAddres)
+        {
+            var data = UserService.Instance.Register(uName, pwd, sex, nickname, entName, phones, entPhone, entAddres);
+            return OK(data);
+        }
+        [HttpGet]
+        public ActionResult CkUname(string uName)
+        {
+            var data = UserService.Instance.CkUname(uName);
             return OK(data);
         }
     }

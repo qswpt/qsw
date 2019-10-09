@@ -29,18 +29,18 @@ function loadDataList(data) {
                    ' <div style="position:inherit; width:66%; height:6rem; left:0px; margin-left:7.5rem; top:0.325rem;"> ' +
                    '<span id="sName" style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data[i].CommodityName + '</span>' +
                    '<span id="general" style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">颜色：' + data.Data[i].CommodityGeneral + '</span>' +
-                   '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">品牌: ' + data.Data[i].BrandName + '</span>' +
+                   '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
                    '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data[i].CommoditySpec + data.Data[i].UnitIdName + '</span>' +
                    '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span>' +
                       '<span id="' + data.Data[i].CommodityId + '111" style="color:red;">' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '</span>元</span>' +
-                   '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
-                   '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
+                   '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
+                   '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">品牌: ' + data.Data[i].BrandName + '</span>' +
                    '<div style="position:inherit; right:1.75rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
                    '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;"' +
                    'onclick="btnjian(' + data.Data[i].CommodityId + ')"></div><div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data[i].CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center;' +
                    'top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data[i].CommodityId + ', \'inCount\', \'inBg\')">' + data.Data[i].SpCount + '</span></div><div style="position:inherit; left:70%; width:30%; height:100%;' +
                    ' border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data[i].CommodityId + ')"></div></div>' +
-                   '<div style="position:inherit; right:0.05rem; top:4.9rem;  width:1.3rem; height:1.3rem; background-image:url(\'Images/ico/dele.png\'); background-size:100% 100%;" onclick="moveCom(' + data.Data[i].CommodityId + ');"></div>' +
+                   '<div style="position:inherit; right:0.05rem; top:4.9rem;  width:1.3rem; height:1.3rem; background-image:url(\'Images/ico/dele.png\'); background-size:100% 100%;" onclick="showMove(' + data.Data[i].CommodityId + ');"></div>' +
                    '</div></div>';
         dtop = dtop + 7.75;
         if (i + 1 == data.Data.length) {
@@ -196,12 +196,6 @@ function deleteCom() {
     }
     showDInfo();
 }
-function moveCom(id) {
-    var re=confirm("是否取消该订单？");
-    if (re) {
-        deleByid(id);
-    }
-}
 function deleByid(idStr) {
     var token = getCok();
     if (token != null) {
@@ -305,4 +299,20 @@ function SettlementCar() {
             BuyImmediately(ick, 0, 2);
         }
     }
+}
+
+function showMove(id) {
+    $('#moveSp').css({ 'display': 'block' });
+    $('#moveBg').css({ 'display': 'block' });
+    $('#moveId').html(id);
+}
+function hidMove() {
+    $('#moveSp').css({ 'display': 'none' });
+    $('#moveBg').css({ 'display': 'none' });
+    $('#moveId').html(0);
+}
+function moveCom() {
+    var id = $('#moveId').html();
+    deleByid(id);
+    hidMove();
 }

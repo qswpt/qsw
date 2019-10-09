@@ -67,6 +67,22 @@ namespace Qsw.Services
             return JsonUtil.Serialize(data);
         }
         #endregion
+        #region 搜索
+        public string GetCommoditySearch(string searchTxt, string token)
+        {
+            string key = string.Concat("GetCommoditySearch", searchTxt);
+            return CacheHelp.Get<string>(key, DateTimeOffset.Now.AddSeconds(3), () => GetCommoditySearchSql(searchTxt, token));
+        }
+        private string GetCommoditySearchSql(string searchTxt, string token)
+        {
+            SearchDtlService.Instance.InsertSearch(token, searchTxt, 0);
+            string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +
+                         $"JOIN Unit c ON a.CommodityUnitId = c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId = d.TypeId " +
+                         $" WHERE a.CommodityName like '%{searchTxt}%' OR a.CommodityIndex like '%{searchTxt}%' OR b.BrandName like '%{searchTxt}%'";
+            var data = DbUtil.Master.QueryList<CommodityModel>(sql);
+            return JsonUtil.Serialize(data);
+        }
+        #endregion
         #region 获取指定商品信息
         public string GetCommodityInfo(int id)
         {
@@ -90,7 +106,7 @@ namespace Qsw.Services
         }
         #endregion
         #region 购物车缓存
-        public string SetShopping(string token, int shpId)
+        public string SetShopping(string token, int shpId, int spCount)
         {
             var user = UserService.CkToken(token);
             if (user != null)
@@ -107,12 +123,15 @@ namespace Qsw.Services
                     CommodityModel cm = GetComInfo(shpId);
                     if (cm != null)
                     {
-                        cm.SpCount++;
+                        cm.SpCount = spCount > 0 ? spCount : 1;
                         uComList.Add(cm);
                     }
                 }
                 else
-                    um.SpCount++;
+                {
+                    var sumCount = spCount > 0 ? spCount : 1;
+                    um.SpCount = um.SpCount + sumCount;
+                }
                 var state = CacheHelp.Set(key, DateTimeOffset.Now.AddMonths(3), uComList);
                 ReturnModel re = new ReturnModel();
                 if (state)

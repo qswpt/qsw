@@ -14,11 +14,11 @@ namespace QSW.Web.Controllers
         [HttpPost]
         public ActionResult WapPay(string spId, string spCount, string token, int isSC, int cityId, int exId, string exName,
             string addres, string consignee, string phone, int isInvoice, int payid, string payName, string ramrk,
-            string invoicePayable, string businessName, string taxpayerNumber, string billContactPhone, string billContactEmail, string billContent)
+            string invoicePayable, string businessName, string taxpayerNumber, string billContactPhone, string billContactEmail, string billContent, int IsSample = 0)
         {
             var data = OrderListService.Instance.WapPay(spId, spCount, token, isSC, cityId, exId, exName,
              addres, consignee, phone, isInvoice, payid, payName, ramrk,
-             invoicePayable, businessName, taxpayerNumber, billContactPhone, billContactEmail, billContent);
+             invoicePayable, businessName, taxpayerNumber, billContactPhone, billContactEmail, billContent, IsSample);
             return OK(data);
         }
         [HttpGet]

@@ -18,6 +18,12 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
         [HttpGet]
+        public ActionResult GetCommoditySearch(string searchTxt, string token)
+        {
+            var data = CommodityService.Instance.GetCommoditySearch(searchTxt, token);
+            return OK(data);
+        }
+        [HttpGet]
         public ActionResult GetCommodityByBrand(int brandId, int index = 1, int size = 10)
         {
             var data = CommodityService.Instance.GetCommodityByBrand(brandId, index, size);
@@ -30,9 +36,9 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
         [HttpGet]
-        public ActionResult SetShopping(string token, int spId)
+        public ActionResult SetShopping(string token, int spId, int spCount = 1)
         {
-            var data = CommodityService.Instance.SetShopping(token, spId);
+            var data = CommodityService.Instance.SetShopping(token, spId, spCount);
             return OK(data);
         }
         [HttpGet]

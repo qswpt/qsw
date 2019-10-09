@@ -219,13 +219,19 @@
     </Content>
     <Content Include="js\myorder.js" />
     <Content Include="js\PlaceOrder.js" />
+    <Content Include="js\registerU.js" />
     <Content Include="js\script.js" />
+    <Content Include="js\search.js" />
+    <Content Include="js\SearchInfo.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\shoppingCart.js" />
     <Content Include="js\wowslider.js" />
     <Content Include="login.html" />
     <Content Include="MyOrder.html" />
     <Content Include="PlaceOrder.html" />
+    <Content Include="Register.html" />
+    <Content Include="Search.html" />
+    <Content Include="SearchInfo.html" />
     <Content Include="ShoppingCart.html" />
     <Content Include="sysSettings.html" />
     <Content Include="Web.config" />

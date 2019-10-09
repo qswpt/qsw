@@ -25,6 +25,10 @@ function loadInfo() {
                     $('#uName').val(data.Data.UserName);
                     $('#uName1').html('账号:' + data.Data.UserName);
                     $('#inSex').val(data.Data.Sex);
+                    $('#txPhone').val(data.Data.Phones);
+                    $('#txentName').val(data.Data.EntName);
+                    $('#txentPhone').val(data.Data.EntPhone);
+                    $('#txentAddres').val(data.Data.EntAddres);
                 } else {
                     window.location.href = '/login.html';
                 }
@@ -188,7 +192,11 @@ function updateUserInfo(imgName) {
     var token = getCok();
     var nickname = $('#txtnickname').val();
     var sex = $('#inSex').val();
-    var url = '/User/UpdateUserInfo?token=' + token + '&nickname=' + nickname + '&sex=' + sex + '&uImg=' + imgName;
+    var phone = $('#txPhone').val();
+    var entName = $('#txentName').val();
+    var entPhone = $('#txentPhone').val();
+    var entAddres = $('#txentAddres').val();
+    var url = '/User/UpdateUserInfo?token=' + token + '&nickname=' + nickname + '&sex=' + sex + '&uImg=' + imgName + '&phone=' + phone + '&entPhone=' + entPhone + '&entName=' + entName + '&entaddres=' + entAddres;
     $.getJSON(url, function (data) {
         if (!isPasLogin(data)) {
             location.reload();

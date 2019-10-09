@@ -8,21 +8,23 @@ function loadInfo() {
     if (token != null) {
         var cmId = getRequestParam('cmId'); //分割逗号，根据ID加载商品
         var sampleId = getRequestParam('sampleId'); //0正常购买,1样品
-        var isource = getRequestParam('isource'); //来源，立即还是购物车
+        var isource = getRequestParam('isource'); //来源，立即还是购物车       
         if (isource == 1) {
             loadCompat(cmId);
         } else {
             loadCmList(cmId, token);
         }
-        GetPayList();
-        GetExList();
+        if (sampleId == 0) {
+            GetPayList();
+            GetExList();
+        }
         LoadAddresList();
         loadCityList();
     }
 }
 function showAddres() {
     $('#reAddress').css({ 'display': 'block' });
-    $('#orderDiv').css({ 'display': 'none' });
+    //$('#orderDiv').css({ 'display': 'none' });
 }
 function LoadAddresList() {
     var token = getCok();
@@ -41,18 +43,18 @@ function LoadAddresList() {
                         xm = data.Data[i].Contacts;
                         dh = data.Data[i].Telephone;
                     }
-                    html = html + '<div style="position:absolute; height:4.375rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
+                    html = html + '<div style="position:absolute; height:3.5rem; left:0.5rem; right:0.5rem; top:' + topNum + 'rem; background-color:#fff;">' +
                                   '<span id="adId' + data.Data[i].id + '" style="display:none;">' + data.Data[i].id + '</span><span id="adstate' + data.Data[i].id + '" style="display:none;">' + data.Data[i].DefaultAddress + '</span>' +
                                   '<span id="adContacts' + data.Data[i].id + '" style="display:none;">' + data.Data[i].Contacts + '</span><span id="City' + data.Data[i].id + '"  style="display:none;">' + data.Data[i].CityId + '</span>' +
                                   '<div style="position:absolute; width:2.5rem; height:2.5rem; top:50%; margin-top:-1.25rem; background-color:#aaaaaa; left:0.125rem; border-radius: 50%; text-align:center;">' +
                                   '<span style="position:absolute; width:100%; font-size:1rem; height:1.375rem; top:50%; margin-top:-0.6875rem; left:0px; color:#fff;">' + data.Data[i].Contacts.substring(0, 1) + '</span>' +
-                                  '</div><div style="position:absolute; height:100%; left:2.75rem; right:2.6875rem;" onclick="seleAddres(' + data.Data[i].id + ');">' +
-                                  '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:1rem; width:3.75rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
-                                  '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:4.25rem; top:0.5rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
-                                  '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.75rem; font-size:0.875rem;">' + data.Data[i].Address + '</span>' +
-                                  '</div><div style="position:absolute; width:2.6875rem; height:1.5rem; top:50%; margin-top:-0.75rem; right:0px; text-align:center; border-left:1px solid #dddddd;">' +
-                                  '<span style="color:#999999; width:100%;" onclick="editAdds(' + data.Data[i].id + ');">编辑</span></div></div>';
-                    topNum = topNum + 4.375;
+                                  '</div><div style="position:absolute; height:100%; left:2.75rem; right:2rem;" onclick="seleAddres(' + data.Data[i].id + ');">' +
+                                  '<span style="position:absolute; left:0.5rem; top:0.25rem; font-size:0.75rem; width:2.7rem;white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;">' + data.Data[i].Contacts + '</span>' +
+                                  '<span id="ph' + data.Data[i].id + '" style="position:absolute; left:3.5rem; top:0.3rem; font-size:0.75rem; color:#999999;">' + data.Data[i].Telephone + '</span>' +
+                                  '<span id="add' + data.Data[i].id + '" style="position:absolute; left:0.5rem; top:1.3rem; font-size:0.75rem;">' + data.Data[i].Address + '</span>' +
+                                  '</div><div style="position:absolute; width:2rem; height:1.5rem; top:50%; margin-top:-0.75rem; right:0px; text-align:center; border-left:1px solid #dddddd;">' +
+                                  '<span style="color:#999999; width:100%;  font-size:0.75rem;" onclick="editAdds(' + data.Data[i].id + ');">编辑</span></div></div>';
+                    topNum = topNum + 3.5;
                 }
             }
             $('#cityId').html(cityId);
@@ -231,10 +233,14 @@ function sePay(id) {
     $('#payspName').html(payname);
     $('#paydivBk').css({ 'display': 'none' });
     $('#paytypeDiv').css({ 'display': 'none' });
+    $('#pay' + id).prop("checked", "true");
 }
 function showPay() {
-    $('#paydivBk').css({ 'display': 'block' });
-    $('#paytypeDiv').css({ 'display': 'block' });
+    var sampleId = getRequestParam('sampleId');
+    if (sampleId == 0) {
+        $('#paydivBk').css({ 'display': 'block' });
+        $('#paytypeDiv').css({ 'display': 'block' });
+    }
 }
 function hidPay() {
     $('#paydivBk').css({ 'display': 'none' });
@@ -246,41 +252,39 @@ function GetPayList() {
     $.getJSON(uaddresurl, function (data) {
         var html = '';
         if (data.Data != 'null' && data.Data != '') {
-            var leftNum = 0.5; var topNum = 0.5; var payid = 0; var payName = '';
+            var leftNum = 0; var topNum = 0.5; var payid = 0; var payName = '';
             for (var i = 0; i < data.Data.length; i++) {
                 if (i == 0) {
                     payid = data.Data[i].PaymentId;
                     payName = data.Data[i].PaymentName;
                 }
-                html = html + '<div style="position:absolute; width:5rem; height:1.875rem; left:' + leftNum + 'rem; top:' + topNum + 'rem; border-radius: 0.5rem; background-color:#c3c3c3;" onclick="sePay(' + data.Data[i].PaymentId + ')">' +
-                '<span style="display:none;" id="payid' + data.Data[i].PaymentId + '">' + data.Data[i].PaymentId + '</span><span id="payName' + data.Data[i].PaymentId + '" style="font-size:0.875rem; position:absolute; width:100%; text-align:center; left:0px; top:0.25rem;">' + data.Data[i].PaymentName + '</span>' +
+                html = html + '<div style="position:absolute; width:100%; height:1.875rem; left:' + leftNum + 'rem; top:' + topNum + 'rem; border-bottom:1px solid #eeeeee;" onclick="sePay(' + data.Data[i].PaymentId + ')">' +
+                '<span style="display:none;" id="payid' + data.Data[i].PaymentId + '">' + data.Data[i].PaymentId + '</span><input type="radio" style="position:absolute; left:0.5rem; top:1px;" name="cheakRadios" id="pay' + data.Data[i].PaymentId + '" /><span id="payName' + data.Data[i].PaymentId + '" style="font-size:0.75rem; position:absolute; width:100%; left:1.75rem;  top:0.1rem;">' + data.Data[i].PaymentName + '</span>' +
                 '</div>';
-                if ((i + 1) % 3 == 0) {
-                    topNum = topNum + 2.375;
-                    leftNum = 0.5;
-                } else {
-                    leftNum = leftNum + 5.5;
-                }
+                topNum = topNum + 2.375;
             }
             $('#payspId').html(payid);
             $('#payspName').html(payName);
         }
-        $('#paytypeDiv').html(html);
+        $('#paylist').html(html);
     });
 }
 
 function stState() {
     var st = $('#invs').html();
-    if (st == 0) {
-        $('#invSt').css("background-image", "url(Images/ico/stOpen.png)");
-        $('#invs').html(1);
-        $('#invInfoMation').css({ 'display': 'block' });
-        ivnt(1);
-    } else {
-        $('#invSt').css("background-image", "url(Images/ico/stClose.png)");
-        $('#invs').html(0);
-        $('#invInfoMation').css({ 'display': 'none' });
-        $('#ivnInfos').css({ 'height': '2.5rem' });
+    var opinvce = $('#opInvoce').html();
+    if (opinvce == 0) {
+        if (st == 0) {
+            $('#invSt').css("background-image", "url(Images/ico/stOpen.png)");
+            $('#invs').html(1);
+            $('#invInfoMation').css({ 'display': 'block' });
+            ivnt(1);
+        } else {
+            $('#invSt').css("background-image", "url(Images/ico/stClose.png)");
+            $('#invs').html(0);
+            $('#invInfoMation').css({ 'display': 'none' });
+            $('#ivnInfos').css({ 'height': '2.5rem' });
+        }
     }
 }
 function ivnt(id) {
@@ -332,11 +336,15 @@ function seEx(id) {
     $('#seExName').html(exName);
     $('#exDivBk').css({ 'display': 'none' });
     $('#exListDiv').css({ 'display': 'none' });
+    $('#ex' + id).prop("checked", "true");
     loadExAmount();
 }
 function showExS() {
-    $('#exDivBk').css({ 'display': 'block' });
-    $('#exListDiv').css({ 'display': 'block' });
+    var sampleId = getRequestParam('sampleId');
+    if (sampleId == 0) {
+        $('#exDivBk').css({ 'display': 'block' });
+        $('#exListDiv').css({ 'display': 'block' });
+    }
 }
 function hideExS() {
     $('#exDivBk').css({ 'display': 'none' });
@@ -347,35 +355,34 @@ function GetExList() {
     $.getJSON(uaddresurl, function (data) {
         var html = '';
         if (data.Data != 'null' && data.Data != '') {
-            var leftNum = 0.5; var topNum = 0.5;
+            var leftNum = 0; var topNum = 0.5;
             for (var i = 0; i < data.Data.length; i++) {
-                html = html + '<div style="position:absolute; width:5rem; height:1.875rem; left:' + leftNum + 'rem; top:' + topNum + 'rem; border-radius: 0.5rem; background-color:#c3c3c3;" onclick="seEx(' + data.Data[i].ExId + ')">' +
-                '<span style="display:none;" id="exId' + data.Data[i].ExId + '">' + data.Data[i].ExId + '</span><span id="ExName' + data.Data[i].ExId + '" style="font-size:0.875rem; position:absolute; width:100%; text-align:center; left:0px; top:0.25rem;">' + data.Data[i].ExName + '</span>' +
+                html = html + '<div style="position:absolute; width:100%; height:1.875rem; left:' + leftNum + 'rem; top:' + topNum + 'rem; border-bottom:1px solid #eeeeee;" onclick="seEx(' + data.Data[i].ExId + ')">' +
+                '<span style="display:none;" id="exId' + data.Data[i].ExId + '">' + data.Data[i].ExId + '</span><input type="radio" style="position:absolute; left:0.5rem; top:1px;" name="cheakRadios" id="ex' + data.Data[i].ExId + '" /><span id="ExName' + data.Data[i].ExId + '" style="font-size:0.75rem; position:absolute; width:95%; left:1.75rem; top:0.1rem;">' + data.Data[i].ExName + '</span>' +
                 '</div>';
-                if ((i + 1) % 3 == 0) {
-                    topNum = topNum + 2.375;
-                    leftNum = 0.5;
-                } else {
-                    leftNum = leftNum + 5.5;
-                }
+                topNum = topNum + 2.375;
             }
         }
-        $('#exListDiv').html(html);
+        $('#exlist').html(html);
     });
 }
 
 function btnjia(id) {
+    var cmgj = $('#gj' + id).html();
     var st = $('#' + id + '11').html();
     var sts = st - 1 + 2;
+    $('#cmgj' + id).html(cmgj * sts);
     $('#' + id + '11').html(sts);
     getAmout();
 }
 function btnjian(id) {
+    var cmgj = $('#gj' + id).html();
     var st = $('#' + id + '11').html();
     st = st - 1;
     if (st == 0) {
         st = 1;
     }
+    $('#cmgj' + id).html(cmgj * st);
     $('#' + id + '11').html(st);
     getAmout();
 }
@@ -389,6 +396,8 @@ function btnInput(id, id2) {
         alert('数量必须大于0');
     } else {
         var cmid = $('#cmId').html();
+        var cmgj = $('#gj' + id).html();
+        $('#cmgj' + id).html(cmgj * num);
         $('#' + cmid + '11').html(num);
         $('#' + id).css({ 'display': 'none' });
         $('#' + id2).css({ 'display': 'none' });
@@ -407,28 +416,44 @@ function setCount(cmid, id, id2) {
 function loadCompat(cmid) {
     var timestamp = Date.parse(new Date());
     var uaddresurl = '/Commodity/GetCommodityId?id=' + cmid + '&t=' + timestamp;
+    var spCount = getRequestParam('spCount');
+    var sampleId = getRequestParam('sampleId');
+    spCount = spCount == 0 ? 1 : spCount;
     $.getJSON(uaddresurl, function (data) {
-        var html = ''; var allAmout = 0;
+        var html = ''; var allAmout = 0; var jiaShow = 'block'; var price = 0; var ex = '配送方式'; var waptext = '支付方式';
         if (data.Data != 'null' && data.Data != '') {
+            if (sampleId == 1) {
+                jiaShow = 'none';
+                price = 0;
+                $('#opInvoce').html(1);
+                ex = '配送方式由商家指定';
+                waptext = '样品配送费用到付';
+            } else {
+                price = (data.Data.CommoditySpec * data.Data.CommodityPrice).toFixed(2);
+                $('#opInvoce').html(0);
+            }
             html = '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
             '<div style="position:relative; width:100%; left:0px; top:0px;">' +
                '<div style="position:absolute; width:5.5rem; height:5.5rem; top:0.89rem; left:0.5rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data.CommodityImg + '\'); background-size:100% 100%;"></div>' +
-                '<div style="position:absolute; width:74%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
+                '<div style="position:absolute; width:70%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
                     '<span style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data.CommodityName + '</span>' +
                     '<span style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">' + data.Data.CommodityGeneral + '</span>' +
                     '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">生产商: ' + data.Data.BrandName + '</span>' +
+                    '<span id="gj' + data.Data.CommodityId + '" style="display:none;">' + data.Data.CommoditySpec + '</span><span id="cmgj' + data.Data.CommodityId + '" style="display:none;">' + data.Data.CommoditySpec * spCount + '</span>' +
                     '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data.CommoditySpec + data.Data.UnitIdName + '</span>' +
-                    '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data.CommodityId + '111" style="color:red;">' + (data.Data.CommoditySpec * data.Data.CommodityPrice).toFixed(2) + '</span>元</span>' +
+                    '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data.CommodityId + '111" style="color:red;">' + price + '</span>元</span>' +
                     '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data.CommodityIndex + '</span>' +
                     '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data.CommodityCode + '</span>' +
-                    '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
+                    '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem; display:' + jiaShow + ';">' +
                     '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;" onclick="btnjian(' + data.Data.CommodityId + ');"></div>' +
-                    '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data.CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data.CommodityId + ', \'inCount\', \'inBg\')">1</span></div>' +
+                    '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data.CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data.CommodityId + ', \'inCount\', \'inBg\')">' + spCount + '</span></div>' +
                     '<div style="position:inherit; left:70%; width:30%; height:100%; border-left:1px solid #D9D9D9; background-image:url(\'Images/ico/jia.png\'); background-size:100% 100%;" onclick="btnjia(' + data.Data.CommodityId + ');"></div>' +
                     '</div></div></div></div>';
-            allAmout = allAmout + (data.Data.CommoditySpec * data.Data.CommodityPrice) * 1;
+            allAmout = price;
         }
-        $('#selAmount').html(allAmout.toFixed(2));
+        $('#seExName').html(ex);
+        $('#payspName').html(waptext);
+        $('#selAmount').html(allAmout);
         $('#shopList').html(html);
     });
 }
@@ -443,14 +468,15 @@ function loadCmList(cmid, token) {
                     html = html + '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
                     '<div style="position:relative; width:100%; left:0px; top:0px;">' +
                        '<div style="position:absolute; width:5.5rem; height:5.5rem; top:0.89rem; left:0.5rem; border-radius: 0.5rem; background-image:url(\'Images/commodity/' + data.Data[i].CommodityImg + '\'); background-size:100% 100%;"></div>' +
-                        '<div style="position:absolute; width:74%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
+                        '<div style="position:absolute; width:70%; height:6rem; left:0px; margin-left:6.5rem; top:0.325rem;">' +
                             '<span style="position:inherit; left:0.25rem; top:0.25rem; font-size:0.8rem; color:#666666;">' + data.Data[i].CommodityName + '</span>' +
                             '<span style="position:inherit; left:0.25rem; top:1.8rem; font-size:0.7rem; color:#999999;">颜色：' + data.Data[i].CommodityGeneral + '</span>' +
-                            '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">品牌: ' + data.Data[i].BrandName + '</span>' +
+                            '<span style="position:inherit; left:0.25rem; top:2.97rem; font-size:0.7rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
+                             '<span id="gj' + data.Data[i].CommodityId + '" style="display:none;">' + data.Data[i].CommoditySpec + '</span><span id="cmgj' + data.Data[i].CommodityId + '" style="display:none;">' + data.Data[i].CommoditySpec * data.Data[i].SpCount + '</span>' +
                             '<span style="position:inherit; left:0.25rem; top:4.1rem; font-size:0.7rem; color:#999999;">规格: ' + data.Data[i].CommoditySpec + data.Data[i].UnitIdName + '</span>' +
                             '<span style="position:inherit; left:0.25rem; top:5.22rem; font-size:0.7rem; color:#999999;">价格:<span style="color:red;">￥</span><span id="' + data.Data[i].CommodityId + '111" style="color:red;">' + (data.Data[i].CommoditySpec * data.Data[i].CommodityPrice).toFixed(2) + '</span>元</span>' +
-                            '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">索引号: ' + data.Data[i].CommodityIndex + '</span>' +
-                            '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
+                            '<span style="position:inherit; right:0.8rem; top:1.8rem; font-size:0.75rem; color:#999999;">商品编码: ' + data.Data[i].CommodityCode + '</span>' +
+                            '<span style="position:inherit; right:0.8rem; top:2.97rem; font-size:0.75rem; color:#999999;">品牌: ' + data.Data[i].BrandName + '</span>' +
                             '<div style="position:inherit; right:0.7rem; top:4.8rem;  width:5rem; height:1.3rem; border:1px solid #D9D9D9;  border-radius: 0.5rem;">' +
                             '<div style="position:inherit; left:0px; width:30%; height:100%; border-right:1px solid #D9D9D9; background-image:url(\'Images/ico/jian.png\'); background-size:100% 100%;" onclick="btnjian(' + data.Data[i].CommodityId + ');"></div>' +
                             '<div style="position:inherit; left:30%; width:40%; height:100%;"><span id="' + data.Data[i].CommodityId + '11" style="position:inherit; width:100%; height:80%; text-align:center; top:20%; font-size:0.8125rem; color:#999999;" onclick="setCount(' + data.Data[i].CommodityId + ', \'inCount\', \'inBg\')">' + data.Data[i].SpCount + '</span></div>' +
@@ -472,7 +498,6 @@ function loadExAmount() {
         var uaddresurl = '/CityExLogisticsAmount/GetCityExLogisticsAmount?cityId=' + cityId + '&exId=' + exId + '&t=' + timestamp;
         $.getJSON(uaddresurl, function (data) {
             if (data.Data != 'null' && data.Data != '') {
-                $('#exAmount').html('￥' + data.Data.Amount);
                 $('#hideExAmout').html(data.Data.Amount);
             } else {
                 $('#exAmount').html('￥0');
@@ -487,12 +512,17 @@ function getAmout() {
     var idlist = cmId.split(',');
     var allAmount = 0;
     var exAmount = $('#hideExAmout').html() - 1 + 1;
+    var gj = 0;
     for (var i = 0; i < idlist.length; i++) {
         var rAmout = $('#' + idlist[i] + '111').html();
         var rCount = $('#' + idlist[i] + '11').html();
         allAmount = allAmount + rCount * rAmout;
+        var cmgj = $('#cmgj' + idlist[i]).html();
+        cmgj = cmgj - 1 + 1;
+        gj = gj - 1 + 1 + cmgj;
     }
-    allAmount = allAmount + exAmount;
+    allAmount = allAmount + exAmount * gj;
+    $('#exAmount').html('￥' + exAmount * gj);
     $('#selAmount').html(allAmount);
 }
 var xmlobj; //定义XMLHttpRequest对象
@@ -519,9 +549,18 @@ function CreateXMLHttpRequest() {
 }
 function submitorder() {
     orderWapay(function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlobj.readyState == 4 && xmlobj.status == 200) {
             //接受返回信息
-            //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+            var data = xmlobj.responseText;
+            var json = JSON.parse(data);
+            if (json.Data.hasOwnProperty("status")) {
+                if (json.Data.status == true) {
+                    alert('下单成功!');
+                } else {
+                    alert('下单失败!');
+                }
+                window.location.href = '/MyOrder.html';
+            }
         }
     });
 }
@@ -533,6 +572,7 @@ function orderWapay(StatHandler) {
         var cmId = getRequestParam('cmId');
         spId = cmId; spCount = getSpXount(cmId);
         var isource = getRequestParam('isource');
+        var sampleId = getRequestParam('sampleId');
         if (isource == 1) { isSC = 0; } else { isSC = 1; }
         cityId = $('#cityId').html(); //        
         exId = $('#exId').html(); //
@@ -551,11 +591,11 @@ function orderWapay(StatHandler) {
         billContactEmail = $('#txtMa').val();
         var contType = $('#invCtId').html();
         if (contType == 1) { billContent = '商品明细'; } else { billContent = '商品类别'; }
-        if (ckorder(cityId, exId, payid, isInvoice, ttid, businessName, taxpayerNumber, billContactPhone, billContactEmail)) {
+        if (ckorder(cityId, exId, payid, isInvoice, ttid, businessName, taxpayerNumber, billContactPhone, billContactEmail, sampleId)) {
             CreateXMLHttpRequest(); //创建对象
             var parm = "spId=" + spId + "&spCount=" + spCount + "&token=" + token + "&isSC=" + isSC + "&cityId=" + cityId + "&exId=" + exId + "&exName=" + exName + "&addres=" + addres
              + "&consignee=" + consignee + "&phone=" + phone + "&isInvoice=" + isInvoice + "&payid=" + payid + "&payName=" + payName + "&ramrk=" + ramrk + "&invoicePayable=" + invoicePayable + "&businessName=" + businessName
-             + "&taxpayerNumber=" + taxpayerNumber + "&billContactPhone=" + billContactPhone + "&billContactEmail=" + billContactEmail + "&billContent=" + billContent;
+             + "&taxpayerNumber=" + taxpayerNumber + "&billContactPhone=" + billContactPhone + "&billContactEmail=" + billContactEmail + "&billContent=" + billContent + '&IsSample=' + sampleId;
             xmlobj.open("POST", "/Order/WapPay", true);
             xmlobj.setRequestHeader("cache-control", "no-cache");
             xmlobj.setRequestHeader("contentType", "text/html;charset=uft-8");
@@ -565,16 +605,16 @@ function orderWapay(StatHandler) {
         }
     }
 }
-function ckorder(cityId, exId, payid, isInvoice, ttid, businessName, taxpayerNumber, billContactPhone, billContactEmail) {
+function ckorder(cityId, exId, payid, isInvoice, ttid, businessName, taxpayerNumber, billContactPhone, billContactEmail, sampleId) {
     if (cityId == 0) {
         alert('请在收货地址中设置地区...');
         return false;
     }
-    if (exId == 0) {
+    if (exId == 0 && sampleId == 0) {
         alert('请选择配送方式...');
         return false;
     }
-    if (payid == 0) {
+    if (payid == 0 && sampleId == 0) {
         alert('请选择支付方式...');
         return false;
     }
