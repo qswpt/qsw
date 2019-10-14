@@ -1,0 +1,128 @@
+﻿2019-10-13 17:07:54,470 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:191
+
+2019-10-13 17:07:54,520 3 执行SQL超过预定伐值:50(毫秒), SQL:select * from Users where UserName=?userName and Pwd=?pwd and State=0 , Mileseconds:50
+
+2019-10-13 17:08:14,831 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:138
+
+2019-10-13 17:08:14,843 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:149
+
+2019-10-13 17:08:14,843 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:139
+
+2019-10-13 17:12:21,900 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:162
+
+2019-10-13 17:12:21,916 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:161
+
+2019-10-13 17:12:21,921 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:162
+
+2019-10-13 17:12:21,949 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Advertisement ORDER BY AdvSart ASC, Mileseconds:57
+
+2019-10-13 17:12:21,950 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 AND a.CommoditySuper=1 ORDER BY a.CommodityHOT ASC LIMIT ?index,?size, Mileseconds:57
+
+2019-10-13 17:12:21,952 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Brand ORDER BY OderSart  LIMIT ?size, Mileseconds:60
+
+2019-10-13 17:12:56,734 3 请求超过1秒[19]：Order/WapPay
+
+2019-10-13 17:18:11,104 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:229
+
+2019-10-13 17:18:11,123 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:226
+
+2019-10-13 17:18:11,124 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:229
+
+2019-10-13 17:24:33,906 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:272
+
+2019-10-13 17:24:33,920 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:267
+
+2019-10-13 17:24:33,922 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:269
+
+2019-10-13 17:24:33,956 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Brand ORDER BY OderSart  LIMIT ?size, Mileseconds:61
+
+2019-10-13 17:28:41,816 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:240
+
+2019-10-13 17:28:41,831 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:249
+
+2019-10-13 17:28:41,834 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:230
+
+2019-10-13 17:30:27,153 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:273
+
+2019-10-13 17:30:27,160 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:263
+
+2019-10-13 17:30:27,160 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:271
+
+2019-10-13 17:36:45,356 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:256
+
+2019-10-13 17:36:45,363 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:246
+
+2019-10-13 17:36:45,364 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:252
+
+2019-10-13 20:09:50,374 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:330
+
+2019-10-13 20:09:50,390 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:333
+
+2019-10-13 20:09:50,400 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:334
+
+2019-10-13 20:09:50,430 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Advertisement ORDER BY AdvSart ASC, Mileseconds:67
+
+2019-10-13 20:09:50,430 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Brand ORDER BY OderSart  LIMIT ?size, Mileseconds:67
+
+2019-10-13 20:09:50,436 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 AND a.CommoditySuper=1 ORDER BY a.CommodityHOT ASC LIMIT ?index,?size, Mileseconds:72
+
+2019-10-13 20:27:57,119 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:237
+
+2019-10-13 20:27:57,130 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:227
+
+2019-10-13 20:27:57,130 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:229
+
+2019-10-13 21:37:11,768 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:239
+
+2019-10-13 21:37:11,778 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:223
+
+2019-10-13 21:37:11,781 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:237
+
+2019-10-13 21:37:58,592 3 请求超过1秒[25]：Order/WapPay
+
+2019-10-13 21:44:01,123 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:293
+
+2019-10-13 21:44:01,131 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:293
+
+2019-10-13 21:44:01,131 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:293
+
+2019-10-13 21:48:29,991 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:273
+
+2019-10-13 21:48:29,998 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:274
+
+2019-10-13 21:48:29,999 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:271
+
+2019-10-13 21:54:32,494 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:247
+
+2019-10-13 21:54:32,501 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:246
+
+2019-10-13 21:54:32,502 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:244
+
+2019-10-13 22:18:45,044 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:294
+
+2019-10-13 22:18:45,056 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:288
+
+2019-10-13 22:18:45,063 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:278
+
+2019-10-13 22:18:45,089 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState= 0 AND a.CommoditySuper=1 ORDER BY a.CommodityHOT ASC LIMIT ?index,?size, Mileseconds:61
+
+2019-10-13 22:18:45,090 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Advertisement ORDER BY AdvSart ASC, Mileseconds:64
+
+2019-10-13 22:18:45,092 3 执行SQL超过预定伐值:50(毫秒), SQL:SELECT * FROM Brand ORDER BY OderSart  LIMIT ?size, Mileseconds:67
+
+2019-10-13 22:19:28,674 3 请求超过1秒[24]：Order/WapPay
+
+2019-10-13 22:22:53,819 3 请求超过1秒[13]：Order/wapOk
+
+2019-10-13 22:24:36,660 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:241
+
+2019-10-13 22:24:36,667 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:246
+
+2019-10-13 22:24:36,669 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:252
+
+2019-10-13 22:24:36,695 3 请求超过1秒[4]：Adv/GetAdvList
+
+2019-10-13 22:25:49,627 3 请求超过1秒[18]：Order/WapPay
+
+2019-10-13 22:26:26,480 3 请求超过1秒[18]：Order/wapOk
+

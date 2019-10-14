@@ -19,7 +19,13 @@ namespace QSW.Web.Controllers
             var data = OrderListService.Instance.WapPay(spId, spCount, token, isSC, cityId, exId, exName,
              addres, consignee, phone, isInvoice, payid, payName, ramrk,
              invoicePayable, businessName, taxpayerNumber, billContactPhone, billContactEmail, billContent, IsSample);
-            return OK(data);
+            return OK(data, true);
+        }
+        [HttpGet]
+        public ActionResult wapOk(string wapSpid, long orderId)
+        {
+            OrderListService.Instance.wapOk(wapSpid, orderId);
+            return OK(string.Empty);
         }
         [HttpGet]
         public ActionResult GetOrderList(int orderType, string token)
@@ -37,7 +43,7 @@ namespace QSW.Web.Controllers
         public ActionResult GetOrder(long orderId, string token, int orderType)
         {
             var data = OrderListService.Instance.GetOrder(orderId, token, orderType);
-            return OK(data);
+            return OK(data, true);
         }
     }
 }

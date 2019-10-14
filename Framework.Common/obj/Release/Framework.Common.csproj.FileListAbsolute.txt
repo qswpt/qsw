@@ -78,6 +78,5 @@ E:\MyCode\qsw1\Framework.Common\bin\Release\System.Web.Razor.xml
 E:\MyCode\qsw1\Framework.Common\bin\Release\System.Web.WebPages.xml
 E:\MyCode\qsw1\Framework.Common\bin\Release\System.Web.WebPages.Deployment.xml
 E:\MyCode\qsw1\Framework.Common\bin\Release\System.Web.WebPages.Razor.xml
-E:\MyCode\qsw1\Framework.Common\obj\Release\Framework.Common.csprojResolveAssemblyReference.cache
 E:\MyCode\qsw1\Framework.Common\obj\Release\Framework.Common.dll
 E:\MyCode\qsw1\Framework.Common\obj\Release\Framework.Common.pdb

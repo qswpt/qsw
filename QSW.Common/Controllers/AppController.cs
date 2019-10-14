@@ -43,7 +43,7 @@ namespace QSW.Common.Controllers
             return cr;
         }
 
-        protected ActionResult OK(string data)
+        protected ActionResult OK(string data, bool isWap = false)
         {
             ContentResult cr = new ContentResult();
             cr.ContentType = "text/html";
@@ -54,13 +54,27 @@ namespace QSW.Common.Controllers
             }
             else
             {
-                if (data.StartsWith("{") || data.StartsWith("["))
+                if (!isWap)
                 {
-                    cr.Content = "{\"Status\":1,\"Data\":" + data + "}";
+                    if (data.StartsWith("{") || data.StartsWith("["))
+                    {
+                        cr.Content = "{\"Status\":1,\"Data\":" + data + "}";
+                    }
+                    else
+                    {
+                        cr.Content = "{\"Status\":1,\"Data\":\"" + data + "\"}";
+                    }
                 }
                 else
                 {
-                    cr.Content = "{\"Status\":1,\"Data\":\"" + data + "\"}";
+                    if (data.Contains("pastLogin"))
+                    {
+                        cr.Content = "{\"Status\":1,\"Data\":\"" + data + "\"}";
+                    }
+                    else
+                    {
+                        cr.Content = data;
+                    }
                 }
             }
 

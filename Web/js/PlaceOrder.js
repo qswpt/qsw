@@ -150,7 +150,7 @@ function addFoucs(ty) {
         }
     }
 }
-function stState() {
+function stState1() {
     var st = $('#stv').html();
     if (st == 0) {
         $('#stbk').css("background-image", "url(Images/ico/stOpen.png)");
@@ -429,7 +429,7 @@ function loadCompat(cmid) {
                 ex = '配送方式由商家指定';
                 waptext = '样品配送费用到付';
             } else {
-                price = (data.Data.CommoditySpec * data.Data.CommodityPrice).toFixed(2);
+                price = (data.Data.CommoditySpec * data.Data.CommodityPrice * spCount).toFixed(2);
                 $('#opInvoce').html(0);
             }
             html = '<div style="width:100%; height:7.25rem; background-color:#fff;  border-radius: 0.5rem;">' +
@@ -552,14 +552,12 @@ function submitorder() {
         if (xmlobj.readyState == 4 && xmlobj.status == 200) {
             //接受返回信息
             var data = xmlobj.responseText;
-            var json = JSON.parse(data);
-            if (json.Data.hasOwnProperty("status")) {
-                if (json.Data.status == true) {
-                    alert('下单成功!');
-                } else {
-                    alert('下单失败!');
-                }
-                window.location.href = '/MyOrder.html';
+            if (data.hasOwnProperty("msg")) {
+                window.location.href = '/login.html';
+            } else {
+                $('#odiv').css({ 'display': 'none' });
+                $('#dfrom').html(data);
+                $('#dfrom').css({ 'display': 'block' });
             }
         }
     });

@@ -44,7 +44,7 @@ function loadDataList(data) {
                    '</div></div>';
         dtop = dtop + 7.75;
         if (i + 1 == data.Data.length) {
-            html += ' <div style="position:absolute;width:100%; top:' + dtop + 'rem; height:3.125rem; background-color:#fff;"></div>';
+            html += ' <div style="position:absolute;width:100%; top:' + dtop + 'rem; height:6.3rem; background-color:#fff;"></div>';
         }
     }
     if (data.Data.length > 0) {

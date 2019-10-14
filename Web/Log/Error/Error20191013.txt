@@ -1,0 +1,36 @@
+﻿2019-10-13 17:12:56,735 4 请求超过3秒[19]：Order/WapPay
+
+2019-10-13 21:37:58,593 4 请求超过3秒[25]：Order/WapPay
+
+2019-10-13 22:19:28,675 4 请求超过3秒[24]：Order/WapPay
+
+2019-10-13 22:22:53,820 4 请求超过3秒[13]：Order/wapOk
+
+2019-10-13 22:22:53,854 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidCastException: 无法将类型为“System.Int64”的对象强制转换为类型“System.String”。
+   在 Framework.Common.Utils.MemoryCacheUtil.Get[T](String key) 位置 E:\MyCode\qsw1\Framework.Common\Utils\MemoryCacheUtil.cs:行号 27
+   在 QSW.Common.Caches.CacheHelp.Get[T](String key, Func`1 fetch) 位置 E:\MyCode\qsw1\QSW.Common\Caches\CacheHelp.cs:行号 10
+   在 Qsw.Services.OrderListService.wapOk(String wapSpId, Int64 orderId) 位置 E:\MyCode\qsw1\Qsw.Services\OrderListService.cs:行号 228
+   在 QSW.Web.Controllers.OrderController.wapOk(String wapSpid, Int64 orderId) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\OrderController.cs:行号 27
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Order/wapOk?wapSpid=588A2D54909A2F59D14278A96AACA86C&orderId=10000077|Form:，浏览器信息：Browser:Cache-Control=no-cache;Connection=keep-alive;Pragma=no-cache;Accept=application/json, text/javascript, */*; q=0.01;Accept-Encoding=gzip, deflate, br;Accept-Language=zh-CN,zh;q=0.9;Cookie=sugstore=0; COOKIE_SESSION=0_0_1_1_0_2_0_0_0_1_53_1_0_0_0_0_0_0_1563282259%7C1%230_0_1563282259%7C1; _ga=GA1.1.228412917.1563285941; __utma=111872281.228412917.1563285941.1563367356.1563367356.1; __utmz=111872281.1563367356.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); name=7C84932D7962B45853AA6AF0B40CF8DF;Host=localhost:62830;Referer=http://localhost:62830/wapReturn.html?wapSpId=588A2D54909A2F59D14278A96AACA86C&orderId=10000077;User-Agent=Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Mobile Safari/537.36;X-Requested-With=XMLHttpRequest;Sec-Fetch-Mode=cors;Sec-Fetch-Site=same-origin;
+
+2019-10-13 22:24:36,696 4 请求超过3秒[4]：Adv/GetAdvList
+
+2019-10-13 22:25:49,629 4 请求超过3秒[18]：Order/WapPay
+
+2019-10-13 22:26:26,481 4 请求超过3秒[18]：Order/wapOk
+

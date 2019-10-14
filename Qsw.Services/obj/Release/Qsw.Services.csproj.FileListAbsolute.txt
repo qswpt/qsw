@@ -41,6 +41,7 @@ E:\MyCode\qsw1\Qsw.Services\bin\Release\System.Web.WebPages.Razor.dll
 E:\MyCode\qsw1\Qsw.Services\bin\Release\System.Web.Razor.dll
 E:\MyCode\qsw1\Qsw.Services\bin\Release\Microsoft.Web.Infrastructure.dll
 E:\MyCode\qsw1\Qsw.Services\bin\Release\System.Web.WebPages.Deployment.dll
+E:\MyCode\qsw1\Qsw.Services\bin\Release\AopSdk.pdb
 E:\MyCode\qsw1\Qsw.Services\bin\Release\Framework.Common.pdb
 E:\MyCode\qsw1\Qsw.Services\bin\Release\QSW.Common.pdb
 E:\MyCode\qsw1\Qsw.Services\bin\Release\log4net.xml

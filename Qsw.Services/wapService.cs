@@ -2,6 +2,7 @@
 using Aop.Api.Domain;
 using Aop.Api.Request;
 using Aop.Api.Response;
+using Framework.Common.Utils;
 using QSW.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,17 @@ namespace Qsw.Services
 {
     public class wapService
     {
-        public static bool ProcessRequest(OrderListModel orderList, long orderId)
+        public static string ProcessRequest(OrderListModel orderList, long orderId, string wapSpId)
         {
             DefaultAopClient client = new DefaultAopClient(wapConfig.gatewayUrl, wapConfig.app_id, wapConfig.private_key, "json", "1.0", wapConfig.sign_type, wapConfig.alipay_public_key, wapConfig.charset, false);
             AlipayTradeWapPayModel model = ConvertToModel(orderList, orderId);
 
             AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
             // 设置同步回调地址
-            request.SetReturnUrl("");
+            string retunUrl = string.Format(wapConfig.RETURN_URL, wapSpId, orderId);
+            request.SetReturnUrl(retunUrl);
             // 设置异步通知接收地址
-            request.SetNotifyUrl("");
+            request.SetNotifyUrl(wapConfig.NOTIFY_URL);
             // 将业务model载入到request
             request.SetBizModel(model);
 
@@ -32,16 +34,16 @@ namespace Qsw.Services
             {
                 //因为是页面跳转类服务，使用pageExecute方法得到form表单后输出给前端跳转
                 response = client.pageExecute(request, null, "post");
-                if (response != null)
+                if (response != null && !response.IsError)
                 {
-                    return response.IsError;  //-----------------------------
+                    return response.Body;
                 }
             }
             catch (Exception exp)
             {
-                return false;
+                LogUtil.Error(exp.Message);
             }
-            return true;
+            return string.Empty;
         }
 
         public bool IsReusable
@@ -55,11 +57,11 @@ namespace Qsw.Services
         public static AlipayTradeWapPayModel ConvertToModel(OrderListModel orderList, long orderId)
         {
             AlipayTradeWapPayModel t = new AlipayTradeWapPayModel();
-            t.AuthToken = string.Empty;
             t.Body = "颜料订单";
-            t.GoodsType = "1";
+            t.Subject = "颜料订单支付";
+            t.GoodsType = "0";
             t.OutTradeNo = orderId.ToString();
-            t.QuitUrl = "http://www.baidu.com";
+            t.QuitUrl = "http://m.gdshiyanwang.com/MyOrder.html";
             t.TimeExpire = DateTime.Now.AddMinutes(30).ToString("yyyy-MM-dd HH:mm");
             t.TimeoutExpress = DateTime.Now.AddMinutes(20).ToString("yyyy-MM-dd HH:mm");
             t.TotalAmount = orderList.OrderAmount.ToString();

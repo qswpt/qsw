@@ -1,0 +1,8 @@
+C:\Users\hzy\Desktop\11\alipayDemo_net_WAP_FAST_PAY\alipay-sdk-NET-3.0.4\bin\Release\AopSdk.dll
+C:\Users\hzy\Desktop\11\alipayDemo_net_WAP_FAST_PAY\alipay-sdk-NET-3.0.4\bin\Release\AopSdk.pdb
+C:\Users\hzy\Desktop\11\alipayDemo_net_WAP_FAST_PAY\alipay-sdk-NET-3.0.4\obj\Release\AopSdk.dll
+C:\Users\hzy\Desktop\11\alipayDemo_net_WAP_FAST_PAY\alipay-sdk-NET-3.0.4\obj\Release\AopSdk.pdb
+E:\MyCode\qsw1\AopSdk\bin\Release\AopSdk.dll
+E:\MyCode\qsw1\AopSdk\bin\Release\AopSdk.pdb
+E:\MyCode\qsw1\AopSdk\obj\Release\AopSdk.dll
+E:\MyCode\qsw1\AopSdk\obj\Release\AopSdk.pdb

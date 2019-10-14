@@ -28,9 +28,7 @@ function gowapPay(orderId) {
     if (token != null) {
         var orderType = $('#cuType').html();
         var url = '/Order/GetOrder?orderId=' + orderId + '&token=' + token + '&orderType=' + orderType;
-        $.getJSON(url, function (data) {
-            loadData(data);
-        });
+        window.location.href = url;
     }
 }
 function loadData(data) {

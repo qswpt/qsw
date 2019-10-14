@@ -1,5 +1,6 @@
 ﻿using Framework.Common.Functions;
 using Framework.Common.Utils;
+using QSW.Common.Caches;
 using QSW.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -49,9 +50,8 @@ namespace Qsw.Services
         /// <param name="orderL"></param>
         /// <param name="uId"></param>
         /// <returns></returns>
-        private bool InsertOrderList(OrderListModel orderL, int uId, OrderInvoiceModel invoice, ref long orderId)
+        private void InsertOrderList(OrderListModel orderL, int uId, OrderInvoiceModel invoice, ref long orderId)
         {
-            bool isok = false;
             orderId = GetInserScalar(uId);
             if (orderId > 0)
             {
@@ -96,14 +96,14 @@ namespace Qsw.Services
                         OrderInvoiceService.Instance.InserInvoice(invoice);
                     }
                     DbUtil.Master.CommitTransaction();
-                    isok = true;
                 }
                 catch (Exception ex)
                 {
                     DbUtil.Master.RollbackTransaction();
+                    LogUtil.Error(ex.Message);
+                    throw ex;
                 }
             }
-            return isok;
         }
         /// <summary>
         /// 
@@ -207,25 +207,35 @@ namespace Qsw.Services
                 invoice.UserId = user.Uid;
                 invoice.InvoiceAmount = orderList.OrderAmount;
                 #endregion
-                var isok = InsertOrderList(orderList, user.Uid, invoice, ref orderId);
-                if (isok)
+                InsertOrderList(orderList, user.Uid, invoice, ref orderId);
+                if (isSC == 1)
                 {
-                    if (isSC == 1)
-                    {
-                        //删除购物车
-                        CommodityService.Instance.DeleteShopping(spId, token);
-                    }
-                    isok = wapPay(orderList, orderId, IsSample);
+                    //删除购物车
+                    CommodityService.Instance.DeleteShopping(spId, token);
                 }
-                object body = new { status = isok };
-                return JsonUtil.Serialize(body);
+                string key = CryptoUtil.GetRandomAesKey();
+                string wapSpId = CryptoUtil.AesEncryptHex(orderId.ToString(), key);
+                CacheHelp.Set(wapSpId, DateTimeOffset.Now.AddDays(1), orderId.ToString());
+                return wapPay(orderList, orderId, IsSample, wapSpId);
             }
             else
             {
                 return UserService.ckTokenState();
             }
         }
-
+        public void wapOk(string wapSpId, long orderId)
+        {
+            var idkey = CacheHelp.Get<string>(wapSpId, null);
+            if (!string.IsNullOrEmpty(idkey))
+            {
+                var orId = Convert.ToInt64(idkey);
+                if (orId == orderId)
+                {
+                    LogUtil.Info("支付加密：" + wapSpId + "订单编号;" + orderId);
+                    UpdataState(orId);
+                }
+            }
+        }
         #region 订单查询
         /// <summary>
         /// 
@@ -333,39 +343,19 @@ namespace Qsw.Services
                 p["orderId"] = orderId;
                 var orderList = DbUtil.Master.Query<OrderListModel>(sql, p);
                 //调起支付
-                wapPay(orderList, orderId, 0);
-                return GetOrderList(orderType, token);
+                string key = CryptoUtil.GetRandomAesKey();
+                string wapSpId = CryptoUtil.AesEncryptHex(orderId.ToString(), key);
+                CacheHelp.Set(wapSpId, DateTimeOffset.Now.AddDays(1), orderId.ToString());
+                return wapPay(orderList, orderId, 0, wapSpId);
             }
             else
             {
                 return UserService.ckTokenState();
             }
         }
-        private bool wapPay(OrderListModel order, long orderId, int IsSample)
+        private string wapPay(OrderListModel order, long orderId, int IsSample, string wapSpId)
         {
-            bool isok = true;
-            if (IsSample == 0)
-            {
-                if (wapService.ProcessRequest(order, orderId))
-                {
-                    if (UpdataState(orderId) == 0)  //支付成功修改订单状态
-                    {
-                        isok = false; //不成功
-                    }
-                }
-                else
-                {
-                    isok = false;  //支付出错
-                }
-            }
-            else
-            {
-                if (UpdataState(orderId) == 0)  //支付成功修改订单状态
-                {
-                    isok = false; //不成功
-                }
-            }
-            return isok;
+            return wapService.ProcessRequest(order, orderId, wapSpId);
         }
         #endregion
     }

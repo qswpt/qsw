@@ -33,9 +33,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AopSdk">
-      <HintPath>..\packages\wap\AopSdk.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -67,6 +64,10 @@
     <Compile Include="wapService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AopSdk\AopSdk.csproj">
+      <Project>{9c11cae5-5188-4e71-825b-68fc3135728a}</Project>
+      <Name>AopSdk</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Common\Framework.Common.csproj">
       <Project>{797ddcd5-0910-4331-a0cf-0c5d32f1213e}</Project>
       <Name>Framework.Common</Name>
