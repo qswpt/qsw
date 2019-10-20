@@ -11,17 +11,15 @@ namespace QSWMaintain
 {
     public class ConstDefine
     {
-        private static string host = "http://{0}:{1}";
+        private static string host = "http://{0}";
 
         private static string server = string.Empty;
-
-        private static int port = 0;
-
+        
         public static string Host
         {
             get
             {
-                return string.Format(host, Server, Port);
+                return string.Format(host, Server);
             }
         }
 
@@ -47,27 +45,6 @@ namespace QSWMaintain
                 return server;
             }
         }
-
-        public static int Port
-        {
-            get
-            {
-                if (port != 0)
-                {
-                    return port;
-                }
-
-                bool res = int.TryParse(ConfigurationManager.AppSettings["Port"], out port);
-                if (!res)
-                {
-                    port = 62830;
-                }
-
-                return port;
-            }
-
-        }
-
         public static RestClient Client { get; } = new RestClient(Host);
     }
 }

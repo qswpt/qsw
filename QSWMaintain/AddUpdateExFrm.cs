@@ -37,15 +37,15 @@ namespace QSWMaintain
             this.tbExName.Text = this.exModel.ExName;
             if (this.maintainType == MaintainType.New)
             {
-                this.Text = "新建快递";
+                this.Text = "新建配送方式";
             }
             else
             {
-                this.Text = "更新快递";
+                this.Text = "更新配送方式";
             }
         }
-
-        private void BtnSave_Click(object sender, EventArgs e)
+        
+        private void btnSaves_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.tbExName.Text))
             {
@@ -77,7 +77,7 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
+        private void btnCancels_Click(object sender, EventArgs e)
         {
             this.Close();
         }

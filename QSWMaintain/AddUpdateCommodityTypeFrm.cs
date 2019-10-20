@@ -10,7 +10,7 @@ namespace QSWMaintain
     {
         private CommodityTypeModel commodityTypeModel;
         private MaintainType maintainType;
-        public AddUpdateCommodityTypeFrm(MaintainType type,CommodityTypeModel model)
+        public AddUpdateCommodityTypeFrm(MaintainType type, CommodityTypeModel model)
         {
             InitializeComponent();
             this.commodityTypeModel = model;
@@ -31,18 +31,6 @@ namespace QSWMaintain
             }
             this.tbCommodityTypeName.Text = this.commodityTypeModel.TypeName;
             this.tbOrder.Text = this.commodityTypeModel.OderSart.ToString();
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            this.save();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void save()
@@ -67,6 +55,18 @@ namespace QSWMaintain
                     MessageBox.Show("更新商品类型失败");
                 }
             }
+        }
+
+        private void btnSaves_Click(object sender, EventArgs e)
+        {
+            this.save();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancle_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

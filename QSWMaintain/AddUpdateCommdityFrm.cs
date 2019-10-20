@@ -12,7 +12,7 @@ namespace QSWMaintain
     {
         private CommodityModel commdodityModel;
         private MaintainType maintainType;
-        private List<int> hotList;
+        private List<string> hotList;
         private string previousImg;
         private string newImageGUID = "commodity_" + Guid.NewGuid().ToString();
         private bool isReplaceImg = false;
@@ -44,11 +44,9 @@ namespace QSWMaintain
             this.cmbCommodityType.DataSource = MaintainCommodity.CommodityTypeList;
             this.cmbCommodityType.DisplayMember = "TypeName";
 
-            hotList = new List<int>();
-            for (int i = 1; i <= 10; i++)
-            {
-                this.hotList.Add(i);
-            }
+            hotList = new List<string>();
+            hotList.Add("正常");
+            hotList.Add("首页");
 
             this.cmbHot.DataSource = hotList;
             this.tbName.Text = this.commdodityModel.CommodityName;
@@ -60,25 +58,21 @@ namespace QSWMaintain
             this.cmbCommodityType.SelectedItem = MaintainCommodity.CommodityTypeList.Find(p => p.TypeName == this.commdodityModel.TypeName);
             this.tbIndex.Text = this.commdodityModel.CommodityIndex;
             this.tbCode.Text = this.commdodityModel.CommodityCode;
-            this.cmbHot.SelectedItem = this.commdodityModel.CommodityHOT;
-            this.tbState.Text = "0";
+            switch (this.commdodityModel.CommoditySuper)
+            {
+                case 0:
+                    this.cmbHot.SelectedItem = "正常";
+                    break;
+                case 1:
+                    this.cmbHot.SelectedItem = "首页";
+                    break;
+            }
+            //this.tbState.Text = "0";
             this.tbRH.Text = this.commdodityModel.CommodityRH;
             this.tbFL.Text = this.commdodityModel.CommodityFL;
-            this.tbRM.Text = this.commdodityModel.CommodityRM;
-            this.rtbRemark.Text = this.commdodityModel.CommodityRemark;
-        }
+            //this.tbRM.Text = this.commdodityModel.CommodityRM;
+            //this.rtbRemark.Text = this.commdodityModel.CommodityRemark;
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            save();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
 
         private void save()
@@ -86,7 +80,7 @@ namespace QSWMaintain
             this.commdodityModel.CommodityName = this.tbName.Text;
             if (this.isReplaceImg)
             {
-                this.commdodityModel.CommodityImg = this.newImageGUID + Path.GetExtension(this.tbImg.Text);
+                this.commdodityModel.CommodityImg = this.commdodityModel.CommodityId + "1" + Path.GetExtension(this.tbImg.Text); //当前图片数量加1
             }
 
             this.commdodityModel.CommodityGeneral = this.tbGeneral.Text;
@@ -99,14 +93,22 @@ namespace QSWMaintain
             this.commdodityModel.CommodityFamilyId = (this.cmbCommodityType.SelectedItem as CommodityTypeModel).TypeId;
             this.commdodityModel.CommodityIndex = this.tbIndex.Text;
             this.commdodityModel.CommodityCode = this.tbCode.Text;
-            this.commdodityModel.CommodityHOT = int.Parse(this.cmbHot.SelectedItem.ToString());
+            // this.commdodityModel.CommodityHOT = int.Parse(this.cmbHot.SelectedItem.ToString());
             this.commdodityModel.CommodityRH = this.tbRH.Text;
-            this.commdodityModel.CommodityRM = this.tbRM.Text;
+            //this.commdodityModel.CommodityRM = this.tbRM.Text;
             this.commdodityModel.CommodityFL = this.tbFL.Text;
-            this.commdodityModel.CommodityRemark = this.rtbRemark.Text;
+            this.commdodityModel.CommodityRemark = string.Empty;
+            switch (this.cmbHot.SelectedItem.ToString())
+            {
+                case "正常":
+                    this.commdodityModel.CommoditySuper = 0;
+                    break;
+                case "首页":
+                    this.commdodityModel.CommoditySuper = 1;
+                    break;
+            }
             if (this.maintainType == MaintainType.New)
             {
-                this.commdodityModel.CommoditySuper = 1;
                 var addResult = WebRequestUtil.AddCommodity(JsonUtil.Serialize(this.commdodityModel));
                 if (addResult == null || addResult.StatusCode != System.Net.HttpStatusCode.OK)
                 {
@@ -128,7 +130,23 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnBrowseImage_Click(object sender, EventArgs e)
+        private void ReplaceImge()
+        {
+            string imgName = this.commdodityModel.CommodityId + "1" + Path.GetExtension(this.tbImg.Text); //当前图片数量加1
+            var contentBytes = File.ReadAllBytes(this.tbImg.Text);
+            string imgContent = Convert.ToBase64String(contentBytes);
+            var replaceRes = WebRequestUtil.ReplaceCommodityImg(this.previousImg, imgName, imgContent);
+            if (replaceRes != null)
+            {
+                LogUtil.Info("AddUpdateCommodityFrm.ReplaceImage successfully!");
+            }
+            else
+            {
+                LogUtil.Error("AddUpdateCommodityFrm.ReplaceImage failed!replaceRes is null!");
+            }
+        }
+
+        private void btnUpFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
@@ -142,20 +160,23 @@ namespace QSWMaintain
             }
         }
 
-        private void ReplaceImge()
+        private void btnSaves_Click(object sender, EventArgs e)
         {
-            string imgName = this.newImageGUID + Path.GetExtension(this.tbImg.Text);
-            var contentBytes = File.ReadAllBytes(this.tbImg.Text);
-            string imgContent = Convert.ToBase64String(contentBytes);
-            var replaceRes = WebRequestUtil.ReplaceCommodityImg(this.previousImg, imgName, imgContent);
-            if (replaceRes != null)
-            {
-                LogUtil.Info("AddUpdateCommodityFrm.ReplaceImage successfully!");
-            }
-            else
-            {
-                LogUtil.Error("AddUpdateCommodityFrm.ReplaceImage failed!replaceRes is null!");
-            }
+            save();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCanle_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmBrows frm = new FrmBrows(this.commdodityModel.CommodityName, this.commdodityModel.CommodityId);
+            frm.ShowDialog();
         }
     }
 }

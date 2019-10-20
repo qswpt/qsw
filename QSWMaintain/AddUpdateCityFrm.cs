@@ -47,6 +47,16 @@ namespace QSWMaintain
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaves_Click(object sender, EventArgs e)
+        {
             if (string.IsNullOrEmpty(this.tbCityName.Text))
             {
                 MessageBox.Show("请填写完整信息！");
@@ -77,7 +87,7 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
+        private void btnCancels_Click(object sender, EventArgs e)
         {
             this.Close();
         }

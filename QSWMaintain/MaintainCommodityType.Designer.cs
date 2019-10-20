@@ -30,68 +30,37 @@ namespace QSWMaintain
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnModify = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.dataGridView1 = new KryptonDataGridView();
+            this.dataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSequence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAd = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(297, 26);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(108, 40);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Values.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // btnModify
-            // 
-            this.btnModify.Location = new System.Drawing.Point(165, 26);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(108, 40);
-            this.btnModify.TabIndex = 5;
-            this.btnModify.Values.Text = "修改";
-            this.btnModify.Click += new System.EventHandler(this.BtnModify_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(34, 26);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(108, 40);
-            this.btnNew.TabIndex = 6;
-            this.btnNew.Values.Text = "新建";
-            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colSequence});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 105);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 63);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(992, 690);
+            this.dataGridView1.Size = new System.Drawing.Size(794, 414);
             this.dataGridView1.TabIndex = 3;
             // 
             // colName
@@ -118,31 +87,64 @@ namespace QSWMaintain
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 800);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 480);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Controls.Add(this.btnModify);
+            this.panel1.Controls.Add(this.btnDel);
+            this.panel1.Controls.Add(this.btnUp);
+            this.panel1.Controls.Add(this.btnAd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(994, 94);
+            this.panel1.Size = new System.Drawing.Size(796, 56);
             this.panel1.TabIndex = 0;
+            // 
+            // btnAd
+            // 
+            this.btnAd.Location = new System.Drawing.Point(16, 12);
+            this.btnAd.Name = "btnAd";
+            this.btnAd.Size = new System.Drawing.Size(75, 28);
+            this.btnAd.TabIndex = 7;
+            this.btnAd.Text = "添加";
+            this.btnAd.UseVisualStyleBackColor = true;
+            this.btnAd.Click += new System.EventHandler(this.btnAd_Click);
+            // 
+            // btnUp
+            // 
+            this.btnUp.Location = new System.Drawing.Point(107, 12);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(75, 28);
+            this.btnUp.TabIndex = 8;
+            this.btnUp.Text = "修改";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(199, 12);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 28);
+            this.btnDel.TabIndex = 9;
+            this.btnDel.Text = "删除";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // MaintainCommodityType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MaintainCommodityType";
-            this.Size = new System.Drawing.Size(1000, 800);
+            this.Size = new System.Drawing.Size(800, 480);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -151,14 +153,13 @@ namespace QSWMaintain
         }
 
         #endregion
-
-        private KryptonButton btnDelete;
-        private KryptonButton btnModify;
-        private KryptonButton btnNew;
         private KryptonDataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSequence;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAd;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnDel;
     }
 }

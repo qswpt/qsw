@@ -40,38 +40,18 @@ namespace QSWMaintain
             this.tbOrder.Text = brandModel.OderSart.ToString();
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(this.tbName.Text) ||
-               string.IsNullOrEmpty(this.tbImage.Text) ||
-               string.IsNullOrEmpty(this.tbOrder.Text))
-            {
-                MessageBox.Show("请填写完整信息！");
-                return;
-            }
-
-            Save();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
         private void Save()
         {
             this.brandModel.BrandName = this.tbName.Text;
             if (this.isReplaceImg)
             {
-                this.brandModel.BrandImg = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
+                this.brandModel.BrandImg = this.brandModel.BrandId + "1" + Path.GetExtension(this.tbImage.Text);
             }
 
             this.brandModel.BrandTypeId = 0;
             this.brandModel.BrandState = 0;
             int order = 0;
-            int.TryParse(this.tbOrder.Text,out order);
+            int.TryParse(this.tbOrder.Text, out order);
             this.brandModel.OderSart = order;
             if (this.maintainType == MaintainType.New)
             {
@@ -97,7 +77,23 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnBrowse_Click(object sender, EventArgs e)
+        private void ReplaceImage()
+        {
+            string imgName = this.brandModel.BrandId + "1" + Path.GetExtension(this.tbImage.Text);
+            var contentBytes = File.ReadAllBytes(this.tbImage.Text);
+            string imgContent = Convert.ToBase64String(contentBytes);
+            var replaceRes = WebRequestUtil.ReplaceBrandImg(this.previousImg, imgName, imgContent);
+            if (replaceRes != null)
+            {
+                LogUtil.Info("AddUpdateBrandFrm.ReplaceImage successfully!");
+            }
+            else
+            {
+                LogUtil.Error("AddUpdateBrandFrm.ReplaceImage failed!replaceRes is null!");
+            }
+        }
+
+        private void btnUpFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
@@ -111,20 +107,24 @@ namespace QSWMaintain
             }
         }
 
-        private void ReplaceImage()
+        private void btnSaves_Click(object sender, EventArgs e)
         {
-            string imgName = this.newImageGUID + Path.GetExtension(this.tbImage.Text);
-            var contentBytes = File.ReadAllBytes(this.tbImage.Text);
-            string imgContent = Convert.ToBase64String(contentBytes);
-            var replaceRes = WebRequestUtil.ReplaceBrandImg(this.previousImg, imgName, imgContent);
-            if (replaceRes != null)
+            if (string.IsNullOrEmpty(this.tbName.Text) ||
+               string.IsNullOrEmpty(this.tbImage.Text) ||
+               string.IsNullOrEmpty(this.tbOrder.Text))
             {
-                LogUtil.Info("AddUpdateBrandFrm.ReplaceImage successfully!");
+                MessageBox.Show("请填写完整信息！");
+                return;
             }
-            else
-            {
-                LogUtil.Error("AddUpdateBrandFrm.ReplaceImage failed!replaceRes is null!");
-            }
+
+            Save();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancle_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

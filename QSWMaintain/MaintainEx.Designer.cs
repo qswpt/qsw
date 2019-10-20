@@ -30,12 +30,12 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnModify = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.colExId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colExName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAd = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -49,11 +49,12 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 800);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 480);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // dataGridView1
@@ -65,8 +66,7 @@
             this.colExId,
             this.colExName});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 105);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 63);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -74,49 +74,8 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(992, 690);
+            this.dataGridView1.Size = new System.Drawing.Size(794, 414);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Controls.Add(this.btnModify);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(994, 94);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(285, 32);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(108, 40);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Values.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(25, 32);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(108, 40);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Values.Text = "新建";
-            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
-            // 
-            // btnModify
-            // 
-            this.btnModify.Location = new System.Drawing.Point(157, 32);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(108, 40);
-            this.btnModify.TabIndex = 2;
-            this.btnModify.Values.Text = "修改";
-            this.btnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // colExId
             // 
@@ -134,13 +93,56 @@
             this.colExName.ReadOnly = true;
             this.colExName.Width = 150;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnDel);
+            this.panel1.Controls.Add(this.btnUp);
+            this.panel1.Controls.Add(this.btnAd);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(796, 56);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnAd
+            // 
+            this.btnAd.Location = new System.Drawing.Point(16, 15);
+            this.btnAd.Name = "btnAd";
+            this.btnAd.Size = new System.Drawing.Size(75, 28);
+            this.btnAd.TabIndex = 3;
+            this.btnAd.Text = "添加";
+            this.btnAd.UseVisualStyleBackColor = true;
+            this.btnAd.Click += new System.EventHandler(this.btnAd_Click);
+            // 
+            // btnUp
+            // 
+            this.btnUp.Location = new System.Drawing.Point(108, 15);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(75, 28);
+            this.btnUp.TabIndex = 4;
+            this.btnUp.Text = "修改";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(198, 15);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 28);
+            this.btnDel.TabIndex = 5;
+            this.btnDel.Text = "删除";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // MaintainEx
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MaintainEx";
-            this.Size = new System.Drawing.Size(1000, 800);
+            this.Size = new System.Drawing.Size(800, 480);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -153,10 +155,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnNew;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnModify;
         private System.Windows.Forms.DataGridViewTextBoxColumn colExId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colExName;
+        private System.Windows.Forms.Button btnAd;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnDel;
     }
 }

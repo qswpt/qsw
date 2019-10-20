@@ -32,7 +32,7 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnNew_Click(object sender, EventArgs e)
+        private void btnAd_Click(object sender, EventArgs e)
         {
             CommodityTypeModel commodityTypeModel = new CommodityTypeModel();
             using (AddUpdateCommodityTypeFrm addCommodityTypeFrm = new AddUpdateCommodityTypeFrm(MaintainType.New, commodityTypeModel))
@@ -45,7 +45,7 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnModify_Click(object sender, EventArgs e)
+        private void btnUp_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
@@ -61,7 +61,7 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count > 0)
             {

@@ -109,6 +109,7 @@
     <Compile Include="Utils\RequestUtil.cs" />
     <Compile Include="Utils\SessionUtil.cs" />
     <Compile Include="Utils\UnitTestUtil.cs" />
+    <Compile Include="Utils\Uploader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,0 +1,12 @@
+﻿2019-10-16 00:02:47,842 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?commodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity SET CommodityName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral,CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommoditySpec=?commoditySpec,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyIdCommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityStateCommodityHOT=?commodityHOT,CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommodityRemark=?commodityRemark,CommoditySuper=?commoditySuper  WHERE CommodityId=?commodityId|{"commodityId":2,"commodityName":"5001透明蓝2N (35#)塑料标准1","commodityImg":"50012N.jpg","commodityGeneral":"深蓝色","commodityPrice":2.5,"commodityUnitId":1,"commoditySpec":7,"commodityBrandId":1,"commodityFamilyId":1,"commodityIndex":"S.B.35","commodityCode":"A853","commodityState":0,"commodityHOT":2,"commodityRH":"320度","commodityRM":"7级","commodityFL":"7级","commodityRemark":"1","commoditySuper":1}
+
+2019-10-16 00:05:59,015 4 请求超过3秒[8]：Commodity/UpdateCommodity
+

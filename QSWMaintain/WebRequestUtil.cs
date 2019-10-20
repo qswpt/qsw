@@ -1,6 +1,7 @@
 ﻿using Framework.Common.Utils;
 using RestSharp;
 using System;
+using System.Text;
 
 namespace QSWMaintain
 {
@@ -13,7 +14,7 @@ namespace QSWMaintain
             string brandHome = "/Brand/GetBrandHome";
             RestRequest request = new RestRequest(brandHome, Method.GET);
             request.AddParameter("size", defaultSize);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -22,17 +23,17 @@ namespace QSWMaintain
             string brandHome = "/Brand/AddBrand";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("brandModelStr", brandModelStr);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
-        public static IRestResponse UpdateBrand(int id,string brandModelStr)
+        public static IRestResponse UpdateBrand(int id, string brandModelStr)
         {
             string brandHome = "/Brand/UpdateBrand";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
             request.AddParameter("brandModelStr", brandModelStr);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -41,19 +42,17 @@ namespace QSWMaintain
             string brandHome = "/Brand/DeleteBrand";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
         #endregion
 
         #region Commodity
-        public static IRestResponse GetCommodityList()
+        public static IRestResponse GetCommodityAllList()
         {
-            string brandHome = "/Commodity/GetCommodityList";
+            string brandHome = "/Commodity/GetCommodityAllList";
             RestRequest request = new RestRequest(brandHome, Method.GET);
-            request.AddParameter("index", 1);
-            request.AddParameter("size", defaultSize);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -62,7 +61,7 @@ namespace QSWMaintain
             string brandHome = "/Commodity/DeleteCommodityById";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -71,17 +70,28 @@ namespace QSWMaintain
             string brandHome = "/Commodity/AddCommodity";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("commodityModelStr", commodityModelStr);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
-        public static IRestResponse UpdateCommodity(int id,string commodityModelStr)
+        public static IRestResponse UpdateCommodity(int id, string commodityModelStr)
         {
             string brandHome = "/Commodity/UpdateCommodity";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
-            request.AddParameter("commodityModelStr", commodityModelStr);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            request.AddParameter("commodityeModelStr", commodityModelStr);
+            var result = ExecuteRequest(ConstDefine.Client, request);
+            return result;
+        }
+        public static IRestResponse UpdateCommodityRemark(int id, string remark)
+        {
+            string brandHome = "/Commodity/UpCommodityRemark";
+            RestRequest request = new RestRequest(brandHome, Method.POST);
+            request.AddParameter("id", id);
+            var str = Encoding.UTF8.GetBytes(remark);
+            string strData = Convert.ToBase64String(str);
+            request.AddParameter("remark", strData);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
         #endregion
@@ -92,7 +102,7 @@ namespace QSWMaintain
             string brandHome = "/Unit/GetUnit";
             RestRequest request = new RestRequest(brandHome, Method.GET);
             request.AddParameter("size", defaultSize);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
         #endregion
@@ -103,7 +113,7 @@ namespace QSWMaintain
             string brandHome = "/CommodityType/GetCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.GET);
             request.AddParameter("size", defaultSize);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -112,17 +122,17 @@ namespace QSWMaintain
             string brandHome = "/CommodityType/AddCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("commodityTypeModelStr", commodityTypeModelStr);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
-        public static IRestResponse UpdateCommodityType(int id,string commodityTypeModelStr)
+        public static IRestResponse UpdateCommodityType(int id, string commodityTypeModelStr)
         {
             string brandHome = "/CommodityType/UpdateCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("id", id);
             request.AddParameter("commodityTypeModelStr", commodityTypeModelStr);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -131,7 +141,7 @@ namespace QSWMaintain
             string brandHome = "/CommodityType/DeleteCommodityType";
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("typeId", id);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
         #endregion
@@ -171,7 +181,7 @@ namespace QSWMaintain
             return result;
         }
 
-        public static IRestResponse UpdateAdv(int advId,string advModelStr)
+        public static IRestResponse UpdateAdv(int advId, string advModelStr)
         {
             string requestUrl = "/Adv/UpdateAdv";
             RestRequest request = new RestRequest(requestUrl, Method.POST);
@@ -187,7 +197,7 @@ namespace QSWMaintain
             RestRequest request = new RestRequest(brandHome, Method.POST);
             request.AddParameter("index", index);
             request.AddParameter("imgContent", imgContent);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
 
@@ -229,7 +239,7 @@ namespace QSWMaintain
             return result;
         }
 
-        public static IRestResponse ReplaceBrandImg(string previousName,string imgName, string imgContent)
+        public static IRestResponse ReplaceBrandImg(string previousName, string imgName, string imgContent)
         {
             string brandHome = "/FileUpload/ReplaceBrandImg";
             RestRequest request = new RestRequest(brandHome, Method.POST);
@@ -400,21 +410,21 @@ namespace QSWMaintain
         {
             string brandHome = "/category/android/";
             RestRequest request = new RestRequest(brandHome, Method.GET);
-            var result = ExecuteRequest(ConstDefine.Client,request);
+            var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }
         #endregion
 
         #region Execute Wrapper
-        private static IRestResponse ExecuteRequest(RestClient client,RestRequest request)
+        private static IRestResponse ExecuteRequest(RestClient client, RestRequest request)
         {
-            if(client == null || request == null)
+            if (client == null || request == null)
             {
                 throw new System.Exception("参数错误");
             }
             try
             {
-               var result = client.Execute(request);
+                var result = client.Execute(request);
                 if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     return result;
@@ -423,11 +433,11 @@ namespace QSWMaintain
                 {
                     return null;
                 }
-                    
+
             }
             catch (Exception ex)
             {
-                LogUtil.Error(string.Format("ExecuteRequest failed!Message:{0},StackTrace:{1}",ex.Message,ex.StackTrace));
+                LogUtil.Error(string.Format("ExecuteRequest failed!Message:{0},StackTrace:{1}", ex.Message, ex.StackTrace));
                 return null;
             }
         }

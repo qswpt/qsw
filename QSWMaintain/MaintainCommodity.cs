@@ -58,7 +58,7 @@ namespace QSWMaintain
             this.dataGridView1.Columns[7].Width = 80;
             this.dataGridView1.Columns[8].Width = 80;
             this.dataGridView1.Columns[9].Width = 80;
-            var contentResult = WebRequestUtil.GetCommodityList();
+            var contentResult = WebRequestUtil.GetCommodityAllList();
             if (contentResult != null)
             {
                 var response = JsonUtil.Deserialize<QSWResponse<List<CommodityModel>>>(contentResult.Content);
@@ -120,25 +120,20 @@ namespace QSWMaintain
             return null;
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private void btnAd_Click(object sender, EventArgs e)
         {
-            if (this.dataGridView1.SelectedRows.Count > 0)
+            CommodityModel newCommodityModel = new CommodityModel();
+            using (AddUpdateCommdityFrm NewCommodityFrm = new AddUpdateCommdityFrm(MaintainType.New, newCommodityModel))
             {
-                var commodity = this.dataGridView1.SelectedRows[0].Tag as CommodityModel;
-                var result = WebRequestUtil.DeleteCommodityById(commodity.CommodityId);
-                if (result != null)
+                var dialogResult = NewCommodityFrm.ShowDialog();
+                if (dialogResult == DialogResult.OK)
                 {
-                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(result.Content).Data;
-                    if (res)
-                    {
-                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
-                        WebRequestUtil.DeleteCommodityImage(commodity.CommodityImg);
-                    }
+                    this.InitControls();
                 }
             }
         }
 
-        private void BtnModify_Click(object sender, EventArgs e)
+        private void btnUp_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
@@ -154,15 +149,20 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnNew_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
-            CommodityModel newCommodityModel = new CommodityModel();
-            using (AddUpdateCommdityFrm NewCommodityFrm = new AddUpdateCommdityFrm(MaintainType.New, newCommodityModel))
+            if (this.dataGridView1.SelectedRows.Count > 0)
             {
-                var dialogResult = NewCommodityFrm.ShowDialog();
-                if (dialogResult == DialogResult.OK)
+                var commodity = this.dataGridView1.SelectedRows[0].Tag as CommodityModel;
+                var result = WebRequestUtil.DeleteCommodityById(commodity.CommodityId);
+                if (result != null)
                 {
-                    this.InitControls();
+                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(result.Content).Data;
+                    if (res)
+                    {
+                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
+                        WebRequestUtil.DeleteCommodityImage(commodity.CommodityImg);
+                    }
                 }
             }
         }

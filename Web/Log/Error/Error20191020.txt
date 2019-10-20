@@ -1,0 +1,268 @@
+﻿2019-10-20 01:19:05,596 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: 输入的不是有效的 Base-64 字符串，因为它包含非 Base-64 字符、两个以上的填充字符，或者填充字符间包含非法字符。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Content-Length=29;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:19:05,656 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Content-Length=29;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:19:14,448 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: 输入的不是有效的 Base-64 字符串，因为它包含非 Base-64 字符、两个以上的填充字符，或者填充字符间包含非法字符。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Content-Length=29;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:19:14,449 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Content-Length=29;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:21:57,695 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: 输入的不是有效的 Base-64 字符串，因为它包含非 Base-64 字符、两个以上的填充字符，或者填充字符间包含非法字符。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Connection=Keep-Alive;Content-Length=29;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:21:57,696 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Connection=Keep-Alive;Content-Length=29;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:29:32,287 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: 输入的不是有效的 Base-64 字符串，因为它包含非 Base-64 字符、两个以上的填充字符，或者填充字符间包含非法字符。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Content-Length=7099;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:29:32,296 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=System.Byte%5b%5d，浏览器信息：Browser:Content-Length=7099;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:29:53,705 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: Base-64 字符数组或字符串的长度无效。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Content-Length=7089;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:29:53,706 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Content-Length=7089;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:30:04,513 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: Base-64 字符数组或字符串的长度无效。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Content-Length=7089;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:30:04,514 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Content-Length=7089;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:55:02,274 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: Base-64 字符数组或字符串的长度无效。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Connection=Keep-Alive;Content-Length=7100;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:55:02,284 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Connection=Keep-Alive;Content-Length=7100;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:55:09,618 4 当前用户：0，当前IP：::1， 异常信息：System.FormatException: Base-64 字符数组或字符串的长度无效。
+   在 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   在 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   在 System.Convert.FromBase64String(String s)
+   在 System.Web.Mvc.ByteArrayModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Content-Length=7100;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 01:55:09,619 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpCommodityRemark|Form:id=1&remark=444，浏览器信息：Browser:Content-Length=7100;Content-Type=multipart/form-data; boundary=-----------------------------28947758029299;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 02:08:07,063 4 请求超过3秒[45]：Commodity/UpCommodityRemark
+
+2019-10-20 02:16:11,922 4 请求超过3秒[8]：Commodity/GetCommodityId
+
+2019-10-20 02:43:44,420 4 请求超过3秒[4]：Commodity/GetCommodityId
+
+2019-10-20 02:43:53,100 4 请求超过3秒[4]：Commodity/UpCommodityRemark
+
+2019-10-20 16:54:08,518 4 请求超过3秒[4]：Commodity/GetCommodityId
+
+2019-10-20 17:04:18,308 4 请求超过3秒[3]：Commodity/GetCommodityId
+
+2019-10-20 17:06:30,582 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Data too long for column 'CommodityImg' at row 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity SET CommodityName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral,CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommoditySpec=?commoditySpec,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyId,CommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityState,CommodityHOT=?commodityHOT,CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommoditySuper=?commoditySuper  WHERE CommodityId=?commodityId|{"commodityId":1,"commodityName":"5004透明蓝2B(104#蓝)塑料应用","commodityImg":"commodity_373fee56-5c18-4189-8138-b7e5167b1e34.jpg","commodityGeneral":"红光蓝","commodityPrice":1.0,"commodityUnitId":1,"commoditySpec":25,"commodityBrandId":1,"commodityFamilyId":1,"commodityIndex":"S.B.104","commodityCode":"A860","commodityState":0,"commodityHOT":1,"commodityRH":"320度","commodityRM":"7级","commodityFL":"7级","commoditySuper":1}
+
+2019-10-20 17:06:30,678 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Data too long for column 'CommodityImg' at row 1 ---> MySql.Data.MySqlClient.MySqlException: Data too long for column 'CommodityImg' at row 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 360
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=1&commodityeModelStr=%7b%22CommodityId%22%3a1%2c%22CommodityName%22%3a%225004%u900f%u660e%u84dd2B(104%23%u84dd)%u5851%u6599%u5e94%u7528%22%2c%22CommodityImg%22%3a%22commodity_373fee56-5c18-4189-8138-b7e5167b1e34.jpg%22%2c%22CommodityGeneral%22%3a%22%u7ea2%u5149%u84dd%22%2c%22CommodityPrice%22%3a1.0%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a25%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.104%22%2c%22CommodityCode%22%3a%22A860%22%2c%22CommodityHOT%22%3a1%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%22%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=943;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 17:06:56,338 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Data too long for column 'CommodityImg' at row 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity SET CommodityName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral,CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommoditySpec=?commoditySpec,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyId,CommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityState,CommodityHOT=?commodityHOT,CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommoditySuper=?commoditySuper  WHERE CommodityId=?commodityId|{"commodityId":1,"commodityName":"5004透明蓝2B(104#蓝)塑料应用","commodityImg":"commodity_3bc52dd9-4980-4994-b55d-41376ea12c06.jpg","commodityGeneral":"红光蓝","commodityPrice":1.0,"commodityUnitId":1,"commoditySpec":25,"commodityBrandId":1,"commodityFamilyId":1,"commodityIndex":"S.B.104","commodityCode":"A860","commodityState":0,"commodityHOT":1,"commodityRH":"320度","commodityRM":"7级","commodityFL":"7级","commoditySuper":1}
+
+2019-10-20 17:06:56,339 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Data too long for column 'CommodityImg' at row 1 ---> MySql.Data.MySqlClient.MySqlException: Data too long for column 'CommodityImg' at row 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 360
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=1&commodityeModelStr=%7b%22CommodityId%22%3a1%2c%22CommodityName%22%3a%225004%u900f%u660e%u84dd2B(104%23%u84dd)%u5851%u6599%u5e94%u7528%22%2c%22CommodityImg%22%3a%22commodity_3bc52dd9-4980-4994-b55d-41376ea12c06.jpg%22%2c%22CommodityGeneral%22%3a%22%u7ea2%u5149%u84dd%22%2c%22CommodityPrice%22%3a1.0%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a25%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.104%22%2c%22CommodityCode%22%3a%22A860%22%2c%22CommodityHOT%22%3a1%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%22%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=943;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-20 17:07:34,381 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Data too long for column 'CommodityImg' at row 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity SET CommodityName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral,CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommoditySpec=?commoditySpec,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyId,CommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityState,CommodityHOT=?commodityHOT,CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommoditySuper=?commoditySuper  WHERE CommodityId=?commodityId|{"commodityId":1,"commodityName":"5004透明蓝2B(104#蓝)塑料应用","commodityImg":"commodity_c8d69d2f-3516-4bd4-a509-48cbc10ebc4e.jpg","commodityGeneral":"红光蓝","commodityPrice":1.0,"commodityUnitId":1,"commoditySpec":25,"commodityBrandId":1,"commodityFamilyId":1,"commodityIndex":"S.B.104","commodityCode":"A860","commodityState":0,"commodityHOT":1,"commodityRH":"320度","commodityRM":"7级","commodityFL":"7级","commoditySuper":1}
+
+2019-10-20 17:07:34,381 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Data too long for column 'CommodityImg' at row 1 ---> MySql.Data.MySqlClient.MySqlException: Data too long for column 'CommodityImg' at row 1
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 360
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=1&commodityeModelStr=%7b%22CommodityId%22%3a1%2c%22CommodityName%22%3a%225004%u900f%u660e%u84dd2B(104%23%u84dd)%u5851%u6599%u5e94%u7528%22%2c%22CommodityImg%22%3a%22commodity_c8d69d2f-3516-4bd4-a509-48cbc10ebc4e.jpg%22%2c%22CommodityGeneral%22%3a%22%u7ea2%u5149%u84dd%22%2c%22CommodityPrice%22%3a1.0%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a25%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.104%22%2c%22CommodityCode%22%3a%22A860%22%2c%22CommodityHOT%22%3a1%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%22%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=943;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+

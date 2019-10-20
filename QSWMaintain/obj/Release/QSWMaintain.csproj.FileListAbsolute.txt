@@ -49,6 +49,7 @@ E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.AddUpdateCityFrm.resources
 E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.AddUpdateCommdityFrm.resources
 E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.AddUpdateCommodityTypeFrm.resources
 E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.AddUpdateExFrm.resources
+E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.FrmBrows.resources
 E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.MainForm.resources
 E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.MaintainADs.resources
 E:\MyCode\qsw1\QSWMaintain\obj\Release\QSWMaintain.MaintainBrands.resources

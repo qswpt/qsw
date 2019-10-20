@@ -48,6 +48,11 @@
     <Reference Include="ComponentFactory.Krypton.Workspace">
       <HintPath>ThirdParty\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Unofficial.Microsoft.mshtml.7.0.3300\lib\net40\Microsoft.mshtml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -131,6 +136,12 @@
       <DependentUpon>AddUpdateExFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConstDefine.cs" />
+    <Compile Include="FrmBrows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBrows.Designer.cs">
+      <DependentUpon>FrmBrows.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +215,9 @@
     <EmbeddedResource Include="AddUpdateExFrm.resx">
       <DependentUpon>AddUpdateExFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBrows.resx">
+      <DependentUpon>FrmBrows.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +282,7 @@
       <Name>QSW.Web.Controllers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

@@ -43,23 +43,28 @@ namespace QSWMaintain
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (this.dataGridView1.SelectedRows.Count > 0)
+
+        }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAd_Click(object sender, EventArgs e)
+        {
+            BrandModel newBrandModel = new BrandModel();
+            using (AddUpdateBrandFrm newBrand = new AddUpdateBrandFrm(MaintainType.New, newBrandModel))
             {
-                var brand = this.dataGridView1.SelectedRows[0].Tag as BrandModel;
-                var deleteResponse = WebRequestUtil.DeleteBrand(brand.BrandId);
-                if (deleteResponse != null)
+                var dialogResult = newBrand.ShowDialog();
+                if (dialogResult == DialogResult.OK)
                 {
-                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
-                    if (res)
-                    {
-                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
-                        WebRequestUtil.DeleteBrandImage(brand.BrandImg);
-                    }
+                    InitControls();
                 }
             }
         }
 
-        private void BtnModify_Click(object sender, EventArgs e)
+        private void btnU_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
@@ -75,15 +80,20 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnNew_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
-            BrandModel newBrandModel = new BrandModel();
-            using (AddUpdateBrandFrm newBrand = new AddUpdateBrandFrm(MaintainType.New, newBrandModel))
+            if (this.dataGridView1.SelectedRows.Count > 0)
             {
-                var dialogResult = newBrand.ShowDialog();
-                if (dialogResult == DialogResult.OK)
+                var brand = this.dataGridView1.SelectedRows[0].Tag as BrandModel;
+                var deleteResponse = WebRequestUtil.DeleteBrand(brand.BrandId);
+                if (deleteResponse != null)
                 {
-                    InitControls();
+                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
+                    if (res)
+                    {
+                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
+                        WebRequestUtil.DeleteBrandImage(brand.BrandImg);
+                    }
                 }
             }
         }

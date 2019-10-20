@@ -101,6 +101,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ComInfoEdit.html" />
     <Content Include="Commodity.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -114,9 +115,6 @@
     <Content Include="Images\Adv\3.jpg" />
     <Content Include="Images\Adv\4.jpg" />
     <Content Include="Images\commodity\50012N.jpg" />
-    <Content Include="Images\commodity\bsf5004.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\ico\dele.png" />
     <Content Include="Images\ico\df1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -208,6 +206,7 @@
     <Content Include="js\commodity.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="js\EditComInfo.js" />
     <Content Include="js\groupjs.js" />
     <Content Include="js\iscroll.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -226,6 +225,82 @@
     <Content Include="js\SearchInfo.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\shoppingCart.js" />
+    <Content Include="js\Uedit\dialogs\emotion\emotion.css" />
+    <Content Include="js\Uedit\dialogs\emotion\emotion.js" />
+    <Content Include="js\Uedit\dialogs\emotion\images\0.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\bface.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\cface.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\fface.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="js\Uedit\dialogs\emotion\images\tface.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\wface.gif" />
+    <Content Include="js\Uedit\dialogs\emotion\images\yface.gif" />
+    <Content Include="js\Uedit\dialogs\formula\formula.css" />
+    <Content Include="js\Uedit\dialogs\formula\formula.html" />
+    <Content Include="js\Uedit\dialogs\formula\formula.js" />
+    <Content Include="js\Uedit\dialogs\formula\images\formula.png" />
+    <Content Include="js\Uedit\dialogs\image\image.css" />
+    <Content Include="js\Uedit\dialogs\image\image.js" />
+    <Content Include="js\Uedit\dialogs\image\images\close.png" />
+    <Content Include="js\Uedit\dialogs\image\images\upload1.png" />
+    <Content Include="js\Uedit\dialogs\image\images\upload2.png" />
+    <Content Include="js\Uedit\dialogs\link\link.js" />
+    <Content Include="js\Uedit\dialogs\map\map.html" />
+    <Content Include="js\Uedit\dialogs\map\map.js" />
+    <Content Include="js\Uedit\dialogs\video\images\center_focus.jpg" />
+    <Content Include="js\Uedit\dialogs\video\images\left_focus.jpg" />
+    <Content Include="js\Uedit\dialogs\video\images\none_focus.jpg" />
+    <Content Include="js\Uedit\dialogs\video\images\right_focus.jpg" />
+    <Content Include="js\Uedit\dialogs\video\video.css" />
+    <Content Include="js\Uedit\dialogs\video\video.js" />
+    <Content Include="js\Uedit\lang\en\en.js" />
+    <Content Include="js\Uedit\lang\en\images\addimage.png" />
+    <Content Include="js\Uedit\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="js\Uedit\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="js\Uedit\lang\en\images\background.png" />
+    <Content Include="js\Uedit\lang\en\images\button.png" />
+    <Content Include="js\Uedit\lang\en\images\copy.png" />
+    <Content Include="js\Uedit\lang\en\images\deletedisable.png" />
+    <Content Include="js\Uedit\lang\en\images\deleteenable.png" />
+    <Content Include="js\Uedit\lang\en\images\imglabel.png" />
+    <Content Include="js\Uedit\lang\en\images\listbackground.png" />
+    <Content Include="js\Uedit\lang\en\images\localimage.png" />
+    <Content Include="js\Uedit\lang\en\images\music.png" />
+    <Content Include="js\Uedit\lang\en\images\rotateleftdisable.png" />
+    <Content Include="js\Uedit\lang\en\images\rotateleftenable.png" />
+    <Content Include="js\Uedit\lang\en\images\rotaterightdisable.png" />
+    <Content Include="js\Uedit\lang\en\images\rotaterightenable.png" />
+    <Content Include="js\Uedit\lang\en\images\upload.png" />
+    <Content Include="js\Uedit\lang\zh-cn\images\copy.png" />
+    <Content Include="js\Uedit\lang\zh-cn\images\imglabel.png" />
+    <Content Include="js\Uedit\lang\zh-cn\images\localimage.png" />
+    <Content Include="js\Uedit\lang\zh-cn\images\music.png" />
+    <Content Include="js\Uedit\lang\zh-cn\images\upload.png" />
+    <Content Include="js\Uedit\lang\zh-cn\zh-cn.js" />
+    <Content Include="js\Uedit\themes\default\css\umeditor.css" />
+    <Content Include="js\Uedit\themes\default\css\umeditor.min.css" />
+    <Content Include="js\Uedit\themes\default\images\caret.png" />
+    <Content Include="js\Uedit\themes\default\images\close.png" />
+    <Content Include="js\Uedit\themes\default\images\icons.gif" />
+    <Content Include="js\Uedit\themes\default\images\icons.png" />
+    <Content Include="js\Uedit\themes\default\images\ok.gif" />
+    <Content Include="js\Uedit\themes\default\images\pop-bg.png" />
+    <Content Include="js\Uedit\themes\default\images\spacer.gif" />
+    <Content Include="js\Uedit\themes\default\images\videologo.gif" />
+    <Content Include="js\Uedit\third-party\jquery.min.js" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\STIXFontLicense2010.txt" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.svg" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.svg" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.svg" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.svg" />
+    <Content Include="js\Uedit\third-party\mathquill\font\Symbola.svg" />
+    <Content Include="js\Uedit\third-party\mathquill\mathquill.css" />
+    <Content Include="js\Uedit\third-party\mathquill\mathquill.js" />
+    <Content Include="js\Uedit\third-party\mathquill\mathquill.min.js" />
+    <Content Include="js\Uedit\umeditor.config.js" />
+    <Content Include="js\Uedit\umeditor.js" />
+    <Content Include="js\Uedit\umeditor.min.js" />
     <Content Include="js\wapReturn.js" />
     <Content Include="js\wowslider.js" />
     <Content Include="login.html" />
@@ -248,6 +323,24 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="log4net.config" />
+    <Content Include="js\Uedit\net\getContent.ashx" />
+    <Content Include="js\Uedit\net\imageUp.ashx" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.eot" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.ttf" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.woff" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.eot" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.ttf" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.woff" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.eot" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.ttf" />
+    <Content Include="js\Uedit\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.woff" />
+    <Content Include="js\Uedit\third-party\mathquill\font\Symbola.eot" />
+    <Content Include="js\Uedit\third-party\mathquill\font\Symbola.otf" />
+    <Content Include="js\Uedit\third-party\mathquill\font\Symbola.ttf" />
+    <Content Include="js\Uedit\third-party\mathquill\font\Symbola.woff" />
     <None Include="Properties\PublishProfiles\111.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

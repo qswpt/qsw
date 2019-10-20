@@ -1,0 +1,269 @@
+﻿2019-10-15 23:41:13,009 4 当前用户：0，当前IP：::1， 异常信息：System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   在 Framework.Common.Utils.JsonUtil.Deserialize[T](String value) 位置 E:\MyCode\qsw1\Framework.Common\Utils\JsonUtil.cs:行号 27
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr)
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr)
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=7&commodityModelStr=%7b%22CommodityId%22%3a7%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u82721%22%2c%22CommodityPrice%22%3a21.0%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a71%2c%22CommodityBrandId%22%3a2%2c%22CommodityFamilyId%22%3a2%2c%22CommodityIndex%22%3a%22S.B.351%22%2c%22CommodityCode%22%3a%22A8531%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea61%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea71%22%2c%22CommodityRemark%22%3a%221111%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=878;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:41:43,434 4 当前用户：0，当前IP：::1， 异常信息：System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   在 Framework.Common.Utils.JsonUtil.Deserialize[T](String value) 位置 E:\MyCode\qsw1\Framework.Common\Utils\JsonUtil.cs:行号 27
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr)
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr)
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=2&commodityModelStr=%7b%22CommodityId%22%3a2%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u8272%22%2c%22CommodityPrice%22%3a2.5%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a7%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.35%22%2c%22CommodityCode%22%3a%22A853%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%221%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=895;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:44:30,133 4 请求超过3秒[44]：Commodity/UpdateCommodity
+
+2019-10-15 23:44:30,153 4 当前用户：0，当前IP：::1， 异常信息：System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   在 Framework.Common.Utils.JsonUtil.Deserialize[T](String value) 位置 E:\MyCode\qsw1\Framework.Common\Utils\JsonUtil.cs:行号 27
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 333
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=2&commodityModelStr=%7b%22CommodityId%22%3a2%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u8272%22%2c%22CommodityPrice%22%3a2.5%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a7%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.35%22%2c%22CommodityCode%22%3a%22A853%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%221%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=895;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:45:56,401 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity set CommodityName=?CommodityName,CommodityImg=?CommodityImg,CommodityGeneral=?CommodityGeneral,CommodityPrice=?CommodityPrice,CommodityUnitId=?CommodityUnitId,CommoditySpec=?CommoditySpec,CommodityBrandId=?CommodityBrandId,CommodityFamilyId=?CommodityFamilyIdCommodityIndex=?CommodityIndex,CommodityCode=?CommodityCode,CommodityState=?CommodityStateCommodityHOT=?CommodityHOT,CommodityRH=?CommodityRH,CommodityRM=?CommodityRM,CommodityFL=?CommodityFL,CommodityRemark=?CommodityRemarkWHERE CommodityId=?commodityId|{"CommodityId":2,"CommodityName":"5001透明蓝2N (35#)塑料标准1","CommodityImg":"50012N.jpg","CommodityGeneral":"深蓝色","CommodityPrice":2.5,"CommodityUnitId":1,"CommoditySpec":7,"CommodityBrandId":1,"CommodityFamilyId":1,"CommodityIndex":"S.B.35","CommodityCode":"A853","CommodityState":0,"CommodityHOT":2,"CommodityRH":"320度","CommodityRM":"7级","CommodityFL":"7级","CommodityRemark":"1"}
+
+2019-10-15 23:46:16,515 4 请求超过3秒[33]：Commodity/UpdateCommodity
+
+2019-10-15 23:46:16,516 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 360
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=2&commodityeModelStr=%7b%22CommodityId%22%3a2%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u8272%22%2c%22CommodityPrice%22%3a2.5%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a7%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.35%22%2c%22CommodityCode%22%3a%22A853%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%221%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=896;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:48:30,772 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity set CommodityName=?CommodityName,CommodityImg=?CommodityImg,CommodityGeneral=?CommodityGeneral,CommodityPrice=?CommodityPrice,CommodityUnitId=?CommodityUnitId,CommoditySpec=?CommoditySpec,CommodityBrandId=?CommodityBrandId,CommodityFamilyId=?CommodityFamilyIdCommodityIndex=?CommodityIndex,CommodityCode=?CommodityCode,CommodityState=?CommodityStateCommodityHOT=?CommodityHOT,CommodityRH=?CommodityRH,CommodityRM=?CommodityRM,CommodityFL=?CommodityFL,CommodityRemark=?CommodityRemarkWHERE CommodityId=?commodityId|{"CommodityId":2,"CommodityName":"5001透明蓝2N (35#)塑料标准1","CommodityImg":"50012N.jpg","CommodityGeneral":"深蓝色","CommodityPrice":2.5,"CommodityUnitId":1,"CommoditySpec":7,"CommodityBrandId":1,"CommodityFamilyId":1,"CommodityIndex":"S.B.35","CommodityCode":"A853","CommodityState":0,"CommodityHOT":2,"CommodityRH":"320度","CommodityRM":"7级","CommodityFL":"7级","CommodityRemark":"1"}
+
+2019-10-15 23:48:32,978 4 请求超过3秒[125]：Commodity/UpdateCommodity
+
+2019-10-15 23:48:32,978 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 360
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=2&commodityeModelStr=%7b%22CommodityId%22%3a2%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u8272%22%2c%22CommodityPrice%22%3a2.5%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a7%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.35%22%2c%22CommodityCode%22%3a%22A853%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%221%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=896;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:50:11,969 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity set CommodityName=?CommodityName,CommodityImg=?CommodityImg,CommodityGeneral=?CommodityGeneral,CommodityPrice=?CommodityPrice,CommodityUnitId=?CommodityUnitId,CommoditySpec=?CommoditySpec,CommodityBrandId=?CommodityBrandId,CommodityFamilyId=?CommodityFamilyIdCommodityIndex=?CommodityIndex,CommodityCode=?CommodityCode,CommodityState=?CommodityStateCommodityHOT=?CommodityHOT,CommodityRH=?CommodityRH,CommodityRM=?CommodityRM,CommodityFL=?CommodityFL,CommodityRemark=?CommodityRemarkWHERE CommodityId=?commodityId|{"CommodityId":2,"CommodityName":"5001透明蓝2N (35#)塑料标准1","CommodityImg":"50012N.jpg","CommodityGeneral":"深蓝色","CommodityPrice":2.5,"CommodityUnitId":1,"CommoditySpec":7,"CommodityBrandId":1,"CommodityFamilyId":1,"CommodityIndex":"S.B.35","CommodityCode":"A853","CommodityState":0,"CommodityHOT":2,"CommodityRH":"320度","CommodityRM":"7级","CommodityFL":"7级","CommodityRemark":""}
+
+2019-10-15 23:50:55,118 4 请求超过3秒[120]：Commodity/UpdateCommodity
+
+2019-10-15 23:50:55,118 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr) 位置 E:\MyCode\qsw1\Qsw.Services\CommodityService.cs:行号 360
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=2&commodityeModelStr=%7b%22CommodityId%22%3a2%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u8272%22%2c%22CommodityPrice%22%3a2.5%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a7%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.35%22%2c%22CommodityCode%22%3a%22A853%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%22%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=895;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:51:38,021 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity set CommodityName=?CommodityName,CommodityImg=?CommodityImg,CommodityGeneral=?CommodityGeneral,CommodityPrice=?CommodityPrice,CommodityUnitId=?CommodityUnitId,CommoditySpec=?CommoditySpec,CommodityBrandId=?CommodityBrandId,CommodityFamilyId=?CommodityFamilyIdCommodityIndex=?CommodityIndex,CommodityCode=?CommodityCode,CommodityState=?CommodityStateCommodityHOT=?CommodityHOT,CommodityRH=?CommodityRH,CommodityRM=?CommodityRM,CommodityFL=?CommodityFL,CommodityRemark=?CommodityRemarkWHERE CommodityId=?commodityId|{"CommodityId":2,"CommodityName":"5001透明蓝2N (35#)塑料标准1","CommodityImg":"50012N.jpg","CommodityGeneral":"深蓝色","CommodityPrice":2.5,"CommodityUnitId":1,"CommoditySpec":7,"CommodityBrandId":1,"CommodityFamilyId":1,"CommodityIndex":"S.B.35","CommodityCode":"A853","CommodityState":0,"CommodityHOT":2,"CommodityRH":"320度","CommodityRM":"7级","CommodityFL":"7级","CommodityRemark":"1"}
+
+2019-10-15 23:51:39,687 4 请求超过3秒[33]：Commodity/UpdateCommodity
+
+2019-10-15 23:51:39,687 4 当前用户：0，当前IP：::1， 异常信息：System.Exception: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException: Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 182
+   在 Qsw.Services.CommodityService.UpdateCommodity(Int32 commodityId, String commodityModelStr)
+   在 QSW.Web.Controllers.CommodityController.UpdateCommodity(Int32 id, String commodityeModelStr) 位置 E:\MyCode\qsw1\QSW.Web.Controllers\CommodityController.cs:行号 111
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_0.<InvokeActionMethodFilterAsynchronouslyRecursive>b__0()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_2.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__4()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：Url:http://localhost:62830/Commodity/UpdateCommodity|Form:id=2&commodityeModelStr=%7b%22CommodityId%22%3a2%2c%22CommodityName%22%3a%225001%u900f%u660e%u84dd2N+(35%23)%u5851%u6599%u6807%u51c61%22%2c%22CommodityImg%22%3a%2250012N.jpg%22%2c%22CommodityGeneral%22%3a%22%u6df1%u84dd%u8272%22%2c%22CommodityPrice%22%3a2.5%2c%22CommodityUnitId%22%3a1%2c%22CommoditySpec%22%3a7%2c%22CommodityBrandId%22%3a1%2c%22CommodityFamilyId%22%3a1%2c%22CommodityIndex%22%3a%22S.B.35%22%2c%22CommodityCode%22%3a%22A853%22%2c%22CommodityHOT%22%3a2%2c%22BrandName%22%3a%22%u5df4%u65af%u592b%22%2c%22UnitIdName%22%3a%22%u516c%u65a4%22%2c%22TypeName%22%3a%22%u9ad8%u6027%u80fd%u6eb6%u5242%u67d3%u6599%22%2c%22SpCount%22%3a0%2c%22CommodityRH%22%3a%22320%u5ea6%22%2c%22CommodityRM%22%3a%227%u7ea7%22%2c%22CommodityFL%22%3a%227%u7ea7%22%2c%22CommodityRemark%22%3a%221%22%2c%22CommoditySuper%22%3a1%7d，浏览器信息：Browser:Content-Length=896;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-15 23:51:56,784 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?CommodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity set CommodityName=?CommodityName,CommodityImg=?CommodityImg,CommodityGeneral=?CommodityGeneral,CommodityPrice=?CommodityPrice,CommodityUnitId=?CommodityUnitId,CommoditySpec=?CommoditySpec,CommodityBrandId=?CommodityBrandId,CommodityFamilyId=?CommodityFamilyIdCommodityIndex=?CommodityIndex,CommodityCode=?CommodityCode,CommodityState=?CommodityStateCommodityHOT=?CommodityHOT,CommodityRH=?CommodityRH,CommodityRM=?CommodityRM,CommodityFL=?CommodityFL,CommodityRemark=?CommodityRemark WHERE CommodityId=?commodityId|{"CommodityId":2,"CommodityName":"5001透明蓝2N (35#)塑料标准1","CommodityImg":"50012N.jpg","CommodityGeneral":"深蓝色","CommodityPrice":2.5,"CommodityUnitId":1,"CommoditySpec":7,"CommodityBrandId":1,"CommodityFamilyId":1,"CommodityIndex":"S.B.35","CommodityCode":"A853","CommodityState":0,"CommodityHOT":2,"CommodityRH":"320度","CommodityRM":"7级","CommodityFL":"7级","CommodityRemark":"1"}
+
+2019-10-15 23:58:58,967 4 MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '?commodityFamilyIdCommodityIndex' must be defined.
+   在 MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   在 MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   在 MySql.Data.MySqlClient.Statement.BindParameters()
+   在 MySql.Data.MySqlClient.PreparableStatement.Execute()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 Framework.Common.Functions.MySqlDb.ExecuteNonQuery(String sql, Dictionary`2 p) 位置 E:\MyCode\qsw1\Framework.Common\Functions\MySqlDb.cs:行号 177|UPDATE Commodity set CommodityName=?commodityName,CommodityImg=?commodityImg,CommodityGeneral=?commodityGeneral,CommodityPrice=?commodityPrice,CommodityUnitId=?commodityUnitId,CommoditySpec=?commoditySpec,CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyIdCommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityStateCommodityHOT=?commodityHOT,CommodityRH=?commodityRH,CommodityRM=?commodityRM,CommodityFL=?commodityFL,CommodityRemark=?commodityRemark,CommoditySuper=?commoditySuper WHERE CommodityId=?commodityId|{"commodityId":2,"commodityName":"5001透明蓝2N (35#)塑料标准1","commodityImg":"50012N.jpg","commodityGeneral":"深蓝色","commodityPrice":2.5,"commodityUnitId":1,"commoditySpec":7,"commodityBrandId":1,"commodityFamilyId":1,"commodityIndex":"S.B.35","commodityCode":"A853","commodityState":0,"commodityHOT":2,"commodityRH":"320度","commodityRM":"7级","commodityFL":"7级","commodityRemark":"1","commoditySuper":1}
+

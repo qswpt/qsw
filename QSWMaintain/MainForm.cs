@@ -108,6 +108,11 @@ namespace QSWMaintain
             ((KryptonCheckButton)sender).Checked = true;
             AddUserControl(this.maintainCityExAmount.Value);
         }
+
+        private void btnOrderManager_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("开发中....");
+        }
     }
 
     public enum MaintainType

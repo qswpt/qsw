@@ -34,77 +34,76 @@ namespace QSWMaintain
             this.label3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.tbCommodityTypeName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnSaves = new System.Windows.Forms.Button();
+            this.btnCancle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbOrder
             // 
-            this.tbOrder.Location = new System.Drawing.Point(149, 131);
-            this.tbOrder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbOrder.Location = new System.Drawing.Point(101, 77);
             this.tbOrder.Name = "tbOrder";
-            this.tbOrder.Size = new System.Drawing.Size(233, 31);
+            this.tbOrder.Size = new System.Drawing.Size(233, 27);
             this.tbOrder.TabIndex = 6;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(86, 131);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(51, 77);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 29);
+            this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 10;
             this.label3.Values.Text = "顺序：";
             // 
             // tbCommodityTypeName
             // 
             this.tbCommodityTypeName.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.tbCommodityTypeName.Location = new System.Drawing.Point(149, 44);
-            this.tbCommodityTypeName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCommodityTypeName.Location = new System.Drawing.Point(101, 29);
             this.tbCommodityTypeName.Name = "tbCommodityTypeName";
-            this.tbCommodityTypeName.Size = new System.Drawing.Size(233, 31);
+            this.tbCommodityTypeName.Size = new System.Drawing.Size(233, 27);
             this.tbCommodityTypeName.TabIndex = 8;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(48, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(20, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 29);
+            this.label1.Size = new System.Drawing.Size(92, 24);
             this.label1.TabIndex = 5;
             this.label1.Values.Text = "商品类型：";
             // 
-            // btnCancel
+            // btnSaves
             // 
-            this.btnCancel.Location = new System.Drawing.Point(303, 366);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 40);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Values.Text = "取消";
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnSaves.Location = new System.Drawing.Point(178, 128);
+            this.btnSaves.Name = "btnSaves";
+            this.btnSaves.Size = new System.Drawing.Size(75, 28);
+            this.btnSaves.TabIndex = 13;
+            this.btnSaves.Text = "保存";
+            this.btnSaves.UseVisualStyleBackColor = true;
+            this.btnSaves.Click += new System.EventHandler(this.btnSaves_Click);
             // 
-            // btnSave
+            // btnCancle
             // 
-            this.btnSave.Location = new System.Drawing.Point(174, 366);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(108, 40);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Values.Text = "保存";
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.btnCancle.Location = new System.Drawing.Point(259, 128);
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.Size = new System.Drawing.Size(75, 28);
+            this.btnCancle.TabIndex = 14;
+            this.btnCancle.Text = "取消";
+            this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // AddUpdateCommodityTypeFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 454);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
+            this.ClientSize = new System.Drawing.Size(364, 177);
+            this.Controls.Add(this.btnCancle);
+            this.Controls.Add(this.btnSaves);
             this.Controls.Add(this.tbOrder);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbCommodityTypeName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddUpdateCommodityTypeFrm";
@@ -122,7 +121,7 @@ namespace QSWMaintain
         private KryptonLabel label3;
         private KryptonTextBox tbCommodityTypeName;
         private KryptonLabel label1;
-        private KryptonButton btnCancel;
-        private KryptonButton btnSave;
+        private System.Windows.Forms.Button btnSaves;
+        private System.Windows.Forms.Button btnCancle;
     }
 }

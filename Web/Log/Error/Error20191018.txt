@@ -1,0 +1,466 @@
+﻿2019-10-18 00:23:32,754 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:23:32,754 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=13435;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:23:32,814 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:23:32,815 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=13435;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:24:20,504 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:24:20,505 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=13436;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:24:20,506 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:24:20,506 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=13436;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:25:14,105 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:25:14,106 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=13436;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:25:14,176 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:25:14,177 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=13436;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:25:32,209 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:25:32,210 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=13436;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:25:32,223 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="<header id=g-hd>
+<D...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:25:32,224 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=13436;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:27:30,517 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:27:30,518 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Connection=Keep-Alive;Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:27:30,528 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:27:30,529 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Connection=Keep-Alive;Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:28:27,130 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:28:27,130 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:28:27,151 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:28:27,152 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:30:23,389 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:30:23,390 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:30:23,409 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:30:23,410 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:32:17,964 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:32:17,965 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:32:17,974 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:32:17,974 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:33:16,115 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:33:16,116 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:33:16,179 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:33:16,179 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:35:01,992 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:35:01,993 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:35:02,001 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(commodityeModelStr="...ark":"\r\n<!DOCTYPE html><html...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:35:02,001 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=16748;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:36:01,677 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="
+<P>121&nbsp; 090909<...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:36:01,678 4 当前用户：0，当前IP：::1， 异常信息：System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="
+<P>121&nbsp; 090909<...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(String name)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.ValueProviderResultPlaceholder.GetResultFromCollection(String key, NameValueCollection collection, CultureInfo culture)
+   在 System.Web.Mvc.NameValueCollectionValueProvider.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.ValueProviderCollection.GetValue(String key, Boolean skipValidation)
+   在 System.Web.Mvc.DefaultModelBinder.BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   在 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__0(AsyncCallback asyncCallback, Object asyncState)，请求信息：，浏览器信息：Browser:Content-Length=57;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+
+2019-10-18 00:36:01,678 4 System.Web.HttpRequestValidationException (0x80004005): 从客户端(remark="
+<P>121&nbsp; 090909<...")中检测到有潜在危险的 Request.Form 值。
+   在 System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   在 System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   在 System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   在 System.Web.HttpValueCollection.GetValues(Int32 index)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded, IDictionary excludeKeys)
+   在 System.Web.HttpValueCollection.ToString(Boolean urlencoded)
+   在 System.Web.HttpValueCollection.ToString()
+   在 Framework.Common.Utils.RequestUtil.GetRequestInfo() 位置 E:\MyCode\qsw1\Framework.Common\Utils\RequestUtil.cs:行号 122
+
+2019-10-18 00:36:01,679 4 当前用户：0，当前IP：::1， 异常信息：System.InvalidOperationException: The view '~/Views/App/Error.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/App/Error.cshtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_7.<BeginInvokeAction>b__5()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__1(IAsyncResult asyncResult)，请求信息：，浏览器信息：Browser:Content-Length=57;Content-Type=application/x-www-form-urlencoded;Accept=application/json, text/json, text/x-json, text/javascript, application/xml, text/xml;Accept-Encoding=gzip, deflate;Host=localhost:62830;User-Agent=RestSharp/106.6.10.0;
+

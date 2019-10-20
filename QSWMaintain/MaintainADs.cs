@@ -144,40 +144,9 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnModify_Click(object sender, EventArgs e)
-        {
-            if (this.kryptonDataGridView1.SelectedRows.Count > 0)
-            {
-                var advModel = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
-                using (AddUpdateADFrm modify = new AddUpdateADFrm(MaintainType.Update, advModel))
-                {
-                    var dialogResult = modify.ShowDialog();
-                    if (dialogResult == DialogResult.OK)
-                    {
-                        InitControls();
-                    }
-                }
-            }
-        }
-
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (this.kryptonDataGridView1.SelectedRows.Count > 0)
-            {
-                var adv = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
-                if (adv == null)
-                    return;
-                var deleteResponse = WebRequestUtil.DeleteAdv(adv.AdvId);
-                if (deleteResponse != null)
-                {
-                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
-                    if (res)
-                    {
-                        this.kryptonDataGridView1.Rows.Remove(this.kryptonDataGridView1.SelectedRows[0]);
-                        WebRequestUtil.DeleteAdsImage(adv.AdvImage);
-                    }
-                }
-            }
+            
         }
 
         public static List<AdvTypeModel> AdvTypeList
@@ -203,7 +172,7 @@ namespace QSWMaintain
             {
                 if (commodityList == null)
                 {
-                    var response = WebRequestUtil.GetCommodityList();
+                    var response = WebRequestUtil.GetCommodityAllList();
                     if (response != null && response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         commodityList = JsonUtil.Deserialize<QSWResponse<List<CommodityModel>>>(response.Content).Data;
@@ -250,6 +219,55 @@ namespace QSWMaintain
                 var brand = this.kryptonDataGridView1.CurrentRow.Tag as AdvModel;
                 if (brand != null)
                     PreviewPic(brand.AdvImage);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AdvModel newBrandModel = new AdvModel();
+            using (AddUpdateADFrm newBrand = new AddUpdateADFrm(MaintainType.New, newBrandModel))
+            {
+                var dialogResult = newBrand.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    InitControls();
+                }
+            }
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            if (this.kryptonDataGridView1.SelectedRows.Count > 0)
+            {
+                var advModel = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
+                using (AddUpdateADFrm modify = new AddUpdateADFrm(MaintainType.Update, advModel))
+                {
+                    var dialogResult = modify.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        InitControls();
+                    }
+                }
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (this.kryptonDataGridView1.SelectedRows.Count > 0)
+            {
+                var adv = this.kryptonDataGridView1.SelectedRows[0].Tag as AdvModel;
+                if (adv == null)
+                    return;
+                var deleteResponse = WebRequestUtil.DeleteAdv(adv.AdvId);
+                if (deleteResponse != null)
+                {
+                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
+                    if (res)
+                    {
+                        this.kryptonDataGridView1.Rows.Remove(this.kryptonDataGridView1.SelectedRows[0]);
+                        WebRequestUtil.DeleteAdsImage(adv.AdvImage);
+                    }
+                }
             }
         }
     }

@@ -28,6 +28,18 @@ namespace Qsw.Services
             var data = DbUtil.Master.QueryList<CommodityModel>(sql, p);
             return JsonUtil.Serialize(data);
         }
+        public string GetCommodityAllList()
+        {
+            string key = string.Concat("GetCommodityAllList");
+            return CacheHelp.Get<string>(key, DateTimeOffset.Now.AddSeconds(3), () => GetCommodityAllSql());
+        }
+        private string GetCommodityAllSql()
+        {
+            string sql = $"SELECT a.*,b.BrandName,c.UnitIdName,d.TypeName FROM Commodity a LEFT JOIN Brand b ON a.CommodityBrandId=b.BrandId LEFT " +                         $"JOIN Unit c ON a.CommodityUnitId=c.UnitIdId LEFT JOIN CommodityType d ON a.CommodityFamilyId=d.TypeId WHERE a.CommodityState=0 " +
+                         $"ORDER BY a.CommodityHOT ASC";
+            var data = DbUtil.Master.QueryList<CommodityModel>(sql);
+            return JsonUtil.Serialize(data);
+        }
         #endregion
         #region 根据品牌ID查找商品
         public string GetCommodityByBrand(int brandId, int index = 1, int size = 10)
@@ -317,32 +329,32 @@ namespace Qsw.Services
         public bool UpdateCommodity(int commodityId, string commodityModelStr)
         {
             var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModelStr);
-            string sql = $"UPDATE Commodity set CommodityName=?CommodityName,CommodityImg=?CommodityImg," +
-                        $"CommodityGeneral=?CommodityGeneral,CommodityPrice=?CommodityPrice," +
-                        $"CommodityUnitId=?CommodityUnitId,CommoditySpec=?CommoditySpec," +
-                        $"CommodityBrandId=?CommodityBrandId,CommodityFamilyId=?CommodityFamilyId" +
-                        $"CommodityIndex=?CommodityIndex,CommodityCode=?CommodityCode,CommodityState=?CommodityState" +
-                        $"CommodityHOT=?CommodityHOT,CommodityRH=?CommodityRH,CommodityRM=?CommodityRM," +
-                        $"CommodityFL=?CommodityFL,CommodityRemark=?CommodityRemark" +
-                        $"WHERE CommodityId=?commodityId";
+            string sql = $"UPDATE Commodity SET CommodityName=?commodityName,CommodityImg=?commodityImg," +
+                        $"CommodityGeneral=?commodityGeneral,CommodityPrice=?commodityPrice," +
+                        $"CommodityUnitId=?commodityUnitId,CommoditySpec=?commoditySpec," +
+                        $"CommodityBrandId=?commodityBrandId,CommodityFamilyId=?commodityFamilyId," +
+                        $"CommodityIndex=?commodityIndex,CommodityCode=?commodityCode,CommodityState=?commodityState," +
+                        $"CommodityHOT=?commodityHOT,CommodityRH=?commodityRH,CommodityRM=?commodityRM," +
+                        $"CommodityFL=?commodityFL,CommoditySuper=?commoditySuper " +
+                        $" WHERE CommodityId=?commodityId";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["CommodityId"] = commodityModel.CommodityId;
-            p["CommodityName"] = commodityModel.CommodityName;
-            p["CommodityImg"] = commodityModel.CommodityImg;
-            p["CommodityGeneral"] = commodityModel.CommodityGeneral;
-            p["CommodityPrice"] = commodityModel.CommodityPrice;
-            p["CommodityUnitId"] = commodityModel.CommodityUnitId;
-            p["CommoditySpec"] = commodityModel.CommoditySpec;
-            p["CommodityBrandId"] = commodityModel.CommodityBrandId;
-            p["CommodityFamilyId"] = commodityModel.CommodityFamilyId;
-            p["CommodityIndex"] = commodityModel.CommodityIndex;
-            p["CommodityCode"] = commodityModel.CommodityCode;
-            p["CommodityState"] = 0;
-            p["CommodityHOT"] = commodityModel.CommodityHOT;
-            p["CommodityRH"] = commodityModel.CommodityRH;
-            p["CommodityRM"] = commodityModel.CommodityRM;
-            p["CommodityFL"] = commodityModel.CommodityFL;
-            p["CommodityRemark"] = commodityModel.CommodityRemark;
+            p["commodityId"] = commodityModel.CommodityId;
+            p["commodityName"] = commodityModel.CommodityName;
+            p["commodityImg"] = commodityModel.CommodityImg;
+            p["commodityGeneral"] = commodityModel.CommodityGeneral;
+            p["commodityPrice"] = commodityModel.CommodityPrice;
+            p["commodityUnitId"] = commodityModel.CommodityUnitId;
+            p["commoditySpec"] = commodityModel.CommoditySpec;
+            p["commodityBrandId"] = commodityModel.CommodityBrandId;
+            p["commodityFamilyId"] = commodityModel.CommodityFamilyId;
+            p["commodityIndex"] = commodityModel.CommodityIndex;
+            p["commodityCode"] = commodityModel.CommodityCode;
+            p["commodityState"] = 0;
+            p["commodityHOT"] = commodityModel.CommodityHOT;
+            p["commodityRH"] = commodityModel.CommodityRH;
+            p["commodityRM"] = commodityModel.CommodityRM;
+            p["commodityFL"] = commodityModel.CommodityFL;
+            p["commoditySuper"] = commodityModel.CommoditySuper;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {
@@ -354,7 +366,23 @@ namespace Qsw.Services
 
             }
         }
-
+        public bool UpdateCommodityRemark(int commodityId, string remark)
+        {
+            string sql = $"UPDATE Commodity SET CommodityRemark=?commodityRemark " +
+                        $" WHERE CommodityId=?commodityId";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["commodityId"] = commodityId;
+            p["commodityRemark"] = remark;
+            int num = DbUtil.Master.ExecuteNonQuery(sql, p);
+            if (num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool InsertCommodity(string commodityModelStr)
         {
             var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModelStr);

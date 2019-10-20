@@ -48,32 +48,6 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(this.cmbCity.Text) ||
-                  string.IsNullOrEmpty(this.cmbEx.Text))
-            {
-                MessageBox.Show("请填写完整信息！");
-                return;
-            }
-            double amount = 0;
-            bool res = double.TryParse(this.tbAmount.Text, out amount);
-            if(!res)
-            {
-                MessageBox.Show("输入金额不正确，请重新输入！");
-                return;
-            }
-
-            Save();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
         private void Save()
         {
             this.advModel.CityId = (this.cmbCity.SelectedItem as CityModel).CityId;
@@ -97,6 +71,32 @@ namespace QSWMaintain
                     MessageBox.Show("更新地区快递物流金额！");
                 }
             }
+        }
+
+        private void btnSaves_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.cmbCity.Text) ||
+                  string.IsNullOrEmpty(this.cmbEx.Text))
+            {
+                MessageBox.Show("请填写完整信息！");
+                return;
+            }
+            double amount = 0;
+            bool res = double.TryParse(this.tbAmount.Text, out amount);
+            if (!res)
+            {
+                MessageBox.Show("输入金额不正确，请重新输入！");
+                return;
+            }
+
+            Save();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancels_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

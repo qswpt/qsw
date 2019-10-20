@@ -1,5 +1,4 @@
 E:\MyCode\qsw1\Web\bin\Commodity.html
-E:\MyCode\qsw1\Web\bin\Images\commodity\bsf5004.jpg
 E:\MyCode\qsw1\Web\bin\Images\ico\df1.png
 E:\MyCode\qsw1\Web\bin\Images\ico\df2.png
 E:\MyCode\qsw1\Web\bin\Images\ico\gp1.png

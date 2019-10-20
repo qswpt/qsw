@@ -18,6 +18,12 @@ namespace QSW.Web.Controllers
             return OK(data);
         }
         [HttpGet]
+        public ActionResult GetCommodityAllList()
+        {
+            var data = CommodityService.Instance.GetCommodityAllList();
+            return OK(data);
+        }
+        [HttpGet]
         public ActionResult GetCommoditySearch(string searchTxt, string token)
         {
             var data = CommodityService.Instance.GetCommoditySearch(searchTxt, token);
@@ -103,6 +109,18 @@ namespace QSW.Web.Controllers
         public ActionResult UpdateCommodity(int id, string commodityeModelStr)
         {
             var data = CommodityService.Instance.UpdateCommodity(id, commodityeModelStr);
+            return OK(data);
+        }
+        [HttpPost]
+        public ActionResult UpCommodityRemark(int id, string remark)
+        {
+            string str = string.Empty;
+            if (!String.IsNullOrEmpty(remark))
+            {
+                var strByte = Convert.FromBase64String(remark);
+                str = Encoding.UTF8.GetString(strByte);
+            }
+            var data = CommodityService.Instance.UpdateCommodityRemark(id, str);
             return OK(data);
         }
     }

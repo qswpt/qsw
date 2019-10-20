@@ -75,27 +75,6 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(this.tbAdvImage.Text) ||
-                          string.IsNullOrEmpty(this.tbAdvSart.Text) ||
-                          string.IsNullOrEmpty(this.cmbAdvType.Text) ||
-                ((this.cmbAdvType.SelectedItem as AdvTypeModel).AdvTypeId != 3 && string.IsNullOrEmpty(this.cmbAdvContent.Text)))
-            {
-                MessageBox.Show("请填写完整信息！");
-                return;
-            }
-
-            Save();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
         private void Save()
         {
             if (this.isReplaceImg)
@@ -149,17 +128,7 @@ namespace QSWMaintain
 
         private void BtnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
-            fileDialog.Title = "请选择品牌图片";
-            var dialogResult = fileDialog.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                string filePath = fileDialog.FileName;
-                imagePath = filePath;
-                this.tbAdvImage.Text = this.newImageGUID + Path.GetExtension(imagePath);
-                this.isReplaceImg = true;
-            }
+
         }
 
         private void ReplaceImage()
@@ -176,6 +145,42 @@ namespace QSWMaintain
             {
                 LogUtil.Error("AddUpdateADFrm.ReplaceImage failed!replaceRes is null!");
             }
+        }
+
+        private void btnUpFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "(*.jpg)|*.jpg|(*.png)|*.png";
+            fileDialog.Title = "请选择品牌图片";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                string filePath = fileDialog.FileName;
+                imagePath = filePath;
+                this.tbAdvImage.Text = this.newImageGUID + Path.GetExtension(imagePath);
+                this.isReplaceImg = true;
+            }
+        }
+
+        private void btnSaves_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.tbAdvImage.Text) ||
+                          string.IsNullOrEmpty(this.tbAdvSart.Text) ||
+                          string.IsNullOrEmpty(this.cmbAdvType.Text) ||
+                ((this.cmbAdvType.SelectedItem as AdvTypeModel).AdvTypeId != 3 && string.IsNullOrEmpty(this.cmbAdvContent.Text)))
+            {
+                MessageBox.Show("请填写完整信息！");
+                return;
+            }
+
+            Save();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCanle_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

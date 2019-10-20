@@ -49,52 +49,6 @@ namespace QSWMaintain
             }
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridView1.SelectedRows.Count > 0)
-            {
-                var brand = this.dataGridView1.SelectedRows[0].Tag as CityExLogisticsAmountModel;
-                var deleteResponse = WebRequestUtil.DeleteCityExLogisticsAmount(brand.id);
-                if (deleteResponse != null)
-                {
-                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
-                    if (res)
-                    {
-                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
-                    }
-                }
-            }
-        }
-
-        private void BtnModify_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridView1.SelectedRows.Count > 0)
-            {
-                var brand = this.dataGridView1.SelectedRows[0].Tag as CityExLogisticsAmountModel;
-                using (AddUpdateCityExLogisticsAmountFrm modify = new AddUpdateCityExLogisticsAmountFrm(MaintainType.Update, brand))
-                {
-                    var dialogResult = modify.ShowDialog();
-                    if (dialogResult == DialogResult.OK)
-                    {
-                        InitControls();
-                    }
-                }
-            }
-        }
-
-        private void BtnNew_Click(object sender, EventArgs e)
-        {
-            CityExLogisticsAmountModel newBrandModel = new CityExLogisticsAmountModel();
-            using (AddUpdateCityExLogisticsAmountFrm newBrand = new AddUpdateCityExLogisticsAmountFrm(MaintainType.New, newBrandModel))
-            {
-                var dialogResult = newBrand.ShowDialog();
-                if (dialogResult == DialogResult.OK)
-                {
-                    InitControls();
-                }
-            }
-        }
-
         public static List<CityModel> CityList
         {
             get
@@ -135,7 +89,7 @@ namespace QSWMaintain
         {
             if (CityList != null)
             {
-               var city = CityList.FirstOrDefault(p => p.CityId == cityId);
+                var city = CityList.FirstOrDefault(p => p.CityId == cityId);
                 if (city != null)
                 {
                     return city.CityName;
@@ -157,6 +111,52 @@ namespace QSWMaintain
             }
 
             return string.Empty;
+        }
+
+        private void btnAd_Click(object sender, EventArgs e)
+        {
+            CityExLogisticsAmountModel newBrandModel = new CityExLogisticsAmountModel();
+            using (AddUpdateCityExLogisticsAmountFrm newBrand = new AddUpdateCityExLogisticsAmountFrm(MaintainType.New, newBrandModel))
+            {
+                var dialogResult = newBrand.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    InitControls();
+                }
+            }
+        }
+
+        private void btnEd_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                var brand = this.dataGridView1.SelectedRows[0].Tag as CityExLogisticsAmountModel;
+                using (AddUpdateCityExLogisticsAmountFrm modify = new AddUpdateCityExLogisticsAmountFrm(MaintainType.Update, brand))
+                {
+                    var dialogResult = modify.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        InitControls();
+                    }
+                }
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                var brand = this.dataGridView1.SelectedRows[0].Tag as CityExLogisticsAmountModel;
+                var deleteResponse = WebRequestUtil.DeleteCityExLogisticsAmount(brand.id);
+                if (deleteResponse != null)
+                {
+                    bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;
+                    if (res)
+                    {
+                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
+                    }
+                }
+            }
         }
     }
 }
