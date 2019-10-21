@@ -69,7 +69,7 @@ namespace QSWMaintain
         {
             string brandHome = "/Commodity/AddCommodity";
             RestRequest request = new RestRequest(brandHome, Method.POST);
-            request.AddParameter("commodityModelStr", commodityModelStr);
+            request.AddParameter("commodityeModelStr", commodityModelStr);
             var result = ExecuteRequest(ConstDefine.Client, request);
             return result;
         }

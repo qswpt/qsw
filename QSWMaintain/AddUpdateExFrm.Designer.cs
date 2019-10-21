@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUpdateExFrm));
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnCancels = new System.Windows.Forms.Button();
+            this.btnSaves = new System.Windows.Forms.Button();
             this.tbExName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnSaves = new System.Windows.Forms.Button();
-            this.btnCancels = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,37 +46,10 @@
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(445, 137);
             this.kryptonPanel1.TabIndex = 0;
-            // 
-            // tbExName
-            // 
-            this.tbExName.Location = new System.Drawing.Point(105, 34);
-            this.tbExName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbExName.Name = "tbExName";
-            this.tbExName.Size = new System.Drawing.Size(321, 27);
-            this.tbExName.TabIndex = 14;
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(23, 36);
-            this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(92, 24);
-            this.kryptonLabel1.TabIndex = 13;
-            this.kryptonLabel1.Values.Text = "快递名称：";
-            // 
-            // btnSaves
-            // 
-            this.btnSaves.Location = new System.Drawing.Point(261, 85);
-            this.btnSaves.Name = "btnSaves";
-            this.btnSaves.Size = new System.Drawing.Size(75, 28);
-            this.btnSaves.TabIndex = 15;
-            this.btnSaves.Text = "保存";
-            this.btnSaves.UseVisualStyleBackColor = true;
-            this.btnSaves.Click += new System.EventHandler(this.btnSaves_Click);
             // 
             // btnCancels
             // 
@@ -88,6 +61,33 @@
             this.btnCancels.UseVisualStyleBackColor = true;
             this.btnCancels.Click += new System.EventHandler(this.btnCancels_Click);
             // 
+            // btnSaves
+            // 
+            this.btnSaves.Location = new System.Drawing.Point(261, 85);
+            this.btnSaves.Name = "btnSaves";
+            this.btnSaves.Size = new System.Drawing.Size(75, 28);
+            this.btnSaves.TabIndex = 15;
+            this.btnSaves.Text = "保存";
+            this.btnSaves.UseVisualStyleBackColor = true;
+            this.btnSaves.Click += new System.EventHandler(this.btnSaves_Click);
+            // 
+            // tbExName
+            // 
+            this.tbExName.Location = new System.Drawing.Point(105, 34);
+            this.tbExName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbExName.Name = "tbExName";
+            this.tbExName.Size = new System.Drawing.Size(321, 27);
+            this.tbExName.TabIndex = 14;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(23, 36);
+            this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(2);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(92, 24);
+            this.kryptonLabel1.TabIndex = 13;
+            this.kryptonLabel1.Values.Text = "快递名称：";
+            // 
             // AddUpdateExFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -96,8 +96,9 @@
             this.Controls.Add(this.kryptonPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddUpdateExFrm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Basic Krypton Form";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();

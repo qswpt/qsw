@@ -57,9 +57,16 @@ namespace QSWMaintain
                     str = mcDiv[0].Groups[0].Value;
                     str = str.Replace("<SPAN id=cmtxt style=\"DISPLAY: none\">", "").Replace("</SPAN><SPAN id=spendtxt style=\"DISPLAY: none\">", "");
                 }
-                WebRequestUtil.UpdateCommodityRemark(this.comId, str);
-                MessageBox.Show("保存成功！");
-                this.Close();
+                var re = WebRequestUtil.UpdateCommodityRemark(this.comId, str);
+                if (re == null || re.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("保存失败！");
+                }
+                else
+                {
+                    MessageBox.Show("保存成功！");
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

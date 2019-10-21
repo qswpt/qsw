@@ -15,7 +15,7 @@ namespace Qsw.Services
         public string GetExLogisticList()
         {
             string key = string.Concat("GetExLogisticList");
-            return CacheHelp.Get<string>(key, DateTimeOffset.Now.AddDays(1), () => GetExLogisticListSql());
+            return CacheHelp.Get<string>(key, DateTimeOffset.Now.AddSeconds(3), () => GetExLogisticListSql());
         }
         public string GetExLogisticListSql()
         {

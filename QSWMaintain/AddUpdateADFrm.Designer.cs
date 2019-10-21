@@ -182,6 +182,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "AddUpdateADFrm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Basic Krypton Form";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();

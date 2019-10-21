@@ -75,7 +75,7 @@ namespace QSWMaintain
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
                 var brand = this.dataGridView1.SelectedRows[0].Tag as ExLogisticModel;
-                var deleteResponse = WebRequestUtil.DeleteCity(brand.ExId);
+                var deleteResponse = WebRequestUtil.DeleteExLogistic(brand.ExId);
                 if (deleteResponse != null)
                 {
                     bool res = JsonUtil.Deserialize<QSWResponse<bool>>(deleteResponse.Content).Data;

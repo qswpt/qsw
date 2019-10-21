@@ -192,6 +192,7 @@ namespace QSWMaintain
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddUpdateBrandFrm";
+            this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpdateBrandFrm";

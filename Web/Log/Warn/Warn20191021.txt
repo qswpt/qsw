@@ -1,2 +1,130 @@
 ﻿2019-10-21 00:08:30,073 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:223
 
+2019-10-21 21:30:01,880 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:230
+
+2019-10-21 21:30:01,889 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:189
+
+2019-10-21 21:30:01,891 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:188
+
+2019-10-21 21:31:08,515 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:192
+
+2019-10-21 21:31:08,523 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:193
+
+2019-10-21 21:31:08,523 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:193
+
+2019-10-21 21:32:28,186 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:206
+
+2019-10-21 21:32:28,194 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:217
+
+2019-10-21 21:32:28,194 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:205
+
+2019-10-21 21:33:05,565 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:183
+
+2019-10-21 21:33:05,574 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:180
+
+2019-10-21 21:33:05,574 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:190
+
+2019-10-21 21:37:06,946 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:149
+
+2019-10-21 21:37:06,953 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:151
+
+2019-10-21 21:37:06,954 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:160
+
+2019-10-21 22:00:29,772 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:208
+
+2019-10-21 22:00:29,784 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:208
+
+2019-10-21 22:00:29,785 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:209
+
+2019-10-21 22:02:14,632 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:143
+
+2019-10-21 22:02:14,648 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:148
+
+2019-10-21 22:02:14,648 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:143
+
+2019-10-21 22:02:43,565 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:152
+
+2019-10-21 22:02:43,573 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:148
+
+2019-10-21 22:02:43,588 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:163
+
+2019-10-21 22:08:23,056 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:136
+
+2019-10-21 22:13:47,871 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:260
+
+2019-10-21 22:13:47,879 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:261
+
+2019-10-21 22:13:47,880 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:250
+
+2019-10-21 22:14:25,751 3 请求超过1秒[5]：Commodity/AddCommodity
+
+2019-10-21 22:16:01,194 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:139
+
+2019-10-21 22:16:01,201 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:147
+
+2019-10-21 22:16:01,202 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:137
+
+2019-10-21 22:29:37,580 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:148
+
+2019-10-21 22:29:37,591 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:157
+
+2019-10-21 22:29:37,592 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:145
+
+2019-10-21 22:33:35,132 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:237
+
+2019-10-21 22:33:35,142 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:240
+
+2019-10-21 22:33:35,143 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:239
+
+2019-10-21 22:34:06,894 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:156
+
+2019-10-21 22:34:06,906 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:155
+
+2019-10-21 22:34:06,906 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:163
+
+2019-10-21 22:35:49,158 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:262
+
+2019-10-21 22:35:49,169 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:262
+
+2019-10-21 22:35:49,170 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:270
+
+2019-10-21 22:37:25,544 3 请求超过1秒[3]：Commodity/UpdateCommodity
+
+2019-10-21 22:38:02,587 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:182
+
+2019-10-21 22:38:02,594 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:183
+
+2019-10-21 22:38:02,595 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:183
+
+2019-10-21 22:39:23,240 3 请求超过1秒[29]：Commodity/UpCommodityRemark
+
+2019-10-21 22:41:30,653 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:146
+
+2019-10-21 22:41:30,663 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:143
+
+2019-10-21 22:41:30,663 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:153
+
+2019-10-21 22:42:08,066 3 请求超过1秒[4]：Commodity/UpCommodityRemark
+
+2019-10-21 22:45:40,615 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:186
+
+2019-10-21 22:45:40,625 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:186
+
+2019-10-21 22:45:40,625 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:186
+
+2019-10-21 22:47:56,796 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:225
+
+2019-10-21 22:47:56,806 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:235
+
+2019-10-21 22:47:56,807 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:234
+
+2019-10-21 22:50:34,276 3 请求超过1秒[88]：City/DeleteCity
+
+2019-10-21 22:52:14,247 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:152
+
+2019-10-21 22:52:14,256 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:150
+
+2019-10-21 22:52:14,257 3 打开连接超过预定伐值:50(毫秒), Queue Count:0, ConnectionString:server=localhost;port=3306;uid=dev;pwd=dev!@#$%^;database=Qsw;charset=utf8;max pool size=5000;sslmode=none;, Mileseconds:160
+
+2019-10-21 22:53:54,445 3 请求超过1秒[1]：FileUpload/GetAdsImage
+

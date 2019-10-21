@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using static QSWMaintain.Program;
 
 namespace QSWMaintain
 {
@@ -114,6 +115,12 @@ namespace QSWMaintain
                 {
                     MessageBox.Show("新建商品失败");
                 }
+                else
+                {
+                    var data = JsonUtil.Deserialize<QSWResponse<CommodityModel>>(addResult.Content).Data;
+                    this.commdodityModel.CommodityId = data.CommodityId;
+                    this.commdodityModel.CommodityImg = data.CommodityImg;
+                }
             }
             else
             {
@@ -132,7 +139,7 @@ namespace QSWMaintain
 
         private void ReplaceImge()
         {
-            string imgName = this.commdodityModel.CommodityId + "1" + Path.GetExtension(this.tbImg.Text); //当前图片数量加1
+            string imgName = this.commdodityModel.CommodityImg; //当前图片数量加1
             var contentBytes = File.ReadAllBytes(this.tbImg.Text);
             string imgContent = Convert.ToBase64String(contentBytes);
             var replaceRes = WebRequestUtil.ReplaceCommodityImg(this.previousImg, imgName, imgContent);

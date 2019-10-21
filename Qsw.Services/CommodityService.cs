@@ -4,6 +4,7 @@ using QSW.Common.Caches;
 using QSW.Common.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -383,30 +384,13 @@ namespace Qsw.Services
                 return false;
             }
         }
-        public bool InsertCommodity(string commodityModelStr)
+        public bool UpdateCommodityimgName(int commodityId, string imgName)
         {
-            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModelStr);
-            string sql = $"INSERT INTO Commodity VALUES(?CommodityName,?CommodityImg,?CommodityGeneral," +
-                        $"?CommodityPrice,?CommodityUnitId,?CommoditySpec,?CommodityBrandId,?CommodityFamilyId," +
-                        $"?CommodityIndex,?CommodityCode,?CommodityState,?CommodityHOT,?CommodityRH,?CommodityRM" +
-                        $"?CommodityFL,?CommodityRemark)";
+            string sql = $"UPDATE Commodity SET CommodityImg=?commodityImg " +
+                        $" WHERE CommodityId=?commodityId";
             Dictionary<string, object> p = new Dictionary<string, object>();
-            p["CommodityName"] = commodityModel.CommodityName;
-            p["CommodityImg"] = commodityModel.CommodityImg;
-            p["CommodityGeneral"] = commodityModel.CommodityGeneral;
-            p["CommodityPrice"] = commodityModel.CommodityPrice;
-            p["CommodityUnitId"] = commodityModel.CommodityUnitId;
-            p["CommoditySpec"] = commodityModel.CommoditySpec;
-            p["CommodityBrandId"] = commodityModel.CommodityBrandId;
-            p["CommodityFamilyId"] = commodityModel.CommodityFamilyId;
-            p["CommodityIndex"] = commodityModel.CommodityIndex;
-            p["CommodityCode"] = commodityModel.CommodityCode;
-            p["CommodityState"] = 0;
-            p["CommodityHOT"] = commodityModel.CommodityHOT;
-            p["CommodityRH"] = commodityModel.CommodityRH;
-            p["CommodityRM"] = commodityModel.CommodityRM;
-            p["CommodityFL"] = commodityModel.CommodityFL;
-            p["CommodityRemark"] = commodityModel.CommodityRemark;
+            p["commodityId"] = commodityId;
+            p["commodityImg"] = imgName;
             int num = DbUtil.Master.ExecuteNonQuery(sql, p);
             if (num > 0)
             {
@@ -415,6 +399,45 @@ namespace Qsw.Services
             else
             {
                 return false;
+            }
+        }
+        public string InsertCommodity(string commodityModelStr)
+        {
+            var commodityModel = JsonUtil.Deserialize<CommodityModel>(commodityModelStr);
+            string sql = $"INSERT INTO Commodity (CommodityName,CommodityImg,CommodityGeneral,CommodityPrice,CommodityUnitId,CommoditySpec," +
+                         "CommodityBrandId,CommodityFamilyId,CommodityIndex,CommodityCode,CommodityState,CommodityHOT,CommodityRH," +
+                         "CommodityFL,CommoditySuper) VALUES (?commodityName,?commodityImg,?commodityGeneral," +
+                        $"?commodityPrice,?commodityUnitId,?commoditySpec,?commodityBrandId,?commodityFamilyId," +
+                        $"?commodityIndex,?commodityCode,?commodityState,?commodityHOT,?commodityRH," +
+                        $"?commodityFL,?commoditySuper);SELECT @@IDENTITY";
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p["commodityName"] = commodityModel.CommodityName;
+            p["commodityImg"] = commodityModel.CommodityImg;
+            p["commodityGeneral"] = commodityModel.CommodityGeneral;
+            p["commodityPrice"] = commodityModel.CommodityPrice;
+            p["commodityUnitId"] = commodityModel.CommodityUnitId;
+            p["commoditySpec"] = commodityModel.CommoditySpec;
+            p["commodityBrandId"] = commodityModel.CommodityBrandId;
+            p["commodityFamilyId"] = commodityModel.CommodityFamilyId;
+            p["commodityIndex"] = commodityModel.CommodityIndex;
+            p["commodityCode"] = commodityModel.CommodityCode;
+            p["commodityState"] = 0;
+            p["commodityHOT"] = commodityModel.CommodityHOT;
+            p["commodityRH"] = commodityModel.CommodityRH;
+            p["commodityFL"] = commodityModel.CommodityFL;
+            p["commoditySuper"] = commodityModel.CommoditySuper;
+            var num = Convert.ToInt32(DbUtil.Master.ExecuteScalar(sql, p));
+            if (num > 0)
+            {
+                string pix = Path.GetExtension(commodityModel.CommodityImg);
+                UpdateCommodityimgName(num, num + "1" + pix);
+                commodityModel.CommodityId = num;
+                commodityModel.CommodityImg = num + "1" + pix;
+                return JsonUtil.Serialize(commodityModel);
+            }
+            else
+            {
+                return string.Empty;
             }
         }
     }

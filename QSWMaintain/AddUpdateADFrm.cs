@@ -79,7 +79,7 @@ namespace QSWMaintain
         {
             if (this.isReplaceImg)
             {
-                this.advModel.AdvImage = this.newImageGUID + Path.GetExtension(imagePath);
+                this.advModel.AdvImage = this.advModel.AdvId + Path.GetExtension(imagePath);
             }
             else
             {
@@ -133,7 +133,7 @@ namespace QSWMaintain
 
         private void ReplaceImage()
         {
-            string imgName = this.newImageGUID + Path.GetExtension(imagePath);
+            string imgName = this.advModel.AdvId + Path.GetExtension(imagePath);
             var contentBytes = File.ReadAllBytes(imagePath);
             string imgContent = Convert.ToBase64String(contentBytes);
             var replaceRes = WebRequestUtil.ReplaceAdsImg(this.previousImg, imgName, imgContent);
@@ -157,7 +157,7 @@ namespace QSWMaintain
             {
                 string filePath = fileDialog.FileName;
                 imagePath = filePath;
-                this.tbAdvImage.Text = this.newImageGUID + Path.GetExtension(imagePath);
+                this.tbAdvImage.Text = this.advModel.AdvId + Path.GetExtension(imagePath);
                 this.isReplaceImg = true;
             }
         }

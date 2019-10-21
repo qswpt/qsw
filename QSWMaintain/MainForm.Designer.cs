@@ -36,6 +36,7 @@ namespace QSWMaintain
             this.btnMaintainCommodityType = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOrderManager = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.kryptonCheckButton1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.btnMaintainEx = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.btnMaintainCity = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
@@ -43,7 +44,6 @@ namespace QSWMaintain
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnOrderManager = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -79,7 +79,7 @@ namespace QSWMaintain
             this.btnMaintainCommodity.Name = "btnMaintainCommodity";
             this.btnMaintainCommodity.Size = new System.Drawing.Size(152, 30);
             this.btnMaintainCommodity.TabIndex = 2;
-            this.btnMaintainCommodity.Values.Text = "修改商品";
+            this.btnMaintainCommodity.Values.Text = "商品管理";
             this.btnMaintainCommodity.CheckedChanged += new System.EventHandler(this.Btn_CheckedChanged);
             this.btnMaintainCommodity.Click += new System.EventHandler(this.BtnMaintainCommodity_Click);
             // 
@@ -129,6 +129,16 @@ namespace QSWMaintain
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(182, 468);
             this.panel2.TabIndex = 3;
+            // 
+            // btnOrderManager
+            // 
+            this.btnOrderManager.Location = new System.Drawing.Point(15, 334);
+            this.btnOrderManager.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOrderManager.Name = "btnOrderManager";
+            this.btnOrderManager.Size = new System.Drawing.Size(152, 30);
+            this.btnOrderManager.TabIndex = 6;
+            this.btnOrderManager.Values.Text = "订单管理";
+            this.btnOrderManager.Click += new System.EventHandler(this.btnOrderManager_Click);
             // 
             // kryptonCheckButton1
             // 
@@ -207,16 +217,6 @@ namespace QSWMaintain
             this.panel4.Size = new System.Drawing.Size(820, 18);
             this.panel4.TabIndex = 6;
             // 
-            // btnOrderManager
-            // 
-            this.btnOrderManager.Location = new System.Drawing.Point(15, 334);
-            this.btnOrderManager.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOrderManager.Name = "btnOrderManager";
-            this.btnOrderManager.Size = new System.Drawing.Size(152, 30);
-            this.btnOrderManager.TabIndex = 6;
-            this.btnOrderManager.Values.Text = "订单管理";
-            this.btnOrderManager.Click += new System.EventHandler(this.btnOrderManager_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -225,7 +225,8 @@ namespace QSWMaintain
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "七色网后台维护系统 ";
+            this.ShowIcon = false;
+            this.Text = "世颜网后台维护系统 ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
